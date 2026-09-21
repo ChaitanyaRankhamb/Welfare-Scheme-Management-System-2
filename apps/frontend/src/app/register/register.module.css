@@ -1,0 +1,337 @@
+/* ═══════════════════════════════════════════════════
+   AUTH PAGE — Centered Card Layout inspired by Stable
+   ═══════════════════════════════════════════════════ */
+
+/* ── Full-screen page wrapping the centered card ─────────────── */
+.page {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  background: #1e1b4b; /* Deep purple background like reference */
+  padding: 2rem;
+}
+
+.dark .page {
+  background: #0f172a;
+}
+
+/* ── The main white card container ─────────────────── */
+.cardContainer {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  width: 100%;
+  max-width: 1000px;
+  min-height: 650px;
+  background: var(--card); /* The white card */
+  border-radius: 20px;
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.4);
+  overflow: hidden;
+}
+
+/* ── Left column (Form) ─────────────────────────── */
+.formCol {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 3rem;
+  background: var(--card);
+  order: 1; /* Left */
+  position: relative;
+}
+
+/* for the back to the home page */
+.backArrow {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  z-index: 10;
+}
+
+/* ── Right column (Visual panel) ─────────────────── */
+.visualCol {
+  padding: 1.5rem;
+  display: flex;
+  background: var(--card);
+  order: 2; /* Right */
+}
+
+/* ── Inner form wrapper ─────────────────────────────── */
+.formWrapper {
+  width: 100%;
+  max-width: 340px;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+/* ── Brand ───────────────────────── */
+.topNav {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 1.5rem;
+}
+
+.brandWordmark {
+  font-size: 2.2rem;
+  font-weight: 800;
+  letter-spacing: -0.04em;
+  color: var(--foreground);
+  font-family: 'Outfit', sans-serif;
+}
+
+.brandHighlight {
+  color: #4f46e5;
+}
+
+/* ── Form header ─────────────────────────────────── */
+.formHeader {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.3rem;
+  margin-bottom: 0.5rem;
+}
+
+.formTitle {
+  font-family: 'Outfit', sans-serif;
+  font-size: 1.35rem;
+  font-weight: 600;
+  color: var(--foreground);
+  margin: 0;
+}
+
+.switchLinkTop {
+  font-size: 0.8rem;
+  color: #6366f1;
+  transition: color 0.2s;
+}
+
+.switchLinkTop:hover {
+  color: #4f46e5;
+  text-decoration: underline;
+}
+
+/* ── Form ────────────────────────────────────────── */
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+/* ── Field group ─────────────────────────────────── */
+.fieldGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+
+.label {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--foreground);
+}
+
+.inputWrap {
+  position: relative;
+}
+
+.input {
+  width: 100%;
+  background: transparent !important;
+  border: 1px solid var(--border) !important;
+  color: var(--foreground) !important;
+  border-radius: 8px !important;
+  font-size: 0.9rem !important;
+  height: 2.75rem !important;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease !important;
+  padding: 0 0.8rem !important;
+  box-shadow: 0 0 0 1px rgba(185, 186, 227, 0.8) !important;
+}
+
+.input:focus {
+  border-color: #6366f1 !important;
+  box-shadow: 0 0 0 2px rgba(99, 102, 241, 0.2) !important;
+  outline: none !important;
+}
+
+.fieldError {
+  font-size: 0.75rem;
+  color: var(--destructive);
+  margin: 0;
+}
+.fieldHint {
+  font-size: 0.75rem;
+  color: var(--muted-foreground);
+  margin: 0;
+}
+
+/* Username availability indicators */
+.checking {
+  font-size: 0.75rem;
+  color: var(--muted-foreground);
+  animation: blink 1s ease-in-out infinite;
+  margin: 0;
+}
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50%       { opacity: 0.4; }
+}
+.available {
+  font-size: 0.75rem;
+  font-weight: 500;
+  color: #4ade80;
+  margin: 0;
+}
+.unavailable {
+  font-size: 0.75rem;
+  font-weight: 500;
+  color: #f87171;
+  margin: 0;
+}
+
+/* ── Submit button (gradient CTA) ────────────────── */
+.submitBtn {
+  width: 100% !important;
+  height: 2.75rem !important;
+  background: linear-gradient(135deg, #4f46e5, #4338ca) !important;
+  color: #fff !important;
+  font-weight: 600 !important;
+  font-size: 0.9rem !important;
+  border-radius: 8px !important;
+  border: none !important;
+  margin-top: 0.5rem !important;
+  box-shadow: 0 4px 10px rgba(79, 70, 229, 0.25) !important;
+  transition: transform 0.2s ease, box-shadow 0.2s ease, opacity 0.2s ease !important;
+  cursor: pointer !important;
+}
+.submitBtn:hover:not(:disabled) {
+  transform: translateY(-1px) !important;
+  box-shadow: 0 6px 15px rgba(79, 70, 229, 0.35) !important;
+}
+.submitBtn:disabled {
+  opacity: 0.65 !important;
+  cursor: not-allowed !important;
+}
+
+/* ── Divider row ─────────────────────────────────── */
+.dividerRow {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+.divider {
+  flex: 1;
+  background: var(--border) !important;
+}
+.dividerLabel {
+  font-size: 0.75rem;
+  font-weight: 500;
+  color: var(--muted-foreground);
+  white-space: nowrap;
+}
+
+/* ── Google button ───────────────────────────────── */
+.googleBtn {
+  width: 100% !important;
+  height: 2.75rem !important;
+  border: 1px solid var(--border) !important;
+  background: transparent !important;
+  color: var(--foreground) !important;
+  font-weight: 600 !important;
+  font-size: 0.88rem !important;
+  border-radius: 8px !important;
+  display: flex !important;
+  align-items: center !important;
+  gap: 0.6rem !important;
+  justify-content: center !important;
+  transition: background 0.2s ease !important;
+}
+.googleBtn:hover {
+  background: var(--muted) !important;
+}
+
+/* ── Switch text ─────────────────────────────────── */
+.switchText {
+  text-align: center;
+  font-size: 0.8rem;
+  color: var(--muted-foreground);
+  margin-top: 1rem;
+}
+.switchLink {
+  color: #6366f1;
+}
+.switchLink:hover { 
+  color: #818cf8; 
+  text-decoration: underline;
+}
+
+/* ══ OTP-specific styles (verify page) ══════════════ */
+.otpLabel {
+  font-size: 0.83rem;
+  font-weight: 600;
+  color: var(--foreground);
+  margin-bottom: 0.5rem;
+  display: block;
+}
+.otpGroup {
+  gap: 0.5rem !important;
+}
+.otpSlot {
+  width: 48px !important;
+  height: 52px !important;
+  border-radius: 8px !important;
+  border: 1px solid var(--border) !important;
+  background: transparent !important;
+  color: var(--foreground) !important;
+  font-size: 1.25rem !important;
+  font-weight: 700 !important;
+  transition: border-color 0.2s !important;
+}
+.otpSlot[data-active="true"] {
+  border-color: #6366f1 !important;
+  box-shadow: 0 0 0 2px rgba(99, 102, 241, 0.2) !important;
+}
+.resendBtn {
+  color: #6366f1 !important;
+  font-weight: 600 !important;
+  font-size: 0.83rem !important;
+  padding: 0 !important;
+  transition: color 0.2s !important;
+}
+.resendBtn:hover { color: #818cf8 !important; }
+.emailHighlight {
+  font-weight: 600;
+  color: var(--foreground);
+}
+.infoBox {
+  background: rgba(99, 102, 241, 0.05);
+  border: 1px solid rgba(99, 102, 241, 0.15);
+  border-radius: 8px;
+  padding: 0.85rem 1rem;
+  font-size: 0.8rem;
+  color: var(--muted-foreground);
+  line-height: 1.55;
+}
+
+/* ═══════════════════════════════════════════════════
+   RESPONSIVE — collapse to single column on mobile
+   ═══════════════════════════════════════════════════ */
+@media (max-width: 850px) {
+  .page {
+    padding: 1rem;
+  }
+  .cardContainer {
+    grid-template-columns: 1fr;
+  }
+  .leftCol {
+    display: none;
+  }
+  .visualCol {
+    display: none;
+  }
+  .formCol {
+    padding: 2rem 1.25rem;
+  }
+}

@@ -1,0 +1,11 @@
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+const express_1 = require("express");
+const search_schemes_controller_1 = require("./controllers/search-schemes.controller");
+const get_scheme_by_id_controller_1 = require("./controllers/get-scheme-by-id.controller");
+const get_schemes_controller_1 = require("./controllers/get-schemes.controller");
+const router = (0, express_1.Router)();
+router.get('/search', search_schemes_controller_1.searchSchemesController);
+router.get('/:id', get_scheme_by_id_controller_1.getSchemeByIdController);
+router.get('/', get_schemes_controller_1.getSchemesController);
+exports.default = router;

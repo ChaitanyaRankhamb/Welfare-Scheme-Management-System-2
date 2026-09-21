@@ -1,0 +1,164 @@
+/* ── Section background ── */
+.section {
+  position: relative;
+  background-color: #fafbfc;
+  overflow: hidden;
+}
+
+/* ── Eyebrow label ── */
+.eyebrow {
+  display: inline-block;
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: #3b82f6;
+  background: rgba(59, 130, 246, 0.08);
+  border: 1px solid rgba(59, 130, 246, 0.18);
+  padding: 0.3rem 0.9rem;
+  border-radius: 999px;
+  margin-bottom: 1.5rem;
+}
+
+/* ── Headline ── */
+.headline {
+  font-size: clamp(2rem, 3.5vw, 2.75rem);
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  line-height: 1.2;
+  color: #0f172a;
+  margin-bottom: 1.25rem;
+}
+
+/* ── Subtext ── */
+.subtext {
+  font-size: 1.05rem;
+  line-height: 1.75;
+  color: #64748b;
+  max-width: 50ch;
+  margin: 0 auto;
+}
+
+/* ── Marquee Wrapper (Faded Edges) ── */
+.marqueeWrapper {
+  position: relative;
+  display: flex;
+  overflow: hidden;
+  user-select: none;
+  gap: 2rem; /* Matches the gap in the track */
+  padding: 2rem 0;
+  margin-top: 3rem;
+  
+  /* Creates the transparent fade on left and right edges */
+  mask-image: linear-gradient(
+    to right,
+    transparent 0%,
+    white 10%,
+    white 90%,
+    transparent 100%
+  );
+  -webkit-mask-image: linear-gradient(
+    to right,
+    transparent 0%,
+    white 10%,
+    white 90%,
+    transparent 100%
+  );
+}
+
+/* ── Marquee Track ── */
+.marqueeTrack {
+  flex-shrink: 0;
+  display: flex;
+  justify-content: space-around;
+  gap: 2rem;
+  min-width: 100%;
+  animation: scroll 35s linear infinite;
+}
+
+/* Pause scroll on hover */
+.marqueeWrapper:hover .marqueeTrack {
+  animation-play-state: paused;
+}
+
+@keyframes scroll {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(calc(-100% - 2rem));
+  }
+}
+
+/* ── Individual Tech Item ── */
+.techItem {
+  display: flex;
+  align-items: center;
+  gap: 0.85rem;
+  padding: 0.85rem 1.5rem;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.7);
+  border: 1px solid rgba(226, 232, 240, 0.8);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.03);
+  transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+  cursor: default;
+  white-space: nowrap;
+}
+
+.techItem:hover {
+  transform: scale(1.06) translateY(-2px);
+  box-shadow: 0 12px 30px rgba(59, 130, 246, 0.12), 0 0 0 1px rgba(59, 130, 246, 0.05);
+  border-color: rgba(59, 130, 246, 0.35);
+  z-index: 10;
+}
+
+.techIcon {
+  width: 1.5rem;
+  height: 1.5rem;
+  object-fit: contain;
+}
+
+.techName {
+  font-weight: 600;
+  font-size: 0.95rem;
+  color: #1e293b;
+  letter-spacing: -0.01em;
+}
+
+/* ══════════════════════════════
+   DARK MODE
+══════════════════════════════ */
+:global(.dark) .section {
+  background-color: transparent;
+}
+
+:global(.dark) .eyebrow {
+  color: #60a5fa;
+  background: rgba(59, 130, 246, 0.1);
+  border-color: rgba(59, 130, 246, 0.25);
+}
+
+:global(.dark) .headline {
+  color: #f1f5f9;
+}
+
+:global(.dark) .subtext {
+  color: #94a3b8;
+}
+
+:global(.dark) .techItem {
+  background: rgba(30, 41, 59, 0.4);
+  border-color: rgba(255, 255, 255, 0.08);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
+}
+
+:global(.dark) .techItem:hover {
+  box-shadow: 0 14px 40px rgba(59, 130, 246, 0.15);
+  border-color: rgba(59, 130, 246, 0.4);
+}
+
+:global(.dark) .techName {
+  color: #e2e8f0;
+}

@@ -1,0 +1,212 @@
+.visualInner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  background: #f8fafc; /* Very light subtle gray/slate */
+  border-radius: 18px;
+  border: 1px solid #e2e8f0;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  padding: 3rem;
+  z-index: 1;
+}
+
+.dark .visualInner {
+  background: #0f172a;
+  border-color: #1e293b;
+}
+
+.blob {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(80px);
+  opacity: 0.15;
+  z-index: 0;
+}
+
+.blobOne {
+  width: 350px;
+  height: 350px;
+  background: #4f46e5;
+  top: 10%;
+  right: -50px;
+  animation: float 8s ease-in-out infinite;
+}
+
+.blobTwo {
+  width: 300px;
+  height: 300px;
+  background: #c084fc;
+  bottom: 50px;
+  left: -50px;
+  animation: float reverse 10s ease-in-out infinite;
+}
+
+@keyframes float {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  50% { transform: translate(20px, -30px) scale(1.05); }
+}
+
+.textContent {
+  position: relative;
+  z-index: 1;
+  max-width: 360px;
+}
+
+.headline {
+  font-family: 'Outfit', sans-serif;
+  font-size: 2rem;
+  font-weight: 500;
+  color: #1e293b;
+  margin-bottom: 1rem;
+  line-height: 1.25;
+}
+
+.dark .headline {
+  color: #f8fafc;
+}
+
+.subtext {
+  font-size: 0.9rem;
+  color: #475569;
+  line-height: 1.6;
+  margin: 0;
+}
+
+.dark .subtext {
+  color: #94a3b8;
+}
+
+.mockupContainer {
+  position: relative;
+  flex-grow: 1;
+  width: 100%;
+  margin-top: 2rem;
+  z-index: 1;
+}
+
+.mockCard, .mockCircle {
+  position: absolute;
+  background: #ffffff;
+  border: 1px solid #f1f5f9;
+  box-shadow: 0 10px 30px rgba(79, 70, 229, 0.15); /* #4f46e5 with 15% opacity */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  transition: transform 0.3s ease;
+}
+
+.dark .mockCard, .dark .mockCircle {
+  background: #1e293b;
+  border-color: #334155;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+}
+
+.mockCard {
+  border-radius: 12px;
+  padding: 1.5rem;
+  gap: 0.5rem;
+}
+
+.cardLeft {
+  top: 15%;
+  left: 0;
+  width: 200px;
+  z-index: 1;
+  align-items: flex-start;
+}
+
+.cardRight {
+  top: 45%;
+  right: 0;
+  width: 180px;
+  z-index: 2;
+  align-items: center;
+  text-align: center;
+}
+
+.mockCircle {
+  top: 30%;
+  left: 30%;
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  z-index: 3;
+}
+
+.badgeSuccess {
+  font-size: 0.6rem;
+  font-weight: 700;
+  color: #10b981;
+  border: 1px solid #10b981;
+  padding: 0.2rem 0.5rem;
+  border-radius: 4px;
+  letter-spacing: 0.05em;
+}
+
+.badgeWarning {
+  font-size: 0.6rem;
+  font-weight: 700;
+  color: #f43f5e;
+  border: 1px solid #f43f5e;
+  padding: 0.2rem 0.5rem;
+  border-radius: 4px;
+  letter-spacing: 0.05em;
+}
+
+.amount {
+  font-size: 1.4rem;
+  font-weight: 800;
+  color: #0f172a;
+}
+
+.dark .amount {
+  color: #f8fafc;
+}
+
+.cardFooter {
+  font-size: 0.7rem;
+  color: #64748b;
+  margin-top: 0.2rem;
+}
+
+.dark .cardFooter {
+  color: #94a3b8;
+}
+
+.circleText {
+  font-size: 0.65rem;
+  color: #64748b;
+  margin-top: 0.2rem;
+}
+
+.pagination {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.5rem;
+  margin-top: auto;
+  z-index: 1;
+}
+
+.dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #cbd5e1;
+  transition: all 0.3s ease;
+}
+
+.dark .dot {
+  background: #334155;
+}
+
+.dotActive {
+  background: #0f172a;
+}
+
+.dark .dotActive {
+  background: #f8fafc;
+}

@@ -1,0 +1,105 @@
+/* ── Navbar container ── */
+.nav {
+  background: rgba(255, 255, 255, 0.75);
+  border-bottom: 1px solid rgba(209, 217, 230, 0.8);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+}
+
+/* ── Logo ── */
+.logo {
+  font-size: 1.2rem;
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  background: linear-gradient(135deg, #4f46e5, #06b6d4);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* ── Nav links ── */
+.navLink {
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: #374151;
+  padding: 0.375rem 0.75rem;
+  border-radius: 0.5rem;
+  transition: color 0.2s ease, background 0.2s ease;
+}
+.navLink:hover {
+  color: #4f46e5;
+  background: rgba(79, 70, 229, 0.07);
+}
+
+/* ── Login link ── */
+.loginLink {
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: #4b5563;
+  padding: 0.375rem 1rem;
+  border-radius: 0.5rem;
+  border: 1px solid #d1d9e6;
+  transition: color 0.2s ease, border-color 0.2s ease, background 0.2s ease;
+}
+.loginLink:hover {
+  color: #4f46e5;
+  border-color: #a5b4fc;
+  background: rgba(79, 70, 229, 0.05);
+}
+
+/* ── Get Started button ── */
+.ctaLink {
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: #ffffff;
+  padding: 0.5rem 1.25rem;
+  border-radius: 0.75rem;
+  background: linear-gradient(135deg, #4f46e5, #06b6d4);
+  box-shadow: 0 2px 12px rgba(79, 70, 229, 0.3);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+.ctaLink:hover {
+  transform: scale(1.04);
+  box-shadow: 0 4px 20px rgba(79, 70, 229, 0.45);
+}
+
+/* ══════════════════════════════
+   DARK MODE
+══════════════════════════════ */
+:global(.dark) .nav {
+  background: rgba(10, 11, 20, 0.8);
+  border-bottom: 1px solid rgba(99, 102, 241, 0.15);
+}
+
+:global(.dark) .logo {
+  background: linear-gradient(135deg, #818cf8, #22d3ee);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+:global(.dark) .navLink {
+  color: #94a3b8;
+}
+:global(.dark) .navLink:hover {
+  color: #c7d2fe;
+  background: rgba(99, 102, 241, 0.1);
+}
+
+:global(.dark) .loginLink {
+  color: #94a3b8;
+  border-color: rgba(99, 102, 241, 0.25);
+}
+:global(.dark) .loginLink:hover {
+  color: #c7d2fe;
+  border-color: rgba(99, 102, 241, 0.5);
+  background: rgba(99, 102, 241, 0.08);
+}
+
+:global(.dark) .ctaLink {
+  background: linear-gradient(135deg, #6366f1, #22d3ee);
+  box-shadow: 0 2px 12px rgba(99, 102, 241, 0.4);
+}
+:global(.dark) .ctaLink:hover {
+  box-shadow: 0 4px 20px rgba(99, 102, 241, 0.6);
+}

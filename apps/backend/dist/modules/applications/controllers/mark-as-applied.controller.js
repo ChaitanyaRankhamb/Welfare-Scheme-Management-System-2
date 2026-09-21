@@ -1,0 +1,37 @@
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.markAsAppliedController = void 0;
+const mark_as_applied_service_1 = require("../service/mark-as-applied.service");
+const application_validation_1 = require("../../../validations/application.validation");
+const response_1 = require("../../../reuse-components/response");
+const AppError_1 = require("../../../reuse-components/AppError");
+/**
+ * @description Marks an application as applied.
+ * @param {AuthRequest} req - Authenticated Request (expects application ID in params)
+ * @param {Response} res - Express Response
+ * @returns {Promise<Response>}
+ * @flow
+ * 1. Extract userId from AuthRequest
+ * 2. Validate Input using Zod
+ * 3. Call MarkAsAppliedService
+ * 4. Send success/error response
+ */
+const markAsAppliedController = async (req, res) => {
+    try {
+        const { userId } = req;
+        if (!userId)
+            throw new AppError_1.AppError('Unauthorized', 401);
+        // Validate Input
+        const validation = application_validation_1.applicationIdSchema.safeParse({ params: req.params });
+        if (!validation.success) {
+            throw new AppError_1.AppError(validation.error.errors[0].message, 400);
+        }
+        const { id } = validation.data.params;
+        const result = await (0, mark_as_applied_service_1.markAsAppliedService)(userId, id);
+        return (0, response_1.successResponse)(res, result.data, result.message);
+    }
+    catch (error) {
+        return (0, response_1.errorResponse)(res, error.message || 'Internal Server Error', error.statusCode || 500);
+    }
+};
+exports.markAsAppliedController = markAsAppliedController;

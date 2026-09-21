@@ -1,0 +1,141 @@
+/* ── Section background ── */
+.section {
+  background-color: #f8faff;
+  position: relative;
+}
+
+/* ── Eyebrow label ── */
+.eyebrow {
+  display: inline-block;
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: #6366f1;
+  background: rgba(99, 102, 241, 0.08);
+  border: 1px solid rgba(99, 102, 241, 0.18);
+  padding: 0.3rem 0.9rem;
+  border-radius: 999px;
+  margin-bottom: 1.5rem;
+}
+
+/* ── Headline ── */
+.headline {
+  font-size: clamp(2rem, 4vw, 3rem);
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  line-height: 1.15;
+  color: #0f172a;
+  margin-bottom: 1.25rem;
+}
+
+.headlineAccent {
+  background: linear-gradient(135deg, #4f46e5, #06b6d4);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* ── Subtext ── */
+.subtext {
+  font-size: 1.05rem;
+  line-height: 1.75;
+  color: #64748b;
+  max-width: 56ch;
+  margin: 0 auto;
+}
+
+/* ── Card ── */
+.card {
+  background: rgba(255, 255, 255, 0.85);
+  border: 1px solid;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.06), 0 0 0 1px rgba(0, 0, 0, 0.03);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+  cursor: default;
+}
+.card:hover {
+  box-shadow: 0 12px 36px rgba(99, 102, 241, 0.14), 0 0 0 1px rgba(99, 102, 241, 0.1);
+}
+
+/* ── Icon badge ── */
+.iconBadge {
+  width: 2.75rem;
+  height: 2.75rem;
+  border-radius: 0.75rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* ── Card label ── */
+.cardLabel {
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+/* ── Card title ── */
+.cardTitle {
+  font-size: 1.2rem;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  color: #0f172a;
+  line-height: 1.3;
+  margin: 0;
+}
+
+/* ── Card description ── */
+.cardDesc {
+  font-size: 0.9rem;
+  line-height: 1.7;
+  color: #475569;
+  margin: 0;
+}
+
+/* ══════════════════════════════
+   DARK MODE
+══════════════════════════════ */
+:global(.dark) .section {
+  background-color: transparent;
+}
+
+:global(.dark) .eyebrow {
+  color: #a5b4fc;
+  background: rgba(99, 102, 241, 0.12);
+  border-color: rgba(99, 102, 241, 0.25);
+}
+
+:global(.dark) .headline {
+  color: #f1f5f9;
+}
+
+:global(.dark) .headlineAccent {
+  background: linear-gradient(135deg, #818cf8, #22d3ee);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+:global(.dark) .subtext {
+  color: #94a3b8;
+}
+
+:global(.dark) .card {
+  background: rgba(19, 22, 31, 0.75);
+  border-color: rgba(255, 255, 255, 0.06) !important;
+  box-shadow: 0 2px 16px rgba(0, 0, 0, 0.3);
+}
+:global(.dark) .card:hover {
+  box-shadow: 0 8px 12px rgba(99, 102, 241, 0.2);
+}
+
+:global(.dark) .cardTitle {
+  color: #e2e8f0;
+}
+
+:global(.dark) .cardDesc {
+  color: #94a3b8;
+}

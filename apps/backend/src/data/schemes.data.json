@@ -1,0 +1,5751 @@
+[
+  {
+    "id": "scheme_pm_kisan",
+    "title": "Pradhan Mantri Kisan Samman Nidhi (PM-KISAN)",
+    "description": "Pradhan Mantri Kisan Samman Nidhi (PM-KISAN) is a central sector scheme aimed at providing financial income support to small and marginal farmers across India. The scheme ensures that eligible farmers receive direct income assistance to support agricultural expenses such as seeds, fertilizers, and other farming inputs through Direct Benefit Transfer (DBT).",
+    "ministry": "Ministry of Agriculture and Farmers Welfare",
+    "category": "Agriculture",
+    "tags": [
+      "farmer",
+      "income support",
+      "DBT"
+    ],
+    "eligibility": {
+      "age": {
+        "min": 18,
+        "max": 150
+      },
+      "income": {
+        "min": 0,
+        "max": 200000
+      },
+      "gender": "any",
+      "location": {
+        "country": "India",
+        "states": [
+          "Andhra Pradesh",
+          "Arunachal Pradesh",
+          "Assam",
+          "Bihar",
+          "Chhattisgarh",
+          "Goa",
+          "Gujarat",
+          "Haryana",
+          "Himachal Pradesh",
+          "Jharkhand",
+          "Karnataka",
+          "Kerala",
+          "Madhya Pradesh",
+          "Maharashtra",
+          "Manipur",
+          "Meghalaya",
+          "Mizoram",
+          "Nagaland",
+          "Odisha",
+          "Punjab",
+          "Rajasthan",
+          "Sikkim",
+          "Tamil Nadu",
+          "Telangana",
+          "Tripura",
+          "Uttar Pradesh",
+          "Uttarakhand",
+          "West Bengal",
+          "Andaman and Nicobar Islands",
+          "Chandigarh",
+          "Dadra and Nagar Haveli and Daman and Diu",
+          "Delhi",
+          "Jammu and Kashmir",
+          "Ladakh",
+          "Lakshadweep",
+          "Puducherry"
+        ],
+        "districts": [],
+        "ruralOnly": true,
+        "urbanOnly": false
+      },
+      "social": {
+        "religion": [
+          "Hindu",
+          "Muslim",
+          "Christian",
+          "Sikh",
+          "Buddhist",
+          "Jain",
+          "Parsi",
+          "Other"
+        ],
+        "caste": [
+          "General",
+          "SC",
+          "ST",
+          "OBC"
+        ],
+        "minority": false,
+        "disability": false
+      },
+      "employment": {
+        "employmentStatus": [
+          "farmer"
+        ],
+        "occupations": []
+      }
+    },
+    "benefits": [
+      "Financial assistance of ₹6000 per year provided in three equal installments.",
+      "Direct Benefit Transfer ensures funds reach beneficiaries without intermediaries.",
+      "Supports purchase of seeds, fertilizers, and farming inputs.",
+      "Provides income stability to small and marginal farmers."
+    ],
+    "documentsRequired": [
+      "Aadhaar Card",
+      "Bank Account Passbook",
+      "Land Ownership Documents",
+      "Income Certificate",
+      "Domicile Certificate",
+      "Passport Size Photograph"
+    ],
+    "applicationUrl": "https://pmkisan.gov.in/",
+    "trackingMeta": {
+      "type": "login_required",
+      "instructions": [
+        "Login using Aadhaar or mobile number",
+        "Check beneficiary status in dashboard"
+      ]
+    },
+    "status": "published"
+  },
+  {
+    "id": "scheme_pmjay",
+    "title": "Ayushman Bharat - Pradhan Mantri Jan Arogya Yojana (PM-JAY)",
+    "description": "Ayushman Bharat PM-JAY is a national health insurance scheme providing financial protection to economically weaker families. It enables cashless treatment for secondary and tertiary healthcare services at empaneled hospitals across India.",
+    "ministry": "Ministry of Health and Family Welfare",
+    "category": "Health",
+    "tags": [
+      "health",
+      "insurance"
+    ],
+    "eligibility": {
+      "age": {
+        "min": 0,
+        "max": 150
+      },
+      "income": {
+        "min": 0,
+        "max": 250000
+      },
+      "gender": "any",
+      "location": {
+        "country": "India",
+        "states": [
+          "Andhra Pradesh",
+          "Arunachal Pradesh",
+          "Assam",
+          "Bihar",
+          "Chhattisgarh",
+          "Goa",
+          "Gujarat",
+          "Haryana",
+          "Himachal Pradesh",
+          "Jharkhand",
+          "Karnataka",
+          "Kerala",
+          "Madhya Pradesh",
+          "Maharashtra",
+          "Manipur",
+          "Meghalaya",
+          "Mizoram",
+          "Nagaland",
+          "Odisha",
+          "Punjab",
+          "Rajasthan",
+          "Sikkim",
+          "Tamil Nadu",
+          "Telangana",
+          "Tripura",
+          "Uttar Pradesh",
+          "Uttarakhand",
+          "West Bengal",
+          "Andaman and Nicobar Islands",
+          "Chandigarh",
+          "Dadra and Nagar Haveli and Daman and Diu",
+          "Delhi",
+          "Jammu and Kashmir",
+          "Ladakh",
+          "Lakshadweep",
+          "Puducherry"
+        ],
+        "districts": [],
+        "ruralOnly": false,
+        "urbanOnly": false
+      },
+      "social": {
+        "religion": [
+          "Hindu",
+          "Muslim",
+          "Christian",
+          "Sikh",
+          "Buddhist",
+          "Jain",
+          "Parsi",
+          "Other"
+        ],
+        "caste": [
+          "SC",
+          "ST",
+          "OBC"
+        ],
+        "minority": false,
+        "disability": false
+      },
+      "employment": {
+        "employmentStatus": [
+          "unemployed",
+          "laborer",
+          "homemaker"
+        ],
+        "occupations": []
+      }
+    },
+    "benefits": [
+      "Health insurance coverage up to ₹5 lakh per family annually.",
+      "Cashless hospitalization at empaneled hospitals.",
+      "Coverage includes surgeries, diagnostics, and medicines.",
+      "Reduces financial burden of medical emergencies."
+    ],
+    "documentsRequired": [
+      "Aadhaar Card",
+      "Ration Card",
+      "Income Certificate",
+      "Family Identification Proof",
+      "Mobile Number",
+      "Photograph"
+    ],
+    "applicationUrl": "https://pmjay.gov.in/",
+    "trackingMeta": {
+      "type": "direct",
+      "instructions": [
+        "Check eligibility online",
+        "Download Ayushman card"
+      ]
+    },
+    "status": "published"
+  },
+  {
+    "id": "scheme_pmay_urban",
+    "title": "Pradhan Mantri Awas Yojana - Urban",
+    "description": "PMAY-Urban aims to provide affordable housing to urban poor by offering financial assistance and interest subsidies on home loans for house construction or purchase.",
+    "ministry": "Ministry of Housing and Urban Affairs",
+    "category": "Housing",
+    "tags": [
+      "housing",
+      "urban",
+      "subsidy"
+    ],
+    "eligibility": {
+      "age": {
+        "min": 18,
+        "max": 150
+      },
+      "income": {
+        "min": 0,
+        "max": 600000
+      },
+      "gender": "any",
+      "location": {
+        "country": "India",
+        "states": [
+          "Andhra Pradesh",
+          "Arunachal Pradesh",
+          "Assam",
+          "Bihar",
+          "Chhattisgarh",
+          "Goa",
+          "Gujarat",
+          "Haryana",
+          "Himachal Pradesh",
+          "Jharkhand",
+          "Karnataka",
+          "Kerala",
+          "Madhya Pradesh",
+          "Maharashtra",
+          "Manipur",
+          "Meghalaya",
+          "Mizoram",
+          "Nagaland",
+          "Odisha",
+          "Punjab",
+          "Rajasthan",
+          "Sikkim",
+          "Tamil Nadu",
+          "Telangana",
+          "Tripura",
+          "Uttar Pradesh",
+          "Uttarakhand",
+          "West Bengal",
+          "Andaman and Nicobar Islands",
+          "Chandigarh",
+          "Dadra and Nagar Haveli and Daman and Diu",
+          "Delhi",
+          "Jammu and Kashmir",
+          "Ladakh",
+          "Lakshadweep",
+          "Puducherry"
+        ],
+        "districts": [],
+        "ruralOnly": false,
+        "urbanOnly": true
+      },
+      "social": {
+        "religion": [
+          "Hindu",
+          "Muslim",
+          "Christian",
+          "Sikh",
+          "Buddhist",
+          "Jain",
+          "Parsi",
+          "Other"
+        ],
+        "caste": [
+          "General",
+          "SC",
+          "ST",
+          "OBC"
+        ],
+        "minority": false,
+        "disability": false
+      },
+      "employment": {
+        "employmentStatus": [
+          "unemployed",
+          "laborer",
+          "employed",
+          "self_employed"
+        ],
+        "occupations": []
+      }
+    },
+    "benefits": [
+      "Interest subsidy on home loans under Credit Linked Subsidy Scheme.",
+      "Financial assistance for construction or purchase of house.",
+      "Encourages affordable housing for economically weaker sections."
+    ],
+    "documentsRequired": [
+      "Aadhaar Card",
+      "Income Proof",
+      "Property Documents",
+      "Bank Details",
+      "Address Proof",
+      "Photograph"
+    ],
+    "applicationUrl": "https://pmaymis.gov.in/",
+    "trackingMeta": {
+      "type": "login_required",
+      "instructions": [
+        "Visit the nearest Seva Kendra with required documents.",
+        "Submit the application form along with Aadhaar card copy.",
+        "Wait for verification from the nodal department.",
+        "Check application status online using your reference ID."
+      ]
+    },
+    "status": "published"
+  },
+  {
+    "id": "scheme_mudra",
+    "title": "Pradhan Mantri Mudra Yojana",
+    "description": "PM Mudra Yojana provides financial support to micro and small enterprises by offering collateral-free loans to promote entrepreneurship and self-employment.",
+    "ministry": "Ministry of Finance",
+    "category": "Finance",
+    "tags": [
+      "loan",
+      "business",
+      "entrepreneur"
+    ],
+    "eligibility": {
+      "age": {
+        "min": 18,
+        "max": 150
+      },
+      "income": {
+        "min": 0,
+        "max": 99999999
+      },
+      "gender": "any",
+      "location": {
+        "country": "India",
+        "states": [
+          "Andhra Pradesh",
+          "Arunachal Pradesh",
+          "Assam",
+          "Bihar",
+          "Chhattisgarh",
+          "Goa",
+          "Gujarat",
+          "Haryana",
+          "Himachal Pradesh",
+          "Jharkhand",
+          "Karnataka",
+          "Kerala",
+          "Madhya Pradesh",
+          "Maharashtra",
+          "Manipur",
+          "Meghalaya",
+          "Mizoram",
+          "Nagaland",
+          "Odisha",
+          "Punjab",
+          "Rajasthan",
+          "Sikkim",
+          "Tamil Nadu",
+          "Telangana",
+          "Tripura",
+          "Uttar Pradesh",
+          "Uttarakhand",
+          "West Bengal",
+          "Andaman and Nicobar Islands",
+          "Chandigarh",
+          "Dadra and Nagar Haveli and Daman and Diu",
+          "Delhi",
+          "Jammu and Kashmir",
+          "Ladakh",
+          "Lakshadweep",
+          "Puducherry"
+        ],
+        "districts": [],
+        "ruralOnly": false,
+        "urbanOnly": false
+      },
+      "social": {
+        "religion": [
+          "Hindu",
+          "Muslim",
+          "Christian",
+          "Sikh",
+          "Buddhist",
+          "Jain",
+          "Parsi",
+          "Other"
+        ],
+        "caste": [
+          "General",
+          "SC",
+          "ST",
+          "OBC"
+        ],
+        "minority": false,
+        "disability": false
+      },
+      "employment": {
+        "employmentStatus": [
+          "self_employed",
+          "unemployed"
+        ],
+        "occupations": []
+      }
+    },
+    "benefits": [
+      "Collateral-free loans up to ₹10 lakh.",
+      "Supports small business startups and expansion.",
+      "Encourages self-employment and entrepreneurship."
+    ],
+    "documentsRequired": [
+      "Aadhaar Card",
+      "PAN Card",
+      "Business Plan",
+      "Bank Statement",
+      "Address Proof",
+      "Photograph"
+    ],
+    "applicationUrl": "https://mudra.org.in/",
+    "trackingMeta": {
+      "type": "multi_step",
+      "instructions": [
+        "Visit the nearest Seva Kendra with required documents.",
+        "Submit the application form along with Aadhaar card copy.",
+        "Wait for verification from the nodal department.",
+        "Check application status online using your reference ID."
+      ]
+    },
+    "status": "published"
+  },
+  {
+    "id": "scheme_ladli_behna_maha",
+    "title": "Mukhyamantri Majhi Ladki Bahin Yojana",
+    "description": "A Maharashtra government initiative aimed at providing financial assistance to eligible women to improve their financial independence and support household needs.",
+    "ministry": "Government of Maharashtra",
+    "category": "Women Welfare",
+    "tags": [
+      "women",
+      "financial support",
+      "state scheme"
+    ],
+    "eligibility": {
+      "age": {
+        "min": 18,
+        "max": 60
+      },
+      "income": {
+        "min": 0,
+        "max": 250000
+      },
+      "gender": "female",
+      "location": {
+        "country": "India",
+        "states": [
+          "Maharashtra"
+        ],
+        "districts": [],
+        "ruralOnly": false,
+        "urbanOnly": false
+      },
+      "social": {
+        "religion": [
+          "Hindu",
+          "Muslim",
+          "Christian",
+          "Sikh",
+          "Buddhist",
+          "Jain",
+          "Parsi",
+          "Other"
+        ],
+        "caste": [
+          "General",
+          "SC",
+          "ST",
+          "OBC"
+        ],
+        "minority": false,
+        "disability": false
+      },
+      "employment": {
+        "employmentStatus": [
+          "homemaker",
+          "unemployed"
+        ],
+        "occupations": []
+      }
+    },
+    "benefits": [
+      "Monthly financial assistance directly credited to bank account.",
+      "Improves financial independence of women.",
+      "Supports daily household expenses."
+    ],
+    "documentsRequired": [
+      "Aadhaar Card",
+      "Bank Account Details",
+      "Domicile Certificate",
+      "Income Certificate",
+      "Photograph"
+    ],
+    "applicationUrl": "https://ladkibahin.maharashtra.gov.in/",
+    "trackingMeta": {
+      "type": "direct",
+      "instructions": [
+        "Visit the nearest Seva Kendra with required documents.",
+        "Submit the application form along with Aadhaar card copy.",
+        "Wait for verification from the nodal department.",
+        "Check application status online using your reference ID."
+      ]
+    },
+    "status": "published"
+  },
+  {
+    "id": "scheme_ayushman_bharat",
+    "title": "Ayushman Bharat - Pradhan Mantri Jan Arogya Yojana (PM-JAY)",
+    "description": "Ayushman Bharat PM-JAY is a flagship health insurance scheme that provides financial protection to economically vulnerable families by covering hospitalization expenses. It aims to reduce out-of-pocket healthcare costs and improve access to quality medical services across India.",
+    "ministry": "Ministry of Health and Family Welfare",
+    "category": "Health",
+    "tags": [
+      "health",
+      "insurance",
+      "hospitalization"
+    ],
+    "eligibility": {
+      "age": {
+        "min": 0,
+        "max": 150
+      },
+      "income": {
+        "min": 0,
+        "max": 250000
+      },
+      "gender": "any",
+      "location": {
+        "country": "India",
+        "states": [
+          "Andhra Pradesh",
+          "Arunachal Pradesh",
+          "Assam",
+          "Bihar",
+          "Chhattisgarh",
+          "Goa",
+          "Gujarat",
+          "Haryana",
+          "Himachal Pradesh",
+          "Jharkhand",
+          "Karnataka",
+          "Kerala",
+          "Madhya Pradesh",
+          "Maharashtra",
+          "Manipur",
+          "Meghalaya",
+          "Mizoram",
+          "Nagaland",
+          "Odisha",
+          "Punjab",
+          "Rajasthan",
+          "Sikkim",
+          "Tamil Nadu",
+          "Telangana",
+          "Tripura",
+          "Uttar Pradesh",
+          "Uttarakhand",
+          "West Bengal",
+          "Andaman and Nicobar Islands",
+          "Chandigarh",
+          "Dadra and Nagar Haveli and Daman and Diu",
+          "Delhi",
+          "Jammu and Kashmir",
+          "Ladakh",
+          "Lakshadweep",
+          "Puducherry"
+        ],
+        "districts": [],
+        "ruralOnly": false,
+        "urbanOnly": false
+      },
+      "social": {
+        "religion": [
+          "Hindu",
+          "Muslim",
+          "Christian",
+          "Sikh",
+          "Buddhist",
+          "Jain",
+          "Parsi",
+          "Other"
+        ],
+        "caste": [
+          "SC",
+          "ST"
+        ],
+        "minority": true,
+        "disability": false
+      },
+      "employment": {
+        "employmentStatus": [
+          "unemployed",
+          "laborer",
+          "homemaker"
+        ],
+        "occupations": []
+      }
+    },
+    "benefits": [
+      "₹5 lakh health insurance coverage per family per year",
+      "Cashless hospitalization at empaneled hospitals",
+      "Covers pre and post hospitalization expenses",
+      "Includes treatment for major diseases and surgeries"
+    ],
+    "documentsRequired": [
+      "Aadhaar Card",
+      "Ration Card",
+      "Income Certificate",
+      "Family ID Proof",
+      "Residence Proof",
+      "Photograph"
+    ],
+    "applicationUrl": "https://pmjay.gov.in/",
+    "trackingMeta": {
+      "type": "login_required",
+      "instructions": [
+        "Register on official portal",
+        "Verify eligibility",
+        "Download e-card",
+        "Visit empaneled hospital for treatment"
+      ]
+    },
+    "status": "published"
+  },
+  {
+    "id": "scheme_pmay_urban_2",
+    "title": "Pradhan Mantri Awas Yojana - Urban (PMAY-U)",
+    "description": "PMAY-Urban aims to provide affordable housing to urban poor by offering financial assistance for construction, purchase, or improvement of houses. It focuses on 'Housing for All' and supports economically weaker sections and low-income groups.",
+    "ministry": "Ministry of Housing and Urban Affairs",
+    "category": "Housing",
+    "tags": [
+      "housing",
+      "urban",
+      "subsidy"
+    ],
+    "eligibility": {
+      "age": {
+        "min": 18,
+        "max": 150
+      },
+      "income": {
+        "min": 0,
+        "max": 600000
+      },
+      "gender": "any",
+      "location": {
+        "country": "India",
+        "states": [
+          "Andhra Pradesh",
+          "Arunachal Pradesh",
+          "Assam",
+          "Bihar",
+          "Chhattisgarh",
+          "Goa",
+          "Gujarat",
+          "Haryana",
+          "Himachal Pradesh",
+          "Jharkhand",
+          "Karnataka",
+          "Kerala",
+          "Madhya Pradesh",
+          "Maharashtra",
+          "Manipur",
+          "Meghalaya",
+          "Mizoram",
+          "Nagaland",
+          "Odisha",
+          "Punjab",
+          "Rajasthan",
+          "Sikkim",
+          "Tamil Nadu",
+          "Telangana",
+          "Tripura",
+          "Uttar Pradesh",
+          "Uttarakhand",
+          "West Bengal",
+          "Andaman and Nicobar Islands",
+          "Chandigarh",
+          "Dadra and Nagar Haveli and Daman and Diu",
+          "Delhi",
+          "Jammu and Kashmir",
+          "Ladakh",
+          "Lakshadweep",
+          "Puducherry"
+        ],
+        "districts": [],
+        "ruralOnly": false,
+        "urbanOnly": true
+      },
+      "social": {
+        "religion": [
+          "Hindu",
+          "Muslim",
+          "Christian",
+          "Sikh",
+          "Buddhist",
+          "Jain",
+          "Parsi",
+          "Other"
+        ],
+        "caste": [
+          "General",
+          "SC",
+          "ST",
+          "OBC"
+        ],
+        "minority": false,
+        "disability": false
+      },
+      "employment": {
+        "employmentStatus": [
+          "unemployed",
+          "laborer",
+          "employed",
+          "self_employed"
+        ],
+        "occupations": []
+      }
+    },
+    "benefits": [
+      "Interest subsidy up to ₹2.67 lakh on home loans",
+      "Financial assistance for house construction",
+      "Support for home improvement and extension",
+      "Promotes affordable housing ownership"
+    ],
+    "documentsRequired": [
+      "Aadhaar Card",
+      "Income Certificate",
+      "Property Documents",
+      "Bank Account Details",
+      "Residence Proof",
+      "Photograph"
+    ],
+    "applicationUrl": "https://pmaymis.gov.in/",
+    "trackingMeta": {
+      "type": "multi_step",
+      "instructions": [
+        "Apply online through PMAY portal",
+        "Submit required documents",
+        "Verification by authorities",
+        "Loan approval and subsidy disbursement"
+      ]
+    },
+    "status": "published"
+  },
+  {
+    "id": "scheme_mgnrega",
+    "title": "Mahatma Gandhi National Rural Employment Guarantee Act (MGNREGA)",
+    "description": "MGNREGA guarantees 100 days of wage employment per year to rural households willing to do unskilled manual work. It aims to enhance livelihood security and create durable rural assets.",
+    "ministry": "Ministry of Rural Development",
+    "category": "Employment",
+    "tags": [
+      "rural",
+      "employment",
+      "wages"
+    ],
+    "eligibility": {
+      "age": {
+        "min": 18,
+        "max": 150
+      },
+      "income": {
+        "min": 0,
+        "max": 99999999
+      },
+      "gender": "any",
+      "location": {
+        "country": "India",
+        "states": [
+          "Andhra Pradesh",
+          "Arunachal Pradesh",
+          "Assam",
+          "Bihar",
+          "Chhattisgarh",
+          "Goa",
+          "Gujarat",
+          "Haryana",
+          "Himachal Pradesh",
+          "Jharkhand",
+          "Karnataka",
+          "Kerala",
+          "Madhya Pradesh",
+          "Maharashtra",
+          "Manipur",
+          "Meghalaya",
+          "Mizoram",
+          "Nagaland",
+          "Odisha",
+          "Punjab",
+          "Rajasthan",
+          "Sikkim",
+          "Tamil Nadu",
+          "Telangana",
+          "Tripura",
+          "Uttar Pradesh",
+          "Uttarakhand",
+          "West Bengal",
+          "Andaman and Nicobar Islands",
+          "Chandigarh",
+          "Dadra and Nagar Haveli and Daman and Diu",
+          "Delhi",
+          "Jammu and Kashmir",
+          "Ladakh",
+          "Lakshadweep",
+          "Puducherry"
+        ],
+        "districts": [],
+        "ruralOnly": true,
+        "urbanOnly": false
+      },
+      "social": {
+        "religion": [
+          "Hindu",
+          "Muslim",
+          "Christian",
+          "Sikh",
+          "Buddhist",
+          "Jain",
+          "Parsi",
+          "Other"
+        ],
+        "caste": [
+          "General",
+          "SC",
+          "ST",
+          "OBC"
+        ],
+        "minority": false,
+        "disability": false
+      },
+      "employment": {
+        "employmentStatus": [
+          "unemployed",
+          "laborer"
+        ],
+        "occupations": []
+      }
+    },
+    "benefits": [
+      "Up to ₹250 per day wage employment",
+      "Guaranteed 100 days of work annually",
+      "Direct bank transfer of wages",
+      "Improves rural livelihood and infrastructure"
+    ],
+    "documentsRequired": [
+      "Aadhaar Card",
+      "Job Card",
+      "Bank Account Details",
+      "Residence Proof",
+      "Photograph"
+    ],
+    "applicationUrl": "https://nrega.nic.in/",
+    "trackingMeta": {
+      "type": "direct",
+      "instructions": [
+        "Register at local Gram Panchayat",
+        "Receive job card",
+        "Apply for work",
+        "Get wages credited to bank account"
+      ]
+    },
+    "status": "published"
+  },
+  {
+    "id": "scheme_pmay_rural",
+    "title": "Pradhan Mantri Awas Yojana - Gramin (PMAY-G)",
+    "description": "PMAY-Gramin provides financial assistance to rural households for construction of pucca houses with basic amenities. It aims to eliminate homelessness in rural India.",
+    "ministry": "Ministry of Rural Development",
+    "category": "Housing",
+    "tags": [
+      "housing",
+      "rural",
+      "construction"
+    ],
+    "eligibility": {
+      "age": {
+        "min": 18,
+        "max": 150
+      },
+      "income": {
+        "min": 0,
+        "max": 300000
+      },
+      "gender": "any",
+      "location": {
+        "country": "India",
+        "states": [
+          "Andhra Pradesh",
+          "Arunachal Pradesh",
+          "Assam",
+          "Bihar",
+          "Chhattisgarh",
+          "Goa",
+          "Gujarat",
+          "Haryana",
+          "Himachal Pradesh",
+          "Jharkhand",
+          "Karnataka",
+          "Kerala",
+          "Madhya Pradesh",
+          "Maharashtra",
+          "Manipur",
+          "Meghalaya",
+          "Mizoram",
+          "Nagaland",
+          "Odisha",
+          "Punjab",
+          "Rajasthan",
+          "Sikkim",
+          "Tamil Nadu",
+          "Telangana",
+          "Tripura",
+          "Uttar Pradesh",
+          "Uttarakhand",
+          "West Bengal",
+          "Andaman and Nicobar Islands",
+          "Chandigarh",
+          "Dadra and Nagar Haveli and Daman and Diu",
+          "Delhi",
+          "Jammu and Kashmir",
+          "Ladakh",
+          "Lakshadweep",
+          "Puducherry"
+        ],
+        "districts": [],
+        "ruralOnly": true,
+        "urbanOnly": false
+      },
+      "social": {
+        "religion": [
+          "Hindu",
+          "Muslim",
+          "Christian",
+          "Sikh",
+          "Buddhist",
+          "Jain",
+          "Parsi",
+          "Other"
+        ],
+        "caste": [
+          "General",
+          "SC",
+          "ST",
+          "OBC"
+        ],
+        "minority": false,
+        "disability": false
+      },
+      "employment": {
+        "employmentStatus": [
+          "unemployed",
+          "laborer",
+          "farmer"
+        ],
+        "occupations": []
+      }
+    },
+    "benefits": [
+      "₹1.2 lakh assistance for plain areas",
+      "₹1.3 lakh for hilly or difficult areas",
+      "Additional support for sanitation and electricity",
+      "Promotes rural housing development"
+    ],
+    "documentsRequired": [
+      "Aadhaar Card",
+      "BPL Certificate",
+      "Land Ownership Proof",
+      "Bank Account Details",
+      "Residence Proof",
+      "Photograph"
+    ],
+    "applicationUrl": "https://pmayg.nic.in/",
+    "trackingMeta": {
+      "type": "multi_step",
+      "instructions": [
+        "Visit the nearest Seva Kendra with required documents.",
+        "Submit the application form along with Aadhaar card copy.",
+        "Wait for verification from the nodal department.",
+        "Check application status online using your reference ID."
+      ]
+    },
+    "status": "published"
+  },
+  {
+    "id": "scheme_mgnrega_2",
+    "title": "Mahatma Gandhi National Rural Employment Guarantee Act (MGNREGA)",
+    "description": "MGNREGA is a flagship rural employment scheme that guarantees at least 100 days of wage employment per year to rural households. It aims to enhance livelihood security by providing unskilled manual work and strengthening rural infrastructure.",
+    "ministry": "Ministry of Rural Development",
+    "category": "Employment",
+    "tags": [
+      "employment",
+      "rural",
+      "wages"
+    ],
+    "eligibility": {
+      "age": {
+        "min": 18,
+        "max": 150
+      },
+      "income": {
+        "min": 0,
+        "max": 99999999
+      },
+      "gender": "any",
+      "location": {
+        "country": "India",
+        "states": [
+          "Andhra Pradesh",
+          "Arunachal Pradesh",
+          "Assam",
+          "Bihar",
+          "Chhattisgarh",
+          "Goa",
+          "Gujarat",
+          "Haryana",
+          "Himachal Pradesh",
+          "Jharkhand",
+          "Karnataka",
+          "Kerala",
+          "Madhya Pradesh",
+          "Maharashtra",
+          "Manipur",
+          "Meghalaya",
+          "Mizoram",
+          "Nagaland",
+          "Odisha",
+          "Punjab",
+          "Rajasthan",
+          "Sikkim",
+          "Tamil Nadu",
+          "Telangana",
+          "Tripura",
+          "Uttar Pradesh",
+          "Uttarakhand",
+          "West Bengal",
+          "Andaman and Nicobar Islands",
+          "Chandigarh",
+          "Dadra and Nagar Haveli and Daman and Diu",
+          "Delhi",
+          "Jammu and Kashmir",
+          "Ladakh",
+          "Lakshadweep",
+          "Puducherry"
+        ],
+        "districts": [],
+        "ruralOnly": true,
+        "urbanOnly": false
+      },
+      "social": {
+        "religion": [
+          "Hindu",
+          "Muslim",
+          "Christian",
+          "Sikh",
+          "Buddhist",
+          "Jain",
+          "Parsi",
+          "Other"
+        ],
+        "caste": [
+          "General",
+          "SC",
+          "ST",
+          "OBC"
+        ],
+        "minority": false,
+        "disability": false
+      },
+      "employment": {
+        "employmentStatus": [
+          "unemployed",
+          "laborer"
+        ],
+        "occupations": []
+      }
+    },
+    "benefits": [
+      "Up to 100 days of guaranteed wage employment per year",
+      "Daily wages approximately ₹200–₹300 depending on state",
+      "Timely wage payments directly to bank accounts",
+      "Improves rural livelihood and infrastructure development"
+    ],
+    "documentsRequired": [
+      "Aadhaar Card",
+      "Job Card (issued under MGNREGA)",
+      "Bank Account Details",
+      "Residence Proof",
+      "Passport Size Photograph"
+    ],
+    "applicationUrl": "https://nrega.nic.in/",
+    "trackingMeta": {
+      "type": "direct",
+      "instructions": [
+        "Register at local Gram Panchayat",
+        "Apply for job card",
+        "Track work and payment status online"
+      ]
+    },
+    "status": "published"
+  },
+  {
+    "id": "scheme_national_health_insurance",
+    "title": "Rashtriya Swasthya Bima Yojana (RSBY)",
+    "description": "RSBY is a government-sponsored health insurance scheme for below poverty line families to cover hospitalization expenses. It aims to provide financial protection against medical emergencies.",
+    "ministry": "Ministry of Labour and Employment",
+    "category": "Health",
+    "tags": [
+      "health",
+      "insurance",
+      "BPL"
+    ],
+    "eligibility": {
+      "age": {
+        "min": 0,
+        "max": 150
+      },
+      "income": {
+        "min": 0,
+        "max": 200000
+      },
+      "gender": "any",
+      "location": {
+        "country": "India",
+        "states": [
+          "Andhra Pradesh",
+          "Arunachal Pradesh",
+          "Assam",
+          "Bihar",
+          "Chhattisgarh",
+          "Goa",
+          "Gujarat",
+          "Haryana",
+          "Himachal Pradesh",
+          "Jharkhand",
+          "Karnataka",
+          "Kerala",
+          "Madhya Pradesh",
+          "Maharashtra",
+          "Manipur",
+          "Meghalaya",
+          "Mizoram",
+          "Nagaland",
+          "Odisha",
+          "Punjab",
+          "Rajasthan",
+          "Sikkim",
+          "Tamil Nadu",
+          "Telangana",
+          "Tripura",
+          "Uttar Pradesh",
+          "Uttarakhand",
+          "West Bengal",
+          "Andaman and Nicobar Islands",
+          "Chandigarh",
+          "Dadra and Nagar Haveli and Daman and Diu",
+          "Delhi",
+          "Jammu and Kashmir",
+          "Ladakh",
+          "Lakshadweep",
+          "Puducherry"
+        ],
+        "districts": [],
+        "ruralOnly": false,
+        "urbanOnly": false
+      },
+      "social": {
+        "religion": [
+          "Hindu",
+          "Muslim",
+          "Christian",
+          "Sikh",
+          "Buddhist",
+          "Jain",
+          "Parsi",
+          "Other"
+        ],
+        "caste": [
+          "General",
+          "SC",
+          "ST",
+          "OBC"
+        ],
+        "minority": false,
+        "disability": false
+      },
+      "employment": {
+        "employmentStatus": [
+          "unemployed",
+          "laborer",
+          "homemaker"
+        ],
+        "occupations": []
+      }
+    },
+    "benefits": [
+      "₹30000 insurance coverage for hospitalization",
+      "Covers pre-existing diseases",
+      "Cashless treatment at empaneled hospitals",
+      "Smart card-based system for beneficiaries"
+    ],
+    "documentsRequired": [
+      "Aadhaar Card",
+      "BPL Card",
+      "Smart Card",
+      "Family Details",
+      "Photograph"
+    ],
+    "applicationUrl": "https://labour.gov.in/",
+    "trackingMeta": {
+      "type": "login_required",
+      "instructions": [
+        "Visit the nearest Seva Kendra with required documents.",
+        "Submit the application form along with Aadhaar card copy.",
+        "Wait for verification from the nodal department.",
+        "Check application status online using your reference ID."
+      ]
+    },
+    "status": "published"
+  },
+  {
+    "id": "scheme_pmkvY",
+    "title": "Pradhan Mantri Kaushal Vikas Yojana (PMKVY)",
+    "description": "PMKVY is a skill development initiative aimed at enabling Indian youth to take up industry-relevant skill training. The scheme focuses on improving employability and providing certification for various vocational skills.",
+    "ministry": "Ministry of Skill Development and Entrepreneurship",
+    "category": "Skill Development",
+    "tags": [
+      "skill",
+      "training",
+      "youth"
+    ],
+    "eligibility": {
+      "age": {
+        "min": 18,
+        "max": 35
+      },
+      "income": {
+        "min": 0,
+        "max": 99999999
+      },
+      "gender": "any",
+      "location": {
+        "country": "India",
+        "states": [
+          "Andhra Pradesh",
+          "Arunachal Pradesh",
+          "Assam",
+          "Bihar",
+          "Chhattisgarh",
+          "Goa",
+          "Gujarat",
+          "Haryana",
+          "Himachal Pradesh",
+          "Jharkhand",
+          "Karnataka",
+          "Kerala",
+          "Madhya Pradesh",
+          "Maharashtra",
+          "Manipur",
+          "Meghalaya",
+          "Mizoram",
+          "Nagaland",
+          "Odisha",
+          "Punjab",
+          "Rajasthan",
+          "Sikkim",
+          "Tamil Nadu",
+          "Telangana",
+          "Tripura",
+          "Uttar Pradesh",
+          "Uttarakhand",
+          "West Bengal",
+          "Andaman and Nicobar Islands",
+          "Chandigarh",
+          "Dadra and Nagar Haveli and Daman and Diu",
+          "Delhi",
+          "Jammu and Kashmir",
+          "Ladakh",
+          "Lakshadweep",
+          "Puducherry"
+        ],
+        "districts": [],
+        "ruralOnly": false,
+        "urbanOnly": false
+      },
+      "social": {
+        "religion": [
+          "Hindu",
+          "Muslim",
+          "Christian",
+          "Sikh",
+          "Buddhist",
+          "Jain",
+          "Parsi",
+          "Other"
+        ],
+        "caste": [
+          "General",
+          "SC",
+          "ST",
+          "OBC"
+        ],
+        "minority": false,
+        "disability": false
+      },
+      "employment": {
+        "employmentStatus": [
+          "unemployed",
+          "student"
+        ],
+        "occupations": []
+      }
+    },
+    "benefits": [
+      "Free skill training programs across various sectors",
+      "Monetary reward up to ₹8000 after successful certification",
+      "Industry-recognized certification for employment",
+      "Improves job opportunities for youth"
+    ],
+    "documentsRequired": [
+      "Aadhaar Card",
+      "Educational Qualification Proof",
+      "Bank Account Details",
+      "Passport Size Photograph",
+      "Mobile Number"
+    ],
+    "applicationUrl": "https://www.pmkvyofficial.org/",
+    "trackingMeta": {
+      "type": "direct",
+      "instructions": [
+        "Visit the nearest Seva Kendra with required documents.",
+        "Submit the application form along with Aadhaar card copy.",
+        "Wait for verification from the nodal department.",
+        "Check application status online using your reference ID."
+      ]
+    },
+    "status": "published"
+  },
+  {
+    "id": "scheme_nulm",
+    "title": "National Urban Livelihoods Mission (NULM)",
+    "description": "NULM aims to reduce poverty and vulnerability of urban poor households by enabling them to access gainful self-employment and skilled wage employment opportunities.",
+    "ministry": "Ministry of Housing and Urban Affairs",
+    "category": "Employment",
+    "tags": [
+      "urban",
+      "employment",
+      "livelihood"
+    ],
+    "eligibility": {
+      "age": {
+        "min": 18,
+        "max": 150
+      },
+      "income": {
+        "min": 0,
+        "max": 300000
+      },
+      "gender": "any",
+      "location": {
+        "country": "India",
+        "states": [
+          "Andhra Pradesh",
+          "Arunachal Pradesh",
+          "Assam",
+          "Bihar",
+          "Chhattisgarh",
+          "Goa",
+          "Gujarat",
+          "Haryana",
+          "Himachal Pradesh",
+          "Jharkhand",
+          "Karnataka",
+          "Kerala",
+          "Madhya Pradesh",
+          "Maharashtra",
+          "Manipur",
+          "Meghalaya",
+          "Mizoram",
+          "Nagaland",
+          "Odisha",
+          "Punjab",
+          "Rajasthan",
+          "Sikkim",
+          "Tamil Nadu",
+          "Telangana",
+          "Tripura",
+          "Uttar Pradesh",
+          "Uttarakhand",
+          "West Bengal",
+          "Andaman and Nicobar Islands",
+          "Chandigarh",
+          "Dadra and Nagar Haveli and Daman and Diu",
+          "Delhi",
+          "Jammu and Kashmir",
+          "Ladakh",
+          "Lakshadweep",
+          "Puducherry"
+        ],
+        "districts": [],
+        "ruralOnly": false,
+        "urbanOnly": true
+      },
+      "social": {
+        "religion": [
+          "Hindu",
+          "Muslim",
+          "Christian",
+          "Sikh",
+          "Buddhist",
+          "Jain",
+          "Parsi",
+          "Other"
+        ],
+        "caste": [
+          "General",
+          "SC",
+          "ST",
+          "OBC"
+        ],
+        "minority": false,
+        "disability": false
+      },
+      "employment": {
+        "employmentStatus": [
+          "unemployed",
+          "self_employed"
+        ],
+        "occupations": []
+      }
+    },
+    "benefits": [
+      "Financial assistance for self-employment ventures",
+      "Interest subsidy on loans for small businesses",
+      "Skill training programs for urban youth",
+      "Support for formation of self-help groups"
+    ],
+    "documentsRequired": [
+      "Aadhaar Card",
+      "Income Certificate",
+      "Residence Proof",
+      "Bank Account Details",
+      "Business Plan (for self-employment)",
+      "Photograph"
+    ],
+    "applicationUrl": "https://nulm.gov.in/",
+    "trackingMeta": {
+      "type": "multi_step",
+      "instructions": [
+        "Visit the nearest Seva Kendra with required documents.",
+        "Submit the application form along with Aadhaar card copy.",
+        "Wait for verification from the nodal department.",
+        "Check application status online using your reference ID."
+      ]
+    },
+    "status": "published"
+  },
+  {
+    "id": "scheme_maha_skill_dev",
+    "title": "Maharashtra Skill Development Scheme",
+    "description": "This scheme by the Maharashtra government focuses on providing skill-based training to youth in various sectors to improve employability and support economic growth in the state.",
+    "ministry": "Government of Maharashtra",
+    "category": "Skill Development",
+    "tags": [
+      "maharashtra",
+      "skill",
+      "youth"
+    ],
+    "eligibility": {
+      "age": {
+        "min": 18,
+        "max": 40
+      },
+      "income": {
+        "min": 0,
+        "max": 99999999
+      },
+      "gender": "any",
+      "location": {
+        "country": "India",
+        "states": [
+          "Maharashtra"
+        ],
+        "districts": [],
+        "ruralOnly": false,
+        "urbanOnly": false
+      },
+      "social": {
+        "religion": [
+          "Hindu",
+          "Muslim",
+          "Christian",
+          "Sikh",
+          "Buddhist",
+          "Jain",
+          "Parsi",
+          "Other"
+        ],
+        "caste": [
+          "General",
+          "SC",
+          "ST",
+          "OBC"
+        ],
+        "minority": false,
+        "disability": false
+      },
+      "employment": {
+        "employmentStatus": [
+          "unemployed",
+          "student"
+        ],
+        "occupations": []
+      }
+    },
+    "benefits": [
+      "Free or subsidized skill training programs",
+      "Certification after course completion",
+      "Improved job opportunities within Maharashtra",
+      "Placement assistance in selected programs"
+    ],
+    "documentsRequired": [
+      "Aadhaar Card",
+      "Domicile Certificate",
+      "Educational Qualification Proof",
+      "Bank Account Details",
+      "Photograph"
+    ],
+    "applicationUrl": "https://msde.maharashtra.gov.in/",
+    "trackingMeta": {
+      "type": "direct",
+      "instructions": [
+        "Visit the nearest Seva Kendra with required documents.",
+        "Submit the application form along with Aadhaar card copy.",
+        "Wait for verification from the nodal department.",
+        "Check application status online using your reference ID."
+      ]
+    },
+    "status": "published"
+  },
+  {
+    "id": "scheme_startup_india",
+    "title": "Startup India Scheme",
+    "description": "Startup India is an initiative to promote entrepreneurship by providing support to startups through funding, tax benefits, and simplified compliance processes.",
+    "ministry": "Department for Promotion of Industry and Internal Trade",
+    "category": "Entrepreneurship",
+    "tags": [
+      "startup",
+      "business",
+      "innovation"
+    ],
+    "eligibility": {
+      "age": {
+        "min": 18,
+        "max": 150
+      },
+      "income": {
+        "min": 0,
+        "max": 99999999
+      },
+      "gender": "any",
+      "location": {
+        "country": "India",
+        "states": [
+          "Andhra Pradesh",
+          "Arunachal Pradesh",
+          "Assam",
+          "Bihar",
+          "Chhattisgarh",
+          "Goa",
+          "Gujarat",
+          "Haryana",
+          "Himachal Pradesh",
+          "Jharkhand",
+          "Karnataka",
+          "Kerala",
+          "Madhya Pradesh",
+          "Maharashtra",
+          "Manipur",
+          "Meghalaya",
+          "Mizoram",
+          "Nagaland",
+          "Odisha",
+          "Punjab",
+          "Rajasthan",
+          "Sikkim",
+          "Tamil Nadu",
+          "Telangana",
+          "Tripura",
+          "Uttar Pradesh",
+          "Uttarakhand",
+          "West Bengal",
+          "Andaman and Nicobar Islands",
+          "Chandigarh",
+          "Dadra and Nagar Haveli and Daman and Diu",
+          "Delhi",
+          "Jammu and Kashmir",
+          "Ladakh",
+          "Lakshadweep",
+          "Puducherry"
+        ],
+        "districts": [],
+        "ruralOnly": false,
+        "urbanOnly": false
+      },
+      "social": {
+        "religion": [
+          "Hindu",
+          "Muslim",
+          "Christian",
+          "Sikh",
+          "Buddhist",
+          "Jain",
+          "Parsi",
+          "Other"
+        ],
+        "caste": [
+          "General",
+          "SC",
+          "ST",
+          "OBC"
+        ],
+        "minority": false,
+        "disability": false
+      },
+      "employment": {
+        "employmentStatus": [
+          "self_employed",
+          "unemployed"
+        ],
+        "occupations": []
+      }
+    },
+    "benefits": [
+      "Tax exemption for eligible startups for up to 3 years",
+      "Access to funding support and venture capital",
+      "Simplified compliance and registration process",
+      "Support for innovation and entrepreneurship development"
+    ],
+    "documentsRequired": [
+      "Aadhaar Card",
+      "Business Registration Certificate",
+      "PAN Card",
+      "Bank Account Details",
+      "Business Plan",
+      "Photograph"
+    ],
+    "applicationUrl": "https://www.startupindia.gov.in/",
+    "trackingMeta": {
+      "type": "multi_step",
+      "instructions": [
+        "Visit the nearest Seva Kendra with required documents.",
+        "Submit the application form along with Aadhaar card copy.",
+        "Wait for verification from the nodal department.",
+        "Check application status online using your reference ID."
+      ]
+    },
+    "status": "published"
+  },
+  {
+    "id": "scheme_icds",
+    "title": "Integrated Child Development Services (ICDS)",
+    "description": "ICDS is a flagship scheme aimed at improving the health, nutrition, and development of children under 6 years of age, as well as pregnant and lactating mothers.",
+    "ministry": "Ministry of Women and Child Development",
+    "category": "Women & Child",
+    "tags": [
+      "child",
+      "nutrition",
+      "health"
+    ],
+    "eligibility": {
+      "age": {
+        "min": 0,
+        "max": 6
+      },
+      "income": {
+        "min": 0,
+        "max": 99999999
+      },
+      "gender": "any",
+      "location": {
+        "country": "India",
+        "states": [
+          "Andhra Pradesh",
+          "Arunachal Pradesh",
+          "Assam",
+          "Bihar",
+          "Chhattisgarh",
+          "Goa",
+          "Gujarat",
+          "Haryana",
+          "Himachal Pradesh",
+          "Jharkhand",
+          "Karnataka",
+          "Kerala",
+          "Madhya Pradesh",
+          "Maharashtra",
+          "Manipur",
+          "Meghalaya",
+          "Mizoram",
+          "Nagaland",
+          "Odisha",
+          "Punjab",
+          "Rajasthan",
+          "Sikkim",
+          "Tamil Nadu",
+          "Telangana",
+          "Tripura",
+          "Uttar Pradesh",
+          "Uttarakhand",
+          "West Bengal",
+          "Andaman and Nicobar Islands",
+          "Chandigarh",
+          "Dadra and Nagar Haveli and Daman and Diu",
+          "Delhi",
+          "Jammu and Kashmir",
+          "Ladakh",
+          "Lakshadweep",
+          "Puducherry"
+        ],
+        "districts": [],
+        "ruralOnly": false,
+        "urbanOnly": false
+      },
+      "social": {
+        "religion": [
+          "Hindu",
+          "Muslim",
+          "Christian",
+          "Sikh",
+          "Buddhist",
+          "Jain",
+          "Parsi",
+          "Other"
+        ],
+        "caste": [
+          "General",
+          "SC",
+          "ST",
+          "OBC"
+        ],
+        "minority": false,
+        "disability": false
+      },
+      "employment": {
+        "employmentStatus": [
+          "homemaker",
+          "unemployed"
+        ],
+        "occupations": []
+      }
+    },
+    "benefits": [
+      "Free supplementary nutrition for children and mothers",
+      "Health check-ups and immunization support",
+      "Pre-school non-formal education services",
+      "Improves child health and reduces malnutrition"
+    ],
+    "documentsRequired": [
+      "Aadhaar Card",
+      "Birth Certificate of Child",
+      "Mother's ID Proof",
+      "Residence Proof",
+      "Health Records",
+      "Photograph"
+    ],
+    "applicationUrl": "https://icds-wcd.nic.in/",
+    "trackingMeta": {
+      "type": "none",
+      "instructions": [
+        "Visit the nearest Seva Kendra with required documents.",
+        "Submit the application form along with Aadhaar card copy.",
+        "Wait for verification from the nodal department.",
+        "Check application status online using your reference ID."
+      ]
+    },
+    "status": "published"
+  },
+  {
+    "id": "scheme_pmmvy",
+    "title": "Pradhan Mantri Matru Vandana Yojana (PMMVY)",
+    "description": "PMMVY is a maternity benefit scheme providing financial assistance to pregnant and lactating women for their first live birth.",
+    "ministry": "Ministry of Women and Child Development",
+    "category": "Women Welfare",
+    "tags": [
+      "pregnancy",
+      "women",
+      "nutrition"
+    ],
+    "eligibility": {
+      "age": {
+        "min": 19,
+        "max": 150
+      },
+      "income": {
+        "min": 0,
+        "max": 99999999
+      },
+      "gender": "female",
+      "location": {
+        "country": "India",
+        "states": [
+          "Andhra Pradesh",
+          "Arunachal Pradesh",
+          "Assam",
+          "Bihar",
+          "Chhattisgarh",
+          "Goa",
+          "Gujarat",
+          "Haryana",
+          "Himachal Pradesh",
+          "Jharkhand",
+          "Karnataka",
+          "Kerala",
+          "Madhya Pradesh",
+          "Maharashtra",
+          "Manipur",
+          "Meghalaya",
+          "Mizoram",
+          "Nagaland",
+          "Odisha",
+          "Punjab",
+          "Rajasthan",
+          "Sikkim",
+          "Tamil Nadu",
+          "Telangana",
+          "Tripura",
+          "Uttar Pradesh",
+          "Uttarakhand",
+          "West Bengal",
+          "Andaman and Nicobar Islands",
+          "Chandigarh",
+          "Dadra and Nagar Haveli and Daman and Diu",
+          "Delhi",
+          "Jammu and Kashmir",
+          "Ladakh",
+          "Lakshadweep",
+          "Puducherry"
+        ],
+        "districts": [],
+        "ruralOnly": false,
+        "urbanOnly": false
+      },
+      "social": {
+        "religion": [
+          "Hindu",
+          "Muslim",
+          "Christian",
+          "Sikh",
+          "Buddhist",
+          "Jain",
+          "Parsi",
+          "Other"
+        ],
+        "caste": [
+          "General",
+          "SC",
+          "ST",
+          "OBC"
+        ],
+        "minority": false,
+        "disability": false
+      },
+      "employment": {
+        "employmentStatus": [
+          "homemaker",
+          "employed",
+          "laborer"
+        ],
+        "occupations": []
+      }
+    },
+    "benefits": [
+      "₹5000 financial assistance provided in installments",
+      "Supports maternal nutrition and health care",
+      "Encourages institutional delivery and proper care",
+      "Helps compensate for wage loss during pregnancy"
+    ],
+    "documentsRequired": [
+      "Aadhaar Card",
+      "Pregnancy Registration Certificate",
+      "Bank Account Details",
+      "Health Card",
+      "Residence Proof",
+      "Photograph"
+    ],
+    "applicationUrl": "https://pmmvy.wcd.gov.in/",
+    "trackingMeta": {
+      "type": "multi_step",
+      "instructions": [
+        "Visit the nearest Seva Kendra with required documents.",
+        "Submit the application form along with Aadhaar card copy.",
+        "Wait for verification from the nodal department.",
+        "Check application status online using your reference ID."
+      ]
+    },
+    "status": "published"
+  },
+  {
+    "id": "scheme_indira_gandhi_pension",
+    "title": "Indira Gandhi National Old Age Pension Scheme (IGNOAPS)",
+    "description": "IGNOAPS provides monthly pension to elderly individuals belonging to below poverty line households.",
+    "ministry": "Ministry of Rural Development",
+    "category": "Pension",
+    "tags": [
+      "pension",
+      "elderly",
+      "financial support"
+    ],
+    "eligibility": {
+      "age": {
+        "min": 60,
+        "max": 150
+      },
+      "income": {
+        "min": 0,
+        "max": 200000
+      },
+      "gender": "any",
+      "location": {
+        "country": "India",
+        "states": [
+          "Andhra Pradesh",
+          "Arunachal Pradesh",
+          "Assam",
+          "Bihar",
+          "Chhattisgarh",
+          "Goa",
+          "Gujarat",
+          "Haryana",
+          "Himachal Pradesh",
+          "Jharkhand",
+          "Karnataka",
+          "Kerala",
+          "Madhya Pradesh",
+          "Maharashtra",
+          "Manipur",
+          "Meghalaya",
+          "Mizoram",
+          "Nagaland",
+          "Odisha",
+          "Punjab",
+          "Rajasthan",
+          "Sikkim",
+          "Tamil Nadu",
+          "Telangana",
+          "Tripura",
+          "Uttar Pradesh",
+          "Uttarakhand",
+          "West Bengal",
+          "Andaman and Nicobar Islands",
+          "Chandigarh",
+          "Dadra and Nagar Haveli and Daman and Diu",
+          "Delhi",
+          "Jammu and Kashmir",
+          "Ladakh",
+          "Lakshadweep",
+          "Puducherry"
+        ],
+        "districts": [],
+        "ruralOnly": false,
+        "urbanOnly": false
+      },
+      "social": {
+        "religion": [
+          "Hindu",
+          "Muslim",
+          "Christian",
+          "Sikh",
+          "Buddhist",
+          "Jain",
+          "Parsi",
+          "Other"
+        ],
+        "caste": [
+          "General",
+          "SC",
+          "ST",
+          "OBC"
+        ],
+        "minority": false,
+        "disability": false
+      },
+      "employment": {
+        "employmentStatus": [
+          "unemployed",
+          "other"
+        ],
+        "occupations": []
+      }
+    },
+    "benefits": [
+      "₹200–₹500 monthly pension depending on age group",
+      "Additional state pension benefits in some states",
+      "Provides financial support to elderly citizens",
+      "Ensures basic livelihood security"
+    ],
+    "documentsRequired": [
+      "Aadhaar Card",
+      "Age Proof",
+      "Income Certificate",
+      "Bank Account Details",
+      "Residence Proof",
+      "Photograph"
+    ],
+    "applicationUrl": "https://nsap.nic.in/",
+    "trackingMeta": {
+      "type": "direct",
+      "instructions": [
+        "Visit the nearest Seva Kendra with required documents.",
+        "Submit the application form along with Aadhaar card copy.",
+        "Wait for verification from the nodal department.",
+        "Check application status online using your reference ID."
+      ]
+    },
+    "status": "published"
+  },
+  {
+    "id": "scheme_national_family_benefit",
+    "title": "National Family Benefit Scheme (NFBS)",
+    "description": "NFBS provides a one-time financial assistance to families living below poverty line in the event of the death of the primary breadwinner.",
+    "ministry": "Ministry of Rural Development",
+    "category": "Social Welfare",
+    "tags": [
+      "family",
+      "financial aid",
+      "BPL"
+    ],
+    "eligibility": {
+      "age": {
+        "min": 0,
+        "max": 150
+      },
+      "income": {
+        "min": 0,
+        "max": 200000
+      },
+      "gender": "any",
+      "location": {
+        "country": "India",
+        "states": [
+          "Andhra Pradesh",
+          "Arunachal Pradesh",
+          "Assam",
+          "Bihar",
+          "Chhattisgarh",
+          "Goa",
+          "Gujarat",
+          "Haryana",
+          "Himachal Pradesh",
+          "Jharkhand",
+          "Karnataka",
+          "Kerala",
+          "Madhya Pradesh",
+          "Maharashtra",
+          "Manipur",
+          "Meghalaya",
+          "Mizoram",
+          "Nagaland",
+          "Odisha",
+          "Punjab",
+          "Rajasthan",
+          "Sikkim",
+          "Tamil Nadu",
+          "Telangana",
+          "Tripura",
+          "Uttar Pradesh",
+          "Uttarakhand",
+          "West Bengal",
+          "Andaman and Nicobar Islands",
+          "Chandigarh",
+          "Dadra and Nagar Haveli and Daman and Diu",
+          "Delhi",
+          "Jammu and Kashmir",
+          "Ladakh",
+          "Lakshadweep",
+          "Puducherry"
+        ],
+        "districts": [],
+        "ruralOnly": false,
+        "urbanOnly": false
+      },
+      "social": {
+        "religion": [
+          "Hindu",
+          "Muslim",
+          "Christian",
+          "Sikh",
+          "Buddhist",
+          "Jain",
+          "Parsi",
+          "Other"
+        ],
+        "caste": [
+          "General",
+          "SC",
+          "ST",
+          "OBC"
+        ],
+        "minority": false,
+        "disability": false
+      },
+      "employment": {
+        "employmentStatus": [
+          "unemployed",
+          "laborer",
+          "homemaker"
+        ],
+        "occupations": []
+      }
+    },
+    "benefits": [
+      "₹20000 one-time financial assistance",
+      "Supports family after death of primary earning member",
+      "Helps manage immediate financial crisis",
+      "Provides social security to vulnerable families"
+    ],
+    "documentsRequired": [
+      "Aadhaar Card",
+      "Death Certificate",
+      "Income Certificate",
+      "Bank Account Details",
+      "Residence Proof",
+      "Photograph"
+    ],
+    "applicationUrl": "https://nsap.nic.in/",
+    "trackingMeta": {
+      "type": "multi_step",
+      "instructions": [
+        "Visit the nearest Seva Kendra with required documents.",
+        "Submit the application form along with Aadhaar card copy.",
+        "Wait for verification from the nodal department.",
+        "Check application status online using your reference ID."
+      ]
+    },
+    "status": "published"
+  },
+  {
+    "id": "scheme_maha_old_age_pension",
+    "title": "Maharashtra Old Age Pension Scheme",
+    "description": "This scheme provides monthly financial assistance to elderly citizens in Maharashtra who belong to economically weaker sections.",
+    "ministry": "Government of Maharashtra",
+    "category": "Pension",
+    "tags": [
+      "maharashtra",
+      "elderly",
+      "pension"
+    ],
+    "eligibility": {
+      "age": {
+        "min": 60,
+        "max": 150
+      },
+      "income": {
+        "min": 0,
+        "max": 200000
+      },
+      "gender": "any",
+      "location": {
+        "country": "India",
+        "states": [
+          "Maharashtra"
+        ],
+        "districts": [],
+        "ruralOnly": false,
+        "urbanOnly": false
+      },
+      "social": {
+        "religion": [
+          "Hindu",
+          "Muslim",
+          "Christian",
+          "Sikh",
+          "Buddhist",
+          "Jain",
+          "Parsi",
+          "Other"
+        ],
+        "caste": [
+          "General",
+          "SC",
+          "ST",
+          "OBC"
+        ],
+        "minority": false,
+        "disability": false
+      },
+      "employment": {
+        "employmentStatus": [
+          "unemployed",
+          "other"
+        ],
+        "occupations": []
+      }
+    },
+    "benefits": [
+      "₹1000–₹1500 monthly pension depending on eligibility",
+      "Direct transfer to beneficiary bank account",
+      "Provides financial support for daily needs",
+      "Enhances dignity and independence of senior citizens"
+    ],
+    "documentsRequired": [
+      "Aadhaar Card",
+      "Age Proof",
+      "Domicile Certificate",
+      "Income Certificate",
+      "Bank Account Details",
+      "Photograph"
+    ],
+    "applicationUrl": "https://maharashtra.gov.in/",
+    "trackingMeta": {
+      "type": "direct",
+      "instructions": [
+        "Visit the nearest Seva Kendra with required documents.",
+        "Submit the application form along with Aadhaar card copy.",
+        "Wait for verification from the nodal department.",
+        "Check application status online using your reference ID."
+      ]
+    },
+    "status": "published"
+  },
+  {
+    "id": "scheme_pmfby",
+    "title": "Pradhan Mantri Fasal Bima Yojana (PMFBY)",
+    "description": "PMFBY is a crop insurance scheme that provides financial protection to farmers against crop loss due to natural calamities, pests, and diseases.",
+    "ministry": "Ministry of Agriculture and Farmers Welfare",
+    "category": "Agriculture",
+    "tags": [
+      "farmer",
+      "insurance",
+      "crop"
+    ],
+    "eligibility": {
+      "age": {
+        "min": 18,
+        "max": 150
+      },
+      "income": {
+        "min": 0,
+        "max": 99999999
+      },
+      "gender": "any",
+      "location": {
+        "country": "India",
+        "states": [
+          "Andhra Pradesh",
+          "Arunachal Pradesh",
+          "Assam",
+          "Bihar",
+          "Chhattisgarh",
+          "Goa",
+          "Gujarat",
+          "Haryana",
+          "Himachal Pradesh",
+          "Jharkhand",
+          "Karnataka",
+          "Kerala",
+          "Madhya Pradesh",
+          "Maharashtra",
+          "Manipur",
+          "Meghalaya",
+          "Mizoram",
+          "Nagaland",
+          "Odisha",
+          "Punjab",
+          "Rajasthan",
+          "Sikkim",
+          "Tamil Nadu",
+          "Telangana",
+          "Tripura",
+          "Uttar Pradesh",
+          "Uttarakhand",
+          "West Bengal",
+          "Andaman and Nicobar Islands",
+          "Chandigarh",
+          "Dadra and Nagar Haveli and Daman and Diu",
+          "Delhi",
+          "Jammu and Kashmir",
+          "Ladakh",
+          "Lakshadweep",
+          "Puducherry"
+        ],
+        "districts": [],
+        "ruralOnly": false,
+        "urbanOnly": false
+      },
+      "social": {
+        "religion": [
+          "Hindu",
+          "Muslim",
+          "Christian",
+          "Sikh",
+          "Buddhist",
+          "Jain",
+          "Parsi",
+          "Other"
+        ],
+        "caste": [
+          "General",
+          "SC",
+          "ST",
+          "OBC"
+        ],
+        "minority": false,
+        "disability": false
+      },
+      "employment": {
+        "employmentStatus": [
+          "farmer"
+        ],
+        "occupations": []
+      }
+    },
+    "benefits": [
+      "Crop insurance coverage against natural disasters and crop failure",
+      "Premium rates as low as 2% for Kharif crops and 1.5% for Rabi crops",
+      "Financial compensation based on crop loss assessment",
+      "Stabilizes farmer income and reduces risk"
+    ],
+    "documentsRequired": [
+      "Aadhaar Card",
+      "Land Records",
+      "Bank Account Details",
+      "Crop Sowing Certificate",
+      "Residence Proof",
+      "Photograph"
+    ],
+    "applicationUrl": "https://pmfby.gov.in/",
+    "trackingMeta": {
+      "type": "login_required",
+      "instructions": [
+        "Visit the nearest Seva Kendra with required documents.",
+        "Submit the application form along with Aadhaar card copy.",
+        "Wait for verification from the nodal department.",
+        "Check application status online using your reference ID."
+      ]
+    },
+    "status": "published"
+  },
+  {
+    "id": "scheme_pmsby",
+    "title": "Pradhan Mantri Suraksha Bima Yojana (PMSBY)",
+    "description": "PMSBY is an accident insurance scheme offering coverage for accidental death and disability at a very low annual premium.",
+    "ministry": "Ministry of Finance",
+    "category": "Insurance",
+    "tags": [
+      "insurance",
+      "accident",
+      "low cost"
+    ],
+    "eligibility": {
+      "age": {
+        "min": 18,
+        "max": 70
+      },
+      "income": {
+        "min": 0,
+        "max": 99999999
+      },
+      "gender": "any",
+      "location": {
+        "country": "India",
+        "states": [
+          "Andhra Pradesh",
+          "Arunachal Pradesh",
+          "Assam",
+          "Bihar",
+          "Chhattisgarh",
+          "Goa",
+          "Gujarat",
+          "Haryana",
+          "Himachal Pradesh",
+          "Jharkhand",
+          "Karnataka",
+          "Kerala",
+          "Madhya Pradesh",
+          "Maharashtra",
+          "Manipur",
+          "Meghalaya",
+          "Mizoram",
+          "Nagaland",
+          "Odisha",
+          "Punjab",
+          "Rajasthan",
+          "Sikkim",
+          "Tamil Nadu",
+          "Telangana",
+          "Tripura",
+          "Uttar Pradesh",
+          "Uttarakhand",
+          "West Bengal",
+          "Andaman and Nicobar Islands",
+          "Chandigarh",
+          "Dadra and Nagar Haveli and Daman and Diu",
+          "Delhi",
+          "Jammu and Kashmir",
+          "Ladakh",
+          "Lakshadweep",
+          "Puducherry"
+        ],
+        "districts": [],
+        "ruralOnly": false,
+        "urbanOnly": false
+      },
+      "social": {
+        "religion": [
+          "Hindu",
+          "Muslim",
+          "Christian",
+          "Sikh",
+          "Buddhist",
+          "Jain",
+          "Parsi",
+          "Other"
+        ],
+        "caste": [
+          "General",
+          "SC",
+          "ST",
+          "OBC"
+        ],
+        "minority": false,
+        "disability": false
+      },
+      "employment": {
+        "employmentStatus": [
+          "employed",
+          "self_employed",
+          "laborer",
+          "farmer",
+          "unemployed"
+        ],
+        "occupations": []
+      }
+    },
+    "benefits": [
+      "₹2 lakh insurance coverage for accidental death or full disability",
+      "₹1 lakh coverage for partial disability",
+      "Affordable premium of ₹20 per year",
+      "Provides financial security to families in case of accidents"
+    ],
+    "documentsRequired": [
+      "Aadhaar Card",
+      "Bank Account Details",
+      "Consent Form",
+      "Mobile Number",
+      "Photograph"
+    ],
+    "applicationUrl": "https://jansuraksha.gov.in/",
+    "trackingMeta": {
+      "type": "direct",
+      "instructions": [
+        "Visit the nearest Seva Kendra with required documents.",
+        "Submit the application form along with Aadhaar card copy.",
+        "Wait for verification from the nodal department.",
+        "Check application status online using your reference ID."
+      ]
+    },
+    "status": "published"
+  },
+  {
+    "id": "scheme_pmyjy",
+    "title": "Pradhan Mantri Jeevan Jyoti Bima Yojana (PMJJBY)",
+    "description": "PMJJBY is a life insurance scheme providing coverage in case of death due to any cause.",
+    "ministry": "Ministry of Finance",
+    "category": "Insurance",
+    "tags": [
+      "insurance",
+      "life",
+      "financial security"
+    ],
+    "eligibility": {
+      "age": {
+        "min": 18,
+        "max": 50
+      },
+      "income": {
+        "min": 0,
+        "max": 99999999
+      },
+      "gender": "any",
+      "location": {
+        "country": "India",
+        "states": [
+          "Andhra Pradesh",
+          "Arunachal Pradesh",
+          "Assam",
+          "Bihar",
+          "Chhattisgarh",
+          "Goa",
+          "Gujarat",
+          "Haryana",
+          "Himachal Pradesh",
+          "Jharkhand",
+          "Karnataka",
+          "Kerala",
+          "Madhya Pradesh",
+          "Maharashtra",
+          "Manipur",
+          "Meghalaya",
+          "Mizoram",
+          "Nagaland",
+          "Odisha",
+          "Punjab",
+          "Rajasthan",
+          "Sikkim",
+          "Tamil Nadu",
+          "Telangana",
+          "Tripura",
+          "Uttar Pradesh",
+          "Uttarakhand",
+          "West Bengal",
+          "Andaman and Nicobar Islands",
+          "Chandigarh",
+          "Dadra and Nagar Haveli and Daman and Diu",
+          "Delhi",
+          "Jammu and Kashmir",
+          "Ladakh",
+          "Lakshadweep",
+          "Puducherry"
+        ],
+        "districts": [],
+        "ruralOnly": false,
+        "urbanOnly": false
+      },
+      "social": {
+        "religion": [
+          "Hindu",
+          "Muslim",
+          "Christian",
+          "Sikh",
+          "Buddhist",
+          "Jain",
+          "Parsi",
+          "Other"
+        ],
+        "caste": [
+          "General",
+          "SC",
+          "ST",
+          "OBC"
+        ],
+        "minority": false,
+        "disability": false
+      },
+      "employment": {
+        "employmentStatus": [
+          "employed",
+          "self_employed",
+          "laborer",
+          "farmer",
+          "unemployed"
+        ],
+        "occupations": []
+      }
+    },
+    "benefits": [
+      "₹2 lakh life insurance coverage in case of death",
+      "Affordable premium of ₹436 per year",
+      "Renewable annually through bank account",
+      "Provides financial protection to family members"
+    ],
+    "documentsRequired": [
+      "Aadhaar Card",
+      "Bank Account Details",
+      "Consent Form",
+      "Mobile Number",
+      "Photograph"
+    ],
+    "applicationUrl": "https://jansuraksha.gov.in/",
+    "trackingMeta": {
+      "type": "direct",
+      "instructions": [
+        "Visit the nearest Seva Kendra with required documents.",
+        "Submit the application form along with Aadhaar card copy.",
+        "Wait for verification from the nodal department.",
+        "Check application status online using your reference ID."
+      ]
+    },
+    "status": "published"
+  },
+  {
+    "id": "scheme_pmay_jan_dhan",
+    "title": "Pradhan Mantri Jan Dhan Yojana (PMJDY)",
+    "description": "PMJDY is a financial inclusion program aimed at providing universal access to banking services such as savings accounts, credit, insurance, and pension facilities to all households.",
+    "ministry": "Ministry of Finance",
+    "category": "Financial Inclusion",
+    "tags": [
+      "banking",
+      "financial inclusion",
+      "DBT"
+    ],
+    "eligibility": {
+      "age": {
+        "min": 10,
+        "max": 150
+      },
+      "income": {
+        "min": 0,
+        "max": 99999999
+      },
+      "gender": "any",
+      "location": {
+        "country": "India",
+        "states": [
+          "Andhra Pradesh",
+          "Arunachal Pradesh",
+          "Assam",
+          "Bihar",
+          "Chhattisgarh",
+          "Goa",
+          "Gujarat",
+          "Haryana",
+          "Himachal Pradesh",
+          "Jharkhand",
+          "Karnataka",
+          "Kerala",
+          "Madhya Pradesh",
+          "Maharashtra",
+          "Manipur",
+          "Meghalaya",
+          "Mizoram",
+          "Nagaland",
+          "Odisha",
+          "Punjab",
+          "Rajasthan",
+          "Sikkim",
+          "Tamil Nadu",
+          "Telangana",
+          "Tripura",
+          "Uttar Pradesh",
+          "Uttarakhand",
+          "West Bengal",
+          "Andaman and Nicobar Islands",
+          "Chandigarh",
+          "Dadra and Nagar Haveli and Daman and Diu",
+          "Delhi",
+          "Jammu and Kashmir",
+          "Ladakh",
+          "Lakshadweep",
+          "Puducherry"
+        ],
+        "districts": [],
+        "ruralOnly": false,
+        "urbanOnly": false
+      },
+      "social": {
+        "religion": [
+          "Hindu",
+          "Muslim",
+          "Christian",
+          "Sikh",
+          "Buddhist",
+          "Jain",
+          "Parsi",
+          "Other"
+        ],
+        "caste": [
+          "General",
+          "SC",
+          "ST",
+          "OBC"
+        ],
+        "minority": false,
+        "disability": false
+      },
+      "employment": {
+        "employmentStatus": [
+          "unemployed",
+          "laborer",
+          "farmer",
+          "homemaker",
+          "other"
+        ],
+        "occupations": []
+      }
+    },
+    "benefits": [
+      "Zero balance bank account facility",
+      "₹2 lakh accident insurance cover with RuPay card",
+      "Overdraft facility up to ₹10000 for eligible account holders",
+      "Direct benefit transfer of government subsidies"
+    ],
+    "documentsRequired": [
+      "Aadhaar Card",
+      "Identity Proof",
+      "Address Proof",
+      "Mobile Number",
+      "Photograph"
+    ],
+    "applicationUrl": "https://pmjdy.gov.in/",
+    "trackingMeta": {
+      "type": "direct",
+      "instructions": [
+        "Visit the nearest Seva Kendra with required documents.",
+        "Submit the application form along with Aadhaar card copy.",
+        "Wait for verification from the nodal department.",
+        "Check application status online using your reference ID."
+      ]
+    },
+    "status": "published"
+  },
+  {
+    "id": "scheme_nrLM",
+    "title": "National Rural Livelihood Mission (NRLM)",
+    "description": "NRLM aims to reduce poverty by promoting self-employment and organization of rural poor into self-help groups (SHGs).",
+    "ministry": "Ministry of Rural Development",
+    "category": "Rural Development",
+    "tags": [
+      "rural",
+      "livelihood",
+      "SHG"
+    ],
+    "eligibility": {
+      "age": {
+        "min": 18,
+        "max": 150
+      },
+      "income": {
+        "min": 0,
+        "max": 300000
+      },
+      "gender": "any",
+      "location": {
+        "country": "India",
+        "states": [
+          "Andhra Pradesh",
+          "Arunachal Pradesh",
+          "Assam",
+          "Bihar",
+          "Chhattisgarh",
+          "Goa",
+          "Gujarat",
+          "Haryana",
+          "Himachal Pradesh",
+          "Jharkhand",
+          "Karnataka",
+          "Kerala",
+          "Madhya Pradesh",
+          "Maharashtra",
+          "Manipur",
+          "Meghalaya",
+          "Mizoram",
+          "Nagaland",
+          "Odisha",
+          "Punjab",
+          "Rajasthan",
+          "Sikkim",
+          "Tamil Nadu",
+          "Telangana",
+          "Tripura",
+          "Uttar Pradesh",
+          "Uttarakhand",
+          "West Bengal",
+          "Andaman and Nicobar Islands",
+          "Chandigarh",
+          "Dadra and Nagar Haveli and Daman and Diu",
+          "Delhi",
+          "Jammu and Kashmir",
+          "Ladakh",
+          "Lakshadweep",
+          "Puducherry"
+        ],
+        "districts": [],
+        "ruralOnly": true,
+        "urbanOnly": false
+      },
+      "social": {
+        "religion": [
+          "Hindu",
+          "Muslim",
+          "Christian",
+          "Sikh",
+          "Buddhist",
+          "Jain",
+          "Parsi",
+          "Other"
+        ],
+        "caste": [
+          "General",
+          "SC",
+          "ST",
+          "OBC"
+        ],
+        "minority": false,
+        "disability": false
+      },
+      "employment": {
+        "employmentStatus": [
+          "unemployed",
+          "self_employed",
+          "homemaker"
+        ],
+        "occupations": []
+      }
+    },
+    "benefits": [
+      "Financial assistance for self-help groups",
+      "Skill development and training programs",
+      "Access to credit and bank linkage",
+      "Supports sustainable livelihood opportunities"
+    ],
+    "documentsRequired": [
+      "Aadhaar Card",
+      "Income Certificate",
+      "Residence Proof",
+      "Bank Account Details",
+      "SHG Registration Details",
+      "Photograph"
+    ],
+    "applicationUrl": "https://nrlm.gov.in/",
+    "trackingMeta": {
+      "type": "multi_step",
+      "instructions": [
+        "Visit the nearest Seva Kendra with required documents.",
+        "Submit the application form along with Aadhaar card copy.",
+        "Wait for verification from the nodal department.",
+        "Check application status online using your reference ID."
+      ]
+    },
+    "status": "published"
+  },
+  {
+    "id": "scheme_digital_india",
+    "title": "Digital India Programme",
+    "description": "Digital India is a flagship initiative aimed at transforming India into a digitally empowered society and knowledge economy.",
+    "ministry": "Ministry of Electronics and Information Technology",
+    "category": "Digital Development",
+    "tags": [
+      "digital",
+      "technology",
+      "internet"
+    ],
+    "eligibility": {
+      "age": {
+        "min": 0,
+        "max": 150
+      },
+      "income": {
+        "min": 0,
+        "max": 99999999
+      },
+      "gender": "any",
+      "location": {
+        "country": "India",
+        "states": [
+          "Andhra Pradesh",
+          "Arunachal Pradesh",
+          "Assam",
+          "Bihar",
+          "Chhattisgarh",
+          "Goa",
+          "Gujarat",
+          "Haryana",
+          "Himachal Pradesh",
+          "Jharkhand",
+          "Karnataka",
+          "Kerala",
+          "Madhya Pradesh",
+          "Maharashtra",
+          "Manipur",
+          "Meghalaya",
+          "Mizoram",
+          "Nagaland",
+          "Odisha",
+          "Punjab",
+          "Rajasthan",
+          "Sikkim",
+          "Tamil Nadu",
+          "Telangana",
+          "Tripura",
+          "Uttar Pradesh",
+          "Uttarakhand",
+          "West Bengal",
+          "Andaman and Nicobar Islands",
+          "Chandigarh",
+          "Dadra and Nagar Haveli and Daman and Diu",
+          "Delhi",
+          "Jammu and Kashmir",
+          "Ladakh",
+          "Lakshadweep",
+          "Puducherry"
+        ],
+        "districts": [],
+        "ruralOnly": false,
+        "urbanOnly": false
+      },
+      "social": {
+        "religion": [
+          "Hindu",
+          "Muslim",
+          "Christian",
+          "Sikh",
+          "Buddhist",
+          "Jain",
+          "Parsi",
+          "Other"
+        ],
+        "caste": [
+          "General",
+          "SC",
+          "ST",
+          "OBC"
+        ],
+        "minority": false,
+        "disability": false
+      },
+      "employment": {
+        "employmentStatus": [
+          "student",
+          "employed",
+          "unemployed",
+          "self_employed",
+          "other"
+        ],
+        "occupations": []
+      }
+    },
+    "benefits": [
+      "Access to digital services and e-governance platforms",
+      "Improved internet connectivity across rural and urban areas",
+      "Promotes digital literacy and online access to services",
+      "Supports growth of digital infrastructure"
+    ],
+    "documentsRequired": [
+      "Aadhaar Card",
+      "Mobile Number",
+      "Email ID",
+      "Basic Identity Proof"
+    ],
+    "applicationUrl": "https://digitalindia.gov.in/",
+    "trackingMeta": {
+      "type": "none",
+      "instructions": [
+        "Visit the nearest Seva Kendra with required documents.",
+        "Submit the application form along with Aadhaar card copy.",
+        "Wait for verification from the nodal department.",
+        "Check application status online using your reference ID."
+      ]
+    },
+    "status": "published"
+  },
+  {
+    "id": "scheme_swayam",
+    "title": "SWAYAM Online Education Platform",
+    "description": "SWAYAM is an online education platform that provides free courses from school level to postgraduate level.",
+    "ministry": "Ministry of Education",
+    "category": "Education",
+    "tags": [
+      "online learning",
+      "student",
+      "digital"
+    ],
+    "eligibility": {
+      "age": {
+        "min": 14,
+        "max": 150
+      },
+      "income": {
+        "min": 0,
+        "max": 99999999
+      },
+      "gender": "any",
+      "location": {
+        "country": "India",
+        "states": [
+          "Andhra Pradesh",
+          "Arunachal Pradesh",
+          "Assam",
+          "Bihar",
+          "Chhattisgarh",
+          "Goa",
+          "Gujarat",
+          "Haryana",
+          "Himachal Pradesh",
+          "Jharkhand",
+          "Karnataka",
+          "Kerala",
+          "Madhya Pradesh",
+          "Maharashtra",
+          "Manipur",
+          "Meghalaya",
+          "Mizoram",
+          "Nagaland",
+          "Odisha",
+          "Punjab",
+          "Rajasthan",
+          "Sikkim",
+          "Tamil Nadu",
+          "Telangana",
+          "Tripura",
+          "Uttar Pradesh",
+          "Uttarakhand",
+          "West Bengal",
+          "Andaman and Nicobar Islands",
+          "Chandigarh",
+          "Dadra and Nagar Haveli and Daman and Diu",
+          "Delhi",
+          "Jammu and Kashmir",
+          "Ladakh",
+          "Lakshadweep",
+          "Puducherry"
+        ],
+        "districts": [],
+        "ruralOnly": false,
+        "urbanOnly": false
+      },
+      "social": {
+        "religion": [
+          "Hindu",
+          "Muslim",
+          "Christian",
+          "Sikh",
+          "Buddhist",
+          "Jain",
+          "Parsi",
+          "Other"
+        ],
+        "caste": [
+          "General",
+          "SC",
+          "ST",
+          "OBC"
+        ],
+        "minority": false,
+        "disability": false
+      },
+      "employment": {
+        "employmentStatus": [
+          "student",
+          "unemployed",
+          "employed"
+        ],
+        "occupations": []
+      }
+    },
+    "benefits": [
+      "Free access to online courses from top institutions",
+      "Certification available at low cost",
+      "Flexible learning for students and professionals",
+      "Enhances skills and knowledge digitally"
+    ],
+    "documentsRequired": [
+      "Aadhaar Card",
+      "Email ID",
+      "Mobile Number"
+    ],
+    "applicationUrl": "https://swayam.gov.in/",
+    "trackingMeta": {
+      "type": "direct",
+      "instructions": [
+        "Visit the nearest Seva Kendra with required documents.",
+        "Submit the application form along with Aadhaar card copy.",
+        "Wait for verification from the nodal department.",
+        "Check application status online using your reference ID."
+      ]
+    },
+    "status": "published"
+  },
+  {
+    "id": "scheme_atal_tinkering",
+    "title": "Atal Tinkering Labs (ATL)",
+    "description": "Atal Tinkering Labs aim to foster innovation and creativity among school students by providing them with access to modern tools and technologies.",
+    "ministry": "NITI Aayog",
+    "category": "Innovation",
+    "tags": [
+      "innovation",
+      "students",
+      "technology"
+    ],
+    "eligibility": {
+      "age": {
+        "min": 6,
+        "max": 18
+      },
+      "income": {
+        "min": 0,
+        "max": 99999999
+      },
+      "gender": "any",
+      "location": {
+        "country": "India",
+        "states": [
+          "Andhra Pradesh",
+          "Arunachal Pradesh",
+          "Assam",
+          "Bihar",
+          "Chhattisgarh",
+          "Goa",
+          "Gujarat",
+          "Haryana",
+          "Himachal Pradesh",
+          "Jharkhand",
+          "Karnataka",
+          "Kerala",
+          "Madhya Pradesh",
+          "Maharashtra",
+          "Manipur",
+          "Meghalaya",
+          "Mizoram",
+          "Nagaland",
+          "Odisha",
+          "Punjab",
+          "Rajasthan",
+          "Sikkim",
+          "Tamil Nadu",
+          "Telangana",
+          "Tripura",
+          "Uttar Pradesh",
+          "Uttarakhand",
+          "West Bengal",
+          "Andaman and Nicobar Islands",
+          "Chandigarh",
+          "Dadra and Nagar Haveli and Daman and Diu",
+          "Delhi",
+          "Jammu and Kashmir",
+          "Ladakh",
+          "Lakshadweep",
+          "Puducherry"
+        ],
+        "districts": [],
+        "ruralOnly": false,
+        "urbanOnly": false
+      },
+      "social": {
+        "religion": [
+          "Hindu",
+          "Muslim",
+          "Christian",
+          "Sikh",
+          "Buddhist",
+          "Jain",
+          "Parsi",
+          "Other"
+        ],
+        "caste": [
+          "General",
+          "SC",
+          "ST",
+          "OBC"
+        ],
+        "minority": false,
+        "disability": false
+      },
+      "employment": {
+        "employmentStatus": [
+          "student"
+        ],
+        "occupations": []
+      }
+    },
+    "benefits": [
+      "Grant support up to ₹20 lakh for setting up labs in schools",
+      "Access to modern tools like robotics kits and 3D printers",
+      "Encourages innovation and problem-solving skills",
+      "Exposure to STEM education and entrepreneurship"
+    ],
+    "documentsRequired": [
+      "School Registration Certificate",
+      "Proposal Submission",
+      "Institution Details",
+      "Bank Account Details"
+    ],
+    "applicationUrl": "https://aim.gov.in/",
+    "trackingMeta": {
+      "type": "multi_step",
+      "instructions": [
+        "Visit the nearest Seva Kendra with required documents.",
+        "Submit the application form along with Aadhaar card copy.",
+        "Wait for verification from the nodal department.",
+        "Check application status online using your reference ID."
+      ]
+    },
+    "status": "published"
+  },
+  {
+    "id": "scheme_meity_startup",
+    "title": "MeitY Startup Hub Scheme",
+    "description": "The MeitY Startup Hub supports technology startups in India by providing incubation, funding support, mentorship, and networking opportunities.",
+    "ministry": "Ministry of Electronics and Information Technology",
+    "category": "Entrepreneurship",
+    "tags": [
+      "startup",
+      "tech",
+      "innovation"
+    ],
+    "eligibility": {
+      "age": {
+        "min": 18,
+        "max": 150
+      },
+      "income": {
+        "min": 0,
+        "max": 99999999
+      },
+      "gender": "any",
+      "location": {
+        "country": "India",
+        "states": [
+          "Andhra Pradesh",
+          "Arunachal Pradesh",
+          "Assam",
+          "Bihar",
+          "Chhattisgarh",
+          "Goa",
+          "Gujarat",
+          "Haryana",
+          "Himachal Pradesh",
+          "Jharkhand",
+          "Karnataka",
+          "Kerala",
+          "Madhya Pradesh",
+          "Maharashtra",
+          "Manipur",
+          "Meghalaya",
+          "Mizoram",
+          "Nagaland",
+          "Odisha",
+          "Punjab",
+          "Rajasthan",
+          "Sikkim",
+          "Tamil Nadu",
+          "Telangana",
+          "Tripura",
+          "Uttar Pradesh",
+          "Uttarakhand",
+          "West Bengal",
+          "Andaman and Nicobar Islands",
+          "Chandigarh",
+          "Dadra and Nagar Haveli and Daman and Diu",
+          "Delhi",
+          "Jammu and Kashmir",
+          "Ladakh",
+          "Lakshadweep",
+          "Puducherry"
+        ],
+        "districts": [],
+        "ruralOnly": false,
+        "urbanOnly": false
+      },
+      "social": {
+        "religion": [
+          "Hindu",
+          "Muslim",
+          "Christian",
+          "Sikh",
+          "Buddhist",
+          "Jain",
+          "Parsi",
+          "Other"
+        ],
+        "caste": [
+          "General",
+          "SC",
+          "ST",
+          "OBC"
+        ],
+        "minority": false,
+        "disability": false
+      },
+      "employment": {
+        "employmentStatus": [
+          "self_employed",
+          "unemployed"
+        ],
+        "occupations": []
+      }
+    },
+    "benefits": [
+      "Funding support up to ₹50 lakh for selected startups",
+      "Access to incubation centers and mentorship",
+      "Networking opportunities with industry experts",
+      "Support for scaling technology startups"
+    ],
+    "documentsRequired": [
+      "Aadhaar Card",
+      "Startup Registration Certificate",
+      "Business Plan",
+      "PAN Card",
+      "Bank Account Details"
+    ],
+    "applicationUrl": "https://www.meity.gov.in/",
+    "trackingMeta": {
+      "type": "multi_step",
+      "instructions": [
+        "Visit the nearest Seva Kendra with required documents.",
+        "Submit the application form along with Aadhaar card copy.",
+        "Wait for verification from the nodal department.",
+        "Check application status online using your reference ID."
+      ]
+    },
+    "status": "published"
+  },
+  {
+    "id": "scheme_national_apprenticeship",
+    "title": "National Apprenticeship Promotion Scheme (NAPS)",
+    "description": "NAPS promotes apprenticeship training and encourages employers to engage apprentices by providing financial incentives.",
+    "ministry": "Ministry of Skill Development and Entrepreneurship",
+    "category": "Skill Development",
+    "tags": [
+      "apprenticeship",
+      "training",
+      "youth"
+    ],
+    "eligibility": {
+      "age": {
+        "min": 16,
+        "max": 35
+      },
+      "income": {
+        "min": 0,
+        "max": 99999999
+      },
+      "gender": "any",
+      "location": {
+        "country": "India",
+        "states": [
+          "Andhra Pradesh",
+          "Arunachal Pradesh",
+          "Assam",
+          "Bihar",
+          "Chhattisgarh",
+          "Goa",
+          "Gujarat",
+          "Haryana",
+          "Himachal Pradesh",
+          "Jharkhand",
+          "Karnataka",
+          "Kerala",
+          "Madhya Pradesh",
+          "Maharashtra",
+          "Manipur",
+          "Meghalaya",
+          "Mizoram",
+          "Nagaland",
+          "Odisha",
+          "Punjab",
+          "Rajasthan",
+          "Sikkim",
+          "Tamil Nadu",
+          "Telangana",
+          "Tripura",
+          "Uttar Pradesh",
+          "Uttarakhand",
+          "West Bengal",
+          "Andaman and Nicobar Islands",
+          "Chandigarh",
+          "Dadra and Nagar Haveli and Daman and Diu",
+          "Delhi",
+          "Jammu and Kashmir",
+          "Ladakh",
+          "Lakshadweep",
+          "Puducherry"
+        ],
+        "districts": [],
+        "ruralOnly": false,
+        "urbanOnly": false
+      },
+      "social": {
+        "religion": [
+          "Hindu",
+          "Muslim",
+          "Christian",
+          "Sikh",
+          "Buddhist",
+          "Jain",
+          "Parsi",
+          "Other"
+        ],
+        "caste": [
+          "General",
+          "SC",
+          "ST",
+          "OBC"
+        ],
+        "minority": false,
+        "disability": false
+      },
+      "employment": {
+        "employmentStatus": [
+          "student",
+          "unemployed"
+        ],
+        "occupations": []
+      }
+    },
+    "benefits": [
+      "Stipend support up to ₹1500 per month",
+      "Industry-based practical training opportunities",
+      "Improves employability through hands-on experience",
+      "Government shares cost of training with employers"
+    ],
+    "documentsRequired": [
+      "Aadhaar Card",
+      "Educational Certificates",
+      "Bank Account Details",
+      "Photograph",
+      "Mobile Number"
+    ],
+    "applicationUrl": "https://apprenticeshipindia.gov.in/",
+    "trackingMeta": {
+      "type": "multi_step",
+      "instructions": [
+        "Visit the nearest Seva Kendra with required documents.",
+        "Submit the application form along with Aadhaar card copy.",
+        "Wait for verification from the nodal department.",
+        "Check application status online using your reference ID."
+      ]
+    },
+    "status": "published"
+  },
+  {
+    "id": "scheme_beti_bachao",
+    "title": "Beti Bachao Beti Padhao (BBBP)",
+    "description": "Beti Bachao Beti Padhao is a national initiative aimed at addressing the declining child sex ratio and promoting education and empowerment of girl children.",
+    "ministry": "Ministry of Women and Child Development",
+    "category": "Women Welfare",
+    "tags": [
+      "girl child",
+      "education",
+      "awareness"
+    ],
+    "eligibility": {
+      "age": {
+        "min": 0,
+        "max": 18
+      },
+      "income": {
+        "min": 0,
+        "max": 99999999
+      },
+      "gender": "female",
+      "location": {
+        "country": "India",
+        "states": [
+          "Andhra Pradesh",
+          "Arunachal Pradesh",
+          "Assam",
+          "Bihar",
+          "Chhattisgarh",
+          "Goa",
+          "Gujarat",
+          "Haryana",
+          "Himachal Pradesh",
+          "Jharkhand",
+          "Karnataka",
+          "Kerala",
+          "Madhya Pradesh",
+          "Maharashtra",
+          "Manipur",
+          "Meghalaya",
+          "Mizoram",
+          "Nagaland",
+          "Odisha",
+          "Punjab",
+          "Rajasthan",
+          "Sikkim",
+          "Tamil Nadu",
+          "Telangana",
+          "Tripura",
+          "Uttar Pradesh",
+          "Uttarakhand",
+          "West Bengal",
+          "Andaman and Nicobar Islands",
+          "Chandigarh",
+          "Dadra and Nagar Haveli and Daman and Diu",
+          "Delhi",
+          "Jammu and Kashmir",
+          "Ladakh",
+          "Lakshadweep",
+          "Puducherry"
+        ],
+        "districts": [],
+        "ruralOnly": false,
+        "urbanOnly": false
+      },
+      "social": {
+        "religion": [
+          "Hindu",
+          "Muslim",
+          "Christian",
+          "Sikh",
+          "Buddhist",
+          "Jain",
+          "Parsi",
+          "Other"
+        ],
+        "caste": [
+          "General",
+          "SC",
+          "ST",
+          "OBC"
+        ],
+        "minority": false,
+        "disability": false
+      },
+      "employment": {
+        "employmentStatus": [
+          "student"
+        ],
+        "occupations": []
+      }
+    },
+    "benefits": [
+      "Awareness programs promoting education of girl child",
+      "Improved access to educational opportunities for girls",
+      "Encourages gender equality and social empowerment",
+      "Supports long-term development of girl children"
+    ],
+    "documentsRequired": [
+      "Birth Certificate",
+      "Aadhaar Card",
+      "School Enrollment Proof",
+      "Residence Proof",
+      "Photograph"
+    ],
+    "applicationUrl": "https://wcd.nic.in/bbbp-schemes",
+    "trackingMeta": {
+      "type": "none",
+      "instructions": [
+        "Visit the nearest Seva Kendra with required documents.",
+        "Submit the application form along with Aadhaar card copy.",
+        "Wait for verification from the nodal department.",
+        "Check application status online using your reference ID."
+      ]
+    },
+    "status": "drafted"
+  },
+  {
+    "id": "scheme_sukanya",
+    "title": "Sukanya Samriddhi Yojana",
+    "description": "Sukanya Samriddhi Yojana is a small savings scheme designed to encourage parents to build a fund for the future education and marriage expenses of a girl child.",
+    "ministry": "Ministry of Finance",
+    "category": "Savings",
+    "tags": [
+      "girl child",
+      "savings",
+      "investment"
+    ],
+    "eligibility": {
+      "age": {
+        "min": 0,
+        "max": 10
+      },
+      "income": {
+        "min": 0,
+        "max": 99999999
+      },
+      "gender": "female",
+      "location": {
+        "country": "India",
+        "states": [
+          "Andhra Pradesh",
+          "Arunachal Pradesh",
+          "Assam",
+          "Bihar",
+          "Chhattisgarh",
+          "Goa",
+          "Gujarat",
+          "Haryana",
+          "Himachal Pradesh",
+          "Jharkhand",
+          "Karnataka",
+          "Kerala",
+          "Madhya Pradesh",
+          "Maharashtra",
+          "Manipur",
+          "Meghalaya",
+          "Mizoram",
+          "Nagaland",
+          "Odisha",
+          "Punjab",
+          "Rajasthan",
+          "Sikkim",
+          "Tamil Nadu",
+          "Telangana",
+          "Tripura",
+          "Uttar Pradesh",
+          "Uttarakhand",
+          "West Bengal",
+          "Andaman and Nicobar Islands",
+          "Chandigarh",
+          "Dadra and Nagar Haveli and Daman and Diu",
+          "Delhi",
+          "Jammu and Kashmir",
+          "Ladakh",
+          "Lakshadweep",
+          "Puducherry"
+        ],
+        "districts": [],
+        "ruralOnly": false,
+        "urbanOnly": false
+      },
+      "social": {
+        "religion": [
+          "Hindu",
+          "Muslim",
+          "Christian",
+          "Sikh",
+          "Buddhist",
+          "Jain",
+          "Parsi",
+          "Other"
+        ],
+        "caste": [
+          "General",
+          "SC",
+          "ST",
+          "OBC"
+        ],
+        "minority": false,
+        "disability": false
+      },
+      "employment": {
+        "employmentStatus": [
+          "student"
+        ],
+        "occupations": []
+      }
+    },
+    "benefits": [
+      "High interest rate savings scheme for girl child",
+      "Tax benefits under Section 80C",
+      "Secure long-term investment for education and marriage",
+      "Flexible deposit options for parents or guardians"
+    ],
+    "documentsRequired": [
+      "Birth Certificate of Girl Child",
+      "Aadhaar Card",
+      "Parent/Guardian ID Proof",
+      "Address Proof",
+      "Photograph"
+    ],
+    "applicationUrl": "https://www.indiapost.gov.in/",
+    "trackingMeta": {
+      "type": "direct",
+      "instructions": [
+        "Visit the nearest Seva Kendra with required documents.",
+        "Submit the application form along with Aadhaar card copy.",
+        "Wait for verification from the nodal department.",
+        "Check application status online using your reference ID."
+      ]
+    },
+    "status": "drafted"
+  },
+  {
+    "id": "scheme_minority_scholarship",
+    "title": "Merit-cum-Means Scholarship for Minority Students",
+    "description": "This scholarship scheme provides financial assistance to students belonging to minority communities to pursue professional and technical courses.",
+    "ministry": "Ministry of Minority Affairs",
+    "category": "Education",
+    "tags": [
+      "minority",
+      "scholarship",
+      "education"
+    ],
+    "eligibility": {
+      "age": {
+        "min": 16,
+        "max": 40
+      },
+      "income": {
+        "min": 0,
+        "max": 250000
+      },
+      "gender": "any",
+      "location": {
+        "country": "India",
+        "states": [
+          "Andhra Pradesh",
+          "Arunachal Pradesh",
+          "Assam",
+          "Bihar",
+          "Chhattisgarh",
+          "Goa",
+          "Gujarat",
+          "Haryana",
+          "Himachal Pradesh",
+          "Jharkhand",
+          "Karnataka",
+          "Kerala",
+          "Madhya Pradesh",
+          "Maharashtra",
+          "Manipur",
+          "Meghalaya",
+          "Mizoram",
+          "Nagaland",
+          "Odisha",
+          "Punjab",
+          "Rajasthan",
+          "Sikkim",
+          "Tamil Nadu",
+          "Telangana",
+          "Tripura",
+          "Uttar Pradesh",
+          "Uttarakhand",
+          "West Bengal",
+          "Andaman and Nicobar Islands",
+          "Chandigarh",
+          "Dadra and Nagar Haveli and Daman and Diu",
+          "Delhi",
+          "Jammu and Kashmir",
+          "Ladakh",
+          "Lakshadweep",
+          "Puducherry"
+        ],
+        "districts": [],
+        "ruralOnly": false,
+        "urbanOnly": false
+      },
+      "social": {
+        "religion": [
+          "Hindu",
+          "Muslim",
+          "Christian",
+          "Sikh",
+          "Buddhist",
+          "Jain",
+          "Parsi",
+          "Other"
+        ],
+        "caste": [
+          "General",
+          "SC",
+          "ST",
+          "OBC"
+        ],
+        "minority": true,
+        "disability": false
+      },
+      "employment": {
+        "employmentStatus": [
+          "student"
+        ],
+        "occupations": []
+      }
+    },
+    "benefits": [
+      "Tuition fee reimbursement up to ₹20000 per year",
+      "Maintenance allowance for students",
+      "Encourages higher education in minority communities",
+      "Supports professional and technical education"
+    ],
+    "documentsRequired": [
+      "Aadhaar Card",
+      "Minority Certificate",
+      "Income Certificate",
+      "Admission Proof",
+      "Bank Account Details",
+      "Photograph"
+    ],
+    "applicationUrl": "https://scholarships.gov.in/",
+    "trackingMeta": {
+      "type": "multi_step",
+      "instructions": [
+        "Visit the nearest Seva Kendra with required documents.",
+        "Submit the application form along with Aadhaar card copy.",
+        "Wait for verification from the nodal department.",
+        "Check application status online using your reference ID."
+      ]
+    },
+    "status": "drafted"
+  },
+  {
+    "id": "scheme_disability_pension",
+    "title": "National Disability Pension Scheme",
+    "description": "This scheme provides financial assistance to persons with disabilities who are unable to sustain themselves financially.",
+    "ministry": "Ministry of Social Justice and Empowerment",
+    "category": "Social Welfare",
+    "tags": [
+      "disability",
+      "pension",
+      "support"
+    ],
+    "eligibility": {
+      "age": {
+        "min": 18,
+        "max": 150
+      },
+      "income": {
+        "min": 0,
+        "max": 200000
+      },
+      "gender": "any",
+      "location": {
+        "country": "India",
+        "states": [
+          "Andhra Pradesh",
+          "Arunachal Pradesh",
+          "Assam",
+          "Bihar",
+          "Chhattisgarh",
+          "Goa",
+          "Gujarat",
+          "Haryana",
+          "Himachal Pradesh",
+          "Jharkhand",
+          "Karnataka",
+          "Kerala",
+          "Madhya Pradesh",
+          "Maharashtra",
+          "Manipur",
+          "Meghalaya",
+          "Mizoram",
+          "Nagaland",
+          "Odisha",
+          "Punjab",
+          "Rajasthan",
+          "Sikkim",
+          "Tamil Nadu",
+          "Telangana",
+          "Tripura",
+          "Uttar Pradesh",
+          "Uttarakhand",
+          "West Bengal",
+          "Andaman and Nicobar Islands",
+          "Chandigarh",
+          "Dadra and Nagar Haveli and Daman and Diu",
+          "Delhi",
+          "Jammu and Kashmir",
+          "Ladakh",
+          "Lakshadweep",
+          "Puducherry"
+        ],
+        "districts": [],
+        "ruralOnly": false,
+        "urbanOnly": false
+      },
+      "social": {
+        "religion": [
+          "Hindu",
+          "Muslim",
+          "Christian",
+          "Sikh",
+          "Buddhist",
+          "Jain",
+          "Parsi",
+          "Other"
+        ],
+        "caste": [
+          "General",
+          "SC",
+          "ST",
+          "OBC"
+        ],
+        "minority": false,
+        "disability": true
+      },
+      "employment": {
+        "employmentStatus": [
+          "unemployed",
+          "other"
+        ],
+        "occupations": []
+      }
+    },
+    "benefits": [
+      "₹300–₹500 monthly pension support",
+      "Additional state benefits in some regions",
+      "Provides financial assistance for daily living",
+      "Supports persons with disabilities"
+    ],
+    "documentsRequired": [
+      "Aadhaar Card",
+      "Disability Certificate",
+      "Income Certificate",
+      "Bank Account Details",
+      "Residence Proof",
+      "Photograph"
+    ],
+    "applicationUrl": "https://nsap.nic.in/",
+    "trackingMeta": {
+      "type": "direct",
+      "instructions": [
+        "Visit the nearest Seva Kendra with required documents.",
+        "Submit the application form along with Aadhaar card copy.",
+        "Wait for verification from the nodal department.",
+        "Check application status online using your reference ID."
+      ]
+    },
+    "status": "drafted"
+  },
+  {
+    "id": "scheme_standup_india",
+    "title": "Stand Up India Scheme",
+    "description": "Stand Up India aims to promote entrepreneurship among women and SC/ST communities by providing bank loans for setting up new enterprises.",
+    "ministry": "Ministry of Finance",
+    "category": "Entrepreneurship",
+    "tags": [
+      "startup",
+      "women",
+      "SC/ST"
+    ],
+    "eligibility": {
+      "age": {
+        "min": 18,
+        "max": 150
+      },
+      "income": {
+        "min": 0,
+        "max": 99999999
+      },
+      "gender": "any",
+      "location": {
+        "country": "India",
+        "states": [
+          "Andhra Pradesh",
+          "Arunachal Pradesh",
+          "Assam",
+          "Bihar",
+          "Chhattisgarh",
+          "Goa",
+          "Gujarat",
+          "Haryana",
+          "Himachal Pradesh",
+          "Jharkhand",
+          "Karnataka",
+          "Kerala",
+          "Madhya Pradesh",
+          "Maharashtra",
+          "Manipur",
+          "Meghalaya",
+          "Mizoram",
+          "Nagaland",
+          "Odisha",
+          "Punjab",
+          "Rajasthan",
+          "Sikkim",
+          "Tamil Nadu",
+          "Telangana",
+          "Tripura",
+          "Uttar Pradesh",
+          "Uttarakhand",
+          "West Bengal",
+          "Andaman and Nicobar Islands",
+          "Chandigarh",
+          "Dadra and Nagar Haveli and Daman and Diu",
+          "Delhi",
+          "Jammu and Kashmir",
+          "Ladakh",
+          "Lakshadweep",
+          "Puducherry"
+        ],
+        "districts": [],
+        "ruralOnly": false,
+        "urbanOnly": false
+      },
+      "social": {
+        "religion": [
+          "Hindu",
+          "Muslim",
+          "Christian",
+          "Sikh",
+          "Buddhist",
+          "Jain",
+          "Parsi",
+          "Other"
+        ],
+        "caste": [
+          "SC",
+          "ST"
+        ],
+        "minority": false,
+        "disability": false
+      },
+      "employment": {
+        "employmentStatus": [
+          "self_employed",
+          "unemployed"
+        ],
+        "occupations": []
+      }
+    },
+    "benefits": [
+      "Loan support ranging from ₹10 lakh to ₹1 crore",
+      "Encourages entrepreneurship among underrepresented groups",
+      "Supports new business setup and expansion",
+      "Facilitates bank linkage and financial inclusion"
+    ],
+    "documentsRequired": [
+      "Aadhaar Card",
+      "Caste Certificate",
+      "Business Plan",
+      "Bank Account Details",
+      "PAN Card",
+      "Photograph"
+    ],
+    "applicationUrl": "https://www.standupmitra.in/",
+    "trackingMeta": {
+      "type": "multi_step",
+      "instructions": [
+        "Visit the nearest Seva Kendra with required documents.",
+        "Submit the application form along with Aadhaar card copy.",
+        "Wait for verification from the nodal department.",
+        "Check application status online using your reference ID."
+      ]
+    },
+    "status": "drafted"
+  },
+  {
+    "id": "scheme_pm_ujjwala",
+    "title": "Pradhan Mantri Ujjwala Yojana (PMUY)",
+    "description": "PMUY aims to provide clean cooking fuel to women from below poverty line households by offering LPG connections.",
+    "ministry": "Ministry of Petroleum and Natural Gas",
+    "category": "Energy",
+    "tags": [
+      "LPG",
+      "women",
+      "clean energy"
+    ],
+    "eligibility": {
+      "age": {
+        "min": 18,
+        "max": 150
+      },
+      "income": {
+        "min": 0,
+        "max": 200000
+      },
+      "gender": "female",
+      "location": {
+        "country": "India",
+        "states": [
+          "Andhra Pradesh",
+          "Arunachal Pradesh",
+          "Assam",
+          "Bihar",
+          "Chhattisgarh",
+          "Goa",
+          "Gujarat",
+          "Haryana",
+          "Himachal Pradesh",
+          "Jharkhand",
+          "Karnataka",
+          "Kerala",
+          "Madhya Pradesh",
+          "Maharashtra",
+          "Manipur",
+          "Meghalaya",
+          "Mizoram",
+          "Nagaland",
+          "Odisha",
+          "Punjab",
+          "Rajasthan",
+          "Sikkim",
+          "Tamil Nadu",
+          "Telangana",
+          "Tripura",
+          "Uttar Pradesh",
+          "Uttarakhand",
+          "West Bengal",
+          "Andaman and Nicobar Islands",
+          "Chandigarh",
+          "Dadra and Nagar Haveli and Daman and Diu",
+          "Delhi",
+          "Jammu and Kashmir",
+          "Ladakh",
+          "Lakshadweep",
+          "Puducherry"
+        ],
+        "districts": [],
+        "ruralOnly": false,
+        "urbanOnly": false
+      },
+      "social": {
+        "religion": [
+          "Hindu",
+          "Muslim",
+          "Christian",
+          "Sikh",
+          "Buddhist",
+          "Jain",
+          "Parsi",
+          "Other"
+        ],
+        "caste": [
+          "General",
+          "SC",
+          "ST",
+          "OBC"
+        ],
+        "minority": false,
+        "disability": false
+      },
+      "employment": {
+        "employmentStatus": [
+          "homemaker",
+          "unemployed"
+        ],
+        "occupations": []
+      }
+    },
+    "benefits": [
+      "Free LPG connection provided to eligible households",
+      "Financial support of ₹1600 for connection setup",
+      "Subsidy on LPG cylinder refills",
+      "Promotes clean and safe cooking practices"
+    ],
+    "documentsRequired": [
+      "Aadhaar Card",
+      "BPL Certificate",
+      "Bank Account Details",
+      "Address Proof",
+      "Photograph"
+    ],
+    "applicationUrl": "https://pmuy.gov.in/",
+    "trackingMeta": {
+      "type": "multi_step",
+      "instructions": [
+        "Visit the nearest Seva Kendra with required documents.",
+        "Submit the application form along with Aadhaar card copy.",
+        "Wait for verification from the nodal department.",
+        "Check application status online using your reference ID."
+      ]
+    },
+    "status": "drafted"
+  },
+  {
+    "id": "scheme_fame_india",
+    "title": "FAME India Scheme (Electric Vehicles)",
+    "description": "FAME India promotes adoption of electric vehicles by providing financial incentives and supporting infrastructure development.",
+    "ministry": "Ministry of Heavy Industries",
+    "category": "Transport",
+    "tags": [
+      "electric vehicle",
+      "subsidy",
+      "transport"
+    ],
+    "eligibility": {
+      "age": {
+        "min": 18,
+        "max": 150
+      },
+      "income": {
+        "min": 0,
+        "max": 99999999
+      },
+      "gender": "any",
+      "location": {
+        "country": "India",
+        "states": [
+          "Andhra Pradesh",
+          "Arunachal Pradesh",
+          "Assam",
+          "Bihar",
+          "Chhattisgarh",
+          "Goa",
+          "Gujarat",
+          "Haryana",
+          "Himachal Pradesh",
+          "Jharkhand",
+          "Karnataka",
+          "Kerala",
+          "Madhya Pradesh",
+          "Maharashtra",
+          "Manipur",
+          "Meghalaya",
+          "Mizoram",
+          "Nagaland",
+          "Odisha",
+          "Punjab",
+          "Rajasthan",
+          "Sikkim",
+          "Tamil Nadu",
+          "Telangana",
+          "Tripura",
+          "Uttar Pradesh",
+          "Uttarakhand",
+          "West Bengal",
+          "Andaman and Nicobar Islands",
+          "Chandigarh",
+          "Dadra and Nagar Haveli and Daman and Diu",
+          "Delhi",
+          "Jammu and Kashmir",
+          "Ladakh",
+          "Lakshadweep",
+          "Puducherry"
+        ],
+        "districts": [],
+        "ruralOnly": false,
+        "urbanOnly": false
+      },
+      "social": {
+        "religion": [
+          "Hindu",
+          "Muslim",
+          "Christian",
+          "Sikh",
+          "Buddhist",
+          "Jain",
+          "Parsi",
+          "Other"
+        ],
+        "caste": [
+          "General",
+          "SC",
+          "ST",
+          "OBC"
+        ],
+        "minority": false,
+        "disability": false
+      },
+      "employment": {
+        "employmentStatus": [
+          "employed",
+          "self_employed",
+          "student",
+          "other"
+        ],
+        "occupations": []
+      }
+    },
+    "benefits": [
+      "Subsidy up to ₹1.5 lakh on purchase of electric vehicles",
+      "Incentives for electric two-wheelers and cars",
+      "Supports charging infrastructure development",
+      "Encourages eco-friendly transportation"
+    ],
+    "documentsRequired": [
+      "Aadhaar Card",
+      "Vehicle Purchase Invoice",
+      "Bank Account Details",
+      "Address Proof",
+      "Photograph"
+    ],
+    "applicationUrl": "https://fame-india.gov.in/",
+    "trackingMeta": {
+      "type": "direct",
+      "instructions": [
+        "Visit the nearest Seva Kendra with required documents.",
+        "Submit the application form along with Aadhaar card copy.",
+        "Wait for verification from the nodal department.",
+        "Check application status online using your reference ID."
+      ]
+    },
+    "status": "drafted"
+  },
+  {
+    "id": "scheme_pm_svanidhi",
+    "title": "PM Street Vendor's AtmaNirbhar Nidhi (PM SVANidhi)",
+    "description": "PM SVANidhi provides working capital loans to street vendors to help them restart businesses and become financially independent.",
+    "ministry": "Ministry of Housing and Urban Affairs",
+    "category": "Financial Assistance",
+    "tags": [
+      "street vendor",
+      "loan",
+      "urban"
+    ],
+    "eligibility": {
+      "age": {
+        "min": 18,
+        "max": 150
+      },
+      "income": {
+        "min": 0,
+        "max": 99999999
+      },
+      "gender": "any",
+      "location": {
+        "country": "India",
+        "states": [
+          "Andhra Pradesh",
+          "Arunachal Pradesh",
+          "Assam",
+          "Bihar",
+          "Chhattisgarh",
+          "Goa",
+          "Gujarat",
+          "Haryana",
+          "Himachal Pradesh",
+          "Jharkhand",
+          "Karnataka",
+          "Kerala",
+          "Madhya Pradesh",
+          "Maharashtra",
+          "Manipur",
+          "Meghalaya",
+          "Mizoram",
+          "Nagaland",
+          "Odisha",
+          "Punjab",
+          "Rajasthan",
+          "Sikkim",
+          "Tamil Nadu",
+          "Telangana",
+          "Tripura",
+          "Uttar Pradesh",
+          "Uttarakhand",
+          "West Bengal",
+          "Andaman and Nicobar Islands",
+          "Chandigarh",
+          "Dadra and Nagar Haveli and Daman and Diu",
+          "Delhi",
+          "Jammu and Kashmir",
+          "Ladakh",
+          "Lakshadweep",
+          "Puducherry"
+        ],
+        "districts": [],
+        "ruralOnly": false,
+        "urbanOnly": true
+      },
+      "social": {
+        "religion": [
+          "Hindu",
+          "Muslim",
+          "Christian",
+          "Sikh",
+          "Buddhist",
+          "Jain",
+          "Parsi",
+          "Other"
+        ],
+        "caste": [
+          "General",
+          "SC",
+          "ST",
+          "OBC"
+        ],
+        "minority": false,
+        "disability": false
+      },
+      "employment": {
+        "employmentStatus": [
+          "self_employed",
+          "employed"
+        ],
+        "occupations": []
+      }
+    },
+    "benefits": [
+      "Working capital loan up to ₹10000 for street vendors",
+      "Interest subsidy on timely repayment",
+      "Digital transaction cashback incentives",
+      "Supports small business revival"
+    ],
+    "documentsRequired": [
+      "Aadhaar Card",
+      "Vendor ID Card",
+      "Bank Account Details",
+      "Mobile Number",
+      "Photograph"
+    ],
+    "applicationUrl": "https://pmsvanidhi.mohua.gov.in/",
+    "trackingMeta": {
+      "type": "login_required",
+      "instructions": [
+        "Visit the nearest Seva Kendra with required documents.",
+        "Submit the application form along with Aadhaar card copy.",
+        "Wait for verification from the nodal department.",
+        "Check application status online using your reference ID."
+      ]
+    },
+    "status": "drafted"
+  },
+  {
+    "id": "scheme_solar_rooftop",
+    "title": "Solar Rooftop Subsidy Scheme",
+    "description": "This scheme promotes installation of rooftop solar panels in residential buildings by providing subsidies.",
+    "ministry": "Ministry of New and Renewable Energy",
+    "category": "Energy",
+    "tags": [
+      "solar",
+      "renewable",
+      "subsidy"
+    ],
+    "eligibility": {
+      "age": {
+        "min": 18,
+        "max": 150
+      },
+      "income": {
+        "min": 0,
+        "max": 99999999
+      },
+      "gender": "any",
+      "location": {
+        "country": "India",
+        "states": [
+          "Andhra Pradesh",
+          "Arunachal Pradesh",
+          "Assam",
+          "Bihar",
+          "Chhattisgarh",
+          "Goa",
+          "Gujarat",
+          "Haryana",
+          "Himachal Pradesh",
+          "Jharkhand",
+          "Karnataka",
+          "Kerala",
+          "Madhya Pradesh",
+          "Maharashtra",
+          "Manipur",
+          "Meghalaya",
+          "Mizoram",
+          "Nagaland",
+          "Odisha",
+          "Punjab",
+          "Rajasthan",
+          "Sikkim",
+          "Tamil Nadu",
+          "Telangana",
+          "Tripura",
+          "Uttar Pradesh",
+          "Uttarakhand",
+          "West Bengal",
+          "Andaman and Nicobar Islands",
+          "Chandigarh",
+          "Dadra and Nagar Haveli and Daman and Diu",
+          "Delhi",
+          "Jammu and Kashmir",
+          "Ladakh",
+          "Lakshadweep",
+          "Puducherry"
+        ],
+        "districts": [],
+        "ruralOnly": false,
+        "urbanOnly": false
+      },
+      "social": {
+        "religion": [
+          "Hindu",
+          "Muslim",
+          "Christian",
+          "Sikh",
+          "Buddhist",
+          "Jain",
+          "Parsi",
+          "Other"
+        ],
+        "caste": [
+          "General",
+          "SC",
+          "ST",
+          "OBC"
+        ],
+        "minority": false,
+        "disability": false
+      },
+      "employment": {
+        "employmentStatus": [
+          "employed",
+          "self_employed",
+          "homemaker",
+          "other"
+        ],
+        "occupations": []
+      }
+    },
+    "benefits": [
+      "Subsidy up to ₹78000 for residential solar installation",
+      "Reduces electricity bills significantly",
+      "Promotes renewable energy adoption",
+      "Long-term savings on power consumption"
+    ],
+    "documentsRequired": [
+      "Aadhaar Card",
+      "Electricity Bill",
+      "Property Ownership Proof",
+      "Bank Account Details",
+      "Photograph"
+    ],
+    "applicationUrl": "https://solarrooftop.gov.in/",
+    "trackingMeta": {
+      "type": "multi_step",
+      "instructions": [
+        "Visit the nearest Seva Kendra with required documents.",
+        "Submit the application form along with Aadhaar card copy.",
+        "Wait for verification from the nodal department.",
+        "Check application status online using your reference ID."
+      ]
+    },
+    "status": "drafted"
+  },
+  {
+    "id": "scheme_pm_gram_sadak",
+    "title": "Pradhan Mantri Gram Sadak Yojana (PMGSY)",
+    "description": "PMGSY aims to provide all-weather road connectivity to unconnected rural habitations.",
+    "ministry": "Ministry of Rural Development",
+    "category": "Infrastructure",
+    "tags": [
+      "road",
+      "rural",
+      "infrastructure"
+    ],
+    "eligibility": {
+      "age": {
+        "min": 18,
+        "max": 150
+      },
+      "income": {
+        "min": 0,
+        "max": 99999999
+      },
+      "gender": "any",
+      "location": {
+        "country": "India",
+        "states": [
+          "Andhra Pradesh",
+          "Arunachal Pradesh",
+          "Assam",
+          "Bihar",
+          "Chhattisgarh",
+          "Goa",
+          "Gujarat",
+          "Haryana",
+          "Himachal Pradesh",
+          "Jharkhand",
+          "Karnataka",
+          "Kerala",
+          "Madhya Pradesh",
+          "Maharashtra",
+          "Manipur",
+          "Meghalaya",
+          "Mizoram",
+          "Nagaland",
+          "Odisha",
+          "Punjab",
+          "Rajasthan",
+          "Sikkim",
+          "Tamil Nadu",
+          "Telangana",
+          "Tripura",
+          "Uttar Pradesh",
+          "Uttarakhand",
+          "West Bengal",
+          "Andaman and Nicobar Islands",
+          "Chandigarh",
+          "Dadra and Nagar Haveli and Daman and Diu",
+          "Delhi",
+          "Jammu and Kashmir",
+          "Ladakh",
+          "Lakshadweep",
+          "Puducherry"
+        ],
+        "districts": [],
+        "ruralOnly": true,
+        "urbanOnly": false
+      },
+      "social": {
+        "religion": [
+          "Hindu",
+          "Muslim",
+          "Christian",
+          "Sikh",
+          "Buddhist",
+          "Jain",
+          "Parsi",
+          "Other"
+        ],
+        "caste": [
+          "General",
+          "SC",
+          "ST",
+          "OBC"
+        ],
+        "minority": false,
+        "disability": false
+      },
+      "employment": {
+        "employmentStatus": [
+          "farmer",
+          "laborer",
+          "unemployed",
+          "other"
+        ],
+        "occupations": []
+      }
+    },
+    "benefits": [
+      "Development of all-weather roads in rural areas",
+      "Improves connectivity to schools, hospitals, and markets",
+      "Boosts rural economic development",
+      "Enhances accessibility and mobility"
+    ],
+    "documentsRequired": [
+      "Residence Proof",
+      "Local Authority Certification",
+      "Village Records",
+      "Identity Proof"
+    ],
+    "applicationUrl": "https://pmgsy.nic.in/",
+    "trackingMeta": {
+      "type": "none",
+      "instructions": [
+        "Visit the nearest Seva Kendra with required documents.",
+        "Submit the application form along with Aadhaar card copy.",
+        "Wait for verification from the nodal department.",
+        "Check application status online using your reference ID."
+      ]
+    },
+    "status": "drafted"
+  },
+  {
+    "id": "scheme_e_shram",
+    "title": "e-Shram Portal Scheme",
+    "description": "The e-Shram portal creates a comprehensive national database of unorganized workers to access social security schemes.",
+    "ministry": "Ministry of Labour and Employment",
+    "category": "Employment",
+    "tags": [
+      "workers",
+      "unorganized",
+      "database"
+    ],
+    "eligibility": {
+      "age": {
+        "min": 16,
+        "max": 59
+      },
+      "income": {
+        "min": 0,
+        "max": 99999999
+      },
+      "gender": "any",
+      "location": {
+        "country": "India",
+        "states": [
+          "Andhra Pradesh",
+          "Arunachal Pradesh",
+          "Assam",
+          "Bihar",
+          "Chhattisgarh",
+          "Goa",
+          "Gujarat",
+          "Haryana",
+          "Himachal Pradesh",
+          "Jharkhand",
+          "Karnataka",
+          "Kerala",
+          "Madhya Pradesh",
+          "Maharashtra",
+          "Manipur",
+          "Meghalaya",
+          "Mizoram",
+          "Nagaland",
+          "Odisha",
+          "Punjab",
+          "Rajasthan",
+          "Sikkim",
+          "Tamil Nadu",
+          "Telangana",
+          "Tripura",
+          "Uttar Pradesh",
+          "Uttarakhand",
+          "West Bengal",
+          "Andaman and Nicobar Islands",
+          "Chandigarh",
+          "Dadra and Nagar Haveli and Daman and Diu",
+          "Delhi",
+          "Jammu and Kashmir",
+          "Ladakh",
+          "Lakshadweep",
+          "Puducherry"
+        ],
+        "districts": [],
+        "ruralOnly": false,
+        "urbanOnly": false
+      },
+      "social": {
+        "religion": [
+          "Hindu",
+          "Muslim",
+          "Christian",
+          "Sikh",
+          "Buddhist",
+          "Jain",
+          "Parsi",
+          "Other"
+        ],
+        "caste": [
+          "General",
+          "SC",
+          "ST",
+          "OBC"
+        ],
+        "minority": false,
+        "disability": false
+      },
+      "employment": {
+        "employmentStatus": [
+          "laborer",
+          "self_employed",
+          "unemployed"
+        ],
+        "occupations": []
+      }
+    },
+    "benefits": [
+      "Accidental insurance coverage of ₹2 lakh",
+      "Access to multiple government welfare schemes",
+      "Creation of national worker database",
+      "Improves social security coverage"
+    ],
+    "documentsRequired": [
+      "Aadhaar Card",
+      "Bank Account Details",
+      "Mobile Number",
+      "Occupation Details",
+      "Photograph"
+    ],
+    "applicationUrl": "https://eshram.gov.in/",
+    "trackingMeta": {
+      "type": "direct",
+      "instructions": [
+        "Visit the nearest Seva Kendra with required documents.",
+        "Submit the application form along with Aadhaar card copy.",
+        "Wait for verification from the nodal department.",
+        "Check application status online using your reference ID."
+      ]
+    },
+    "status": "drafted"
+  },
+  {
+    "id": "scheme_pm_vishwakarma",
+    "title": "PM Vishwakarma Scheme",
+    "description": "PM Vishwakarma supports traditional artisans and craftspeople by providing skill training, financial assistance, and access to modern tools.",
+    "ministry": "Ministry of Micro, Small and Medium Enterprises",
+    "category": "Skill Development",
+    "tags": [
+      "artisan",
+      "skill",
+      "traditional"
+    ],
+    "eligibility": {
+      "age": {
+        "min": 18,
+        "max": 150
+      },
+      "income": {
+        "min": 0,
+        "max": 99999999
+      },
+      "gender": "any",
+      "location": {
+        "country": "India",
+        "states": [
+          "Andhra Pradesh",
+          "Arunachal Pradesh",
+          "Assam",
+          "Bihar",
+          "Chhattisgarh",
+          "Goa",
+          "Gujarat",
+          "Haryana",
+          "Himachal Pradesh",
+          "Jharkhand",
+          "Karnataka",
+          "Kerala",
+          "Madhya Pradesh",
+          "Maharashtra",
+          "Manipur",
+          "Meghalaya",
+          "Mizoram",
+          "Nagaland",
+          "Odisha",
+          "Punjab",
+          "Rajasthan",
+          "Sikkim",
+          "Tamil Nadu",
+          "Telangana",
+          "Tripura",
+          "Uttar Pradesh",
+          "Uttarakhand",
+          "West Bengal",
+          "Andaman and Nicobar Islands",
+          "Chandigarh",
+          "Dadra and Nagar Haveli and Daman and Diu",
+          "Delhi",
+          "Jammu and Kashmir",
+          "Ladakh",
+          "Lakshadweep",
+          "Puducherry"
+        ],
+        "districts": [],
+        "ruralOnly": false,
+        "urbanOnly": false
+      },
+      "social": {
+        "religion": [
+          "Hindu",
+          "Muslim",
+          "Christian",
+          "Sikh",
+          "Buddhist",
+          "Jain",
+          "Parsi",
+          "Other"
+        ],
+        "caste": [
+          "General",
+          "SC",
+          "ST",
+          "OBC"
+        ],
+        "minority": false,
+        "disability": false
+      },
+      "employment": {
+        "employmentStatus": [
+          "self_employed",
+          "employed"
+        ],
+        "occupations": []
+      }
+    },
+    "benefits": [
+      "Tool kit incentive up to ₹15000",
+      "Skill training stipend up to ₹500 per day",
+      "Collateral-free loan up to ₹3 lakh",
+      "Supports traditional occupations"
+    ],
+    "documentsRequired": [
+      "Aadhaar Card",
+      "Occupation Proof",
+      "Bank Account Details",
+      "Caste Certificate (if applicable)",
+      "Photograph"
+    ],
+    "applicationUrl": "https://pmvishwakarma.gov.in/",
+    "trackingMeta": {
+      "type": "multi_step",
+      "instructions": [
+        "Visit the nearest Seva Kendra with required documents.",
+        "Submit the application form along with Aadhaar card copy.",
+        "Wait for verification from the nodal department.",
+        "Check application status online using your reference ID."
+      ]
+    },
+    "status": "drafted"
+  },
+  {
+    "id": "scheme_atal_pension",
+    "title": "Atal Pension Yojana (APY)",
+    "description": "APY is a pension scheme for workers in the unorganized sector, providing guaranteed monthly pension after retirement.",
+    "ministry": "Ministry of Finance",
+    "category": "Pension",
+    "tags": [
+      "pension",
+      "retirement",
+      "financial security"
+    ],
+    "eligibility": {
+      "age": {
+        "min": 18,
+        "max": 40
+      },
+      "income": {
+        "min": 0,
+        "max": 99999999
+      },
+      "gender": "any",
+      "location": {
+        "country": "India",
+        "states": [
+          "Andhra Pradesh",
+          "Arunachal Pradesh",
+          "Assam",
+          "Bihar",
+          "Chhattisgarh",
+          "Goa",
+          "Gujarat",
+          "Haryana",
+          "Himachal Pradesh",
+          "Jharkhand",
+          "Karnataka",
+          "Kerala",
+          "Madhya Pradesh",
+          "Maharashtra",
+          "Manipur",
+          "Meghalaya",
+          "Mizoram",
+          "Nagaland",
+          "Odisha",
+          "Punjab",
+          "Rajasthan",
+          "Sikkim",
+          "Tamil Nadu",
+          "Telangana",
+          "Tripura",
+          "Uttar Pradesh",
+          "Uttarakhand",
+          "West Bengal",
+          "Andaman and Nicobar Islands",
+          "Chandigarh",
+          "Dadra and Nagar Haveli and Daman and Diu",
+          "Delhi",
+          "Jammu and Kashmir",
+          "Ladakh",
+          "Lakshadweep",
+          "Puducherry"
+        ],
+        "districts": [],
+        "ruralOnly": false,
+        "urbanOnly": false
+      },
+      "social": {
+        "religion": [
+          "Hindu",
+          "Muslim",
+          "Christian",
+          "Sikh",
+          "Buddhist",
+          "Jain",
+          "Parsi",
+          "Other"
+        ],
+        "caste": [
+          "General",
+          "SC",
+          "ST",
+          "OBC"
+        ],
+        "minority": false,
+        "disability": false
+      },
+      "employment": {
+        "employmentStatus": [
+          "laborer",
+          "self_employed",
+          "unemployed",
+          "farmer"
+        ],
+        "occupations": []
+      }
+    },
+    "benefits": [
+      "Guaranteed monthly pension between ₹1000 to ₹5000 after retirement",
+      "Government co-contribution for eligible subscribers",
+      "Long-term financial security",
+      "Encourages savings for retirement"
+    ],
+    "documentsRequired": [
+      "Aadhaar Card",
+      "Bank Account Details",
+      "Mobile Number",
+      "Photograph"
+    ],
+    "applicationUrl": "https://www.npscra.nsdl.co.in/",
+    "trackingMeta": {
+      "type": "direct",
+      "instructions": [
+        "Visit the nearest Seva Kendra with required documents.",
+        "Submit the application form along with Aadhaar card copy.",
+        "Wait for verification from the nodal department.",
+        "Check application status online using your reference ID."
+      ]
+    },
+    "status": "drafted"
+  },
+  {
+    "id": "scheme_kisan_credit_card",
+    "title": "Kisan Credit Card (KCC) Scheme",
+    "description": "KCC provides farmers with timely access to credit for agricultural activities and short-term financial needs.",
+    "ministry": "Ministry of Agriculture and Farmers Welfare",
+    "category": "Finance",
+    "tags": [
+      "farmer",
+      "credit",
+      "loan"
+    ],
+    "eligibility": {
+      "age": {
+        "min": 18,
+        "max": 150
+      },
+      "income": {
+        "min": 0,
+        "max": 99999999
+      },
+      "gender": "any",
+      "location": {
+        "country": "India",
+        "states": [
+          "Andhra Pradesh",
+          "Arunachal Pradesh",
+          "Assam",
+          "Bihar",
+          "Chhattisgarh",
+          "Goa",
+          "Gujarat",
+          "Haryana",
+          "Himachal Pradesh",
+          "Jharkhand",
+          "Karnataka",
+          "Kerala",
+          "Madhya Pradesh",
+          "Maharashtra",
+          "Manipur",
+          "Meghalaya",
+          "Mizoram",
+          "Nagaland",
+          "Odisha",
+          "Punjab",
+          "Rajasthan",
+          "Sikkim",
+          "Tamil Nadu",
+          "Telangana",
+          "Tripura",
+          "Uttar Pradesh",
+          "Uttarakhand",
+          "West Bengal",
+          "Andaman and Nicobar Islands",
+          "Chandigarh",
+          "Dadra and Nagar Haveli and Daman and Diu",
+          "Delhi",
+          "Jammu and Kashmir",
+          "Ladakh",
+          "Lakshadweep",
+          "Puducherry"
+        ],
+        "districts": [],
+        "ruralOnly": false,
+        "urbanOnly": false
+      },
+      "social": {
+        "religion": [
+          "Hindu",
+          "Muslim",
+          "Christian",
+          "Sikh",
+          "Buddhist",
+          "Jain",
+          "Parsi",
+          "Other"
+        ],
+        "caste": [
+          "General",
+          "SC",
+          "ST",
+          "OBC"
+        ],
+        "minority": false,
+        "disability": false
+      },
+      "employment": {
+        "employmentStatus": [
+          "farmer"
+        ],
+        "occupations": []
+      }
+    },
+    "benefits": [
+      "Short-term loan up to ₹3 lakh for agricultural needs",
+      "Interest subsidy for timely repayment",
+      "Flexible credit access for farmers",
+      "Supports crop production and allied activities"
+    ],
+    "documentsRequired": [
+      "Aadhaar Card",
+      "Land Records",
+      "Bank Account Details",
+      "Income Proof",
+      "Photograph"
+    ],
+    "applicationUrl": "https://pmkisan.gov.in/",
+    "trackingMeta": {
+      "type": "multi_step",
+      "instructions": [
+        "Visit the nearest Seva Kendra with required documents.",
+        "Submit the application form along with Aadhaar card copy.",
+        "Wait for verification from the nodal department.",
+        "Check application status online using your reference ID."
+      ]
+    },
+    "status": "drafted"
+  },
+  {
+    "id": "scheme_maha_solar_pump",
+    "title": "Mukhyamantri Solar Pump Scheme (Maharashtra)",
+    "description": "This Maharashtra government scheme promotes solar-powered irrigation pumps for farmers to reduce dependency on electricity and diesel.",
+    "ministry": "Government of Maharashtra",
+    "category": "Agriculture",
+    "tags": [
+      "maharashtra",
+      "solar",
+      "farmer"
+    ],
+    "eligibility": {
+      "age": {
+        "min": 18,
+        "max": 150
+      },
+      "income": {
+        "min": 0,
+        "max": 99999999
+      },
+      "gender": "any",
+      "location": {
+        "country": "India",
+        "states": [
+          "Maharashtra"
+        ],
+        "districts": [],
+        "ruralOnly": false,
+        "urbanOnly": false
+      },
+      "social": {
+        "religion": [
+          "Hindu",
+          "Muslim",
+          "Christian",
+          "Sikh",
+          "Buddhist",
+          "Jain",
+          "Parsi",
+          "Other"
+        ],
+        "caste": [
+          "General",
+          "SC",
+          "ST",
+          "OBC"
+        ],
+        "minority": false,
+        "disability": false
+      },
+      "employment": {
+        "employmentStatus": [
+          "farmer"
+        ],
+        "occupations": []
+      }
+    },
+    "benefits": [
+      "Subsidy up to ₹1.5 lakh for solar pump installation",
+      "Reduces electricity and diesel costs",
+      "Promotes renewable energy usage",
+      "Improves irrigation efficiency"
+    ],
+    "documentsRequired": [
+      "Aadhaar Card",
+      "Land Records",
+      "Domicile Certificate",
+      "Bank Account Details",
+      "Photograph"
+    ],
+    "applicationUrl": "https://mahaurja.com/",
+    "trackingMeta": {
+      "type": "multi_step",
+      "instructions": [
+        "Visit the nearest Seva Kendra with required documents.",
+        "Submit the application form along with Aadhaar card copy.",
+        "Wait for verification from the nodal department.",
+        "Check application status online using your reference ID."
+      ]
+    },
+    "status": "drafted"
+  },
+  {
+    "id": "scheme_national_scholarship_portal",
+    "title": "National Scholarship Portal (NSP)",
+    "description": "NSP is a centralized platform for various scholarship schemes offered by the government for students.",
+    "ministry": "Ministry of Electronics and Information Technology",
+    "category": "Education",
+    "tags": [
+      "student",
+      "scholarship",
+      "portal"
+    ],
+    "eligibility": {
+      "age": {
+        "min": 14,
+        "max": 30
+      },
+      "income": {
+        "min": 0,
+        "max": 250000
+      },
+      "gender": "any",
+      "location": {
+        "country": "India",
+        "states": [
+          "Andhra Pradesh",
+          "Arunachal Pradesh",
+          "Assam",
+          "Bihar",
+          "Chhattisgarh",
+          "Goa",
+          "Gujarat",
+          "Haryana",
+          "Himachal Pradesh",
+          "Jharkhand",
+          "Karnataka",
+          "Kerala",
+          "Madhya Pradesh",
+          "Maharashtra",
+          "Manipur",
+          "Meghalaya",
+          "Mizoram",
+          "Nagaland",
+          "Odisha",
+          "Punjab",
+          "Rajasthan",
+          "Sikkim",
+          "Tamil Nadu",
+          "Telangana",
+          "Tripura",
+          "Uttar Pradesh",
+          "Uttarakhand",
+          "West Bengal",
+          "Andaman and Nicobar Islands",
+          "Chandigarh",
+          "Dadra and Nagar Haveli and Daman and Diu",
+          "Delhi",
+          "Jammu and Kashmir",
+          "Ladakh",
+          "Lakshadweep",
+          "Puducherry"
+        ],
+        "districts": [],
+        "ruralOnly": false,
+        "urbanOnly": false
+      },
+      "social": {
+        "religion": [
+          "Hindu",
+          "Muslim",
+          "Christian",
+          "Sikh",
+          "Buddhist",
+          "Jain",
+          "Parsi",
+          "Other"
+        ],
+        "caste": [
+          "General",
+          "SC",
+          "ST",
+          "OBC"
+        ],
+        "minority": false,
+        "disability": false
+      },
+      "employment": {
+        "employmentStatus": [
+          "student"
+        ],
+        "occupations": []
+      }
+    },
+    "benefits": [
+      "Access to multiple scholarships through single platform",
+      "Transparent and efficient application process",
+      "Direct benefit transfer to student accounts",
+      "Reduces duplication and fraud"
+    ],
+    "documentsRequired": [
+      "Aadhaar Card",
+      "Income Certificate",
+      "Educational Certificates",
+      "Bank Account Details",
+      "Photograph"
+    ],
+    "applicationUrl": "https://scholarships.gov.in/",
+    "trackingMeta": {
+      "type": "login_required",
+      "instructions": [
+        "Visit the nearest Seva Kendra with required documents.",
+        "Submit the application form along with Aadhaar card copy.",
+        "Wait for verification from the nodal department.",
+        "Check application status online using your reference ID."
+      ]
+    },
+    "status": "archived"
+  },
+  {
+    "id": "scheme_one_nation_ration",
+    "title": "One Nation One Ration Card Scheme",
+    "description": "This scheme enables beneficiaries to access subsidized food grains from any ration shop across India using a single ration card.",
+    "ministry": "Ministry of Consumer Affairs",
+    "category": "Food Security",
+    "tags": [
+      "ration",
+      "food",
+      "mobility"
+    ],
+    "eligibility": {
+      "age": {
+        "min": 18,
+        "max": 150
+      },
+      "income": {
+        "min": 0,
+        "max": 200000
+      },
+      "gender": "any",
+      "location": {
+        "country": "India",
+        "states": [
+          "Andhra Pradesh",
+          "Arunachal Pradesh",
+          "Assam",
+          "Bihar",
+          "Chhattisgarh",
+          "Goa",
+          "Gujarat",
+          "Haryana",
+          "Himachal Pradesh",
+          "Jharkhand",
+          "Karnataka",
+          "Kerala",
+          "Madhya Pradesh",
+          "Maharashtra",
+          "Manipur",
+          "Meghalaya",
+          "Mizoram",
+          "Nagaland",
+          "Odisha",
+          "Punjab",
+          "Rajasthan",
+          "Sikkim",
+          "Tamil Nadu",
+          "Telangana",
+          "Tripura",
+          "Uttar Pradesh",
+          "Uttarakhand",
+          "West Bengal",
+          "Andaman and Nicobar Islands",
+          "Chandigarh",
+          "Dadra and Nagar Haveli and Daman and Diu",
+          "Delhi",
+          "Jammu and Kashmir",
+          "Ladakh",
+          "Lakshadweep",
+          "Puducherry"
+        ],
+        "districts": [],
+        "ruralOnly": false,
+        "urbanOnly": false
+      },
+      "social": {
+        "religion": [
+          "Hindu",
+          "Muslim",
+          "Christian",
+          "Sikh",
+          "Buddhist",
+          "Jain",
+          "Parsi",
+          "Other"
+        ],
+        "caste": [
+          "General",
+          "SC",
+          "ST",
+          "OBC"
+        ],
+        "minority": false,
+        "disability": false
+      },
+      "employment": {
+        "employmentStatus": [
+          "unemployed",
+          "laborer",
+          "farmer",
+          "homemaker"
+        ],
+        "occupations": []
+      }
+    },
+    "benefits": [
+      "Access to subsidized food grains across India",
+      "Portability of ration card benefits",
+      "Supports migrant workers",
+      "Ensures food security"
+    ],
+    "documentsRequired": [
+      "Ration Card",
+      "Aadhaar Card",
+      "Family Details",
+      "Residence Proof"
+    ],
+    "applicationUrl": "https://nfsa.gov.in/",
+    "trackingMeta": {
+      "type": "direct",
+      "instructions": [
+        "Visit the nearest Seva Kendra with required documents.",
+        "Submit the application form along with Aadhaar card copy.",
+        "Wait for verification from the nodal department.",
+        "Check application status online using your reference ID."
+      ]
+    },
+    "status": "archived"
+  },
+  {
+    "id": "scheme_pm_garib_kalyan",
+    "title": "PM Garib Kalyan Anna Yojana",
+    "description": "PMGKAY provides free food grains to poor households during times of crisis to ensure food security and reduce hunger.",
+    "ministry": "Ministry of Consumer Affairs",
+    "category": "Food Security",
+    "tags": [
+      "food",
+      "poverty",
+      "ration"
+    ],
+    "eligibility": {
+      "age": {
+        "min": 18,
+        "max": 150
+      },
+      "income": {
+        "min": 0,
+        "max": 200000
+      },
+      "gender": "any",
+      "location": {
+        "country": "India",
+        "states": [
+          "Andhra Pradesh",
+          "Arunachal Pradesh",
+          "Assam",
+          "Bihar",
+          "Chhattisgarh",
+          "Goa",
+          "Gujarat",
+          "Haryana",
+          "Himachal Pradesh",
+          "Jharkhand",
+          "Karnataka",
+          "Kerala",
+          "Madhya Pradesh",
+          "Maharashtra",
+          "Manipur",
+          "Meghalaya",
+          "Mizoram",
+          "Nagaland",
+          "Odisha",
+          "Punjab",
+          "Rajasthan",
+          "Sikkim",
+          "Tamil Nadu",
+          "Telangana",
+          "Tripura",
+          "Uttar Pradesh",
+          "Uttarakhand",
+          "West Bengal",
+          "Andaman and Nicobar Islands",
+          "Chandigarh",
+          "Dadra and Nagar Haveli and Daman and Diu",
+          "Delhi",
+          "Jammu and Kashmir",
+          "Ladakh",
+          "Lakshadweep",
+          "Puducherry"
+        ],
+        "districts": [],
+        "ruralOnly": false,
+        "urbanOnly": false
+      },
+      "social": {
+        "religion": [
+          "Hindu",
+          "Muslim",
+          "Christian",
+          "Sikh",
+          "Buddhist",
+          "Jain",
+          "Parsi",
+          "Other"
+        ],
+        "caste": [
+          "General",
+          "SC",
+          "ST",
+          "OBC"
+        ],
+        "minority": false,
+        "disability": false
+      },
+      "employment": {
+        "employmentStatus": [
+          "unemployed",
+          "laborer",
+          "farmer",
+          "homemaker"
+        ],
+        "occupations": []
+      }
+    },
+    "benefits": [
+      "Free food grains distribution under PDS",
+      "Ensures food security for poor households",
+      "Supports families during crises",
+      "Reduces hunger and malnutrition"
+    ],
+    "documentsRequired": [
+      "Ration Card",
+      "Aadhaar Card",
+      "Family Details",
+      "Residence Proof"
+    ],
+    "applicationUrl": "https://nfsa.gov.in/",
+    "trackingMeta": {
+      "type": "none",
+      "instructions": [
+        "Visit the nearest Seva Kendra with required documents.",
+        "Submit the application form along with Aadhaar card copy.",
+        "Wait for verification from the nodal department.",
+        "Check application status online using your reference ID."
+      ]
+    },
+    "status": "archived"
+  },
+  {
+    "id": "scheme_maha_student_travel",
+    "title": "Maharashtra Student Travel Concession Scheme",
+    "description": "This scheme provides subsidized travel fares for students in Maharashtra using public transport.",
+    "ministry": "Government of Maharashtra",
+    "category": "Transport",
+    "tags": [
+      "student",
+      "travel",
+      "maharashtra"
+    ],
+    "eligibility": {
+      "age": {
+        "min": 12,
+        "max": 28
+      },
+      "income": {
+        "min": 0,
+        "max": 99999999
+      },
+      "gender": "any",
+      "location": {
+        "country": "India",
+        "states": [
+          "Maharashtra"
+        ],
+        "districts": [],
+        "ruralOnly": false,
+        "urbanOnly": false
+      },
+      "social": {
+        "religion": [
+          "Hindu",
+          "Muslim",
+          "Christian",
+          "Sikh",
+          "Buddhist",
+          "Jain",
+          "Parsi",
+          "Other"
+        ],
+        "caste": [
+          "General",
+          "SC",
+          "ST",
+          "OBC"
+        ],
+        "minority": false,
+        "disability": false
+      },
+      "employment": {
+        "employmentStatus": [
+          "student"
+        ],
+        "occupations": []
+      }
+    },
+    "benefits": [
+      "Up to 50% concession on public transport fares",
+      "Reduces travel expenses for students",
+      "Encourages regular attendance in educational institutions",
+      "Supports access to education"
+    ],
+    "documentsRequired": [
+      "Student ID Card",
+      "Bonafide Certificate",
+      "Aadhaar Card",
+      "Photograph"
+    ],
+    "applicationUrl": "https://msrtc.maharashtra.gov.in/",
+    "trackingMeta": {
+      "type": "direct",
+      "instructions": [
+        "Visit the nearest Seva Kendra with required documents.",
+        "Submit the application form along with Aadhaar card copy.",
+        "Wait for verification from the nodal department.",
+        "Check application status online using your reference ID."
+      ]
+    },
+    "status": "archived"
+  },
+  {
+    "id": "scheme_national_health_mission",
+    "title": "National Health Mission (NHM)",
+    "description": "NHM aims to strengthen healthcare systems across India by improving access to affordable and quality healthcare services.",
+    "ministry": "Ministry of Health and Family Welfare",
+    "category": "Health",
+    "tags": [
+      "health",
+      "rural",
+      "services"
+    ],
+    "eligibility": {
+      "age": {
+        "min": 0,
+        "max": 150
+      },
+      "income": {
+        "min": 0,
+        "max": 99999999
+      },
+      "gender": "any",
+      "location": {
+        "country": "India",
+        "states": [
+          "Andhra Pradesh",
+          "Arunachal Pradesh",
+          "Assam",
+          "Bihar",
+          "Chhattisgarh",
+          "Goa",
+          "Gujarat",
+          "Haryana",
+          "Himachal Pradesh",
+          "Jharkhand",
+          "Karnataka",
+          "Kerala",
+          "Madhya Pradesh",
+          "Maharashtra",
+          "Manipur",
+          "Meghalaya",
+          "Mizoram",
+          "Nagaland",
+          "Odisha",
+          "Punjab",
+          "Rajasthan",
+          "Sikkim",
+          "Tamil Nadu",
+          "Telangana",
+          "Tripura",
+          "Uttar Pradesh",
+          "Uttarakhand",
+          "West Bengal",
+          "Andaman and Nicobar Islands",
+          "Chandigarh",
+          "Dadra and Nagar Haveli and Daman and Diu",
+          "Delhi",
+          "Jammu and Kashmir",
+          "Ladakh",
+          "Lakshadweep",
+          "Puducherry"
+        ],
+        "districts": [],
+        "ruralOnly": false,
+        "urbanOnly": false
+      },
+      "social": {
+        "religion": [
+          "Hindu",
+          "Muslim",
+          "Christian",
+          "Sikh",
+          "Buddhist",
+          "Jain",
+          "Parsi",
+          "Other"
+        ],
+        "caste": [
+          "General",
+          "SC",
+          "ST",
+          "OBC"
+        ],
+        "minority": false,
+        "disability": false
+      },
+      "employment": {
+        "employmentStatus": [
+          "unemployed",
+          "laborer",
+          "farmer",
+          "homemaker"
+        ],
+        "occupations": []
+      }
+    },
+    "benefits": [
+      "Free or subsidized healthcare services",
+      "Improved access to primary health centers",
+      "Focus on maternal and child healthcare",
+      "Strengthens public healthcare infrastructure"
+    ],
+    "documentsRequired": [
+      "Aadhaar Card",
+      "Health Records",
+      "Residence Proof",
+      "Photograph"
+    ],
+    "applicationUrl": "https://nhm.gov.in/",
+    "trackingMeta": {
+      "type": "none",
+      "instructions": [
+        "Visit the nearest Seva Kendra with required documents.",
+        "Submit the application form along with Aadhaar card copy.",
+        "Wait for verification from the nodal department.",
+        "Check application status online using your reference ID."
+      ]
+    },
+    "status": "archived"
+  }
+]

@@ -1,0 +1,10 @@
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+const express_1 = require("express");
+const handle_query_controller_1 = require("./controllers/handle-query.controller");
+const stream_query_controller_1 = require("./controllers/stream-query.controller");
+const auth_middleware_1 = require("../../middlewares/auth.middleware");
+const router = (0, express_1.Router)();
+router.post('/query', auth_middleware_1.authMiddleware, handle_query_controller_1.HandleQueryController);
+router.get('/stream', auth_middleware_1.authMiddleware, stream_query_controller_1.StreamQueryController);
+exports.default = router;

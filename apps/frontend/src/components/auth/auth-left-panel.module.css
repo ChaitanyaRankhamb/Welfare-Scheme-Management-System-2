@@ -1,0 +1,129 @@
+/* ═══════════════════════════════════════════════════
+   AUTH LEFT PANEL — Permanently dark, minimal visual identity
+   ═══════════════════════════════════════════════════ */
+
+/* ── Outer panel ─────────────────────────────────── */
+.panel {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  min-height: 100%;
+  background: #08091a;
+  overflow: hidden;
+  padding: 3rem 3rem;
+  width: 100%;
+}
+
+/* ── Ambient glow blobs ──────────────────────────── */
+.glow {
+  position: absolute;
+  border-radius: 50%;
+  pointer-events: none;
+  filter: blur(90px);
+  opacity: 0.3;
+}
+.glowOne {
+  width: 480px;
+  height: 480px;
+  background: radial-gradient(circle, #6366f1, transparent);
+  top: -120px;
+  left: -140px;
+  animation: floatA 9s ease-in-out infinite;
+}
+.glowTwo {
+  width: 360px;
+  height: 360px;
+  background: radial-gradient(circle, #22d3ee, transparent);
+  bottom: 0;
+  right: -80px;
+  animation: floatB 11s ease-in-out infinite;
+}
+
+@keyframes floatA {
+  0%, 100% { transform: translateY(0) scale(1); }
+  50%       { transform: translateY(-28px) scale(1.05); }
+}
+@keyframes floatB {
+  0%, 100% { transform: translateY(0) scale(1); }
+  50%       { transform: translateY(22px) scale(0.97); }
+}
+
+/* ── Content container ───────────────────────────── */
+.content {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  gap: 2rem;
+}
+
+/* ── Brand wordmark row ──────────────────────────── */
+.brandRow {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: auto;
+}
+.brandDot {
+  display: inline-block;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #6366f1, #22d3ee);
+  box-shadow: 0 0 12px #6366f1aa;
+  animation: pulse 2s ease-in-out infinite;
+}
+@keyframes pulse {
+  0%, 100% { box-shadow: 0 0 10px #6366f1aa; }
+  50%       { box-shadow: 0 0 22px #22d3eecc; }
+}
+.brandName {
+  font-size: 1.1rem;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  color: #fff;
+  font-family: 'Outfit', sans-serif;
+}
+
+/* ── Image Container ─────────────────────────────── */
+.imageContainer {
+  position: relative;
+  width: 100%;
+  flex-grow: 1;
+  min-height: 250px;
+  max-height: 500px;
+  border-radius: 1.5rem;
+  overflow: hidden;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  margin: auto 0;
+}
+
+.image {
+  object-fit: cover;
+  object-position: center top;
+}
+
+/* ── Text Section ────────────────────────────────── */
+.textSection {
+  text-align: center;
+  margin-top: auto;
+}
+
+.headline {
+  font-family: 'Outfit', sans-serif;
+  font-size: 2.2rem;
+  font-weight: 800;
+  color: #f1f5f9;
+  margin: 0 0 0.5rem 0;
+  letter-spacing: -0.02em;
+}
+
+.subtext {
+  font-size: 1.05rem;
+  color: #94a3b8;
+  margin: 0;
+  line-height: 1.6;
+}
