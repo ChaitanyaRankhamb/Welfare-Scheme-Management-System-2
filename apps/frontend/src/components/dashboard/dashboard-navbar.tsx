@@ -90,10 +90,10 @@ export function DashboardNavbar() {
         <Button
           variant="ghost"
           size="icon"
-          className="relative h-8 w-8 text-muted-foreground hover:text-foreground border-border box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1)"
+          className="relative h-8 w-8 text-muted-foreground hover:text-foreground border-border shadow-sm"
         >
           <Bell className="h-[1.1rem] w-[1.1rem]" />
-          <span className="absolute top-2 right-2.5 h-2 w-2 rounded-full bg-red-500 border-2 border-background" />
+          <span className="absolute top-2 right-2.5 h-2 w-2 rounded-full bg-destructive border-2 border-background" />
         </Button>
 
         {isLogged && (
@@ -105,9 +105,9 @@ export function DashboardNavbar() {
                 <span className="text-xs font-semibold leading-none">{user?.username ?? 'Account'}</span>
                 <span className="text-[10px] text-muted-foreground mt-0.5">Citizen</span>
               </div>
-              <Avatar className="h-8 w-8 ring-2 ring-transparent group-hover:ring-indigo-500/20 transition-all">
+              <Avatar className="h-8 w-8 ring-2 ring-transparent group-hover:ring-primary/20 transition-all">
                 <AvatarImage src={user?.avatar} alt={user?.username} />
-                <AvatarFallback className={cn(getAvatarColor(user?.username), "text-white text-[10px] uppercase font-bold")}>
+                <AvatarFallback className={cn(getAvatarColor(user?.username), "text-primary-foreground text-[10px] uppercase font-bold")}>
                   {user?.username?.charAt(0) ?? 'U'}
                 </AvatarFallback>
               </Avatar>

@@ -14,15 +14,15 @@ const SummaryCard = ({
     className="
     relative overflow-hidden group
     rounded-2xl
-    border border-gray-200/50 dark:border-white/50
-    bg-white/70 dark:bg-zinc-900/60 backdrop-blur-xl
-    shadow-[0_10px_25px_-5px_rgba(0,0,0,0.08)]
+    border border-border/50 dark:border-border/50
+    bg-card/70 dark:bg-card/60 backdrop-blur-xl
+    shadow-lg
     transition-all duration-300
-    hover:border-indigo-500 hover:dark:border-indigo-500
+    hover:border-primary hover:dark:border-primary
   "
   >
     {/* Subtle Gradient Glow */}
-    {/* <div className={`absolute inset-0 bg-gradient-to-br ${gradient} opacity-0 group-hover:opacity-5 transition duration-300`} /> */}
+    {/* <div className={`absolute inset-0 bg-linear-to-br ${gradient} opacity-0 group-hover:opacity-5 transition duration-300`} /> */}
 
     <CardContent className="p-6 relative z-10">
       {/* Top Row */}
@@ -37,9 +37,9 @@ const SummaryCard = ({
         <div
           className={`
           p-2.5 rounded-xl
-          bg-gradient-to-br ${gradient}
-          text-white
-          shadow-[0_6px_15px_-5px_rgba(0,0,0,0.2)]
+          bg-linear-to-br ${gradient}
+          text-primary-foreground
+          shadow-lg
           transition-transform duration-300
           group-hover:scale-110
         `}
@@ -49,12 +49,12 @@ const SummaryCard = ({
       </div>
 
       {/* Value */}
-      <p className="text-3xl font-black tracking-tight text-gray-900 dark:text-white">
+      <p className="text-3xl font-black tracking-tight text-muted-foreground dark:text-primary-foreground">
         {value}
       </p>
 
       {/* Subtext */}
-      <p className="text-xs text-gray-500 dark:text-gray-400 mt-1 font-medium">
+      <p className="text-xs text-muted-foreground dark:text-muted-foreground mt-1 font-medium">
         {subtext}
       </p>
     </CardContent>
@@ -70,8 +70,8 @@ export const UserSummary = ({ data }: { data?: any }) => {
         value={data?.totalUsers?.toLocaleString() || "0"}
         subtext="Across all districts"
         icon={Users}
-        colorClass="text-indigo-600 dark:text-indigo-400"
-        gradient="from-indigo-500 to-indigo-600"
+        colorClass="text-primary dark:text-primary"
+        gradient="from-primary to-primary/70"
       />
 
       <SummaryCard
@@ -79,8 +79,8 @@ export const UserSummary = ({ data }: { data?: any }) => {
         value={data?.totalActiveUsers?.toLocaleString() || "0"}
         subtext="Live user base"
         icon={UserCheck}
-        colorClass="text-emerald-600 dark:text-emerald-400"
-        gradient="from-emerald-500 to-emerald-600"
+        colorClass="text-primary dark:text-primary"
+        gradient="from-primary to-primary/70"
       />
 
       <SummaryCard
@@ -88,8 +88,8 @@ export const UserSummary = ({ data }: { data?: any }) => {
         value={data?.totalDeactivatedUsers?.toLocaleString() || "0"}
         subtext="Requires attention"
         icon={UserX}
-        colorClass="text-rose-600 dark:text-rose-400"
-        gradient="from-rose-500 to-rose-600"
+        colorClass="text-destructive dark:text-destructive"
+        gradient="from-destructive to-destructive/70"
       />
 
     </div>

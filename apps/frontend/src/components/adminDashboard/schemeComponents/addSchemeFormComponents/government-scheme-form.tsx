@@ -172,7 +172,7 @@ export function GovernmentSchemeForm({ onSubmit, defaultValues, isEditMode }: Go
             <Button
               type="submit"
               disabled={isSubmitting}
-              className="min-w-32 bg-gradient-to-r from-indigo-600 to-violet-600 hover:from-indigo-700 hover:to-violet-700 text-white border-0 shadow-lg"
+              className="min-w-32 bg-linear-to-r from-primary to-primary/70 hover:from-primary hover:to-primary/70 text-primary-foreground border-0 shadow-lg"
             >
               {isSubmitting ? 'Submitting...' : isEditMode ? 'Update Scheme' : 'Submit Scheme'}
             </Button>

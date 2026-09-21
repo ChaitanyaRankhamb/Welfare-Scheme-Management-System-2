@@ -328,12 +328,12 @@ export default function AIWorkspacePage() {
         {/* Profile Warning if incomplete */}
         {showProfileWarning && completionStats.percent < 100 && (
           <div className="mx-auto w-full max-w-4xl px-4 sm:px-6 pt-3 shrink-0">
-            <div className="p-3 bg-amber-500/10 border border-amber-500/20 rounded-xl relative flex items-start gap-3">
-              <div className="p-1.5 rounded-lg bg-amber-500/20 text-amber-600 dark:text-amber-400 shrink-0 mt-0.5">
+            <div className="p-3 bg-primary/10 border border-primary/20 rounded-xl relative flex items-start gap-3">
+              <div className="p-1.5 rounded-lg bg-primary/20 text-primary dark:text-primary shrink-0 mt-0.5">
                 <AlertCircle className="w-4 h-4" />
               </div>
               <div className="flex-1 pr-8">
-                <h4 className="text-xs font-bold text-amber-700 dark:text-amber-400">
+                <h4 className="text-xs font-bold text-primary dark:text-primary">
                   Profile Context {completionStats.percent}% Complete
                 </h4>
                 <p className="text-[11px] text-muted-foreground mt-0.5 font-medium">
@@ -343,7 +343,7 @@ export default function AIWorkspacePage() {
               <Link href="/citizenDashboard/profile">
                 <Button
                   size="sm"
-                  className="bg-amber-600 hover:bg-amber-700 text-white h-7 text-[10px] font-bold rounded-md px-2.5 shadow-xs cursor-pointer"
+                  className="bg-primary hover:bg-primary text-white h-7 text-[10px] font-bold rounded-md px-2.5 shadow-xs cursor-pointer"
                 >
                   Update
                 </Button>

@@ -21,8 +21,8 @@ export function EmptyState({ onAction }: EmptyStateProps) {
       <div className="w-16 h-16 rounded-3xl bg-gradient-to-br from-primary via-primary/90 to-primary/70 text-primary-foreground flex items-center justify-center shadow-xl shadow-primary/20 ring-4 ring-primary/10 mb-6 relative">
         <Bot className="w-8 h-8" />
         <span className="absolute -bottom-1 -right-1 flex h-4 w-4">
-          <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
-          <span className="relative inline-flex rounded-full h-4 w-4 bg-emerald-500 border-2 border-background"></span>
+          <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary opacity-75"></span>
+          <span className="relative inline-flex rounded-full h-4 w-4 bg-primary border-2 border-background"></span>
         </span>
       </div>
 

@@ -37,7 +37,7 @@ export function SchemeArtifactCard({ scheme, onAction, index }: SchemeArtifactCa
         </div>
 
         {typeof scheme.score === 'number' && (
-          <div className="flex items-center gap-1.5 px-2.5 py-1 rounded-lg bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 font-bold text-xs border border-emerald-500/20 shrink-0 h-fit">
+          <div className="flex items-center gap-1.5 px-2.5 py-1 rounded-lg bg-primary/10 text-primary dark:text-primary font-bold text-xs border border-primary/20 shrink-0 h-fit">
             <CheckCircle2 className="w-3.5 h-3.5" />
             {Math.round(scheme.score * 100)}% Match
           </div>

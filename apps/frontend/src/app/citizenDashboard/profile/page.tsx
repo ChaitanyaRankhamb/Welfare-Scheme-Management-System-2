@@ -1,29 +1,29 @@
-'use client'
+"use client";
 
-import React, { useMemo } from 'react'
-import { Spinner } from '@/components/ui/spinner'
-import { PersonalInformation } from '@/components/profilePage/personal-information'
-import { AddressDetails } from '@/components/profilePage/address-details'
-import { SocioEconomicDetails } from '@/components/profilePage/socio-economic-details'
-import { EducationDetails } from '@/components/profilePage/education-details'
-import { ProfessionalDetails } from '@/components/profilePage/professional-details'
-import { AgricultureDetails } from '@/components/profilePage/agriculture-details'
-import { ProfileHeader } from '@/components/profilePage/profile-header'
-import { ProfileSidebar } from '@/components/profilePage/profile-sidebar'
-import { ProfileLayout } from '@/components/profilePage/profile-layout'
-import { useProfile } from '@/hooks/useProfile'
-import { useScrollSpy } from '@/hooks/useScrollSpy'
-import { User, MapPin, Wallet, BookOpen, Briefcase, Trees } from 'lucide-react'
-import Link from 'next/link'
+import React, { useMemo } from "react";
+import { Spinner } from "@/components/ui/spinner";
+import { PersonalInformation } from "@/components/profilePage/personal-information";
+import { AddressDetails } from "@/components/profilePage/address-details";
+import { SocioEconomicDetails } from "@/components/profilePage/socio-economic-details";
+import { EducationDetails } from "@/components/profilePage/education-details";
+import { ProfessionalDetails } from "@/components/profilePage/professional-details";
+import { AgricultureDetails } from "@/components/profilePage/agriculture-details";
+import { ProfileHeader } from "@/components/profilePage/profile-header";
+import { ProfileSidebar } from "@/components/profilePage/profile-sidebar";
+import { ProfileLayout } from "@/components/profilePage/profile-layout";
+import { useProfile } from "@/hooks/useProfile";
+import { useScrollSpy } from "@/hooks/useScrollSpy";
+import { User, MapPin, Wallet, BookOpen, Briefcase, Trees } from "lucide-react";
+import Link from "next/link";
 
 const SECTIONS = [
-  { id: 'personal', title: 'Personal Info', icon: User },
-  { id: 'address', title: 'Address', icon: MapPin },
-  { id: 'socio-economic', title: 'Socio-Economic', icon: Wallet },
-  { id: 'education', title: 'Education', icon: BookOpen },
-  { id: 'professional', title: 'Professional', icon: Briefcase },
-  { id: 'agriculture', title: 'Agriculture', icon: Trees, conditional: true },
-]
+  { id: "personal", title: "Personal Info", icon: User },
+  { id: "address", title: "Address", icon: MapPin },
+  { id: "socio-economic", title: "Socio-Economic", icon: Wallet },
+  { id: "education", title: "Education", icon: BookOpen },
+  { id: "professional", title: "Professional", icon: Briefcase },
+  { id: "agriculture", title: "Agriculture", icon: Trees, conditional: true },
+];
 
 export default function ProfilePage() {
   const {
@@ -35,38 +35,40 @@ export default function ProfilePage() {
     isSaved,
     sectionCompletion,
     completionStats,
-  } = useProfile()
+  } = useProfile();
 
-  const sectionIds = useMemo(() => SECTIONS.map(s => s.id), [])
-  const { activeSection, scrollToSection } = useScrollSpy(sectionIds)
+  const sectionIds = useMemo(() => SECTIONS.map((s) => s.id), []);
+  const { activeSection, scrollToSection } = useScrollSpy(sectionIds);
 
-  const isFarmer = profile.occupationType === 'farmer'
+  const isFarmer = profile.occupationType === "farmer";
 
   if (isLoading) {
     return (
-      <div className="min-h-screen flex items-center justify-center bg-slate-50 dark:bg-zinc-950">
+      <div className="flex min-h-screen items-center justify-center bg-background">
         <div className="flex flex-col items-center gap-4">
-          <Spinner className="h-10 w-10 text-indigo-600" />
-          <p className="text-sm font-bold animate-pulse text-muted-foreground">Loading your profile...</p>
+          <Spinner className="h-10 w-10 text-primary" />
+          <p className="text-sm font-bold animate-pulse text-muted-foreground">
+            Loading your profile...
+          </p>
         </div>
       </div>
-    )
+    );
   }
 
   return (
     <ProfileLayout
       header={
-        <ProfileHeader 
-          activeSection={activeSection} 
-          completionPercent={completionStats.percent} 
+        <ProfileHeader
+          activeSection={activeSection}
+          completionPercent={completionStats.percent}
         />
       }
       sidebar={
-        <ProfileSidebar 
-          sections={SECTIONS} 
-          activeSection={activeSection} 
-          isFarmer={isFarmer} 
-          scrollToSection={scrollToSection} 
+        <ProfileSidebar
+          sections={SECTIONS}
+          activeSection={activeSection}
+          isFarmer={isFarmer}
+          scrollToSection={scrollToSection}
         />
       }
     >
@@ -74,10 +76,10 @@ export default function ProfilePage() {
         <PersonalInformation
           data={profile}
           onChange={updateField}
-          onSave={() => saveSection('personalInformation')}
-          isSaving={sectionSaving['personalInformation']}
-          isSaved={isSaved['personalInformation']}
-          completionPercent={sectionCompletion['personalInformation']}
+          onSave={() => saveSection("personalInformation")}
+          isSaving={sectionSaving["personalInformation"]}
+          isSaved={isSaved["personalInformation"]}
+          completionPercent={sectionCompletion["personalInformation"]}
         />
       </div>
 
@@ -85,10 +87,10 @@ export default function ProfilePage() {
         <AddressDetails
           data={profile}
           onChange={updateField}
-          onSave={() => saveSection('address')}
-          isSaving={sectionSaving['address']}
-          isSaved={isSaved['address']}
-          completionPercent={sectionCompletion['address']}
+          onSave={() => saveSection("address")}
+          isSaving={sectionSaving["address"]}
+          isSaved={isSaved["address"]}
+          completionPercent={sectionCompletion["address"]}
         />
       </div>
 
@@ -96,10 +98,10 @@ export default function ProfilePage() {
         <SocioEconomicDetails
           data={profile}
           onChange={updateField}
-          onSave={() => saveSection('socioEconomic')}
-          isSaving={sectionSaving['socioEconomic']}
-          isSaved={isSaved['socioEconomic']}
-          completionPercent={sectionCompletion['socioEconomic']}
+          onSave={() => saveSection("socioEconomic")}
+          isSaving={sectionSaving["socioEconomic"]}
+          isSaved={isSaved["socioEconomic"]}
+          completionPercent={sectionCompletion["socioEconomic"]}
         />
       </div>
 
@@ -107,10 +109,10 @@ export default function ProfilePage() {
         <EducationDetails
           data={profile}
           onChange={updateField}
-          onSave={() => saveSection('education')}
-          isSaving={sectionSaving['education']}
-          isSaved={isSaved['education']}
-          completionPercent={sectionCompletion['education']}
+          onSave={() => saveSection("education")}
+          isSaving={sectionSaving["education"]}
+          isSaved={isSaved["education"]}
+          completionPercent={sectionCompletion["education"]}
         />
       </div>
 
@@ -118,10 +120,10 @@ export default function ProfilePage() {
         <ProfessionalDetails
           data={profile}
           onChange={updateField}
-          onSave={() => saveSection('professional')}
-          isSaving={sectionSaving['professional']}
-          isSaved={isSaved['professional']}
-          completionPercent={sectionCompletion['professional']}
+          onSave={() => saveSection("professional")}
+          isSaving={sectionSaving["professional"]}
+          isSaved={isSaved["professional"]}
+          completionPercent={sectionCompletion["professional"]}
         />
       </div>
 
@@ -130,23 +132,32 @@ export default function ProfilePage() {
           <AgricultureDetails
             data={{
               landSize: profile.landSize,
-              cropType: Array.isArray(profile.cropType) ? profile.cropType[0] : (profile.cropType || ''),
+              cropType: Array.isArray(profile.cropType)
+                ? profile.cropType[0]
+                : profile.cropType || "",
               irrigationType: profile.irrigationType,
             }}
             onChange={updateField}
-            onSave={() => saveSection('agriculture')}
-            isSaving={sectionSaving['agriculture']}
-            isSaved={isSaved['agriculture']}
-            completionPercent={sectionCompletion['agriculture']}
+            onSave={() => saveSection("agriculture")}
+            isSaving={sectionSaving["agriculture"]}
+            isSaved={isSaved["agriculture"]}
+            completionPercent={sectionCompletion["agriculture"]}
             isVisible={true}
           />
         </div>
       )}
 
       <div className="pt-10 pb-10 text-center border-t border-border/20">
-        <p className="text-xs text-muted-foreground font-medium">Data protected by 256-bit AES encryption.</p>
-        <Link href="/privacy" className="text-xs text-indigo-600 hover:text-indigo-700 font-bold mt-2 inline-block transition-colors">Privacy & Data Policy</Link>
+        <p className="text-xs text-muted-foreground font-medium">
+          Data protected by 256-bit AES encryption.
+        </p>
+        <Link
+          href="/privacy"
+          className="mt-2 inline-block text-xs font-bold text-primary transition-colors hover:text-primary/80"
+        >
+          Privacy & Data Policy
+        </Link>
       </div>
     </ProfileLayout>
-  )
+  );
 }

@@ -8,11 +8,9 @@ export default function CitizenDashboardLayout({
   return (
     <ThemeProvider>
       <UserProvider>
-        <div className="min-h-screen bg-[#fafafa] dark:bg-zinc-950 flex flex-col">
+        <div className="flex min-h-screen flex-col bg-background">
           <DashboardNavbar />
-          <div className="pt-16 flex-1 flex flex-col">
-            {children}
-          </div>
+          <div className="pt-16 flex-1 flex flex-col">{children}</div>
         </div>
       </UserProvider>
     </ThemeProvider>

@@ -4,7 +4,7 @@ import { fetchapi } from "@/lib/refresh-user";
  * API client for authentication related requests
  * This handles registration, login, and Google OAuth
  */
-const API_BASE_URL = "http://localhost:7000";
+const API_BASE_URL = process.env.NEXT_PUBLIC_AUTH_API_URL || "http://localhost:6001";
 
 /**
  * Handles user registration

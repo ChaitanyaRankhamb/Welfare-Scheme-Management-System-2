@@ -41,7 +41,7 @@ export function SchemeArtifact({ recommendations, onAction }: SchemeArtifactProp
               </div>
 
               {typeof scheme.score === 'number' && (
-                <span className="px-2 py-0.5 rounded-lg bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 font-extrabold text-[10px] border border-emerald-500/20 shrink-0">
+                <span className="px-2 py-0.5 rounded-lg bg-primary/10 text-primary dark:text-primary font-extrabold text-[10px] border border-primary/20 shrink-0">
                   {Math.round(scheme.score * 100)}% Match
                 </span>
               )}

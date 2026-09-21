@@ -18,12 +18,12 @@ const dialogScrollbarClass = `
   [&::-webkit-scrollbar-track]:bg-transparent
   [&::-webkit-scrollbar-track]:rounded-full
 
-  [&::-webkit-scrollbar-thumb]:bg-gray-500/20
-  dark:[&::-webkit-scrollbar-thumb]:bg-gray-300/20
+  [&::-webkit-scrollbar-thumb]:bg-muted/20
+  dark:[&::-webkit-scrollbar-thumb]:bg-muted/20
 
   [&::-webkit-scrollbar-thumb]:rounded-full
-  [&::-webkit-scrollbar-thumb:hover]:bg-gray-500/40
-  dark:[&::-webkit-scrollbar-thumb:hover]:bg-gray-300/40
+  [&::-webkit-scrollbar-thumb:hover]:bg-muted/40
+  dark:[&::-webkit-scrollbar-thumb:hover]:bg-muted/40
 
   scrollbar-thin
 `
@@ -62,11 +62,11 @@ export const SchemeHeader = ({
       {/* Left Section */}
       <div className="space-y-2">
         <div className="flex items-center gap-3">
-          <h1 className="text-3xl md:text-4xl font-black tracking-tight text-gray-900 dark:text-white">
+          <h1 className="text-3xl md:text-4xl font-black tracking-tight text-muted-foreground dark:text-primary-foreground">
             Scheme Manager
           </h1>
         </div>
-        <p className="text-sm md:text-base text-gray-500 dark:text-gray-400 max-w-xl">
+        <p className="text-sm md:text-base text-muted-foreground dark:text-muted-foreground max-w-xl">
           Design, publish, and manage welfare schemes across the platform.
         </p>
       </div>
@@ -77,10 +77,10 @@ export const SchemeHeader = ({
           onClick={onAddClick}
           className="
           group shrink-0 rounded-xl h-11 px-6
-          font-semibold text-white
-          bg-gradient-to-r from-indigo-600 to-violet-500
-          shadow-[0_10px_25px_-5px_rgba(99,102,241,0.35)]
-          hover:shadow-[0_15px_35px_-10px_rgba(99,102,241,0.5)]
+          font-semibold text-primary-foreground
+          bg-linear-to-r from-primary to-primary/70
+          shadow-lg
+          hover:shadow-lg
           transition-all duration-300 active:scale-95
           flex items-center gap-2
         "
@@ -89,13 +89,13 @@ export const SchemeHeader = ({
           Add Scheme
         </Button>
 
-        <DialogContent className={`${dialogScrollbarClass} w-[95vw] sm:w-[90vw] md:w-[85vw] lg:w-[80vw] xl:w-[75vw] 2xl:w-[70vw] max-w-4xl max-h-[92vh] overflow-y-auto border border-white/20 bg-white backdrop-blur-2xl dark:bg-zinc-900/80 dark:border-white/50 shadow-[0_20px_50px_rgba(0,0,0,0.1)] rounded-2xl`}>
+        <DialogContent className={`${dialogScrollbarClass} w-[95vw] sm:w-[90vw] md:w-[85vw] lg:w-[80vw] xl:w-[75vw] 2xl:w-[70vw] max-w-4xl max-h-[92vh] overflow-y-auto border border-border/20 bg-card backdrop-blur-2xl dark:bg-card/80 dark:border-border/50 shadow-lg rounded-2xl`}>
           <div className="p-4 sm:p-6 pb-2">
             <DialogHeader>
-              <DialogTitle className="text-2xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-indigo-600 to-violet-600 dark:from-indigo-400 dark:to-violet-400">
+              <DialogTitle className="text-2xl font-bold bg-clip-text text-transparent bg-linear-to-r from-primary to-primary/70 dark:from-primary dark:to-primary/70">
                 {isEditMode ? 'Edit Government Scheme' : 'Add New Government Scheme'}
               </DialogTitle>
-              <DialogDescription className="text-gray-500 dark:text-gray-400">
+              <DialogDescription className="text-muted-foreground dark:text-muted-foreground">
                 {isEditMode 
                   ? 'Update the details below to modify the welfare scheme.' 
                   : 'Fill in the details below to create a new welfare scheme. This will be visible to all eligible citizens.'}

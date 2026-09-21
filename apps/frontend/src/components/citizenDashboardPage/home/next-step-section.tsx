@@ -30,7 +30,7 @@ export function NextStepSection({ hasApplications = false, profileComplete = tru
   }
 
   return (
-    <Card className="border-2 border-dashed bg-gradient-to-br from-background to-secondary/10">
+    <Card className="border-2 border-dashed bg-linear-to-br from-background to-secondary/10">
       <CardHeader>
         <CardTitle>{title}</CardTitle>
         <CardDescription>{description}</CardDescription>

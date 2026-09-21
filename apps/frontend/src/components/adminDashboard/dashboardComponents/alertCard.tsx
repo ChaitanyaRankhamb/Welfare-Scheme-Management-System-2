@@ -6,7 +6,7 @@ interface AlertCardProps {
   description: string
   link: string
   linkText: string
-  color: 'rose' | 'orange' | 'emerald'
+  color: 'destructive' | 'primary' | 'primary'
 }
 
 export const AlertCard = ({
@@ -18,16 +18,16 @@ export const AlertCard = ({
 }: AlertCardProps) => {
   const colorStyles = {
     rose: {
-      border: 'border-rose-200/30 dark:border-rose-900/20',
-      text: 'text-rose-600 hover:text-rose-500',
+      border: 'border-destructive/30 dark:border-destructive/20',
+      text: 'text-destructive hover:text-destructive',
     },
     orange: {
-      border: 'border-orange-200/30 dark:border-orange-900/20',
-      text: 'text-orange-600 hover:text-orange-500',
+      border: 'border-destructive/30 dark:border-destructive/20',
+      text: 'text-destructive hover:text-destructive',
     },
     emerald: {
-      border: 'border-emerald-200/30 dark:border-emerald-900/20',
-      text: 'text-emerald-600 hover:text-emerald-500',
+      border: 'border-primary/30 dark:border-primary/20',
+      text: 'text-primary hover:text-primary',
     },
   }
 
@@ -38,18 +38,18 @@ export const AlertCard = ({
       min-h-[90px]
       flex flex-col justify-center
       p-3 rounded-xl
-      bg-white/70 dark:bg-zinc-900/100 backdrop-blur-md
+      bg-card/70 dark:bg-card/100 backdrop-blur-md
       border ${colorStyles[color].border}
-      shadow-[0_6px_15px_-5px_rgba(0,0,0,0.15)]
+      shadow-lg
       transition-all duration-300
       hover:-translate-y-0.5
     `}
     >
-      <p className="text-sm font-semibold text-gray-900 dark:text-white">
+      <p className="text-sm font-semibold text-muted-foreground dark:text-primary-foreground">
         {title}
       </p>
 
-      <p className="text-[11px] text-gray-500 mt-1">
+      <p className="text-[11px] text-muted-foreground mt-1">
         {description}
       </p>
 

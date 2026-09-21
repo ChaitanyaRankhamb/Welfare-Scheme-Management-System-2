@@ -16,11 +16,11 @@ const ActionPill = ({ label, icon: Icon, onClick, variant = 'outline' }: ActionP
     onClick={onClick}
     variant={variant === 'primary' ? 'default' : 'outline'}
     className={`
-      h-12 px-6 rounded-2xl font-bold transition-all active:scale-95 gap-3 border-gray-200 dark:border-white/10 cursor-pointer
-      ${variant === 'primary' ? 'bg-gradient-to-r from-indigo-600 to-violet-500 shadow-[0_10px_25px_-5px_rgba(99,102,241,0.35)] hover:shadow-[0_15px_35px_-10px_rgba(99,102,241,0.5)] transition-all duration-300 active:scale-95 text-white!' : 'bg-white dark:bg-white/5 hover:bg-gray-50 dark:hover:bg-white/10'}
+      h-12 px-6 rounded-2xl font-bold transition-all active:scale-95 gap-3 border-border dark:border-border/10 cursor-pointer
+      ${variant === 'primary' ? 'bg-linear-to-r from-primary to-primary/70 shadow-lg hover:shadow-lg transition-all duration-300 active:scale-95 text-primary-foreground!' : 'bg-card dark:bg-card/5 hover:bg-muted dark:hover:bg-card/10'}
     `}
   >
-    <Icon className={`w-4 h-4 ${variant === 'primary' ? 'text-white' : 'text-indigo-600 dark:text-indigo-400'}`} />
+    <Icon className={`w-4 h-4 ${variant === 'primary' ? 'text-primary-foreground' : 'text-primary dark:text-primary'}`} />
     <span className="text-sm tracking-tight">{label}</span>
   </Button>
 );

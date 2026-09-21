@@ -248,9 +248,9 @@ export function SmartDocumentUpload({
                 className={cn(
                   "h-12 w-12 rounded-lg flex items-center justify-center shrink-0",
                   doc.status === "completed"
-                    ? "bg-emerald-500/10 text-emerald-600"
+                    ? "bg-primary/10 text-primary"
                     : doc.status === "uploading"
-                      ? "bg-blue-500/10 text-blue-600"
+                      ? "bg-primary/10 text-primary"
                       : "bg-muted text-muted-foreground",
                 )}
               >
@@ -260,12 +260,12 @@ export function SmartDocumentUpload({
                 <div className="flex items-center gap-2">
                   <h4 className="font-semibold text-foreground">{doc.name}</h4>
                   {doc.status === "completed" && (
-                    <Badge className="bg-emerald-500/10 text-emerald-600 border-none text-xs">
+                    <Badge className="bg-primary/10 text-primary border-none text-xs">
                       Uploaded
                     </Badge>
                   )}
                   {doc.status === "uploading" && (
-                    <Badge className="bg-blue-500/10 text-blue-600 border-none text-xs">
+                    <Badge className="bg-primary/10 text-primary border-none text-xs">
                       Extracting Data...
                     </Badge>
                   )}
@@ -301,7 +301,7 @@ export function SmartDocumentUpload({
                   </Button>
                 </div>
               ) : doc.status === "uploading" ? (
-                <Loader2 className="h-5 w-5 text-blue-500 animate-spin mr-4" />
+                <Loader2 className="h-5 w-5 text-primary animate-spin mr-4" />
               ) : (
                 <div className="flex items-center gap-2">
                   <Button
@@ -313,7 +313,7 @@ export function SmartDocumentUpload({
                   >
                     <Trash2 className="h-4 w-4" />
                   </Button>
-                  <CheckCircle className="h-6 w-6 text-emerald-500 mr-4" />
+                  <CheckCircle className="h-6 w-6 text-primary mr-4" />
                 </div>
               )}
             </div>

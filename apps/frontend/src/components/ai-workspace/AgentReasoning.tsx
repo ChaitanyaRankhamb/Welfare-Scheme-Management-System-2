@@ -42,7 +42,7 @@ export function AgentReasoning({ steps, isLive }: AgentReasoningProps) {
             {steps.map((step, idx) => (
               <div key={idx} className="flex items-center gap-2 text-[11px]">
                 {step.type === 'intent' && <Search className="w-3 h-3 text-primary shrink-0" />}
-                {step.type === 'success' && <CheckCircle2 className="w-3 h-3 text-emerald-500 shrink-0" />}
+                {step.type === 'success' && <CheckCircle2 className="w-3 h-3 text-primary shrink-0" />}
                 {step.type === 'error' && <AlertCircle className="w-3 h-3 text-destructive shrink-0" />}
                 {(step.type === 'status' || isLive) && <Loader2 className="w-3 h-3 animate-spin text-primary shrink-0" />}
                 {step.type === 'info' && <Bot className="w-3 h-3 text-primary shrink-0" />}

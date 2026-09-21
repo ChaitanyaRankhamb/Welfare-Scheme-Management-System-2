@@ -8,10 +8,10 @@ import { AlertCircle } from 'lucide-react';
 
 export function ProfileHelperSection() {
   return (
-    <Card className="border-blue-200 dark:border-blue-900 bg-blue-50 dark:bg-blue-950">
+    <Card className="border-primary dark:border-primary bg-primary dark:bg-primary">
       <CardHeader>
         <CardTitle className="flex items-center gap-2">
-          <AlertCircle className="h-5 w-5 text-blue-600 dark:text-blue-400" />
+          <AlertCircle className="h-5 w-5 text-primary dark:text-primary" />
           Unlock More Schemes
         </CardTitle>
         <CardDescription>

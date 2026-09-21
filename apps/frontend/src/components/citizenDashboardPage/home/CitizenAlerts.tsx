@@ -9,20 +9,20 @@ export const CitizenAlerts = () => {
       className="
       relative overflow-hidden
       rounded-2xl
-      border border-orange-200/40 dark:border-orange-900/30
-      bg-gradient-to-br from-amber-50/60 to-orange-50/40
-      dark:from-amber-950/10 dark:to-orange-950/10
+      border border-destructive/40 dark:border-destructive/30
+      bg-linear-to-br from-primary/10 to-primary/40
+      dark:from-primary/10 dark:to-primary/10
       backdrop-blur-xl
-      shadow-[0_10px_20px_-5px_rgba(0,0,0,0.1)]
+      shadow-lg
     "
     >
       {/* Header */}
       <CardHeader className="pb-2 flex flex-row items-center gap-3">
-        <div className="w-8 h-8 flex items-center justify-center rounded-lg bg-orange-500/10">
-          <ShieldAlert className="w-4 h-4 text-orange-600 dark:text-orange-400" />
+        <div className="w-8 h-8 flex items-center justify-center rounded-lg bg-destructive/10">
+          <ShieldAlert className="w-4 h-4 text-destructive dark:text-destructive" />
         </div>
 
-        <CardTitle className="text-base font-semibold text-orange-900 dark:text-orange-400">
+        <CardTitle className="text-base font-semibold text-destructive dark:text-destructive">
           Action Required
         </CardTitle>
       </CardHeader>

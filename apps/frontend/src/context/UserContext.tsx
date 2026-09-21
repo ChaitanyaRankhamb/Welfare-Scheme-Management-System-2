@@ -31,7 +31,7 @@ export const UserProvider: React.FC<{ children: React.ReactNode }> = ({
   // Fetch user
   const fetchUser = async () => {
     try {
-      const response = await fetchapi("http://localhost:7000/auth/me", {
+      const response = await fetchapi(`${process.env.NEXT_PUBLIC_AUTH_API_URL || 'http://localhost:6001'}/auth/me`, {
         method: "GET",
       });
 

@@ -11,13 +11,13 @@ export const UserHeader = () => {
         
         {/* Title Row */}
         <div className="flex items-center gap-3">
-          <h1 className="text-3xl md:text-4xl font-black tracking-tight text-gray-900 dark:text-white">
+          <h1 className="text-3xl md:text-4xl font-black tracking-tight text-muted-foreground dark:text-primary-foreground">
             User Management
           </h1>
         </div>
 
         {/* Subtitle */}
-        <p className="text-sm md:text-base text-gray-500 dark:text-gray-400 max-w-xl">
+        <p className="text-sm md:text-base text-muted-foreground dark:text-muted-foreground max-w-xl">
           View, manage, and control user access across the platform.
         </p>
       </div>

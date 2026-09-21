@@ -1,7 +1,7 @@
-import React from 'react'
-import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
-import Link from 'next/link'
-import { ArrowRight } from 'lucide-react'
+import React from "react";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import Link from "next/link";
+import { ArrowRight } from "lucide-react";
 
 interface InsightsSectionProps {
   data?: Record<string, number>;
@@ -13,23 +13,35 @@ export const InsightsSection = ({ data = {} }: InsightsSectionProps) => {
 
   const getStatusColor = (status: string) => {
     switch (status.toLowerCase()) {
-      case 'approved': return 'from-emerald-400 to-emerald-600';
-      case 'rejected': return 'from-rose-400 to-rose-600';
-      case 'pending': return 'from-amber-400 to-amber-600';
-      case 'applied': return 'from-indigo-400 to-indigo-600';
-      case 'initiated': return 'from-blue-400 to-blue-600';
-      default: return 'from-gray-400 to-gray-600';
+      case "approved":
+        return "from-primary to-primary/70";
+      case "rejected":
+        return "from-destructive to-destructive/70";
+      case "pending":
+        return "from-primary to-primary/70";
+      case "applied":
+        return "from-primary to-primary/70";
+      case "initiated":
+        return "from-primary to-primary/70";
+      default:
+        return "from-muted to-muted-foreground";
     }
   };
 
   const getStatusTextColor = (status: string) => {
     switch (status.toLowerCase()) {
-      case 'approved': return 'text-emerald-600';
-      case 'rejected': return 'text-rose-600';
-      case 'pending': return 'text-amber-500';
-      case 'applied': return 'text-indigo-600';
-      case 'initiated': return 'text-blue-500';
-      default: return 'text-gray-600';
+      case "approved":
+        return "text-primary";
+      case "rejected":
+        return "text-destructive";
+      case "pending":
+        return "text-primary";
+      case "applied":
+        return "text-primary";
+      case "initiated":
+        return "text-primary";
+      default:
+        return "text-muted-foreground";
     }
   };
 
@@ -38,22 +50,22 @@ export const InsightsSection = ({ data = {} }: InsightsSectionProps) => {
       className="
       lg:col-span-2
       rounded-2xl
-      border border-gray-200 dark:border-white/50
-      bg-white/70 dark:bg-zinc-900/60 backdrop-blur-xl
-      shadow-[0_10px_25px_-5px_rgba(0,0,0,0.1)]
+      border border-border dark:border-border/50
+      bg-card/70 dark:bg-card/60 backdrop-blur-xl
+      shadow-lg
       transition-all duration-300
-      hover:shadow-[0_20px_40px_-10px_rgba(0,0,0,0.2)]
+      hover:shadow-lg
     "
     >
       {/* Header */}
-      <CardHeader className="flex flex-row items-center justify-between border-b border-gray-200 dark:border-white/50 pb-4">
-        <CardTitle className="text-lg font-semibold text-gray-800 dark:text-gray-200">
+      <CardHeader className="flex flex-row items-center justify-between border-b border-border dark:border-border/50 pb-4">
+        <CardTitle className="text-lg font-semibold text-muted-foreground dark:text-muted-foreground">
           Applications by Status
         </CardTitle>
 
         <Link
           href="/adminDashboard/applications"
-          className="text-sm font-semibold text-indigo-600 hover:text-indigo-500 flex items-center group"
+          className="text-sm font-semibold text-primary hover:text-primary flex items-center group"
         >
           View All
           <ArrowRight className="w-4 h-4 ml-1 transition-transform group-hover:translate-x-1" />
@@ -68,15 +80,17 @@ export const InsightsSection = ({ data = {} }: InsightsSectionProps) => {
             return (
               <div key={status} className="space-y-3">
                 <div className="flex justify-between text-sm font-semibold">
-                  <span className="text-gray-700 dark:text-gray-300 capitalize">{status}</span>
+                  <span className="text-muted-foreground dark:text-muted-foreground capitalize">
+                    {status}
+                  </span>
                   <span className={getStatusTextColor(status)}>
                     {percentage}% ({count.toLocaleString()})
                   </span>
                 </div>
 
-                <div className="w-full bg-gray-100 dark:bg-zinc-800 rounded-full h-2.5 overflow-hidden">
+                <div className="w-full bg-muted dark:bg-card rounded-full h-2.5 overflow-hidden">
                   <div
-                    className={`bg-gradient-to-r ${getStatusColor(status)} h-2.5 rounded-full transition-all duration-700 ease-out`}
+                    className={`bg-linear-to-r ${getStatusColor(status)} h-2.5 rounded-full transition-all duration-700 ease-out`}
                     style={{ width: `${percentage}%` }}
                   />
                 </div>
@@ -84,7 +98,7 @@ export const InsightsSection = ({ data = {} }: InsightsSectionProps) => {
             );
           })
         ) : (
-          <div className="flex items-center justify-center py-10 text-gray-500 italic">
+          <div className="flex items-center justify-center py-10 text-muted-foreground italic">
             No application data available
           </div>
         )}

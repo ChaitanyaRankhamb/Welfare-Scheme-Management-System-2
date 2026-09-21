@@ -39,7 +39,7 @@ export function EligibilityMatrix({ criteria, schemeTitle }: EligibilityMatrixPr
               key={idx}
               className={cn(
                 "flex items-center gap-3 p-3 rounded-lg border text-sm font-medium",
-                isMet ? "bg-emerald-500/10 border-emerald-500/30 text-emerald-700 dark:text-emerald-400" :
+                isMet ? "bg-primary/10 border-primary/30 text-primary dark:text-primary" :
                 isUnknown ? "bg-background/80 border-border/60 text-muted-foreground" :
                 "bg-destructive/10 border-destructive/30 text-destructive"
               )}

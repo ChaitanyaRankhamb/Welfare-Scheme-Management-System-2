@@ -28,7 +28,7 @@ export function DashboardCard({
         <CardHeader className="pb-4">
           <div className="flex items-center justify-between gap-4">
             <div className="flex items-center gap-2.5">
-              {icon && <div className="p-2 rounded-lg bg-indigo-500/10 text-indigo-600 dark:text-indigo-400">{icon}</div>}
+              {icon && <div className="p-2 rounded-lg bg-primary/10 text-primary dark:text-primary">{icon}</div>}
               <div>
                 <CardTitle className="text-lg font-bold truncate">{title}</CardTitle>
                 {description && <CardDescription className="text-xs mt-0.5">{description}</CardDescription>}

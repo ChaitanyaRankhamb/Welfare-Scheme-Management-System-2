@@ -33,7 +33,7 @@ export function SchemeCard({
     >
       <div className="p-6 space-y-4">
         <div className="flex items-start justify-between gap-4">
-          <Badge variant="secondary" className="bg-indigo-500/10 text-indigo-600 dark:text-indigo-400 border-none px-2.5 py-0.5 rounded-full text-[10px] uppercase tracking-wider font-bold">
+          <Badge variant="secondary" className="bg-primary/10 text-primary dark:text-primary border-none px-2.5 py-0.5 rounded-full text-[10px] uppercase tracking-wider font-bold">
             {category}
           </Badge>
           <div className="flex items-center gap-1.5 text-[10px] font-medium text-muted-foreground bg-muted/50 px-2 py-0.5 rounded-full">
@@ -43,7 +43,7 @@ export function SchemeCard({
         </div>
 
         <div className="space-y-2">
-          <h3 className="text-xl font-bold leading-tight group-hover:text-indigo-600 dark:group-hover:text-indigo-400 transition-colors">
+          <h3 className="text-xl font-bold leading-tight group-hover:text-primary dark:group-hover:text-primary transition-colors">
             {title}
           </h3>
           <p className="text-sm text-muted-foreground line-clamp-2 leading-relaxed">
@@ -52,14 +52,14 @@ export function SchemeCard({
         </div>
 
         {matchReason && (
-          <div className="flex items-center gap-2 p-2.5 rounded-xl bg-green-500/5 border border-green-500/10 text-[11px] text-green-700 dark:text-green-400 font-medium">
+          <div className="flex items-center gap-2 p-2.5 rounded-xl bg-primary/5 border border-primary/10 text-[11px] text-primary dark:text-primary font-medium">
             <CheckCircle2 className="h-3.5 w-3.5" />
             <span>Matched: {matchReason}</span>
           </div>
         )}
 
         <div className="pt-2 flex items-center gap-2">
-          <Button size="sm" className="flex-1 rounded-xl font-bold h-10 shadow-sm transition-all active:scale-95 group-hover:shadow-indigo-500/10">
+          <Button size="sm" className="flex-1 rounded-xl font-bold h-10 shadow-sm transition-all active:scale-95 group-hover:shadow-primary/10">
             Apply Now
             <ArrowUpRight className="ml-2 h-4 w-4" />
           </Button>
@@ -82,11 +82,11 @@ interface ApplicationCardProps {
 }
 
 const statusConfig = {
-  Approved: { color: 'text-green-600 bg-green-500/10 border-green-500/20', icon: CheckCircle2 },
-  Pending: { color: 'text-yellow-600 bg-yellow-500/10 border-yellow-500/20', icon: Clock },
-  'Under Review': { color: 'text-blue-600 bg-blue-500/10 border-blue-500/20', icon: AlertCircle },
-  Rejected: { color: 'text-red-600 bg-red-500/10 border-red-500/20', icon: AlertCircle },
-  Initiated: { color: 'text-slate-600 bg-slate-500/10 border-slate-500/20', icon: Clock },
+  Approved: { color: 'text-primary bg-primary/10 border-primary/20', icon: CheckCircle2 },
+  Pending: { color: 'text-destructive bg-destructive/10 border-destructive/20', icon: Clock },
+  'Under Review': { color: 'text-primary bg-primary/10 border-primary/20', icon: AlertCircle },
+  Rejected: { color: 'text-destructive bg-destructive/10 border-destructive/20', icon: AlertCircle },
+  Initiated: { color: 'text-muted-foreground bg-muted/10 border-border/20', icon: Clock },
 };
 
 export function ApplicationCard({

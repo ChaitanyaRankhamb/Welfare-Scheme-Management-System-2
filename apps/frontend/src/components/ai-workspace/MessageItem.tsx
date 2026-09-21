@@ -100,7 +100,7 @@ export function MessageItem({ message, onAction }: MessageItemProps) {
                 className="text-[11px] font-medium text-muted-foreground hover:text-foreground flex items-center gap-1 cursor-pointer opacity-0 group-hover/msg:opacity-100 transition-opacity"
                 title="Copy response"
               >
-                {copied ? <Check className="w-3 h-3 text-emerald-500" /> : <Copy className="w-3 h-3" />}
+                {copied ? <Check className="w-3 h-3 text-primary" /> : <Copy className="w-3 h-3" />}
                 {copied ? "Copied" : "Copy"}
               </button>
             </div>

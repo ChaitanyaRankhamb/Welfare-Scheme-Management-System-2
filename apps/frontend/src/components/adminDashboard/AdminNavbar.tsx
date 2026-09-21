@@ -22,11 +22,11 @@ export function AdminNavbar() {
   const router = useRouter()
 
   return (
-    <header className="sticky top-0 z-30 flex items-center justify-between h-16 px-4 md:px-8 bg-white/70 dark:bg-zinc-950/70 backdrop-blur-xl border-b border-gray-200/50 dark:border-white/10 shadow-sm">
+    <header className="sticky top-0 z-30 flex items-center justify-between h-16 px-4 md:px-8 bg-card/70 dark:bg-card/70 backdrop-blur-xl border-b border-border/50 dark:border-border/10 shadow-sm">
 
       {/* Mobile Menu */}
       <div className="flex items-center md:hidden">
-        <button className="p-2 -ml-2 text-gray-500 rounded-lg hover:bg-gray-100 dark:hover:bg-zinc-800">
+        <button className="p-2 -ml-2 text-muted-foreground rounded-lg hover:bg-muted dark:hover:bg-card">
           <Menu className="w-5 h-5" />
         </button>
       </div>
@@ -34,7 +34,7 @@ export function AdminNavbar() {
       {/* Search */}
       <div className="hidden md:flex flex-1 max-w-md">
         <div className="relative w-full group">
-          <div className="absolute inset-y-0 left-0 flex items-center pl-3 text-gray-400 group-focus-within:text-indigo-500 transition-colors">
+          <div className="absolute inset-y-0 left-0 flex items-center pl-3 text-muted-foreground group-focus-within:text-primary transition-colors">
             <Search className="w-4 h-4" />
           </div>
           <input
@@ -42,13 +42,13 @@ export function AdminNavbar() {
             placeholder="Search users, schemes, applications..."
             className="
               w-full h-10 pl-10 pr-3 text-sm
-              bg-white/60 dark:bg-zinc-900/60
-              border border-gray-200/50 dark:border-white/10
+              bg-card/60 dark:bg-card/60
+              border border-border/50 dark:border-border/10
               rounded-xl
-              focus:ring-2 focus:ring-indigo-500/20 focus:border-indigo-500
+              focus:ring-2 focus:ring-ring/20 focus:border-primary
               transition-all outline-none
-              text-gray-900 dark:text-white
-              placeholder:text-gray-400
+              text-muted-foreground dark:text-primary-foreground
+              placeholder:text-muted-foreground
             "
           />
         </div>
@@ -64,13 +64,13 @@ export function AdminNavbar() {
         <button
           className="
           relative p-2 rounded-full
-          text-gray-500 hover:text-indigo-600
-          hover:bg-indigo-500/10
+          text-muted-foreground hover:text-primary
+          hover:bg-primary/10
           transition-all group
         "
         >
           <Bell className="w-5 h-5 group-hover:animate-[wiggle_0.6s_ease-in-out]" />
-          <span className="absolute top-1.5 right-1.5 w-2 h-2 bg-red-500 rounded-full border-2 border-white dark:border-zinc-950" />
+          <span className="absolute top-1.5 right-1.5 w-2 h-2 bg-destructive rounded-full border-2 border-border dark:border-border" />
         </button>
 
         {/* If NOT logged */}
@@ -78,7 +78,7 @@ export function AdminNavbar() {
           <>
             <Link
               href="/login"
-              className="text-sm font-medium text-gray-600 dark:text-gray-400 hover:text-indigo-600 transition"
+              className="text-sm font-medium text-muted-foreground dark:text-muted-foreground hover:text-primary transition"
             >
               Login
             </Link>
@@ -87,8 +87,8 @@ export function AdminNavbar() {
               className="
                 text-sm font-semibold
                 px-4 py-1.5 rounded-full
-                bg-gradient-to-r from-indigo-600 to-violet-500
-                text-white shadow-md hover:shadow-lg
+                bg-linear-to-r from-primary to-primary/70
+                text-primary-foreground shadow-md hover:shadow-lg
                 transition-all
               "
             >
@@ -113,12 +113,12 @@ export function AdminNavbar() {
               </div>
 
               {/* Avatar */}
-              <Avatar className="h-8 w-8 ring-2 ring-transparent group-hover:ring-indigo-500/20 transition">
+              <Avatar className="h-8 w-8 ring-2 ring-transparent group-hover:ring-ring/20 transition">
                 <AvatarImage src={user?.avatar} />
                 <AvatarFallback
                   className={cn(
                     getAvatarColor(user?.username),
-                    'text-white text-[10px] font-bold'
+                    'text-primary-foreground text-[10px] font-bold'
                   )}
                 >
                   {user?.username?.charAt(0) ?? 'A'}

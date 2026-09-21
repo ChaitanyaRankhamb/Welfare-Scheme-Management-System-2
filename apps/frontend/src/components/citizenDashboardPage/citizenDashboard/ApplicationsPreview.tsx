@@ -15,9 +15,9 @@ interface AppItemProps {
 }
 
 const statusMap: any = {
-  'APPLIED': { color: 'text-emerald-600 bg-emerald-500/10 border-emerald-500/20', icon: CheckCircle2 },
-  'INITIATED': { color: 'text-amber-600 bg-amber-500/10 border-amber-500/20', icon: Clock },
-  'REJECTED': { color: 'text-rose-600 bg-rose-500/10 border-rose-500/20', icon: XCircle },
+  'APPLIED': { color: 'text-primary bg-primary/10 border-primary/20', icon: CheckCircle2 },
+  'INITIATED': { color: 'text-destructive bg-destructive/10 border-destructive/20', icon: Clock },
+  'REJECTED': { color: 'text-destructive bg-destructive/10 border-destructive/20', icon: XCircle },
 };
 
 const ApplicationItem = ({ schemeName, status, date, onClick }: AppItemProps) => {
@@ -27,7 +27,7 @@ const ApplicationItem = ({ schemeName, status, date, onClick }: AppItemProps) =>
   return (
     <div 
       onClick={onClick}
-      className="flex items-center justify-between p-4 rounded-2xl border border-gray-100 dark:border-white/5 bg-white/50 dark:bg-white/5 hover:bg-white dark:hover:bg-white/10 transition-all cursor-pointer group shrink-0 h-[80px]"
+      className="flex items-center justify-between p-4 rounded-2xl border border-border dark:border-border/5 bg-card/50 dark:bg-card/5 hover:bg-card dark:hover:bg-card/10 transition-all cursor-pointer group shrink-0 h-[80px]"
     >
       <div className="flex items-center gap-4 min-w-0">
         <div className={cn("p-2.5 rounded-xl border shrink-0 transition-transform group-hover:scale-110", config.color)}>
@@ -47,7 +47,7 @@ const ApplicationItem = ({ schemeName, status, date, onClick }: AppItemProps) =>
           </div>
         </div>
       </div>
-      <ChevronRight className="w-4 h-4 text-muted-foreground group-hover:text-indigo-600 group-hover:translate-x-1 transition-all" />
+      <ChevronRight className="w-4 h-4 text-muted-foreground group-hover:text-primary group-hover:translate-x-1 transition-all" />
     </div>
   );
 };
@@ -63,7 +63,7 @@ export function ApplicationsPreview({
     <div className="space-y-4">
       <div className="flex items-center justify-between px-2">
         <h3 className="text-lg font-black tracking-tight">Recent Activity</h3>
-        <Button variant="ghost" size="sm" onClick={onViewAll} className="text-indigo-600 font-bold hover:bg-indigo-50 dark:hover:bg-indigo-500/10 rounded-xl">
+        <Button variant="ghost" size="sm" onClick={onViewAll} className="text-primary font-bold hover:bg-primary dark:hover:bg-primary/10 rounded-xl">
           View All
           <ChevronRight className="ml-1 w-4 h-4" />
         </Button>
@@ -81,7 +81,7 @@ export function ApplicationsPreview({
             />
           ))
         ) : (
-          <div className="flex flex-col items-center justify-center flex-1 rounded-3xl border border-dashed border-gray-200 dark:border-white/10 text-center space-y-2">
+          <div className="flex flex-col items-center justify-center flex-1 rounded-3xl border border-dashed border-border dark:border-border/10 text-center space-y-2">
             <FileText className="w-8 h-8 text-muted-foreground/30 px-1" />
             <p className="text-xs font-bold text-muted-foreground uppercase tracking-widest">No recent activity</p>
           </div>

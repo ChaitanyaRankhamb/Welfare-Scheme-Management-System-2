@@ -17,7 +17,6 @@ import {
 } from "@/components/api/verifyApi";
 import { toast } from "sonner";
 import { ArrowLeft } from "lucide-react";
-import styles from "./verify.module.css";
 
 // Define schema with Zod
 const formSchema = z.object({
@@ -47,7 +46,7 @@ function VerifyFormContent() {
         toast.success("Email verified successfully!");
       } catch (error: any) {
         toast.error(
-          error.message || "Verification failed. Please check your code."
+          error.message || "Verification failed. Please check your code.",
         );
       } finally {
         setIsLoading(false);
@@ -73,14 +72,14 @@ function VerifyFormContent() {
   };
 
   return (
-    <div className={styles.page}>
-      <div className={styles.card}>
+    <div className="flex min-h-screen items-center justify-center bg-background p-4">
+      <div className="flex w-full max-w-110 flex-col rounded-2xl border border-border bg-card p-10 shadow-lg">
         {/* Top Header Row with Back Button */}
-        <div className={styles.topNav}>
+        <div className="mb-6 flex justify-start">
           <Button
             variant="ghost"
             onClick={() => router.back()}
-            className={styles.backBtn}
+            className="h-auto p-0 text-[0.85rem] font-medium text-muted-foreground transition-colors hover:bg-transparent hover:text-foreground"
           >
             <ArrowLeft className="w-4 h-4 mr-2" />
             Back
@@ -88,17 +87,23 @@ function VerifyFormContent() {
         </div>
 
         {/* Brand */}
-        <div className={styles.brandContainer}>
-          <span className={styles.brandWordmark}>
-            Yojana<span className={styles.brandHighlight}>Connect</span>
+        <div className="mb-8 flex justify-center">
+          <span className="font-sans text-2xl font-extrabold tracking-[-0.04em] text-foreground">
+            Yojana<span className="text-primary">Connect</span>
           </span>
         </div>
 
         {/* Form Header */}
-        <div className={styles.formHeader}>
-          <h1 className={styles.formTitle}>Check your email</h1>
-          <p className={styles.formSubtitle}>
-            We emailed a 6-digit code to <span className={styles.emailHighlight}>{email || "your email"}</span>.
+        <div className="mb-8 flex flex-col items-center text-center">
+          <h1 className="m-0 mb-2 text-2xl font-bold text-foreground">
+            Check your email
+          </h1>
+          <p className="m-0 text-[0.9rem] leading-6 text-muted-foreground">
+            We emailed a 6-digit code to{" "}
+            <span className="font-semibold text-foreground">
+              {email || "your email"}
+            </span>
+            .
           </p>
         </div>
 
@@ -109,15 +114,18 @@ function VerifyFormContent() {
             e.stopPropagation();
             form.handleSubmit();
           }}
-          className={styles.form}
+          className="flex flex-col gap-6"
         >
           <form.Field
             name="otp"
             validators={{ onSubmit: formSchema.shape.otp }}
           >
             {(field) => (
-              <div className={styles.fieldGroup}>
-                <label htmlFor={field.name} className={styles.otpLabel}>
+              <div className="flex flex-col gap-3">
+                <label
+                  htmlFor={field.name}
+                  className="text-center text-[0.85rem] font-semibold text-foreground"
+                >
                   Verification Code
                 </label>
                 <div className="flex justify-center mb-2">
@@ -126,19 +134,19 @@ function VerifyFormContent() {
                     value={field.state.value}
                     onChange={(value) => field.handleChange(value)}
                   >
-                    <InputOTPGroup className={styles.otpGroup}>
+                    <InputOTPGroup className="gap-2">
                       {[0, 1, 2, 3, 4, 5].map((i) => (
                         <InputOTPSlot
                           key={i}
                           index={i}
-                          className={styles.otpSlot}
+                          className="h-13.75 w-12.5 rounded-lg border border-border bg-transparent text-xl font-bold text-foreground shadow-sm transition-[border-color] data-[active=true]:border-ring data-[active=true]:shadow-[0_0_0_2px_color-mix(in_oklab,var(--ring)_30%,transparent)]"
                         />
                       ))}
                     </InputOTPGroup>
                   </InputOTP>
                 </div>
                 {field.state.meta.errors?.length > 0 && (
-                  <p className={styles.fieldError}>
+                  <p className="m-0 text-center text-xs text-destructive">
                     {(field.state.meta.errors[0] as any)?.message ??
                       field.state.meta.errors[0]}
                   </p>
@@ -150,18 +158,20 @@ function VerifyFormContent() {
           <Button
             type="submit"
             disabled={isLoading || !email}
-            className={styles.submitBtn}
+            className="h-12 w-full cursor-pointer rounded-[10px] border-0 bg-primary text-base font-bold text-primary-foreground shadow-lg transition-[transform,box-shadow,opacity] hover:-translate-y-0.5 hover:bg-primary/90 hover:shadow-xl disabled:cursor-not-allowed disabled:opacity-65"
           >
             {isLoading ? "Verifying…" : "Verify Account"}
           </Button>
         </form>
 
-        <div className={styles.bottomLinkRow}>
-          <p className={styles.footerText}>Didn't receive the code?</p>
+        <div className="mt-6 flex items-center justify-center gap-2">
+          <p className="m-0 text-[0.85rem] text-muted-foreground">
+            Didn't receive the code?
+          </p>
           <Button
             variant="link"
             disabled={isResending || !email}
-            className={styles.resendBtn}
+            className="h-auto p-0 text-[0.85rem] font-semibold text-primary transition-colors hover:text-primary/80 hover:underline"
             onClick={handleResendOTP}
           >
             {isResending ? "Resending…" : "Resend it"}

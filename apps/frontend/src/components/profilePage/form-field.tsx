@@ -1,53 +1,53 @@
-'use client'
-import { Input } from '@/components/ui/input'
-import { Label } from '@/components/ui/label'
+"use client";
+import { Input } from "@/components/ui/input";
+import { Label } from "@/components/ui/label";
 import {
   Select,
   SelectContent,
   SelectItem,
   SelectTrigger,
   SelectValue,
-} from '@/components/ui/select'
-import { Textarea } from '@/components/ui/textarea'
-import { Switch } from '@/components/ui/switch'
-import { RadioGroup, RadioGroupItem } from '@/components/ui/radio-group'
+} from "@/components/ui/select";
+import { Textarea } from "@/components/ui/textarea";
+import { Switch } from "@/components/ui/switch";
+import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
 import {
   Popover,
   PopoverContent,
   PopoverTrigger,
-} from '@/components/ui/popover'
-import { Calendar } from '@/components/ui/calendar'
-import { Button, buttonVariants } from '@/components/ui/button'
-import { format } from 'date-fns'
-import { CalendarIcon, Info, Loader2 } from 'lucide-react'
-import { cn } from '@/lib/utils'
+} from "@/components/ui/popover";
+import { Calendar } from "@/components/ui/calendar";
+import { Button, buttonVariants } from "@/components/ui/button";
+import { format } from "date-fns";
+import { CalendarIcon, Info, Loader2 } from "lucide-react";
+import { cn } from "@/lib/utils";
 
 type FieldType =
-  | 'text'
-  | 'email'
-  | 'number'
-  | 'tel'
-  | 'textarea'
-  | 'select'
-  | 'date'
-  | 'toggle'
-  | 'radio'
+  | "text"
+  | "email"
+  | "number"
+  | "tel"
+  | "textarea"
+  | "select"
+  | "date"
+  | "toggle"
+  | "radio";
 
 interface FormFieldProps {
-  label: string
-  name: string
-  type: FieldType
-  value: string | number | boolean | Date | null
-  onChange: (value: any) => void
-  placeholder?: string
-  helperText?: string
-  error?: string
-  required?: boolean
-  disabled?: boolean
-  isLoading?: boolean
-  options?: Array<{ label: string; value: string }>
-  radioOptions?: Array<{ label: string; value: string }>
-  tooltip?: string
+  label: string;
+  name: string;
+  type: FieldType;
+  value: string | number | boolean | Date | null;
+  onChange: (value: any) => void;
+  placeholder?: string;
+  helperText?: string;
+  error?: string;
+  required?: boolean;
+  disabled?: boolean;
+  isLoading?: boolean;
+  options?: Array<{ label: string; value: string }>;
+  radioOptions?: Array<{ label: string; value: string }>;
+  tooltip?: string;
 }
 
 export function FormField({
@@ -68,10 +68,10 @@ export function FormField({
 }: FormFieldProps) {
   const renderField = () => {
     switch (type) {
-      case 'text':
-      case 'email':
-      case 'number':
-      case 'tel':
+      case "text":
+      case "email":
+      case "number":
+      case "tel":
         return (
           <Input
             type={type}
@@ -81,13 +81,13 @@ export function FormField({
             placeholder={placeholder}
             disabled={disabled}
             className={cn(
-              'transition-all shadow-sm rounded-xl border-white/20 dark:border-white/10 bg-white/50 dark:bg-zinc-900/50 backdrop-blur-xl focus:shadow-md focus:bg-white dark:focus:bg-zinc-900 focus-visible:ring-indigo-500/30',
-              error && 'border-red-500 focus-visible:ring-red-500'
+              "transition-all shadow-sm rounded-xl border-border/20 dark:border-border/10 bg-card/50 dark:bg-card/50 backdrop-blur-xl focus:shadow-md focus:bg-card dark:focus:bg-card focus-visible:ring-ring/30",
+              error && "border-destructive focus-visible:ring-destructive",
             )}
           />
-        )
+        );
 
-      case 'textarea':
+      case "textarea":
         return (
           <Textarea
             name={name}
@@ -96,28 +96,30 @@ export function FormField({
             placeholder={placeholder}
             disabled={disabled}
             className={cn(
-              'min-h-24 resize-none shadow-sm rounded-xl border-white/20 dark:border-white/10 bg-white/50 dark:bg-zinc-900/50 backdrop-blur-xl focus:shadow-md focus:bg-white dark:focus:bg-zinc-900 focus-visible:ring-indigo-500/30 transition-all',
-              error && 'border-red-500 focus-visible:ring-red-500'
+              "min-h-24 resize-none shadow-sm rounded-xl border-border/20 dark:border-border/10 bg-card/50 dark:bg-card/50 backdrop-blur-xl focus:shadow-md focus:bg-card dark:focus:bg-card focus-visible:ring-ring/30 transition-all",
+              error && "border-destructive focus-visible:ring-destructive",
             )}
           />
-        )
+        );
 
-      case 'select':
+      case "select":
         return (
           <Select
-            value={String(value || '')}
+            value={String(value || "")}
             onValueChange={onChange}
             disabled={disabled || isLoading}
           >
             <SelectTrigger
               className={cn(
-                'shadow-sm rounded-xl border-white/20 dark:border-white/10 bg-white/50 dark:bg-zinc-900/50 backdrop-blur-xl focus:shadow-md aria-expanded:bg-white dark:aria-expanded:bg-zinc-900 focus:ring-indigo-500/30 transition-all',
-                error && 'border-red-500 focus-visible:ring-red-500'
+                "shadow-sm rounded-xl border-border/20 dark:border-border/10 bg-card/50 dark:bg-card/50 backdrop-blur-xl focus:shadow-md aria-expanded:bg-card dark:aria-expanded:bg-card focus:ring-ring/30 transition-all",
+                error && "border-destructive focus-visible:ring-destructive",
               )}
             >
               <div className="flex items-center gap-2">
-                {isLoading && <Loader2 className="h-3 w-3 animate-spin text-muted-foreground" />}
-                <SelectValue placeholder={placeholder || 'Select an option'} />
+                {isLoading && (
+                  <Loader2 className="h-3 w-3 animate-spin text-muted-foreground" />
+                )}
+                <SelectValue placeholder={placeholder || "Select an option"} />
               </div>
             </SelectTrigger>
             <SelectContent
@@ -127,30 +129,37 @@ export function FormField({
               className="rounded-md shadow-lg border-border/50"
             >
               {options.map((option) => (
-                <SelectItem key={option.value} value={option.value} className="rounded-lg">
+                <SelectItem
+                  key={option.value}
+                  value={option.value}
+                  className="rounded-lg"
+                >
                   {option.label}
                 </SelectItem>
               ))}
             </SelectContent>
           </Select>
-        )
+        );
 
-      case 'date':
+      case "date":
         return (
           <Popover>
             <PopoverTrigger
               className={cn(
-                buttonVariants({ variant: 'outline' }),
-                'w-full justify-start text-left font-normal shadow-sm rounded-xl border-white/20 dark:border-white/10 bg-white/50 dark:bg-zinc-900/50 backdrop-blur-xl hover:bg-white dark:hover:bg-zinc-900 hover:shadow-md focus:ring-indigo-500/30 transition-all',
-                !value && 'text-muted-foreground',
-                error && 'border-red-500'
+                buttonVariants({ variant: "outline" }),
+                "w-full justify-start text-left font-normal shadow-sm rounded-xl border-border/20 dark:border-border/10 bg-card/50 dark:bg-card/50 backdrop-blur-xl hover:bg-card dark:hover:bg-card hover:shadow-md focus:ring-ring/30 transition-all",
+                !value && "text-muted-foreground",
+                error && "border-destructive",
               )}
               disabled={disabled}
             >
               <CalendarIcon className="mr-2 h-4 w-4 opacity-50" />
-              {value ? format(new Date(value as any), 'PPP') : 'Pick a date'}
+              {value ? format(new Date(value as any), "PPP") : "Pick a date"}
             </PopoverTrigger>
-            <PopoverContent className="w-auto p-0 rounded-2xl shadow-xl border-border/40" align="start">
+            <PopoverContent
+              className="w-auto p-0 rounded-2xl shadow-xl border-border/40"
+              align="start"
+            >
               <Calendar
                 mode="single"
                 selected={value ? new Date(value as any) : undefined}
@@ -159,9 +168,9 @@ export function FormField({
               />
             </PopoverContent>
           </Popover>
-        )
+        );
 
-      case 'toggle':
+      case "toggle":
         return (
           <div className="flex items-center gap-3">
             <Switch
@@ -170,14 +179,16 @@ export function FormField({
               onCheckedChange={onChange}
               disabled={disabled}
             />
-            <span className="text-sm text-muted-foreground font-medium">{placeholder}</span>
+            <span className="text-sm text-muted-foreground font-medium">
+              {placeholder}
+            </span>
           </div>
-        )
+        );
 
-      case 'radio':
+      case "radio":
         return (
           <RadioGroup
-            value={String(value || '')}
+            value={String(value || "")}
             onValueChange={onChange}
             disabled={disabled}
           >
@@ -185,7 +196,7 @@ export function FormField({
               {radioOptions.map((option) => (
                 <div
                   key={option.value}
-                  className="flex items-center gap-3 p-3 rounded-xl border border-white/20 dark:border-white/10 bg-white/50 dark:bg-zinc-900/50 backdrop-blur-xl hover:bg-white dark:hover:bg-zinc-900 transition-colors cursor-pointer shadow-sm"
+                  className="flex items-center gap-3 p-3 rounded-xl border border-border/20 dark:border-border/10 bg-card/50 dark:bg-card/50 backdrop-blur-xl hover:bg-card dark:hover:bg-card transition-colors cursor-pointer shadow-sm"
                   onClick={() => !disabled && onChange(option.value)}
                 >
                   <RadioGroupItem
@@ -203,34 +214,40 @@ export function FormField({
               ))}
             </div>
           </RadioGroup>
-        )
+        );
 
       default:
-        return null
+        return null;
     }
-  }
+  };
 
   return (
     <div className="space-y-2.5">
       <div className="flex items-center gap-2">
-        <Label htmlFor={name} className="text-sm font-bold tracking-tight text-foreground/90">
+        <Label
+          htmlFor={name}
+          className="text-sm font-bold tracking-tight text-foreground/90"
+        >
           {label}
           {required && <span className="text-destructive ml-1">*</span>}
         </Label>
         {tooltip && (
-          <div
-            className="group relative cursor-help"
-            title={tooltip}
-          >
-            <Info className="h-3.5 w-3.5 text-muted-foreground hover:text-indigo-500 transition-colors" />
+          <div className="group relative cursor-help" title={tooltip}>
+            <Info className="h-3.5 w-3.5 text-muted-foreground hover:text-primary transition-colors" />
           </div>
         )}
       </div>
       {renderField()}
-      {error && <p className="text-xs font-bold text-destructive animate-in fade-in slide-in-from-top-1">{error}</p>}
+      {error && (
+        <p className="text-xs font-bold text-destructive animate-in fade-in slide-in-from-top-1">
+          {error}
+        </p>
+      )}
       {helperText && !error && (
-        <p className="text-[10px] font-medium text-muted-foreground/80 pl-1">{helperText}</p>
+        <p className="text-[10px] font-medium text-muted-foreground/80 pl-1">
+          {helperText}
+        </p>
       )}
     </div>
-  )
+  );
 }

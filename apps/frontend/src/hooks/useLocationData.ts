@@ -1,7 +1,7 @@
 import { fetchapi } from '@/lib/refresh-user';
 import { useState, useEffect } from 'react';
 
-const API_BASE_URL = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:7000/api';
+const API_BASE_URL = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:6001/api';
 
 export const useLocationData = (country?: string, state?: string, district?: string, taluka?: string) => {
   const [states, setStates] = useState<string[]>([]);

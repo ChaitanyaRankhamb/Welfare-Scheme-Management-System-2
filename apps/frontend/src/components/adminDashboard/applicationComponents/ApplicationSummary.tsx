@@ -1,6 +1,6 @@
-import React from 'react'
-import { Card, CardContent } from '@/components/ui/card'
-import { FileStack, Clock, XCircle } from 'lucide-react'
+import React from "react";
+import { Card, CardContent } from "@/components/ui/card";
+import { FileStack, Clock, XCircle } from "lucide-react";
 
 const SummaryCard = ({
   title,
@@ -14,27 +14,29 @@ const SummaryCard = ({
     className="
     relative overflow-hidden group
     rounded-2xl
-    border border-gray-200/50 dark:border-white/50
-    bg-white/70 dark:bg-zinc-900/60 backdrop-blur-xl
-    shadow-[0_10px_25px_-5px_rgba(0,0,0,0.08)]
+    border border-border/50 dark:border-border/50
+    bg-card/70 dark:bg-card/60 backdrop-blur-xl
+    shadow-lg
     transition-all duration-300
-    hover:border-indigo-500 hover:dark:border-indigo-500
+    hover:border-primary hover:dark:border-primary
   "
   >
     <CardContent className="p-6 relative z-10">
       {/* Top Row */}
       <div className="flex items-center justify-between mb-4">
         {/* Title */}
-        <p className={`text-[11px] font-semibold uppercase tracking-wider ${colorClass}`}>
+        <p
+          className={`text-[11px] font-semibold uppercase tracking-wider ${colorClass}`}
+        >
           {title}
         </p>
         {/* Icon */}
         <div
           className={`
           p-2.5 rounded-xl
-          bg-gradient-to-br ${gradient}
-          text-white
-          shadow-[0_6px_15px_-5px_rgba(0,0,0,0.2)]
+          bg-linear-to-br ${gradient}
+          text-primary-foreground
+          shadow-lg
           transition-transform duration-300
           group-hover:scale-110
         `}
@@ -44,45 +46,45 @@ const SummaryCard = ({
       </div>
 
       {/* Value */}
-      <p className="text-3xl font-black tracking-tight text-gray-900 dark:text-white">
+      <p className="text-3xl font-black tracking-tight text-muted-foreground dark:text-primary-foreground">
         {value}
       </p>
 
       {/* Subtext */}
-      <p className="text-xs text-gray-500 dark:text-gray-400 mt-1 font-medium">
+      <p className="text-xs text-muted-foreground dark:text-muted-foreground mt-1 font-medium">
         {subtext}
       </p>
     </CardContent>
   </Card>
-)
+);
 
 export const ApplicationSummary = ({ stats }: { stats?: any }) => {
   return (
     <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
-      <SummaryCard 
-        title="Total Applied" 
-        value={stats?.applied?.toLocaleString() || "0"} 
+      <SummaryCard
+        title="Total Applied"
+        value={stats?.applied?.toLocaleString() || "0"}
         subtext="All cumulative applications"
         icon={FileStack}
-        colorClass="text-emerald-600 dark:text-emerald-400"
-        gradient="from-emerald-500 to-teal-600"
+        colorClass="text-primary dark:text-primary"
+        gradient="from-primary to-primary/70"
       />
-      <SummaryCard 
-        title="Initiated" 
-        value={stats?.initiated?.toLocaleString() || "0"} 
+      <SummaryCard
+        title="Initiated"
+        value={stats?.initiated?.toLocaleString() || "0"}
         subtext="Pending rigorous review"
         icon={Clock}
-        colorClass="text-amber-600 dark:text-amber-400"
-        gradient="from-amber-500 to-amber-600"
+        colorClass="text-primary"
+        gradient="from-primary to-primary/70"
       />
-      <SummaryCard 
-        title="Rejected" 
-        value={stats?.rejected?.toLocaleString() || "0"} 
+      <SummaryCard
+        title="Rejected"
+        value={stats?.rejected?.toLocaleString() || "0"}
         subtext="Failed eligibility criteria"
         icon={XCircle}
-        colorClass="text-rose-600 dark:text-rose-400"
-        gradient="from-rose-500 to-rose-600"
+        colorClass="text-destructive dark:text-destructive"
+        gradient="from-destructive to-destructive/70"
       />
     </div>
-  )
-}
+  );
+};

@@ -11,7 +11,7 @@ export const CitizenStats = () => {
         icon={Layers} 
         trend="+2" 
         trendLabel="new this week"
-        gradient="from-blue-500 to-indigo-600"
+        gradient="from-primary to-primary/70"
       />
       <StatsCard 
         title="Active Applications" 
@@ -19,7 +19,7 @@ export const CitizenStats = () => {
         icon={FolderKanban} 
         trend="Pending" 
         trendLabel="status update soon"
-        gradient="from-indigo-500 to-purple-600"
+        gradient="from-primary to-primary/70"
       />
       <StatsCard 
         title="Benefits Received" 
@@ -27,7 +27,7 @@ export const CitizenStats = () => {
         icon={CheckSquare} 
         trend="+1" 
         trendLabel="this month"
-        gradient="from-purple-500 to-pink-600"
+        gradient="from-primary to-primary/70"
       />
       <StatsCard 
         title="Profile Complete" 
@@ -35,7 +35,7 @@ export const CitizenStats = () => {
         icon={ShieldCheck} 
         trend="+15%" 
         trendLabel="from last login"
-        gradient="from-orange-500 to-red-500"
+        gradient="from-primary to-primary/70"
       />
     </div>
   );

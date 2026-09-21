@@ -18,12 +18,12 @@ const dialogScrollbarClass = `
   [&::-webkit-scrollbar-track]:bg-transparent
   [&::-webkit-scrollbar-track]:rounded-full
 
-  [&::-webkit-scrollbar-thumb]:bg-gray-500/20
-  dark:[&::-webkit-scrollbar-thumb]:bg-gray-300/20
+  [&::-webkit-scrollbar-thumb]:bg-muted/20
+  dark:[&::-webkit-scrollbar-thumb]:bg-muted/20
 
   [&::-webkit-scrollbar-thumb]:rounded-full
-  [&::-webkit-scrollbar-thumb:hover]:bg-gray-500/40
-  dark:[&::-webkit-scrollbar-thumb:hover]:bg-gray-300/40
+  [&::-webkit-scrollbar-thumb:hover]:bg-muted/40
+  dark:[&::-webkit-scrollbar-thumb:hover]:bg-muted/40
 
   scrollbar-thin
 `
@@ -50,23 +50,23 @@ export const QuickLinks = () => {
         className="
         relative group flex flex-col items-center justify-center
         p-5 rounded-2xl
-        bg-white/70 dark:bg-zinc-900/60 backdrop-blur-xl
-        border border-gray-200 dark:border-white/50
-        shadow-[0_10px_25px_-5px_rgba(0,0,0,0.1)]
+        bg-card/70 dark:bg-card/60 backdrop-blur-xl
+        border border-border dark:border-border/50
+        shadow-lg
         transition-all duration-300
-        hover:border-indigo-500 dark:hover:border-indigo-500
+        hover:border-primary dark:hover:border-primary
       "
       >
         {/* Gradient Glow */}
-        <div className="absolute inset-0 rounded-2xl bg-gradient-to-br from-indigo-500/10 to-transparent opacity-0 group-hover:opacity-100 transition duration-300 pointer-events-none" />
+        <div className="absolute inset-0 rounded-2xl bg-linear-to-br from-primary/10 to-transparent opacity-0 group-hover:opacity-100 transition duration-300 pointer-events-none" />
 
         {/* Icon */}
-        <div className="relative z-10 w-12 h-12 rounded-xl bg-indigo-500/10 flex items-center justify-center text-indigo-600 dark:text-indigo-400 mb-3 transition-transform duration-300 group-hover:scale-110">
+        <div className="relative z-10 w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center text-primary dark:text-primary mb-3 transition-transform duration-300 group-hover:scale-110">
           <Users className="w-6 h-6" />
         </div>
 
         {/* Text */}
-        <span className="relative z-10 text-sm font-semibold text-gray-800 dark:text-gray-200">
+        <span className="relative z-10 text-sm font-semibold text-muted-foreground dark:text-muted-foreground">
           Manage Users
         </span>
       </Link>
@@ -78,35 +78,35 @@ export const QuickLinks = () => {
             className="
             relative group flex flex-col items-center justify-center
             p-5 rounded-2xl w-full
-            bg-white/70 dark:bg-zinc-900/60 backdrop-blur-xl
-            border border-gray-200 dark:border-white/50
-            shadow-[0_10px_25px_-5px_rgba(0,0,0,0.1)]
+            bg-card/70 dark:bg-card/60 backdrop-blur-xl
+            border border-border dark:border-border/50
+            shadow-lg
             transition-all duration-300
-            hover:border-indigo-500 dark:hover:border-indigo-500
+            hover:border-primary dark:hover:border-primary
             text-left
           "
           >
             {/* Gradient Glow */}
-            <div className="absolute inset-0 rounded-2xl bg-gradient-to-br from-purple-500/10 to-transparent opacity-0 group-hover:opacity-100 transition duration-300 pointer-events-none" />
+            <div className="absolute inset-0 rounded-2xl bg-linear-to-br from-primary/10 to-transparent opacity-0 group-hover:opacity-100 transition duration-300 pointer-events-none" />
 
             {/* Icon */}
-            <div className="relative z-10 w-12 h-12 rounded-xl bg-purple-500/10 flex items-center justify-center text-purple-600 dark:text-purple-400 mb-3 transition-transform duration-300 group-hover:scale-110">
+            <div className="relative z-10 w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center text-primary dark:text-primary mb-3 transition-transform duration-300 group-hover:scale-110">
               <FolderKanban className="w-6 h-6" />
             </div>
 
             {/* Text */}
-            <span className="relative z-10 text-sm font-semibold text-gray-800 dark:text-gray-200">
+            <span className="relative z-10 text-sm font-semibold text-muted-foreground dark:text-muted-foreground">
               Add Scheme
             </span>
           </button>
         </DialogTrigger>
-        <DialogContent className={`${dialogScrollbarClass} w-[95vw] sm:w-[90vw] md:w-[85vw] lg:w-[80vw] xl:w-[75vw] 2xl:w-[70vw] max-w-4xl max-h-[92vh] overflow-y-auto border border-white/20 bg-white backdrop-blur-2xl dark:bg-zinc-900/80 dark:border-white/50 shadow-[0_20px_50px_rgba(0,0,0,0.1)] rounded-2xl`}>
+        <DialogContent className={`${dialogScrollbarClass} w-[95vw] sm:w-[90vw] md:w-[85vw] lg:w-[80vw] xl:w-[75vw] 2xl:w-[70vw] max-w-4xl max-h-[92vh] overflow-y-auto border border-border/20 bg-card backdrop-blur-2xl dark:bg-card/80 dark:border-border/50 shadow-lg rounded-2xl`}>
           <div className="p-4 sm:p-6 pb-2">
             <DialogHeader>
-              <DialogTitle className="text-2xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-indigo-600 to-violet-600 dark:from-indigo-400 dark:to-violet-400">
+              <DialogTitle className="text-2xl font-bold bg-clip-text text-transparent bg-linear-to-r from-primary to-primary/70 dark:from-primary dark:to-primary/70">
                 Add New Government Scheme
               </DialogTitle>
-              <DialogDescription className="text-gray-500 dark:text-gray-400">
+              <DialogDescription className="text-muted-foreground dark:text-muted-foreground">
                 Fill in the details below to create a new welfare scheme. This will be visible to all eligible citizens.
               </DialogDescription>
             </DialogHeader>

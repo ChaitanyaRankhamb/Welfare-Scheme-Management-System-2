@@ -266,77 +266,21 @@
   }
 }
 
-/* ═══════════════════════════════════════════════════
-   7. GLOBAL UTILITY COMPONENTS
-   ═══════════════════════════════════════════════════ */
+@keyframes float {
+  0%,
+  100% {
+    transform: translate(0, 0) scale(1);
+  }
 
-/* Glass card — base style, sections override via CSS Modules */
-.glass-card {
-  background: var(--card);
-  border: 1px solid var(--border);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-  transition:
-    transform 0.3s ease,
-    box-shadow 0.3s ease;
+  50% {
+    transform: translate(20px, -30px) scale(1.05);
+  }
 }
 
-.glass-card:hover {
-  box-shadow: 0 20px 60px rgba(99, 102, 241, 0.15);
-}
-
-.dark .glass-card {
-  background: rgba(19, 22, 31, 0.8);
-  border-color: rgba(35, 38, 55, 0.8);
-}
-
-.dark .glass-card:hover {
-  box-shadow: 0 20px 60px rgba(99, 102, 241, 0.25);
-}
-
-/* Hero ambient glow blobs */
-.hero-glow {
-  position: absolute;
-  border-radius: 50%;
-  filter: blur(80px);
-  opacity: 0.25;
-  pointer-events: none;
-}
-
-.hero-glow-1 {
-  width: 600px;
-  height: 600px;
-  background: radial-gradient(circle, #6366f1, transparent);
-  top: -100px;
-  left: -150px;
-  animation: float1 8s ease-in-out infinite;
-}
-
-.hero-glow-2 {
-  width: 500px;
-  height: 500px;
-  background: radial-gradient(circle, #22d3ee, transparent);
-  top: 100px;
-  right: -100px;
-  animation: float2 10s ease-in-out infinite;
-}
-
-.hero-glow-3 {
-  width: 400px;
-  height: 400px;
-  background: radial-gradient(circle, #a78bfa, transparent);
-  bottom: -50px;
-  left: 30%;
-  animation: float1 12s ease-in-out infinite reverse;
-}
-
-/* ═══════════════════════════════════════════════════
-   8. KEYFRAME ANIMATIONS
-   ═══════════════════════════════════════════════════ */
 @keyframes float1 {
   0%,
   100% {
-    transform: translateY(0px) scale(1);
+    transform: translateY(0) scale(1);
   }
 
   50% {
@@ -344,74 +288,24 @@
   }
 }
 
-/* ═══════════════════════════════════════════════════
-   9. SAAS DASHBOARD UTILITIES
-   ═══════════════════════════════════════════════════ */
-@layer components {
-  .dashboard-container {
-    @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 space-y-8;
+@keyframes float2 {
+  0%,
+  100% {
+    transform: translateY(0) scale(1);
   }
 
-  .premium-card {
-    @apply bg-card border border-border rounded-2xl shadow-md transition-all duration-300;
+  50% {
+    transform: translateY(22px) scale(0.97);
+  }
+}
+
+@keyframes blink {
+  0%,
+  100% {
+    opacity: 1;
   }
 
-  .premium-card:hover {
-    @apply shadow-xl scale-[1.01] border-indigo-500/20;
-  }
-
-  .dark .premium-card {
-    @apply bg-zinc-900/50 border-zinc-800/50;
-  }
-
-  .dark .premium-card:hover {
-    @apply border-indigo-500/30;
-  }
-
-  .nav-link-saas {
-    @apply relative text-sm font-medium text-muted-foreground transition-colors hover:text-foreground;
-  }
-
-  .nav-link-saas::after {
-    @apply content-[''] absolute -bottom-1 left-0 w-0 h-0.5 bg-indigo-500 transition-all duration-300;
-  }
-
-  .nav-link-saas:hover::after {
-    @apply w-full;
-  }
-
-  .nav-link-saas-active {
-    @apply text-foreground font-semibold;
-  }
-
-  .nav-link-saas-active::after {
-    @apply w-full;
-  }
-
-  .heading-hero {
-    @apply text-4xl font-extrabold tracking-tight;
-  }
-
-  .subtext-muted {
-    @apply text-lg text-muted-foreground mt-2;
-  }
-
-  /* Premium rounded scrollbar */
-  .alert-custom-scrollbar::-webkit-scrollbar {
-    width: 6px;
-  }
-
-  .alert-custom-scrollbar::-webkit-scrollbar-track {
-    background: transparent;
-    border-radius: 999px;
-  }
-
-  .alert-custom-scrollbar::-webkit-scrollbar-thumb {
-    background: rgba(174, 173, 173, 0.3);
-    border-radius: 999px;
-  }
-
-  .alert-custom-scrollbar::-webkit-scrollbar-thumb:hover {
-    background: rgba(174, 173, 173, 0.7);
+  50% {
+    opacity: 0.4;
   }
 }
