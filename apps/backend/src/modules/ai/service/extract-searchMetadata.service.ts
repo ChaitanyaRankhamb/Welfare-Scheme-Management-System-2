@@ -34,7 +34,7 @@ export const extractSearchMetadata = async (normalizedQuery: string): Promise<{ 
       method: "POST",
       headers: {
         Authorization: `Bearer ${apiKey}`,
-        "HTTP-Referer": "http://localhost:3000",
+        "HTTP-Referer": process.env.FRONTEND_URL || "http://localhost:3001",
         "X-OpenRouter-Title": "Welfare Scheme Management System",
         "Content-Type": "application/json",
       },
