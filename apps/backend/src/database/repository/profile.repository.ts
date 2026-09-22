@@ -49,6 +49,12 @@ export class ProfileModelRepo implements IProfileRepository {
         landSize: doc.landSize,
         cropType: doc.cropType || [],
         irrigationType: doc.irrigationType,
+        accountHolderName: doc.accountHolderName,
+        accountNumber: doc.accountNumber,
+        bankName: doc.bankName,
+        branchName: doc.branchName,
+        ifscCode: doc.ifscCode,
+        accountType: doc.accountType,
         profileCompletionPercentage: doc.profileCompletionPercentage,
       },
       doc.createdAt,
@@ -97,6 +103,12 @@ export class ProfileModelRepo implements IProfileRepository {
       landSize: data.landSize,
       cropType: data.cropType,
       irrigationType: data.irrigationType,
+      accountHolderName: data.accountHolderName,
+      accountNumber: data.accountNumber,
+      bankName: data.bankName,
+      branchName: data.branchName,
+      ifscCode: data.ifscCode,
+      accountType: data.accountType,
       profileCompletionPercentage: data.profileCompletionPercentage
     });
 
@@ -153,6 +165,12 @@ export class ProfileModelRepo implements IProfileRepository {
         landSize: snapshot.landSize,
         cropType: snapshot.cropType,
         irrigationType: snapshot.irrigationType,
+        accountHolderName: snapshot.accountHolderName,
+        accountNumber: snapshot.accountNumber,
+        bankName: snapshot.bankName,
+        branchName: snapshot.branchName,
+        ifscCode: snapshot.ifscCode,
+        accountType: snapshot.accountType,
         profileCompletionPercentage: snapshot.profileCompletionPercentage
       },
       { new: true }

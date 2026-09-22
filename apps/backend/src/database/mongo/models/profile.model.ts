@@ -53,6 +53,14 @@ export interface IProfile extends Document {
   cropType?: string[];
   irrigationType?: string;
 
+  // Passbook
+  accountHolderName?: string;
+  accountNumber?: string;
+  bankName?: string;
+  branchName?: string;
+  ifscCode?: string;
+  accountType?: string;
+
   // Meta
   profileCompletionPercentage: number;
   createdAt: Date;
@@ -111,6 +119,14 @@ const profileSchema = new Schema<IProfile>({
   landSize: { type: Number },
   cropType: [{ type: String }],
   irrigationType: { type: String },
+
+  // Passbook
+  accountHolderName: { type: String },
+  accountNumber: { type: String },
+  bankName: { type: String },
+  branchName: { type: String },
+  ifscCode: { type: String },
+  accountType: { type: String },
 
   // Meta
   profileCompletionPercentage: { type: Number, default: 0 },
