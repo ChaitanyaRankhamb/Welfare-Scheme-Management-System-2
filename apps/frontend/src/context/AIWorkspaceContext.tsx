@@ -29,7 +29,7 @@ export const AIWorkspaceProvider: React.FC<{ children: React.ReactNode }> = ({ c
       setInitialQuery(query);
     }
     setIsOpen(true);
-    router.push('/citizenDashboard/ai-workspace');
+    router.push('/citizenDashboard/ai-assistant');
   }, [router]);
 
   const closeWorkspace = useCallback(() => {
@@ -39,7 +39,7 @@ export const AIWorkspaceProvider: React.FC<{ children: React.ReactNode }> = ({ c
 
   const toggleWorkspace = useCallback(() => {
     setIsOpen((prev) => !prev);
-    router.push('/citizenDashboard/ai-workspace');
+    router.push('/citizenDashboard/ai-assistant');
   }, [router]);
 
   return (
@@ -62,7 +62,15 @@ export const AIWorkspaceProvider: React.FC<{ children: React.ReactNode }> = ({ c
 export const useAIWorkspace = () => {
   const context = useContext(AIWorkspaceContext);
   if (!context) {
-    throw new Error('useAIWorkspace must be used within an AIWorkspaceProvider');
+    return {
+      isOpen: false,
+      mode: 'fullscreen' as AIWorkspaceMode,
+      initialQuery: undefined,
+      openWorkspace: () => {},
+      closeWorkspace: () => {},
+      toggleWorkspace: () => {},
+      setMode: () => {},
+    };
   }
   return context;
 };
