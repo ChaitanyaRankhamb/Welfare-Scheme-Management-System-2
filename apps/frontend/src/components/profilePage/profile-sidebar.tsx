@@ -71,20 +71,6 @@ export function ProfileSidebar({
             );
           })}
         </nav>
-
-        <div className="mt-12 rounded-4xl bg-linear-to-br from-primary/10 to-primary/10 dark:from-primary/20 dark:to-primary/20 p-6 backdrop-blur-xl border border-border/20 dark:border-border/10 shadow-lg dark:shadow-lg space-y-4 relative overflow-hidden group">
-          <div className="absolute top-0 right-0 w-32 h-32 bg-linear-to-br from-primary/20 to-primary/20 rounded-full blur-3xl -mr-16 -mt-16 transition-transform duration-500 group-hover:scale-150" />
-          <div className="flex items-center gap-2">
-            <div className="h-2 w-2 rounded-full bg-primary animate-pulse" />
-            <span className="text-[10px] font-black uppercase tracking-widest text-primary dark:text-primary leading-none">
-              AI Smart Hack
-            </span>
-          </div>
-          <p className="text-xs text-muted-foreground font-medium leading-relaxed opacity-80">
-            Completing your <b>Educational</b> history helps us unlock{" "}
-            <b>80% more specialized</b> student subsidies for you.
-          </p>
-        </div>
       </div>
     </aside>
   );
