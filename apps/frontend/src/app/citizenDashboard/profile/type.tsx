@@ -1,97 +1,112 @@
 export interface ProfileState {
   // Personal Information
-  firstName: string
-  middleName: string
-  lastName: string
-  gender: string
-  dateOfBirth: Date | null
-  mobileNumber: string
-  alternateContact: string
+  firstName: string;
+  middleName: string;
+  lastName: string;
+  gender: string;
+  dateOfBirth: Date | null;
+  mobileNumber: string;
+  alternateContact: string;
 
   // Address Details
-  country: string
-  state: string
-  district: string
-  taluka: string
-  village: string
-  pincode: string
-  areaType: string
+  country: string;
+  state: string;
+  district: string;
+  taluka: string;
+  village: string;
+  pincode: string;
+  areaType: string;
 
   // Socio-Economic Details
-  annualIncome: string
-  incomeCategory: string
-  bplStatus: boolean
-  casteCategory: string
-  religion: string
-  rationCardType: string
+  annualIncome: string;
+  incomeCategory: string;
+  bplStatus: boolean;
+  casteCategory: string;
+  religion: string;
+  rationCardType: string;
 
   // Education (Expanded for MAHADBT style)
-  educationLevel: string
-  institutionName: string
-  course: string
-  stream: string
-  boardUniversity: string
-  admissionYear: string
-  passingYear: string
-  resultType: string
-  resultValue: string
-  educationMode: string
+  educationLevel: string;
+  institutionName: string;
+  course: string;
+  stream: string;
+  boardUniversity: string;
+  admissionYear: string;
+  passingYear: string;
+  resultType: string;
+  resultValue: string;
+  educationMode: string;
 
   // Professional
-  occupationType: string
-  employmentStatus: string
-  laborType: string
-  skillLevel: string
-  yearsOfExperience: string
+  occupationType: string;
+  employmentStatus: string;
+  laborType: string;
+  skillLevel: string;
+  yearsOfExperience: string;
 
   // Agriculture
-  landSize: string
-  cropType: string
-  irrigationType: string
+  landSize: string;
+  cropType: string;
+  irrigationType: string;
+
+  // Passbook Details
+  accountHolderName: string;
+  accountNumber: string;
+  bankName: string;
+  branchName: string;
+  ifscCode: string;
+  accountType: string;
 }
 
 export const initialState: ProfileState = {
-  firstName: '',
-  middleName: '',
-  lastName: '',
-  gender: '',
+  firstName: "",
+  middleName: "",
+  lastName: "",
+  gender: "",
   dateOfBirth: null,
-  mobileNumber: '',
-  alternateContact: '',
+  mobileNumber: "",
+  alternateContact: "",
 
-  country: '',
-  state: '',
-  district: '',
-  taluka: '',
-  village: '',
-  pincode: '',
-  areaType: '',
+  country: "",
+  state: "",
+  district: "",
+  taluka: "",
+  village: "",
+  pincode: "",
+  areaType: "",
 
-  annualIncome: '',
-  incomeCategory: '',
+  annualIncome: "",
+  incomeCategory: "",
   bplStatus: false,
-  casteCategory: '',
-  religion: '',
-  rationCardType: '',
+  casteCategory: "",
+  religion: "",
+  rationCardType: "",
 
-  educationLevel: '',
-  institutionName: '',
-  course: '',
-  stream: '',
-  boardUniversity: '',
-  admissionYear: '',
-  passingYear: '',
-  resultType: '',
-  resultValue: '',
-  educationMode: '',
+  educationLevel: "",
+  institutionName: "",
+  course: "",
+  stream: "",
+  boardUniversity: "",
+  admissionYear: "",
+  passingYear: "",
+  resultType: "",
+  resultValue: "",
+  educationMode: "",
 
-  occupationType: '',
-  employmentStatus: '',
-  laborType: '',
-  skillLevel: '',
-  yearsOfExperience: '',
+  occupationType: "",
+  employmentStatus: "",
+  laborType: "",
+  skillLevel: "",
+  yearsOfExperience: "",
 
-  landSize: '',
-  cropType: '',
-  irrigationType: '',
-}
+  landSize: "",
+  cropType: "",
+  irrigationType: "",
+
+  accountHolderName: "",
+  accountNumber: "",
+  bankName: "",
+  branchName: "",
+  ifscCode: "",
+  accountType: "",
+};
