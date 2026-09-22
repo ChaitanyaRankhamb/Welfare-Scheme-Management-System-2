@@ -4,10 +4,12 @@ import { CookieOptions } from "express";
  * Returns base cookie security options configured for development mode
  */
 export const getBaseCookieOptions = (): CookieOptions => {
+  const isProduction = process.env.NODE_ENV === "production";
+
   return {
     httpOnly: true,
-    secure: false,
-    sameSite: "lax",
+    secure: isProduction,
+    sameSite: isProduction ? "none" : "lax",
     path: "/",
   };
 };
