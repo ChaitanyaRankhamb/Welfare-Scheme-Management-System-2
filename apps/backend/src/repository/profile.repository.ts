@@ -41,6 +41,12 @@ export interface CreateProfileData {
   landSize?: number;
   cropType?: string[];
   irrigationType?: string;
+  accountHolderName?: string;
+  accountNumber?: string;
+  bankName?: string;
+  branchName?: string;
+  ifscCode?: string;
+  accountType?: string;
   profileCompletionPercentage?: number;
 }
 
