@@ -1,4 +1,5 @@
 import { fetchapi } from "@/lib/refresh-user";
+import { handleResponse } from "@/lib/handle-response";
 
 const API_BASE_URL = process.env.NEXT_PUBLIC_API_URL || "http://localhost:6001";
 const AI_QUERY_PATH = "/api/ai/stream";
@@ -24,13 +25,10 @@ export const handleAiQuery = async (query: string): Promise<Response> => {
       },
     });
 
-    if (!response.ok) {
-      const body = await response.json().catch(() => ({}));
-      const message = body.message || "Failed to process AI query";
-      throw new Error(message);
-    }
-
-    return response;
+    return await handleResponse<Response>(response, {
+      fallbackMessage: "Failed to process AI query",
+      rawSuccess: true,
+    });
   } catch (error) {
     console.error("AI API Error:", error);
     throw error;

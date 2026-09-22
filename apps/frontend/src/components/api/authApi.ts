@@ -1,4 +1,5 @@
 import { fetchapi } from "@/lib/refresh-user";
+import { handleResponse } from "@/lib/handle-response";
 
 /**
  * API client for authentication related requests
@@ -15,20 +16,16 @@ const API_BASE_URL = process.env.NEXT_PUBLIC_AUTH_API_URL || "http://localhost:6
 export const registerUser = async (username: string, email: string) => {
   try {
     console.log("api url", API_BASE_URL);
-    const response = await fetch(`${API_BASE_URL}/auth/register`, {
+    const response = await fetchapi(`${API_BASE_URL}/auth/register`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
       },
       body: JSON.stringify({ username, email }),
-      credentials: "include",
     });
-
-    const data = await response.json();
-
-    if (!response.ok) {
-      throw new Error(data.message || "Registration failed");
-    }
+    const data = await handleResponse(response, {
+      fallbackMessage: "Registration failed",
+    });
 
     console.log("user data", data);
 
@@ -46,20 +43,16 @@ export const registerUser = async (username: string, email: string) => {
  */
 export const loginUser = async (email: string) => {
   try {
-    const response = await fetch(`${API_BASE_URL}/auth/login`, {
+    const response = await fetchapi(`${API_BASE_URL}/auth/login`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
       },
-      credentials: "include",
       body: JSON.stringify({ email }),
     });
-
-    const data = await response.json();
-
-    if (!response.ok) {
-      throw new Error(data.message || "Login failed");
-    }
+    const data = await handleResponse(response, {
+      fallbackMessage: "Login failed",
+    });
 
     return data;
   } catch (error) {
@@ -86,11 +79,9 @@ export const getMe = async () => {
       method: "GET",
     });
 
-    const data = await response.json();
-
-    if (!response.ok) {
-      throw new Error(data.message || "Failed to fetch user data");
-    }
+    const data = await handleResponse(response, {
+      fallbackMessage: "Failed to fetch user data",
+    });
 
     console.log("Returned user data", data);
 
@@ -104,16 +95,12 @@ export const getMe = async () => {
 // logout API
 export const logoutApi = async () => {
   try {
-    const res = await fetch(`${API_BASE_URL}/auth/logout`, {
+    const res = await fetchapi(`${API_BASE_URL}/auth/logout`, {
       method: "POST",
-      credentials: "include",
     });
-
-    const data = await res.json();
-
-    if (!res.ok) {
-      throw new Error(data.message || "Logout failed");
-    }
+    const data = await handleResponse(res, {
+      fallbackMessage: "Logout failed",
+    });
 
     return data;
   } catch (error) {
@@ -140,11 +127,9 @@ export const uploadResume = async (file: File) => {
       },
     );
 
-    const data = await response.json();
-
-    if (!response.ok) {
-      throw new Error(data.message || "Upload failed");
-    }
+    const data = await handleResponse(response, {
+      fallbackMessage: "Upload failed",
+    });
 
     // console the data
     console.log("Upload API response data:", data);

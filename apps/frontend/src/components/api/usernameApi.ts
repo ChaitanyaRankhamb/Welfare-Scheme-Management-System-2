@@ -3,6 +3,7 @@
  */
 
 import { fetchapi } from "@/lib/refresh-user";
+import { handleResponse } from "@/lib/handle-response";
 
 const API_BASE_URL = process.env.NEXT_PUBLIC_API_URL;
 
@@ -14,19 +15,18 @@ const API_BASE_URL = process.env.NEXT_PUBLIC_API_URL;
 export const checkUsernameAvailability = async (username: string) => {
   try {
     // pass the username as the query parameter to the backend
-    const response = await fetchapi(`${API_BASE_URL}/check-username?username=${encodeURIComponent(username)}`, {
-      method: "GET",
-      headers: {
-        "Content-Type": "application/json",
+    const response = await fetchapi(
+      `${API_BASE_URL}/check-username?username=${encodeURIComponent(username)}`,
+      {
+        method: "GET",
+        headers: {
+          "Content-Type": "application/json",
+        },
       },
-      credentials: "include",
+    );
+    const data = await handleResponse(response, {
+      fallbackMessage: "Failed to check username",
     });
-
-    const data = await response.json();
-
-    if (!response.ok) {
-      throw new Error(data.message || "Failed to check username");
-    }
 
     return data;
   } catch (error) {
