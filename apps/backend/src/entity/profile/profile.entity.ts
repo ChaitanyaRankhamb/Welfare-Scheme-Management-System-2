@@ -56,6 +56,14 @@ export interface ProfileSnapshot {
   cropType?: string[];
   irrigationType?: string;
 
+  // Passbook Details
+  accountHolderName?: string;
+  accountNumber?: string;
+  bankName?: string;
+  branchName?: string;
+  ifscCode?: string;
+  accountType?: string;
+
   // Meta
   profileCompletionPercentage: number;
 }
@@ -157,25 +165,25 @@ export class Profile {
   public recalculateCompletion(): void {
     let totalScore = 0;
 
-    // 1. Personal Info (20%) - 5 core fields: firstName, lastName, gender, dob, mobile
+    // 1. Personal Info (15%) - 5 core fields: firstName, lastName, gender, dob, mobile
     const personalFields = ['firstName', 'lastName', 'gender', 'dateOfBirth', 'mobileNumber'];
-    totalScore += this.calculateSectionScore(personalFields, 20);
+    totalScore += this.calculateSectionScore(personalFields, 15);
 
-    // 2. Address (20%) - 6 core fields
+    // 2. Address (15%) - 6 core fields
     const addressFields = ['country', 'state', 'district', 'taluka', 'village', 'pincode', 'areaType'];
-    totalScore += this.calculateSectionScore(addressFields, 20);
+    totalScore += this.calculateSectionScore(addressFields, 15);
 
-    // 3. Socio-Economic (20%) - 4 fields: annualIncome, casteCategory, religion, bplStatus (boolean is always there)
+    // 3. Socio-Economic (15%) - 4 fields: annualIncome, casteCategory, religion, bplStatus (boolean is always there)
     const socioFields = ['annualIncome', 'casteCategory', 'religion', 'bplStatus'];
-    totalScore += this.calculateSectionScore(socioFields, 20);
+    totalScore += this.calculateSectionScore(socioFields, 15);
 
-    // 4. Education (10%) - 9 fields
+    // 4. Education (15%) - 9 fields
     const educationFields = [
       'educationLevel', 'institutionName', 'course', 'stream', 
       'boardUniversity', 'admissionYear', 'passingYear', 
       'resultType', 'resultValue', 'educationMode'
     ];
-    totalScore += this.calculateSectionScore(educationFields, 10);
+    totalScore += this.calculateSectionScore(educationFields, 15);
 
     // 5. Professional (15%) - occ, status, labor, skill, exp
     const professionalFields = ['occupationType', 'employmentStatus', 'laborType', 'skillLevel', 'yearsOfExperience'];
@@ -184,6 +192,10 @@ export class Profile {
     // 6. Agriculture (15%) - size, crops, irrigation
     const agricultureFields = ['landSize', 'cropType', 'irrigationType'];
     totalScore += this.calculateSectionScore(agricultureFields, 15);
+
+    // 7. Passbook (10%) - holder, account, bank, branch, ifsc, type
+    const passbookFields = ['accountHolderName', 'accountNumber', 'bankName', 'branchName', 'ifscCode', 'accountType'];
+    totalScore += this.calculateSectionScore(passbookFields, 10);
 
     this.snapshot.profileCompletionPercentage = Math.round(totalScore);
   }
