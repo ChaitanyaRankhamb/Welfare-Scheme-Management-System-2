@@ -50,8 +50,55 @@ export function MessageItem({ message, onAction }: MessageItemProps) {
             <AgentReasoning steps={message.steps} />
           )}
 
-          <div className="text-sm font-medium text-foreground leading-relaxed prose prose-sm dark:prose-invert max-w-none prose-p:leading-relaxed prose-pre:bg-muted/50 prose-pre:border prose-pre:border-border">
-            <ReactMarkdown remarkPlugins={[remarkGfm]}>
+          <div className="text-sm font-medium text-foreground leading-relaxed prose prose-sm dark:prose-invert max-w-none prose-p:leading-relaxed">
+            <ReactMarkdown
+              remarkPlugins={[remarkGfm]}
+              components={{
+                table: ({ node, ...props }) => (
+                  <div className="my-3 overflow-x-auto rounded-lg border border-border">
+                    <table className="w-full text-left text-xs text-foreground" {...props} />
+                  </div>
+                ),
+                thead: ({ node, ...props }) => (
+                  <thead className="bg-muted/60 text-muted-foreground font-semibold border-b border-border" {...props} />
+                ),
+                th: ({ node, ...props }) => (
+                  <th className="px-3 py-2 font-semibold" {...props} />
+                ),
+                td: ({ node, ...props }) => (
+                  <td className="px-3 py-2 border-t border-border/40" {...props} />
+                ),
+                a: ({ node, ...props }) => (
+                  <a className="text-primary underline font-medium hover:opacity-80" target="_blank" rel="noopener noreferrer" {...props} />
+                ),
+                ul: ({ node, ...props }) => (
+                  <ul className="list-disc pl-5 my-2 space-y-1" {...props} />
+                ),
+                ol: ({ node, ...props }) => (
+                  <ol className="list-decimal pl-5 my-2 space-y-1" {...props} />
+                ),
+                h1: ({ node, ...props }) => (
+                  <h1 className="text-lg font-bold text-foreground mt-4 mb-2" {...props} />
+                ),
+                h2: ({ node, ...props }) => (
+                  <h2 className="text-base font-bold text-foreground mt-3 mb-1.5" {...props} />
+                ),
+                h3: ({ node, ...props }) => (
+                  <h3 className="text-sm font-bold text-foreground mt-2 mb-1" {...props} />
+                ),
+                code: ({ node, inline, className, children, ...props }: any) => (
+                  inline ? (
+                    <code className="bg-muted px-1.5 py-0.5 rounded text-xs font-mono text-primary font-semibold" {...props}>
+                      {children}
+                    </code>
+                  ) : (
+                    <code className="block bg-muted/70 p-3 rounded-lg text-xs font-mono overflow-x-auto my-2 border border-border" {...props}>
+                      {children}
+                    </code>
+                  )
+                ),
+              }}
+            >
               {message.text}
             </ReactMarkdown>
           </div>
