@@ -73,5 +73,13 @@ export const profileValidationSchema = z.object({
       return val;
     }, z.array(z.string()).optional()),
     irrigationType: z.preprocess((val) => (val === '' ? undefined : val), z.string().optional().nullable()),
+
+    // Passbook
+    accountHolderName: z.preprocess((val) => (val === '' ? undefined : val), z.string().optional().nullable()),
+    accountNumber: z.preprocess((val) => (val === '' ? undefined : val), z.string().optional().nullable()),
+    bankName: z.preprocess((val) => (val === '' ? undefined : val), z.string().optional().nullable()),
+    branchName: z.preprocess((val) => (val === '' ? undefined : val), z.string().optional().nullable()),
+    ifscCode: z.preprocess((val) => (val === '' ? undefined : val), z.string().optional().nullable()),
+    accountType: z.preprocess((val) => (val === '' ? undefined : val), z.string().optional().nullable()),
   }),
 });
