@@ -4,7 +4,7 @@ import React, { useEffect, useState } from 'react';
 import Link from 'next/link';
 import { usePathname, useRouter } from 'next/navigation';
 import { motion } from 'framer-motion';
-import { User, LogOut, Settings, Bell } from 'lucide-react';
+import { User, LogOut, Settings, Bell, Sparkles } from 'lucide-react';
 
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
 import {
@@ -25,6 +25,7 @@ import Image from 'next/image';
 const navLinks = [
   { name: 'Dashboard', href: '/citizenDashboard' },
   { name: 'Profile', href: '/citizenDashboard/profile' },
+  { name: 'AI Assistant', href: '/citizenDashboard/ai-assistant' },
 ];
 
 export function DashboardNavbar() {
@@ -124,6 +125,11 @@ export function DashboardNavbar() {
               <DropdownMenuItem onClick={() => router.push("/citizenDashboard/profile")} className="cursor-pointer">
                 <User className="mr-2 h-4 w-4" />
                 Profile
+              </DropdownMenuItem>
+
+              <DropdownMenuItem onClick={() => router.push("/citizenDashboard/ai-assistant")} className="cursor-pointer">
+                <Sparkles className="mr-2 h-4 w-4 text-primary" />
+                AI Assistant
               </DropdownMenuItem>
 
               <DropdownMenuItem onClick={() => router.push("/settings")} className="cursor-pointer text-muted-foreground">
