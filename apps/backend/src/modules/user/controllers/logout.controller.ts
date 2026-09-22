@@ -1,21 +1,34 @@
-import { Response, NextFunction } from "express";
+import { Request, Response, NextFunction } from "express";
 import { logoutService } from "../services/logout.service";
-import { AuthRequest } from "../../../middlewares/auth.middleware";
+import { verifyRefreshToken } from "../../../utils/jwt.utils";
+import { getClearCookieOptions } from "../../../utils/cookie.utils";
 
 /**
  * Controller to handle user logout requests
  */
 export const logoutController = async (
-  req: AuthRequest,
+  req: Request,
   res: Response,
   next: NextFunction,
 ) => {
   try {
-    const userId = req.userId;
+    const refreshToken = req.cookies?.refreshToken;
+    let userId: string | undefined;
+
+    if (refreshToken) {
+      try {
+        userId = verifyRefreshToken(refreshToken).userId;
+      } catch {
+        // The session is already invalid; cookies still need to be cleared.
+      }
+    }
 
     if (userId) {
       await logoutService(userId);
     }
+
+    res.clearCookie("accessToken", getClearCookieOptions());
+    res.clearCookie("refreshToken", getClearCookieOptions());
 
     res.status(200).json({
       success: true,

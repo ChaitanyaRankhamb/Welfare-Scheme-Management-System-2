@@ -1,6 +1,10 @@
 import { Request, Response, NextFunction } from "express";
 import { loginService } from "../services/login.service";
 import { loginValidation } from "../../../validations/user.login.validation";
+import {
+  getAccessTokenCookieOptions,
+  getRefreshTokenCookieOptions,
+} from "../../../utils/cookie.utils";
 
 /**
  * Controller to handle user login requests and set tokens
@@ -20,32 +24,10 @@ export const loginController = async (
     console.log("validated Email", validation);
 
     // take user and tokens from service
-    const { user, accessToken, refreshToken } = await loginService(
-      validation.email,
-    );
+    const { accessToken, refreshToken } = await loginService(validation.email);
 
-    const cookieOptions = {
-      httpOnly: true,
-      secure: process.env.NODE_ENV === "production",
-      sameSite: process.env.NODE_ENV === "production" ? "none" : "lax",
-      path: "/",
-    };
-
-    res.cookie("accessToken", accessToken, {
-      httpOnly: true,
-      secure: process.env.NODE_ENV === "production",
-      sameSite: process.env.NODE_ENV === "production" ? "none" : "lax",
-      path: "/",
-      maxAge: 30 * 60 * 1000, // 30 minutes
-    });
-
-    res.cookie("refreshToken", refreshToken, {
-      httpOnly: true,
-      secure: process.env.NODE_ENV === "production",
-      sameSite: process.env.NODE_ENV === "production" ? "none" : "lax",
-      path: "/",
-      maxAge: 7 * 24 * 60 * 60 * 1000, // 7 days
-    });
+    res.cookie("accessToken", accessToken, getAccessTokenCookieOptions());
+    res.cookie("refreshToken", refreshToken, getRefreshTokenCookieOptions());
 
     res.status(200).json({
       success: true,
