@@ -8,26 +8,39 @@ import { SocioEconomicDetails } from "@/components/profilePage/socio-economic-de
 import { EducationDetails } from "@/components/profilePage/education-details";
 import { ProfessionalDetails } from "@/components/profilePage/professional-details";
 import { AgricultureDetails } from "@/components/profilePage/agriculture-details";
+import { SmartDocumentUpload } from "@/components/profilePage/smart-document-upload";
+import { PassbookDetails } from "@/components/profilePage/passbook-details";
 import { ProfileHeader } from "@/components/profilePage/profile-header";
 import { ProfileSidebar } from "@/components/profilePage/profile-sidebar";
 import { ProfileLayout } from "@/components/profilePage/profile-layout";
 import { useProfile } from "@/hooks/useProfile";
 import { useScrollSpy } from "@/hooks/useScrollSpy";
-import { User, MapPin, Wallet, BookOpen, Briefcase, Trees } from "lucide-react";
-import Link from "next/link";
+import {
+  User,
+  MapPin,
+  Wallet,
+  BookOpen,
+  Briefcase,
+  Trees,
+  FileText,
+  Landmark,
+} from "lucide-react";
 
 const SECTIONS = [
+  { id: "smart-document-upload", title: "Smart Documents", icon: FileText },
   { id: "personal", title: "Personal Info", icon: User },
   { id: "address", title: "Address", icon: MapPin },
   { id: "socio-economic", title: "Socio-Economic", icon: Wallet },
   { id: "education", title: "Education", icon: BookOpen },
   { id: "professional", title: "Professional", icon: Briefcase },
   { id: "agriculture", title: "Agriculture", icon: Trees, conditional: true },
+  { id: "passbook", title: "Passbook", icon: Landmark },
 ];
 
 export default function ProfilePage() {
   const {
     profile,
+    documents,
     isLoading,
     updateField,
     saveSection,
@@ -72,6 +85,24 @@ export default function ProfilePage() {
         />
       }
     >
+      <div id="smart-document-upload">
+        <SmartDocumentUpload
+          initialDocuments={documents}
+          onDataExtracted={(extractedData) => {
+            Object.entries(extractedData ?? {}).forEach(([field, value]) => {
+              if (
+                field in profile &&
+                value !== null &&
+                value !== undefined &&
+                typeof value !== "object"
+              ) {
+                updateField(field as keyof typeof profile, String(value));
+              }
+            });
+          }}
+        />
+      </div>
+
       <div id="personal">
         <PersonalInformation
           data={profile}
@@ -147,7 +178,18 @@ export default function ProfilePage() {
         </div>
       )}
 
-      <div className="pt-10 pb-10 text-center border-t border-border/20">
+      <div id="passbook">
+        <PassbookDetails
+          data={profile}
+          onChange={(field, value) => updateField(field, value)}
+          onSave={() => saveSection("passbook")}
+          isSaving={sectionSaving.passbook}
+          isSaved={isSaved.passbook}
+          completionPercent={sectionCompletion.passbook}
+        />
+      </div>
+
+      {/* <div className="pt-10 pb-10 text-center border-t border-border/20">
         <p className="text-xs text-muted-foreground font-medium">
           Data protected by 256-bit AES encryption.
         </p>
@@ -157,7 +199,7 @@ export default function ProfilePage() {
         >
           Privacy & Data Policy
         </Link>
-      </div>
+      </div> */}
     </ProfileLayout>
   );
 }
