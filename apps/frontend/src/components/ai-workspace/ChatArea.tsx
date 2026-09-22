@@ -26,7 +26,7 @@ export function ChatArea({ messages, isTyping, streamSteps, onAction }: ChatArea
   const showEmptyState = messages.length <= 1 && !isTyping;
 
   return (
-    <ScrollArea className="flex-1 w-full h-full min-h-0">
+    <ScrollArea className="flex-1 min-h-0 w-full overflow-y-auto">
       {showEmptyState ? (
         <EmptyState onAction={onAction} />
       ) : (

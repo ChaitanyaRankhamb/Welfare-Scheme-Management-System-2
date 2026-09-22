@@ -38,7 +38,7 @@ export function QueryComposer({
   };
 
   return (
-    <div className="w-full max-w-4xl mx-auto px-4 sm:px-6 pb-6 pt-2">
+    <div className="w-full pb-3 pt-2">
       {isRecording ? (
         <div className="flex items-center justify-between gap-3 p-4 px-5 rounded-2xl border border-destructive/30 bg-destructive/5 animate-pulse shadow-sm w-full">
           <div className="flex items-center gap-3">
@@ -153,10 +153,6 @@ export function QueryComposer({
             </div>
           </div>
           
-          <div className="flex items-center justify-center gap-2 pt-1 opacity-50 text-muted-foreground text-xs">
-            <Sparkles className="w-3 h-3" />
-            <p className="font-semibold">Groq Whisper & Agentic Search</p>
-          </div>
         </div>
       )}
     </div>
