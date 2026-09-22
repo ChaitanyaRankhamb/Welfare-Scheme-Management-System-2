@@ -17,7 +17,11 @@ import { Button } from "@/components/ui/button";
 import { dashboardApi } from "@/components/api/citizenDashboardApis/dashboardApi";
 import { applicationApi } from "@/components/api/applicationApi";
 
+import Link from "next/link";
+import { useRouter } from "next/navigation";
+
 export default function CitizenDashboardPage() {
+  const router = useRouter();
   const { user } = useUser();
   const [isSchemesOpen, setIsSchemesOpen] = useState(false);
   const [isApplicationsOpen, setIsApplicationsOpen] = useState(false);
@@ -38,22 +42,31 @@ export default function CitizenDashboardPage() {
         setLoading(true);
         setError(null);
 
-        const [dashRes, appStatsRes, recentAppsRes] = await Promise.all([
+        const results = await Promise.allSettled([
           dashboardApi.getAggregatedData(),
           applicationApi.getStats(),
           applicationApi.getRecent(10),
         ]);
 
-        if (dashRes.success) {
+        const dashRes = results[0].status === "fulfilled" ? results[0].value : null;
+        const appStatsRes = results[1].status === "fulfilled" ? results[1].value : null;
+        const recentAppsRes = results[2].status === "fulfilled" ? results[2].value : null;
+
+        if (dashRes?.success) {
           setCitizenData(dashRes.data);
         }
 
-        if (appStatsRes.success) {
+        if (appStatsRes?.success) {
           setAppStats(appStatsRes.data);
         }
 
-        if (recentAppsRes.success) {
+        if (recentAppsRes?.success) {
           setRecentApps(recentAppsRes.data);
+        }
+
+        if (!dashRes && !appStatsRes && !recentAppsRes) {
+          const firstError = results.find((r) => r.status === "rejected") as PromiseRejectedResult | undefined;
+          setError(firstError?.reason?.message || "Failed to load dashboard data");
         }
       } catch (err: any) {
         console.error("Fetch Error:", err);
@@ -128,21 +141,22 @@ export default function CitizenDashboardPage() {
           <p className="text-xs font-bold italic text-primary">
             "Find your best scheme match with AI"
           </p>
-          <Button
-            onClick={() => setIsAIModalOpen(true)}
-            size="sm"
-            className=" group shrink-0 rounded-xl h-11 px-6
-          font-semibold text-primary-foreground
-          bg-primary
-          shadow-lg
-          hover:bg-primary/90 hover:shadow-xl
-          transition-all duration-300 active:scale-95
-          flex items-center gap-2 cursor-pointer hover:opacity-80
-        "
-          >
-            <Sparkles className="h-3.5 w-3.5 text-primary-foreground" />
-            Launch Assistant
-          </Button>
+          <Link href="/citizenDashboard/ai-assistant">
+            <Button
+              size="sm"
+              className=" group shrink-0 rounded-xl h-11 px-6
+            font-semibold text-primary-foreground
+            bg-primary
+            shadow-lg
+            hover:bg-primary/90 hover:shadow-xl
+            transition-all duration-300 active:scale-95
+            flex items-center gap-2 cursor-pointer hover:opacity-80
+          "
+            >
+              <Sparkles className="h-3.5 w-3.5 text-primary-foreground" />
+              Launch Assistant
+            </Button>
+          </Link>
         </div>
       </section>
 
@@ -161,7 +175,7 @@ export default function CitizenDashboardPage() {
             setIsSchemesOpen(true);
           }}
           onResume={() => setIsApplicationsOpen(true)}
-          onAskAI={() => setIsAIModalOpen(true)}
+          onAskAI={() => router.push("/citizenDashboard/ai-assistant")}
         />
       </section>
 
