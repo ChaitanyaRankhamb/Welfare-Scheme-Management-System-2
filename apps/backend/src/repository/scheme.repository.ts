@@ -37,6 +37,9 @@ export interface SchemeProfileFilter {
 export interface ISchemeRepository {
   createScheme(schemeData: CreateSchemeData): Promise<Scheme>;
   findSchemeById(id: string): Promise<Scheme | null>;
+  findSchemeByName(name: string): Promise<Scheme | null>;
+  findFuzzySchemeByName(name: string): Promise<Scheme | null>;
+  searchByKeywords(keywords: string[]): Promise<Scheme[]>;
   findAllSchemes(filters?: Record<string, unknown>, skip?: number, limit?: number): Promise<{ schemes: Scheme[]; total: number }>;
   findAllSchemesWithoutLimit(): Promise<Scheme[]>;
   searchSchemes(query: string, skip?: number, limit?: number): Promise<{ schemes: Scheme[]; total: number }>;
