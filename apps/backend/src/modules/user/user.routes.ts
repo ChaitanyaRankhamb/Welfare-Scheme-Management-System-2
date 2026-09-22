@@ -38,6 +38,6 @@ router.put("/me", authMiddleware, updateMeController);
 
 
 // Handles user logout
-router.post("/logout", authMiddleware, logoutController);
+router.post("/logout", logoutController);
 
 export default router;
