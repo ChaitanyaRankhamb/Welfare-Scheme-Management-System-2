@@ -1,13 +1,8 @@
-import { Resend } from "resend";
 import { userRepository } from "../../database/repository/user.repository";
 import { AppError } from "../../Error/appError";
-import { verificationEmailTemplate } from "../../utils/verificationCode.structure";
 import { generateVerifyExpiry } from "../../utils/generateVerifyExpiry";
 import { generateVerifyCode } from "../../utils/generateVerifyCode";
-
-
-// Initializing Resend with the API key from environment variables
-const resend = new Resend(process.env.RESEND_API_KEY);
+import { verifyOtpNotificationQueue } from "../../queue/notifications/verify-otp-notifications/verifyOtpNotification.queue";
 
 export const resendService = async (email: string) => {
   // 1. Find user by email
@@ -35,19 +30,17 @@ export const resendService = async (email: string) => {
   // 5. Update the user record in the database
   await userRepository.updateUser(user.id.toString(), user);
 
-  // 6. Send the verification email using Resend
+  // 6. Queue the verification email using Novu
   try {
-    await resend.emails.send({
-      from: "Welfare-Scheme Platform <onboarding@resend.dev>",
-      to: email,
-      subject: "Your new verification code",
-      html: verificationEmailTemplate(user.getUsername() || "User", verifyCode),
+    await verifyOtpNotificationQueue.add("send-verification-email", {
+      userId: user.id.toString(),
     });
   } catch (error) {
-    console.error("Failed to resend verification email:", error);
-    // Even if email fails, we don't necessarily want to crash the whole process
-    // But we should notify that email failed
-    throw new AppError("Failed to send verification email. Please try again.", 500);
+    console.error("Failed to queue verification email:", error);
+    throw new AppError(
+      "Failed to queue verification email. Please try again.",
+      503,
+    );
   }
 
   return {
