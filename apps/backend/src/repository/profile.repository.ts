@@ -1,5 +1,6 @@
 import { Profile } from '../entity/profile/profile.entity';
 import type { ProfileRuralUrban } from '../entity/profile/profile.entity';
+import type { SchemeEligibilityCriteria } from '../entity/schemes/scheme.entity';
 
 export interface CreateProfileData {
   userId: string;
@@ -54,4 +55,5 @@ export interface IProfileRepository {
   createProfile(profileData: CreateProfileData): Promise<Profile>;
   findProfileByUserId(userId: string): Promise<Profile | null>;
   updateProfile(userId: string, profile: Profile): Promise<Profile | null>;
+  findEligibleUserIds(schemeCriteria: SchemeEligibilityCriteria): Promise<string[]>;
 }
