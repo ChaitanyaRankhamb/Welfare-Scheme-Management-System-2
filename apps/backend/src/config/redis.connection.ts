@@ -1,24 +1,28 @@
 import dotenv from 'dotenv';
 import { createClient } from "redis";
+import { queueConnection } from "./bullmqQueue.config";
 
 dotenv.config({
-  path:
-    process.env.NODE_ENV === "production" ? ".env.production" : ".env",
+  path: process.env.NODE_ENV === "production" ? ".env.production" : ".env",
 });
 
-// create a redis client with createClient method by passing options as parameter
+const redisUrl =
+  process.env.REDIS_URI || `redis://${queueConnection.host}:${queueConnection.port}`;
+
 const redisClient = createClient({
-  url: process.env.REDIS_URI,
+  url: redisUrl,
+  ...(queueConnection.password && { password: queueConnection.password }),
 });
-
 
 redisClient.on("error", (err: Error) =>
   console.log("Redis Client Error", err),
 );
 
 export const redisConnection = async () => {
-  await redisClient.connect();
-  console.log("Redis connected successfully!");
+  if (!redisClient.isOpen) {
+    await redisClient.connect();
+    console.log(`Redis connected successfully to ${queueConnection.host}:${queueConnection.port}`);
+  }
 };
 
 export default redisClient;
