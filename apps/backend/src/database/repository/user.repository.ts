@@ -2,6 +2,7 @@ import { IUserRepository, CreateUserData } from '../../repository/user.repositor
 import { UserId } from '../../entity/user/userId';
 import { UserModel } from '../mongo/models/user.model';
 import { User } from '../../entity/user/user.entity';
+import { ClientSession } from 'mongoose';
 
 export class UserModelRepo implements IUserRepository {
 
@@ -24,7 +25,7 @@ export class UserModelRepo implements IUserRepository {
     );
   }
 
-  async createUser(userData: CreateUserData): Promise<User> {
+  async createUser(userData: CreateUserData, session?: ClientSession): Promise<User> {
     const newUser = new UserModel({
       email: userData.email,
       username: userData.username,
@@ -39,7 +40,7 @@ export class UserModelRepo implements IUserRepository {
       profile: userData.profile
     });
 
-    const savedUser = await newUser.save();
+    const savedUser = await newUser.save(session ? { session } : undefined);
     return this.mapToDomain(savedUser);
   }
 
