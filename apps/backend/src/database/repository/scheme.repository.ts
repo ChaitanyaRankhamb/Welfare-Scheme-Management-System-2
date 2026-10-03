@@ -1,7 +1,9 @@
+import { compareTwoStrings } from "string-similarity";
 import {
   ISchemeRepository,
   CreateSchemeData,
   SchemeProfileFilter,
+  SchemeSuggestion,
 } from "../../repository/scheme.repository";
 import { SchemeId } from "../../entity/schemes/schemeId";
 import { SchemeModel } from "../mongo/models/scheme.model";
@@ -67,24 +69,30 @@ export class SchemeModelRepo implements ISchemeRepository {
     return this.mapToDomain(doc);
   }
 
-  async findFuzzySchemeByName(name: string): Promise<Scheme | null> {
-    const normalizedName = name.trim();
-    if (!normalizedName) return null;
+  async findFuzzySchemeByName(name: string): Promise<SchemeSuggestion | null> {
+    const schemes = await SchemeModel.find({});
 
-    const words = normalizedName
-      .split(/\s+/)
-      .map((word) => this.escapeRegex(word))
-      .filter(Boolean);
+    let bestMatch = null;
+    let bestScore = 0;
 
-    const doc = await SchemeModel.findOne({
-      $or: [
-        { title: { $regex: normalizedName, $options: "i" } },
-        ...words.map((word) => ({ title: { $regex: word, $options: "i" } })),
-      ],
-    });
+    for (const scheme of schemes) {
+      const score =
+        compareTwoStrings(name.toLowerCase(), scheme.title.toLowerCase()) * 100;
 
-    if (!doc) return null;
-    return this.mapToDomain(doc);
+      if (score > bestScore) {
+        bestScore = score;
+        bestMatch = scheme;
+      }
+    }
+
+    if (!bestMatch) {
+      return null;
+    }
+
+    return {
+      schemeName: bestMatch.title,
+      score: Math.round(bestScore),
+    };
   }
 
   async searchByKeywords(keywords: string[]): Promise<Scheme[]> {
