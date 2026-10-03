@@ -1,6 +1,5 @@
 import { Request, Response, NextFunction } from "express";
 import { verifyAccessToken } from "../utils/jwt.utils";
-import redisClient from "../config/redis.connection";
 import { userRepository } from "../database/repository/user.repository";
 
 export interface AuthRequest extends Request {
@@ -28,11 +27,11 @@ export const authMiddleware = async (
     }
 
     // Check if token is blacklisted
-    const isBlacklisted = await redisClient.get(`blacklist:${token}`);
+    // const isBlacklisted = await redisClient.get(`blacklist:${token}`);
 
-    if (isBlacklisted) {
-      return res.status(401).json({ message: "Token invalidated" });
-    }
+    // if (isBlacklisted) {
+    //   return res.status(401).json({ message: "Token invalidated" });
+    // }
 
     // Fetch user and attach to request
     const user = await userRepository.findUserById(payload.userId);
