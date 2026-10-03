@@ -133,6 +133,7 @@ const profileSchema = new Schema<IProfile>({
 
 }, { timestamps: true });
 
+profileSchema.index({ profileCompletionPercentage: 1, dateOfBirth: 1, annualIncome: 1 });
 profileSchema.index({ state: 1, district: 1 });
 profileSchema.index({ casteCategory: 1 });
 profileSchema.index({ occupationType: 1 });
