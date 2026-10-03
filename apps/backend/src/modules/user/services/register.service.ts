@@ -1,13 +1,10 @@
-import { Resend } from "resend";
 import { userRepository } from "../../../database/repository/user.repository";
 import { AppError } from "../../../Error/appError";
 import { AuthProvider, ProviderType } from "../../../entity/user/AuthProvider";
-import { verificationEmailTemplate } from "../../../utils/verificationCode.structure";
 import { generateVerifyCode } from "../../../utils/generateVerifyCode";
 import { generateVerifyExpiry } from "../../../utils/generateVerifyExpiry";
 import { CreateUserData } from "../../../repository/user.repository";
-
-const resend = new Resend(process.env.RESEND_API_KEY);
+import { verifyOtpNotificationQueue } from "../../../queue/notifications/verify-otp-notifications/verifyOtpNotification.queue";
 
 export const registerService = async (email: string, username: string) => {
   // check existing user
@@ -61,20 +58,8 @@ export const registerService = async (email: string, username: string) => {
       throw new AppError("Error in user creation. Please try again!", 500);
     }
 
-    // send email to user email with verification Code
-    try {
-      if (!user.isEmailVerified()) {
-        await resend.emails.send({
-          from: "Walefare-Scheme Platform <onboarding@resend.dev>",
-          to: email,
-          subject: "Verify your account",
-          html: verificationEmailTemplate(username, verifyCode),
-        });
-      }
-    } catch (error) {
-      console.error("Failed to send verification email:", error);
-      // We don't necessarily want to fail the whole registration if email fails,
-      // but in a strict system we might. For now, we'll just log it.
-    }
+    await verifyOtpNotificationQueue.add("send-verification-email", {
+      userId: user.id.toString(),
+    });
   }
 };
