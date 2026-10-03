@@ -1,11 +1,13 @@
-import { IProfileRepository, CreateProfileData } from '../../repository/profile.repository';
-import { ProfileId } from '../../entity/profile/profileId';
-import { UserId } from '../../entity/user/userId';
-import { ProfileModel } from '../mongo/models/profile.model';
-import { Profile } from '../../entity/profile/profile.entity';
+import {
+  IProfileRepository,
+  CreateProfileData,
+} from "../../repository/profile.repository";
+import { ProfileId } from "../../entity/profile/profileId";
+import { UserId } from "../../entity/user/userId";
+import { ProfileModel } from "../mongo/models/profile.model";
+import { Profile } from "../../entity/profile/profile.entity";
 
 export class ProfileModelRepo implements IProfileRepository {
-
   private mapToDomain(doc: any): Profile {
     return new Profile(
       new ProfileId(doc._id.toString()),
@@ -58,7 +60,7 @@ export class ProfileModelRepo implements IProfileRepository {
         profileCompletionPercentage: doc.profileCompletionPercentage,
       },
       doc.createdAt,
-      doc.updatedAt
+      doc.updatedAt,
     );
   }
 
@@ -109,7 +111,7 @@ export class ProfileModelRepo implements IProfileRepository {
       branchName: data.branchName,
       ifscCode: data.ifscCode,
       accountType: data.accountType,
-      profileCompletionPercentage: data.profileCompletionPercentage
+      profileCompletionPercentage: data.profileCompletionPercentage,
     });
 
     const savedDoc = await newDoc.save();
@@ -122,7 +124,10 @@ export class ProfileModelRepo implements IProfileRepository {
     return this.mapToDomain(doc);
   }
 
-  async updateProfile(userId: string, profile: Profile): Promise<Profile | null> {
+  async updateProfile(
+    userId: string,
+    profile: Profile,
+  ): Promise<Profile | null> {
     const snapshot = profile.getSnapshot();
     const updatedDoc = await ProfileModel.findOneAndUpdate(
       { userId },
@@ -171,13 +176,153 @@ export class ProfileModelRepo implements IProfileRepository {
         branchName: snapshot.branchName,
         ifscCode: snapshot.ifscCode,
         accountType: snapshot.accountType,
-        profileCompletionPercentage: snapshot.profileCompletionPercentage
+        profileCompletionPercentage: snapshot.profileCompletionPercentage,
       },
-      { new: true }
+      { new: true },
     );
 
     if (!updatedDoc) return null;
     return this.mapToDomain(updatedDoc);
+  }
+
+  async findEligibleUserIds(schemeCriteria: any): Promise<string[]> {
+    const filter: any = {
+      profileCompletionPercentage: 100,
+    };
+
+    if (schemeCriteria.age) {
+      const now = new Date();
+      const maxBirthDate = new Date(
+        now.getFullYear() - schemeCriteria.age.min,
+        now.getMonth(),
+        now.getDate(),
+      );
+      const minBirthDate = new Date(
+        now.getFullYear() - schemeCriteria.age.max - 1,
+        now.getMonth(),
+        now.getDate(),
+      );
+      filter.dateOfBirth = { $gte: minBirthDate, $lte: maxBirthDate };
+    }
+
+    if (schemeCriteria.income) {
+      filter.annualIncome = {
+        $gte: schemeCriteria.income.min,
+        $lte: schemeCriteria.income.max,
+      };
+    }
+
+    if (
+      schemeCriteria.gender &&
+      schemeCriteria.gender.toLowerCase() !== "any"
+    ) {
+      filter.gender = { $regex: new RegExp(`^${schemeCriteria.gender}$`, "i") };
+    }
+
+    if (schemeCriteria.location) {
+      if (schemeCriteria.location.country) {
+        filter.country = {
+          $regex: new RegExp(`^${schemeCriteria.location.country}$`, "i"),
+        };
+      }
+      if (
+        schemeCriteria.location.states &&
+        schemeCriteria.location.states.length > 0
+      ) {
+        filter.state = {
+          $in: schemeCriteria.location.states.map(
+            (s: string) => new RegExp(`^${s}$`, "i"),
+          ),
+        };
+      }
+      if (
+        schemeCriteria.location.districts &&
+        schemeCriteria.location.districts.length > 0
+      ) {
+        filter.district = {
+          $in: schemeCriteria.location.districts.map(
+            (d: string) => new RegExp(`^${d}$`, "i"),
+          ),
+        };
+      }
+      if (schemeCriteria.location.ruralOnly) {
+        filter.areaType = "RURAL";
+      } else if (schemeCriteria.location.urbanOnly) {
+        filter.areaType = "URBAN";
+      }
+    }
+
+    if (schemeCriteria.social) {
+      if (
+        schemeCriteria.social.religion &&
+        schemeCriteria.social.religion.length > 0
+      ) {
+        filter.religion = {
+          $in: schemeCriteria.social.religion.map(
+            (r: string) => new RegExp(`^${r}$`, "i"),
+          ),
+        };
+      }
+      if (
+        schemeCriteria.social.caste &&
+        schemeCriteria.social.caste.length > 0
+      ) {
+        filter.casteCategory = {
+          $in: schemeCriteria.social.caste.map(
+            (c: string) => new RegExp(`^${c}$`, "i"),
+          ),
+        };
+      }
+    }
+
+    if (schemeCriteria.employment) {
+      if (
+        schemeCriteria.employment.employmentStatus &&
+        schemeCriteria.employment.employmentStatus.length > 0
+      ) {
+        filter.employmentStatus = {
+          $in: schemeCriteria.employment.employmentStatus.map(
+            (e: string) => new RegExp(`^${e}$`, "i"),
+          ),
+        };
+      }
+      if (
+        schemeCriteria.employment.occupations &&
+        schemeCriteria.employment.occupations.length > 0
+      ) {
+        filter.occupationType = {
+          $in: schemeCriteria.employment.occupations.map(
+            (o: string) => new RegExp(`^${o}$`, "i"),
+          ),
+        };
+      }
+    }
+
+    const results = await ProfileModel.aggregate([
+      { $match: filter },
+      {
+        $lookup: {
+          from: "users",
+          localField: "userId",
+          foreignField: "_id",
+          as: "user",
+        },
+      },
+      { $unwind: "$user" },
+      {
+        $match: {
+          "user.isActive": true,
+          "user.role": "citizen",
+        },
+      },
+      {
+        $project: {
+          userId: 1,
+        },
+      },
+    ]);
+
+    return results.map((item) => item.userId.toString());
   }
 }
 
