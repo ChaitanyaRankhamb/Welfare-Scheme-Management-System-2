@@ -1,6 +1,7 @@
-import { applicationRepository } from '../../../database/repository/application.repository';
-import { userRepository } from '../../../database/repository/user.repository';
-import { AppError } from '../../../reuse-components/AppError';
+import { applicationRepository } from "../../../database/repository/application.repository";
+import { userRepository } from "../../../database/repository/user.repository";
+import { AppError } from "../../../reuse-components/AppError";
+import { invalidateCitizenDashboardCache } from "../../../redis-cache/citizen-dashboard-cache.service";
 
 /**
  * @description Updates an application status to APPLIED.
@@ -16,42 +17,50 @@ import { AppError } from '../../../reuse-components/AppError';
  * 6. Mark applied and save
  * 7. Return structured response
  */
-export const markAsAppliedService = async (userId: string, applicationId: string) => {
+export const markAsAppliedService = async (
+  userId: string,
+  applicationId: string,
+) => {
   if (!userId) {
-    throw new AppError('Unauthorized', 401);
+    throw new AppError("Unauthorized", 401);
   }
 
   const user = await userRepository.findUserById(userId);
   if (!user) {
-    throw new AppError('User not found', 404);
+    throw new AppError("User not found", 404);
   }
 
-  const application = await applicationRepository.findApplicationById(applicationId);
+  const application =
+    await applicationRepository.findApplicationById(applicationId);
 
   if (!application) {
-    throw new AppError('Application not found', 404);
+    throw new AppError("Application not found", 404);
   }
 
   // Validate ownership
   if (application.getUserId().toString() !== userId) {
-    throw new AppError('Unauthorized access to this application', 403);
+    throw new AppError("Unauthorized access to this application", 403);
   }
 
   // Prevent updating deleted records
   if (application.getIsDeleted()) {
-    throw new AppError('Cannot update a deleted application', 400);
+    throw new AppError("Cannot update a deleted application", 400);
   }
 
-  application.markApplied();
+  // application.markApplied();
 
-  const updated = await applicationRepository.updateApplication(applicationId, application);
+  const updated = await applicationRepository.updateApplication(
+    applicationId,
+    application,
+  );
   if (!updated) {
-    throw new AppError('Failed to update application', 500);
+    throw new AppError("Failed to update application", 500);
   }
+  await invalidateCitizenDashboardCache(userId);
 
   return {
     success: true,
     data: updated,
-    message: 'Application marked as applied'
+    message: "Application marked as applied",
   };
 };

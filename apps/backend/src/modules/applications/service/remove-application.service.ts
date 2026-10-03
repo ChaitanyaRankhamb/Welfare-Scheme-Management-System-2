@@ -1,6 +1,7 @@
-import { applicationRepository } from '../../../database/repository/application.repository';
-import { userRepository } from '../../../database/repository/user.repository';
-import { AppError } from '../../../reuse-components/AppError';
+import { applicationRepository } from "../../../database/repository/application.repository";
+import { userRepository } from "../../../database/repository/user.repository";
+import { AppError } from "../../../reuse-components/AppError";
+import { invalidateCitizenDashboardCache } from "../../../redis-cache/citizen-dashboard-cache.service";
 
 /**
  * @description Soft deletes an application record.
@@ -16,42 +17,50 @@ import { AppError } from '../../../reuse-components/AppError';
  * 6. Perform soft delete and save
  * 7. Return structured response
  */
-export const removeApplicationService = async (userId: string, applicationId: string) => {
+export const removeApplicationService = async (
+  userId: string,
+  applicationId: string,
+) => {
   if (!userId) {
-    throw new AppError('Unauthorized', 401);
+    throw new AppError("Unauthorized", 401);
   }
 
   const user = await userRepository.findUserById(userId);
   if (!user) {
-    throw new AppError('User not found', 404);
+    throw new AppError("User not found", 404);
   }
 
-  const application = await applicationRepository.findApplicationById(applicationId);
+  const application =
+    await applicationRepository.findApplicationById(applicationId);
 
   if (!application) {
-    throw new AppError('Application not found', 404);
+    throw new AppError("Application not found", 404);
   }
 
   // Validate ownership
   if (application.getUserId().toString() !== userId) {
-    throw new AppError('Unauthorized access to this application', 403);
+    throw new AppError("Unauthorized access to this application", 403);
   }
 
   // Check if already deleted
   if (application.getIsDeleted()) {
-    throw new AppError('Application already removed', 400);
+    throw new AppError("Application already removed", 400);
   }
 
   application.remove();
 
-  const updated = await applicationRepository.updateApplication(applicationId, application);
+  const updated = await applicationRepository.updateApplication(
+    applicationId,
+    application,
+  );
   if (!updated) {
-    throw new AppError('Failed to remove application', 500);
+    throw new AppError("Failed to remove application", 500);
   }
+  await invalidateCitizenDashboardCache(userId);
 
   return {
     success: true,
     data: updated,
-    message: 'Application removed successfully'
+    message: "Application removed successfully",
   };
 };
