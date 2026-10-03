@@ -20,7 +20,11 @@ export async function getApplicationSteps(schemeName: string) {
 
     // 2. Fuzzy match if exact match is not found
     if (!scheme) {
-      scheme = await schemeRepository.findFuzzySchemeByName(normalizedName);
+      const suggestion =
+        await schemeRepository.findFuzzySchemeByName(normalizedName);
+      if (suggestion) {
+        scheme = await schemeRepository.findSchemeByName(suggestion.schemeName);
+      }
     }
 
     if (!scheme) {
@@ -38,35 +42,41 @@ export async function getApplicationSteps(schemeName: string) {
       success: true,
       schemeTitle: scheme.getTitle(),
       processType: trackingMeta?.type || "Standard",
-      applicationUrl: applicationUrl || "Search on the official government portal",
-      steps: (trackingMeta?.instructions && trackingMeta.instructions.length > 0) 
-        ? trackingMeta.instructions 
-        : [
-            "Visit the official department/ministry portal.",
-            "Register as a new user or login to your existing account.",
-            "Locate the scheme in the application or services section.",
-            "Complete the online application form with personal and financial details.",
-            "Upload all required documents as per the specified formats.",
-            "Review and submit the application.",
-            "Download/Print the acknowledgment receipt for future tracking."
-          ],
-      requiredDocuments: documents.length > 0 
-        ? documents 
-        : [
-            "Identity Proof (Aadhar, Voter ID, etc.)",
-            "Address Proof (Utility bill, Domicile certificate, etc.)",
-            "Income Certificate (if applicable)",
-            "Caste Certificate (if applying under a category)",
-            "Bank Account Details"
-          ],
-      notes: "Please double-check all information before final submission. Late or incomplete applications are typically rejected."
+      applicationUrl:
+        applicationUrl || "Search on the official government portal",
+      steps:
+        trackingMeta?.instructions && trackingMeta.instructions.length > 0
+          ? trackingMeta.instructions
+          : [
+              "Visit the official department/ministry portal.",
+              "Register as a new user or login to your existing account.",
+              "Locate the scheme in the application or services section.",
+              "Complete the online application form with personal and financial details.",
+              "Upload all required documents as per the specified formats.",
+              "Review and submit the application.",
+              "Download/Print the acknowledgment receipt for future tracking.",
+            ],
+      requiredDocuments:
+        documents.length > 0
+          ? documents
+          : [
+              "Identity Proof (Aadhar, Voter ID, etc.)",
+              "Address Proof (Utility bill, Domicile certificate, etc.)",
+              "Income Certificate (if applicable)",
+              "Caste Certificate (if applying under a category)",
+              "Bank Account Details",
+            ],
+      notes:
+        "Please double-check all information before final submission. Late or incomplete applications are typically rejected.",
     };
-
   } catch (error) {
     console.error("Get Application Steps Error:", error);
-    
+
     // Distinguish between handled app errors and system errors
     if (error instanceof AppError) throw error;
-    throw new AppError("An error occurred while retrieving the application process.", 500);
+    throw new AppError(
+      "An error occurred while retrieving the application process.",
+      500,
+    );
   }
 }

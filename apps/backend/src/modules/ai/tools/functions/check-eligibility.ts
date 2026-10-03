@@ -134,7 +134,14 @@ export async function checkEligibilityForScheme(userIdStr: string, args: { schem
   }
 
   const normalizedSchemeName = schemeName.trim().toLocaleLowerCase();
-  const scheme = await schemeRepository.findSchemeByName(normalizedSchemeName);
+  let scheme = await schemeRepository.findSchemeByName(normalizedSchemeName);
+
+  if (!scheme) {
+    const suggestion = await schemeRepository.findFuzzySchemeByName(normalizedSchemeName);
+    if (suggestion) {
+      scheme = await schemeRepository.findSchemeByName(suggestion.schemeName);
+    }
+  }
 
   if (!scheme) {
     return {
