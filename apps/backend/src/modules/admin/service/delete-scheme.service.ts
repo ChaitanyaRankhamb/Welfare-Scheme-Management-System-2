@@ -1,6 +1,7 @@
-import { schemeRepository } from '../../../database/repository/scheme.repository';
-import { userRepository } from '../../../database/repository/user.repository';
-import { AppError } from '../../../reuse-components/AppError';
+import { schemeRepository } from "../../../database/repository/scheme.repository";
+import { userRepository } from "../../../database/repository/user.repository";
+import { AppError } from "../../../reuse-components/AppError";
+import { invalidateAllCitizenDashboardCaches } from "../../../redis-cache/citizen-dashboard-cache.service";
 
 /**
  * @description Deletes an existing scheme
@@ -17,33 +18,36 @@ import { AppError } from '../../../reuse-components/AppError';
  */
 export const deleteSchemeService = async (userId: string, id: string) => {
   if (!userId) {
-    throw new AppError('Unauthorized', 401);
+    throw new AppError("Unauthorized", 401);
   }
 
   const user = await userRepository.findUserById(userId);
   if (!user) {
-    throw new AppError('User not found', 404);
+    throw new AppError("User not found", 404);
   }
 
-  if (user.getRole() !== 'admin') {
-    throw new AppError('Forbidden: Admin access required', 403);
+  if (user.getRole() !== "admin") {
+    throw new AppError("Forbidden: Admin access required", 403);
   }
 
   const scheme = await schemeRepository.findSchemeById(id);
   if (!scheme) {
-    throw new AppError('Scheme not found', 404);
+    throw new AppError("Scheme not found", 404);
   }
+
+  // create a jot to delete the scheme. add it to the worker queue delete-job-queue and send email notification to all affected citizens/users.
 
   // Only drafted schemes can be deleted
   // Updated scheme status system: active/deactive → drafted/published/archived
-  if (scheme.getStatus() !== 'drafted') {
-    throw new AppError('Only drafted schemes can be deleted permanently', 400);
+  if (scheme.getStatus() !== "drafted") {
+    throw new AppError("Only drafted schemes can be deleted permanently", 400);
   }
 
   await schemeRepository.deleteScheme(id);
+  await invalidateAllCitizenDashboardCaches();
 
   return {
     success: true,
-    message: 'Scheme deleted successfully'
+    message: "Scheme deleted successfully",
   };
 };

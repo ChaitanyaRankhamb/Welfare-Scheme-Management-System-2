@@ -1,38 +1,41 @@
-import { schemeRepository } from '../../../database/repository/scheme.repository';
-import { userRepository } from '../../../database/repository/user.repository';
-import { UserId } from '../../../entity/user/userId';
-import { AppError } from '../../../reuse-components/AppError';
+import { schemeRepository } from "../../../database/repository/scheme.repository";
+import { userRepository } from "../../../database/repository/user.repository";
+import { UserId } from "../../../entity/user/userId";
+import { invalidateAllCitizenDashboardCaches } from "../../../redis-cache/citizen-dashboard-cache.service";
+import { AppError } from "../../../reuse-components/AppError";
+
 
 /**
  * @description Archives a published scheme
  */
 export const archiveSchemeService = async (userId: UserId, id: string) => {
-  if (!userId) throw new AppError('Unauthorized', 401);
+  if (!userId) throw new AppError("Unauthorized", 401);
 
   const user = await userRepository.findUserById(userId.toString());
 
-  if (!user) throw new AppError('User not found', 404);
+  if (!user) throw new AppError("User not found", 404);
 
-  if (user.getRole() !== 'admin') {
-    throw new AppError('Forbidden: Admin access required', 403);
+  if (user.getRole() !== "admin") {
+    throw new AppError("Forbidden: Admin access required", 403);
   }
 
   const scheme = await schemeRepository.findSchemeById(id);
 
-  if (!scheme) throw new AppError('Scheme not found', 404);
+  if (!scheme) throw new AppError("Scheme not found", 404);
 
   // published → archived
   // Updated scheme status system: active/deactive → drafted/published/archived
-  if (scheme.getStatus() !== 'published') {
-    throw new AppError('Only published schemes can be archived', 400);
+  if (scheme.getStatus() !== "published") {
+    throw new AppError("Only published schemes can be archived", 400);
   }
 
-  scheme.setStatus('archived');
+  scheme.setStatus("archived");
   const updated = await schemeRepository.updateScheme(id, scheme);
+  await invalidateAllCitizenDashboardCaches();
 
   return {
     success: true,
     data: updated,
-    message: 'Scheme archived successfully'
+    message: "Scheme archived successfully",
   };
 };

@@ -1,7 +1,8 @@
-import { schemeRepository } from '../../../database/repository/scheme.repository';
-import { userRepository } from '../../../database/repository/user.repository';
-import { AppError } from '../../../reuse-components/AppError';
-import { CreateSchemeData } from '../../../repository/scheme.repository';
+import { schemeRepository } from "../../../database/repository/scheme.repository";
+import { userRepository } from "../../../database/repository/user.repository";
+import { AppError } from "../../../reuse-components/AppError";
+import { CreateSchemeData } from "../../../repository/scheme.repository";
+import { invalidateAllCitizenDashboardCaches } from "../../../redis-cache/citizen-dashboard-cache.service";
 
 /**
  * @description Creates a new scheme after checking for duplicates
@@ -17,36 +18,42 @@ import { CreateSchemeData } from '../../../repository/scheme.repository';
  * 4. Create new scheme via repository
  * 5. Return structured response
  */
-export const createSchemeService = async (userId: string, data: CreateSchemeData) => {
+export const createSchemeService = async (
+  userId: string,
+  data: CreateSchemeData,
+) => {
   if (!userId) {
-    throw new AppError('Unauthorized', 401);
+    throw new AppError("Unauthorized", 401);
   }
 
   const user = await userRepository.findUserById(userId);
   if (!user) {
-    throw new AppError('User not found', 404);
+    throw new AppError("User not found", 404);
   }
 
-  if (user.getRole() !== 'admin') {
-    throw new AppError('Forbidden: Admin access required', 403);
+  if (user.getRole() !== "admin") {
+    throw new AppError("Forbidden: Admin access required", 403);
   }
 
   // Check for duplicate title
   const { schemes: existingSchemes } = await schemeRepository.findAllSchemes();
-  const isDuplicate = existingSchemes.find((s: any) => s.getTitle() === data.title);
-  
+  const isDuplicate = existingSchemes.find(
+    (s: any) => s.getTitle() === data.title,
+  );
+
   if (isDuplicate) {
-    throw new AppError('Scheme with this title already exists', 409);
+    throw new AppError("Scheme with this title already exists", 409);
   }
 
   // All new schemes start in 'drafted' status
   // Updated scheme status system: active/deactive → drafted/published/archived
-  data.status = 'drafted';
+  data.status = "drafted";
   const newScheme = await schemeRepository.createScheme(data);
+  await invalidateAllCitizenDashboardCaches();
 
   return {
     success: true,
     data: newScheme,
-    message: 'Scheme created successfully'
+    message: "Scheme created successfully",
   };
 };

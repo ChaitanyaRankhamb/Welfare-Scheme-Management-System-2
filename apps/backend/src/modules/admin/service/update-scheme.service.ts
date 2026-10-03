@@ -1,6 +1,7 @@
-import { schemeRepository } from '../../../database/repository/scheme.repository';
-import { userRepository } from '../../../database/repository/user.repository';
-import { AppError } from '../../../reuse-components/AppError';
+import { schemeRepository } from "../../../database/repository/scheme.repository";
+import { userRepository } from "../../../database/repository/user.repository";
+import { AppError } from "../../../reuse-components/AppError";
+import { invalidateAllCitizenDashboardCaches } from "../../../redis-cache/citizen-dashboard-cache.service";
 
 /**
  * @description Updates an existing scheme
@@ -17,41 +18,46 @@ import { AppError } from '../../../reuse-components/AppError';
  * 6. Save updated scheme via repository
  * 7. Return structured response
  */
-export const updateSchemeService = async (userId: string, id: string, updateData: any) => {
+export const updateSchemeService = async (
+  userId: string,
+  id: string,
+  updateData: any,
+) => {
   if (!userId) {
-    throw new AppError('Unauthorized', 401);
+    throw new AppError("Unauthorized", 401);
   }
 
   const user = await userRepository.findUserById(userId);
   if (!user) {
-    throw new AppError('User not found', 404);
+    throw new AppError("User not found", 404);
   }
 
-  if (user.getRole() !== 'admin') {
-    throw new AppError('Forbidden: Admin access required', 403);
+  if (user.getRole() !== "admin") {
+    throw new AppError("Forbidden: Admin access required", 403);
   }
 
   const scheme = await schemeRepository.findSchemeById(id);
   if (!scheme) {
-    throw new AppError('Scheme not found', 404);
+    throw new AppError("Scheme not found", 404);
   }
 
   // Only drafted schemes can be edited
   // Updated scheme status system: active/deactive → drafted/published/archived
-  if (scheme.getStatus() !== 'drafted') {
-    throw new AppError('Only drafted schemes can be edited', 400);
+  if (scheme.getStatus() !== "drafted") {
+    throw new AppError("Only drafted schemes can be edited", 400);
   }
 
   scheme.updateDetails(updateData);
 
   const updated = await schemeRepository.updateScheme(id, scheme);
   if (!updated) {
-    throw new AppError('Failed to update scheme', 500);
+    throw new AppError("Failed to update scheme", 500);
   }
+  await invalidateAllCitizenDashboardCaches();
 
   return {
     success: true,
     data: updated,
-    message: 'Scheme updated successfully'
+    message: "Scheme updated successfully",
   };
 };

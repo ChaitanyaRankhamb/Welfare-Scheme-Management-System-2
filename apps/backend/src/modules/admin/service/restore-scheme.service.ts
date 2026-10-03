@@ -1,37 +1,39 @@
-import { schemeRepository } from '../../../database/repository/scheme.repository';
-import { userRepository } from '../../../database/repository/user.repository';
-import { UserId } from '../../../entity/user/userId';
-import { AppError } from '../../../reuse-components/AppError';
+import { schemeRepository } from "../../../database/repository/scheme.repository";
+import { userRepository } from "../../../database/repository/user.repository";
+import { UserId } from "../../../entity/user/userId";
+import { AppError } from "../../../reuse-components/AppError";
+import { invalidateAllCitizenDashboardCaches } from "../../../redis-cache/citizen-dashboard-cache.service";
 
 /**
  * @description Restores an archived scheme to drafted status
  */
 export const restoreSchemeService = async (userId: UserId, id: string) => {
-  if (!userId) throw new AppError('Unauthorized', 401);
+  if (!userId) throw new AppError("Unauthorized", 401);
 
   const user = await userRepository.findUserById(userId.toString());
 
-  if (!user) throw new AppError('User not found', 404);
+  if (!user) throw new AppError("User not found", 404);
 
-  if (user.getRole() !== 'admin') {
-    throw new AppError('Forbidden: Admin access required', 403);
+  if (user.getRole() !== "admin") {
+    throw new AppError("Forbidden: Admin access required", 403);
   }
 
   const scheme = await schemeRepository.findSchemeById(id);
-  if (!scheme) throw new AppError('Scheme not found', 404);
+  if (!scheme) throw new AppError("Scheme not found", 404);
 
   // archived → drafted
   // Updated scheme status system: active/deactive → drafted/published/archived
-  if (scheme.getStatus() !== 'archived') {
-    throw new AppError('Only archived schemes can be restored', 400);
+  if (scheme.getStatus() !== "archived") {
+    throw new AppError("Only archived schemes can be restored", 400);
   }
 
-  scheme.setStatus('drafted');
+  scheme.setStatus("drafted");
   const updated = await schemeRepository.updateScheme(id, scheme);
+  await invalidateAllCitizenDashboardCaches();
 
   return {
     success: true,
     data: updated,
-    message: 'Scheme restored to drafted successfully'
+    message: "Scheme restored to drafted successfully",
   };
 };

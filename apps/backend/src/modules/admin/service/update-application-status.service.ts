@@ -2,6 +2,7 @@ import { applicationRepository } from "../../../database/repository/application.
 import { userRepository } from "../../../database/repository/user.repository";
 import type { ApplicationStatus } from "../../../entity/application/application.entity";
 import { AppError } from "../../../reuse-components/AppError";
+import { invalidateAllCitizenDashboardCaches } from "../../../redis-cache/citizen-dashboard-cache.service";
 
 export const updateApplicationStatusService = async (
   userId: string,
@@ -27,12 +28,17 @@ export const updateApplicationStatusService = async (
     throw new AppError("Invalid application status", 400);
   }
 
+  // add job to the queue of user-application-status-update-queue.
+
   application.updateStatus(status);
 
   const updated = await applicationRepository.updateApplication(
     applicationId,
     application,
   );
+  if (updated) {
+    await invalidateAllCitizenDashboardCaches();
+  }
 
   return {
     success: true,
