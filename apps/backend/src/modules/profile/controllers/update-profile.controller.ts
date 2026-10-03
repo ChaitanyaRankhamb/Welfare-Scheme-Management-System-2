@@ -92,6 +92,15 @@ export const updateProfileController = async (req: AuthRequest, res: Response) =
         if (validatedData.irrigationType !== undefined) updateObject.irrigationType = validatedData.irrigationType;
         break;
 
+      case "passbook":
+        if (validatedData.accountHolderName !== undefined) updateObject.accountHolderName = validatedData.accountHolderName;
+        if (validatedData.accountNumber !== undefined) updateObject.accountNumber = validatedData.accountNumber;
+        if (validatedData.bankName !== undefined) updateObject.bankName = validatedData.bankName;
+        if (validatedData.branchName !== undefined) updateObject.branchName = validatedData.branchName;
+        if (validatedData.ifscCode !== undefined) updateObject.ifscCode = validatedData.ifscCode;
+        if (validatedData.accountType !== undefined) updateObject.accountType = validatedData.accountType;
+        break;
+
       default:
         // Allow general save without switch constraints, if preferred. Or strictly reject.
         return res.status(400).json({ message: "Invalid section" });
