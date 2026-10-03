@@ -17,6 +17,7 @@ if (!JWT_REFRESH_SECRET) {
 export interface JwtPayload {
   userId: string;
   email: string;
+  exp?: number;
 }
 
 /**
