@@ -14,7 +14,7 @@ export async function getSchemeDetails(input: GetSchemeDetailsInput | string) {
       success: false,
       status: "INVALID_INPUT",
       message: "Invalid scheme name",
-      scheme: null
+      scheme: null,
     };
   }
 
@@ -40,34 +40,62 @@ export async function getSchemeDetails(input: GetSchemeDetailsInput | string) {
           applicationUrl: scheme.getApplicationUrl(),
           eligibility,
           trackingMeta: scheme.getTrackingMeta(),
-        }
+        },
       };
     }
 
     // 3. Fuzzy suggestion
-    const suggestion = await schemeRepository.findFuzzySchemeByName(normalizedName);
+    const suggestion =
+      await schemeRepository.findFuzzySchemeByName(normalizedName);
 
-    if (suggestion) {
+    if (suggestion && suggestion.score >= 70) {
+      const scheme = await schemeRepository.findSchemeByName(
+        suggestion.schemeName,
+      );
+
+      if (scheme) {
+        const eligibility = scheme.getEligibility();
+
+        return {
+          success: true,
+          status: "FOUND",
+          matchType: "FUZZY",
+          similarity: suggestion.score,
+          scheme: {
+            id: scheme.id.toString(),
+            title: scheme.getTitle(),
+            description: scheme.getDescription(),
+            ministry: scheme.getMinistry(),
+            category: scheme.getCategory(),
+            benefits: scheme.getBenefits(),
+            documentsRequired: scheme.getDocumentsRequired(),
+            applicationUrl: scheme.getApplicationUrl(),
+            eligibility,
+            trackingMeta: scheme.getTrackingMeta(),
+          },
+        };
+      }
+    }
+
+    if (suggestion && suggestion.score >= 60) {
       return {
         success: false,
         status: "SUGGESTION",
         message: "Scheme not found. Did you mean this?",
         suggestion: {
-          title: suggestion.getTitle(),
-          id: suggestion.id // optional
+          schemeName: suggestion.schemeName,
+          score: suggestion.score,
         },
-        scheme: null
+        scheme: null,
       };
     }
-
     // 4. Final fallback
     return {
       success: false,
       status: "NOT_FOUND",
       message: "Scheme is not available on this platform",
-      scheme: null
+      scheme: null,
     };
-
   } catch (error) {
     console.error("Get Scheme Details Error:", error);
 
