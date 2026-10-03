@@ -25,7 +25,8 @@ Examples:
 
 STRICT RULES:
 - Do NOT use this tool if fewer than 2 schemes are mentioned.
-- Do NOT guess or assume scheme names.
+- Do NOT guess or fabricate scheme names not supported by the query.
+- Don't ask any questions to the user about which scheme is better. Instead, provide a structured comparison of the schemes.
 - If only one scheme is mentioned → use 'getSchemeDetails' instead.
 - If no scheme names are provided → ask a clarification question.
 - Do NOT use this tool for general recommendations → use 'recommendSchemes'.
