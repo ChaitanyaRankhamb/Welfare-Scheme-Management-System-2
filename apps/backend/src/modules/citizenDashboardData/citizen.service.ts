@@ -1,4 +1,3 @@
-import redisClient from "../../config/redis.connection";
 import { userRepository } from "../../database/repository/user.repository";
 import { UserId } from "../../entity/user/userId";
 import { AppError } from "../../Error/appError";
@@ -8,8 +7,8 @@ import { applicationRepository } from "../../database/repository/application.rep
 import { schemeRepository } from "../../database/repository/scheme.repository";
 import { ruleBasedFilterationService } from "./rule-based-filteration.service";
 import { recommendSchemesService } from "./recommend-schemes.service";
+import { cacheCitizenDashboardData, getCachedCitizenDashboardData } from "../../redis-cache/citizen-dashboard-cache.service";
 
-const cache_TTL = 60 * 60 * 24; // 1 day
 
 export const citizenDataService = async (userId: UserId) => {
   try {
@@ -22,27 +21,14 @@ export const citizenDataService = async (userId: UserId) => {
       throw new AppError("User is not a citizen", 400);
     }
 
-    // check if user has already logged in
-    const cacheKey = `schemes:${userId.toString()}`;
-
-    try {
-      const cached = await redisClient.get(cacheKey);
-
-      if (cached) {
-        try {
-          const parsed = JSON.parse(cached);
-          console.log("cache parsed data", parsed);
-          return {
-            fromCache: true,
-            ...parsed,
-          };
-        } catch (error) {
-          console.warn("[redis] cache is currupted, deleting it");
-          redisClient.del(cacheKey);
-        }
-      }
-    } catch {
-      console.warn("[redis] is failed, continuing with normal flow");
+    const cached = await getCachedCitizenDashboardData<Record<string, unknown>>(
+      userId.toString(),
+    );
+    if (cached) {
+      return {
+        fromCache: true,
+        ...cached,
+      };
     }
 
     // call the profile data service
@@ -156,14 +142,7 @@ export const citizenDataService = async (userId: UserId) => {
       recommendationsCount: responseData.recommendations.schemes.length,
     });
 
-    // Redis Write
-    try {
-      await redisClient.set(cacheKey, JSON.stringify(responseData), {
-        EX: cache_TTL,
-      });
-    } catch (error) {
-      console.warn("[redis] write failed", error);
-    }
+    await cacheCitizenDashboardData(userId.toString(), responseData);
 
     console.log("response data", responseData);
 
