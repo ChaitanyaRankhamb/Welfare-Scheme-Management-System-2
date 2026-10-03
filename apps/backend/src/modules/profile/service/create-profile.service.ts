@@ -1,9 +1,12 @@
-import { profileRepository } from '../../../database/repository/profile.repository';
-import { userRepository } from '../../../database/repository/user.repository';
-import { AppError } from '../../../reuse-components/AppError';
-import { Profile } from '../../../entity/profile/profile.entity';
-import { ProfileId } from '../../../entity/profile/profileId';
-import { UserId } from '../../../entity/user/userId';
+import { profileRepository } from "../../../database/repository/profile.repository";
+import { userRepository } from "../../../database/repository/user.repository";
+import { AppError } from "../../../reuse-components/AppError";
+import { Profile } from "../../../entity/profile/profile.entity";
+import { ProfileId } from "../../../entity/profile/profileId";
+import { UserId } from "../../../entity/user/userId";
+import { invalidateProfileCache } from "../../../redis-cache/profile-cache.service";
+import { invalidateCitizenDashboardCache } from "../../../redis-cache/citizen-dashboard-cache.service";
+
 
 /**
  * @description Creates a new profile for the user with completion percentage
@@ -11,32 +14,35 @@ import { UserId } from '../../../entity/user/userId';
  * @param {any} profileData - Profile details
  * @returns {Promise<{ success: boolean; data: any; message: string }>}
  */
-export const createProfileService = async (userId: string, profileData: any) => {
+export const createProfileService = async (
+  userId: string,
+  profileData: any,
+) => {
   if (!userId) {
-    throw new AppError('Unauthorized', 401);
+    throw new AppError("Unauthorized", 401);
   }
 
   const user = await userRepository.findUserById(userId);
   if (!user) {
-    throw new AppError('User not found', 404);
+    throw new AppError("User not found", 404);
   }
 
   const existingProfile = await profileRepository.findProfileByUserId(userId);
   if (existingProfile) {
-    throw new AppError('Profile already exists for this user', 409);
+    throw new AppError("Profile already exists for this user", 409);
   }
 
   // Create temporary entity to calculate completion percentage
-  const tempId = 'temp'; 
+  const tempId = "temp";
   const newProfileEntity = new Profile(
     new ProfileId(tempId),
     {
       userId: new UserId(userId),
       ...profileData,
-      profileCompletionPercentage: 0
+      profileCompletionPercentage: 0,
     },
     new Date(),
-    new Date()
+    new Date(),
   );
 
   newProfileEntity.recalculateCompletion();
@@ -44,12 +50,15 @@ export const createProfileService = async (userId: string, profileData: any) => 
 
   const newProfile = await profileRepository.createProfile({
     ...snapshot,
-    userId: userId // Ensure it's a string for repo
+    userId: userId, // Ensure it's a string for repo
   });
+
+  await invalidateProfileCache(userId);
+  await invalidateCitizenDashboardCache(userId);
 
   return {
     success: true,
     data: newProfile.getSnapshot(),
-    message: 'Profile created successfully'
+    message: "Profile created successfully",
   };
 };

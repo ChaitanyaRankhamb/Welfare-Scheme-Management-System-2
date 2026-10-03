@@ -1,6 +1,9 @@
-import { profileRepository } from '../../../database/repository/profile.repository';
-import { userRepository } from '../../../database/repository/user.repository';
-import { AppError } from '../../../reuse-components/AppError';
+import { profileRepository } from "../../../database/repository/profile.repository";
+import { userRepository } from "../../../database/repository/user.repository";
+import { AppError } from "../../../reuse-components/AppError";
+import { profileUpdateQueue } from "../../../queue/profile/profile.queue";
+import { invalidateProfileCache } from "../../../redis-cache/profile-cache.service";
+import { invalidateCitizenDashboardCache } from "../../../redis-cache/citizen-dashboard-cache.service";
 
 /**
  * @description Updates an existing user profile and recalculates completion
@@ -10,62 +13,87 @@ import { AppError } from '../../../reuse-components/AppError';
  */
 export const updateProfileService = async (userId: string, updateData: any) => {
   if (!userId) {
-    throw new AppError('Unauthorized', 401);
+    throw new AppError("Unauthorized", 401);
   }
 
   const user = await userRepository.findUserById(userId);
   if (!user) {
-    throw new AppError('User not found', 404);
+    throw new AppError("User not found", 404);
   }
 
   let profile = await profileRepository.findProfileByUserId(userId);
-  
+
   if (!profile) {
     // Create new profile if not found (Upsert)
-    const { Profile } = await import('../../../entity/profile/profile.entity');
-    const { ProfileId } = await import('../../../entity/profile/profileId');
-    const { UserId } = await import('../../../entity/user/userId');
-    
+    const { Profile } = await import("../../../entity/profile/profile.entity");
+    const { ProfileId } = await import("../../../entity/profile/profileId");
+    const { UserId } = await import("../../../entity/user/userId");
+
     profile = new Profile(
-      new ProfileId('temp'), 
+      new ProfileId("temp"),
       {
         userId: new UserId(userId),
-        firstName: updateData.firstName || 'User',
-        middleName: updateData.middleName || '',
-        lastName: updateData.lastName || 'Pending',
-        gender: updateData.gender || 'OTHER',
-        dateOfBirth: updateData.dateOfBirth ? new Date(updateData.dateOfBirth) : new Date(),
-        mobileNumber: updateData.mobileNumber || '0000000000',
-        country: updateData.country || 'India',
-        state: updateData.state || 'Maharashtra', // Default state
-        district: updateData.district || 'Pending',
-        taluka: updateData.taluka || '',
-        village: updateData.village || '',
-        pincode: updateData.pincode || '400001',
-        areaType: updateData.areaType || 'RURAL',
+        firstName: updateData.firstName || "User",
+        middleName: updateData.middleName || "",
+        lastName: updateData.lastName || "Pending",
+        gender: updateData.gender || "OTHER",
+        dateOfBirth: updateData.dateOfBirth
+          ? new Date(updateData.dateOfBirth)
+          : new Date(),
+        mobileNumber: updateData.mobileNumber || "0000000000",
+        country: updateData.country || "India",
+        state: updateData.state || "Maharashtra", // Default state
+        district: updateData.district || "Pending",
+        taluka: updateData.taluka || "",
+        village: updateData.village || "",
+        pincode: updateData.pincode || "400001",
+        areaType: updateData.areaType || "RURAL",
         annualIncome: Number(updateData.annualIncome) || 0,
         bplStatus: !!updateData.bplStatus,
-        casteCategory: updateData.casteCategory || 'general',
-        religion: updateData.religion || 'other',
-        occupationType: updateData.occupationType || 'other',
-        employmentStatus: updateData.employmentStatus || 'unemployed',
+        casteCategory: updateData.casteCategory || "general",
+        religion: updateData.religion || "other",
+        occupationType: updateData.occupationType || "other",
+        employmentStatus: updateData.employmentStatus || "unemployed",
+        accountHolderName: updateData.accountHolderName || "",
+        accountNumber: updateData.accountNumber || "",
+        bankName: updateData.bankName || "",
+        branchName: updateData.branchName || "",
+        ifscCode: updateData.ifscCode || "",
+        accountType: updateData.accountType || "",
         ...updateData,
-        profileCompletionPercentage: 0
+        profileCompletionPercentage: 0,
       },
       new Date(),
-      new Date()
+      new Date(),
     );
-    
+
     profile.recalculateCompletion();
     const savedProfile = await profileRepository.createProfile({
       ...profile.getSnapshot(),
-      userId: userId
+      userId: userId,
     });
-    
+
+    // Invalidate profile cache in Redis
+    await invalidateProfileCache(userId);
+    await invalidateCitizenDashboardCache(userId);
+
+    // Queue background profile recommendation worker job
+    try {
+      await profileUpdateQueue.add("profile-updated", {
+        userId,
+        updatedAt: new Date().toISOString(),
+      });
+    } catch (queueError) {
+      console.error(
+        "[Profile Service] Failed to queue profile recommendation job:",
+        queueError,
+      );
+    }
+
     return {
       success: true,
       data: savedProfile.getSnapshot(),
-      message: 'Profile initialized and updated successfully'
+      message: "Profile initialized and updated successfully",
     };
   }
 
@@ -74,12 +102,29 @@ export const updateProfileService = async (userId: string, updateData: any) => {
 
   const updatedProfile = await profileRepository.updateProfile(userId, profile);
   if (!updatedProfile) {
-    throw new AppError('Failed to update profile', 500);
+    throw new AppError("Failed to update profile", 500);
+  }
+
+  // Invalidate profile cache in Redis
+  await invalidateProfileCache(userId);
+  await invalidateCitizenDashboardCache(userId);
+
+  // Queue background profile recommendation worker job
+  try {
+    await profileUpdateQueue.add("profile-updated", {
+      userId,
+      updatedAt: new Date().toISOString(),
+    });
+  } catch (queueError) {
+    console.error(
+      "[Profile Service] Failed to queue profile recommendation job:",
+      queueError,
+    );
   }
 
   return {
     success: true,
     data: updatedProfile.getSnapshot(),
-    message: 'Profile updated successfully'
+    message: "Profile updated successfully",
   };
 };

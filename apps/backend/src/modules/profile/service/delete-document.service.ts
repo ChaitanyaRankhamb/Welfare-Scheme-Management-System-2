@@ -2,6 +2,7 @@ import { minioClient } from "../../../config/minio";
 import { documentRepository } from "../../../database/repository/document.repository";
 import { UserModel } from "../../../database/mongo/models/user.model";
 import { AppError } from "../../../reuse-components/AppError";
+import { invalidateDocumentsCache } from "../../../redis-cache/profile-cache.service";
 
 export const deleteDocumentService = async (
   userId: string,
@@ -52,6 +53,9 @@ export const deleteDocumentService = async (
       500,
     );
   }
+
+  // Invalidate documents cache in Redis
+  await invalidateDocumentsCache(userId);
 
   return {
     message: "Document deleted successfully",

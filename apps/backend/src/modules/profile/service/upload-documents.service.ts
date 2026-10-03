@@ -8,6 +8,7 @@ import crypto from "crypto";
 import { getDocumentVerificationPrompt } from "../document-prompts";
 import { getGeminiDataSchema } from "../document-schemas";
 import { validateDocumentExtraction } from "../../../validations/document/document-extraction.validation";
+import { invalidateDocumentsCache } from "../../../redis-cache/profile-cache.service";
 
 // Initialize Gemini
 const geminiApiKey =
@@ -21,7 +22,7 @@ export const uploadDocumentService = async (
   userId: string,
   file: Express.Multer.File,
   documentType: string,
-  language: string = 'en',
+  language: string = "en",
 ) => {
   console.log("[UploadService] Document processing started.");
   console.log(
@@ -155,9 +156,15 @@ export const uploadDocumentService = async (
     }
 
     // Perform Document-Specific Zod Validation
-    const zodValidation = validateDocumentExtraction(documentType, aiResult.data);
+    const zodValidation = validateDocumentExtraction(
+      documentType,
+      aiResult.data,
+    );
     if (!zodValidation.success) {
-      console.warn("[UploadService] Zod extraction validation warnings:", zodValidation.error?.format());
+      console.warn(
+        "[UploadService] Zod extraction validation warnings:",
+        zodValidation.error?.format(),
+      );
     } else {
       aiResult.data = zodValidation.data;
     }
@@ -304,6 +311,9 @@ export const uploadDocumentService = async (
   // ============================================================
   // 11. RETURN RESPONSE
   // ============================================================
+
+  // Invalidate documents cache in Redis
+  await invalidateDocumentsCache(userId);
 
   console.log("[UploadService] Document processing completed successfully.");
 
