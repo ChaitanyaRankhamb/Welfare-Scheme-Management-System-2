@@ -4,22 +4,19 @@ export const getApplicationStepsDefinition = {
     name: "getApplicationSteps",
     description: `
 Use this tool to retrieve the complete step-by-step application process for a specific government scheme,
-including required documents and instructions.
+including application instructions.
 
 This tool returns:
 - detailed application steps (in order)
-- required documents
 - any important notes (e.g., online/offline process, deadlines if available)
 
 Use this tool ONLY when:
 - The user asks how to apply for a specific scheme.
 - The user asks about the application process.
-- The user asks about required documents for a specific scheme.
 
 Examples:
 - "How do I apply for Ayushman Bharat?"
 - "What is the application process for PM-KISAN?"
-- "What documents are required for PM Fasal Bima Yojana?"
 
 STRICT RULES:
 - Do NOT use this tool if the scheme name is missing or unclear.
@@ -27,6 +24,7 @@ STRICT RULES:
 - If the scheme is not specified, ask a clarification question instead.
 - Do NOT use this tool for general scheme information
   → use 'getSchemeDetails' instead.
+- For questions asking only which documents are required, use 'getRequiredDocuments'.
 - Do NOT fabricate steps or documents — always rely on backend data.
 
 NOTES:

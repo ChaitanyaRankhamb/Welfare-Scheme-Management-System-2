@@ -6,6 +6,8 @@ export const getSchemeDetailsDefinition = {
 Use this tool ONLY when the user explicitly asks about a specific government scheme 
 and the scheme name is clearly mentioned in the query.
 
+For queries asking only which documents are required, use 'getRequiredDocuments' instead.
+
 This tool returns complete structured information about a scheme including:
 - detailed schemes discription
 - benefits
