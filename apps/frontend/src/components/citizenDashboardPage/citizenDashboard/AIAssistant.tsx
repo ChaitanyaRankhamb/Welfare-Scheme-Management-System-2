@@ -292,7 +292,7 @@ export function AIAssistant({
               animate={{ opacity: 1, scale: 1 }}
               exit={{ opacity: 0, scale: 0.96 }}
               transition={{ duration: 0.2 }}
-              className="fixed inset-2 sm:inset-4 md:inset-6 z-[60] bg-background border border-border/80 rounded-3xl shadow-2xl flex overflow-hidden"
+              className="fixed inset-2 sm:inset-4 md:inset-6 z-60 bg-background border border-border/80 rounded-3xl shadow-2xl flex overflow-hidden"
             >
               {/* Left History Sidebar */}
               <HistorySidebar
@@ -394,7 +394,7 @@ export function AIAssistant({
                 />
 
                 {/* ChatGPT-style Fixed Query Composer at Bottom */}
-                <div className="sticky bottom-0 left-0 right-0 z-30 w-full bg-gradient-to-t from-background via-background to-transparent pt-2 pb-3 px-4">
+                <div className="sticky bottom-0 left-0 right-0 z-30 w-full bg-linear-to-t from-background via-background to-transparent pt-2 pb-3 px-4">
                   <div className="max-w-4xl mx-auto w-full">
                     <QueryComposer
                       input={input}

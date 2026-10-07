@@ -81,7 +81,7 @@ const Section = ({ title, icon: Icon, children }: SectionProps) => (
         {title}
       </h3>
     </div>
-    <div className="p-6 rounded-[2rem] bg-card dark:bg-card/5 border border-border dark:border-border/10 shadow-sm transition-all hover:shadow-md">
+    <div className="p-6 rounded-4xl bg-card dark:bg-card/5 border border-border dark:border-border/10 shadow-sm transition-all hover:shadow-md">
       {children}
     </div>
   </div>
@@ -296,7 +296,7 @@ export function SchemesDrawer({
                         {filtered.map((scheme, index) => (
                           <div
                             key={index}
-                            className="group p-6 rounded-[2rem] bg-card dark:bg-card border border-border dark:border-border/10 hover:border-primary/30 hover:shadow-xl hover:shadow-primary/5 transition-all"
+                            className="group p-6 rounded-4xl bg-card dark:bg-card border border-border dark:border-border/10 hover:border-primary/30 hover:shadow-xl hover:shadow-primary/5 transition-all"
                           >
                             <div className="flex items-start justify-between mb-4">
                               <Badge
@@ -336,7 +336,7 @@ export function SchemesDrawer({
                       </div>
                     ) : (
                       <div className="py-20 flex flex-col items-center justify-center text-center space-y-4">
-                        <div className="w-20 h-20 rounded-[2rem] bg-muted/30 flex items-center justify-center border border-dashed border-muted-foreground/20">
+                        <div className="w-20 h-20 rounded-4xl bg-muted/30 flex items-center justify-center border border-dashed border-muted-foreground/20">
                           <SearchX className="w-10 h-10 text-muted-foreground/20" />
                         </div>
                         <div className="space-y-1">
@@ -483,7 +483,7 @@ export function SchemesDrawer({
 
                         {/* Decorative Background Icons */}
                         <Sparkles className="absolute -top-10 -right-10 w-48 h-48 opacity-10 blur-xl" />
-                        <div className="absolute right-0 top-0 h-full w-full bg-[radial-gradient(circle_at_top_right,_var(--tw-gradient-from)_0%,_transparent_50%)] from-primary-foreground/20" />
+                        <div className="absolute right-0 top-0 h-full w-full bg-[radial-gradient(circle_at_top_right,var(--tw-gradient-from)_0%,transparent_50%)] from-primary-foreground/20" />
                       </div>
                     )}
 
@@ -769,11 +769,11 @@ function AppItem({ app }: { app: any }) {
   const Icon = config.icon;
 
   return (
-    <div className="group p-6 rounded-[2rem] bg-card dark:bg-card/5 border border-border dark:border-border/10 hover:shadow-xl hover:shadow-primary/5 transition-all flex items-center justify-between gap-6">
+    <div className="group p-6 rounded-4xl bg-card dark:bg-card/5 border border-border dark:border-border/10 hover:shadow-xl hover:shadow-primary/5 transition-all flex items-center justify-between gap-6">
       <div className="flex items-center gap-6 min-w-0">
         <div
           className={cn(
-            "p-4 rounded-2xl border shrink-0 transition-transform group-hover:scale-110",
+            "p-4 rounded-4xl border shrink-0 transition-transform group-hover:scale-110",
             config.color,
           )}
         >

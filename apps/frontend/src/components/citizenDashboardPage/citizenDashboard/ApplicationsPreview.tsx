@@ -27,7 +27,7 @@ const ApplicationItem = ({ schemeName, status, date, onClick }: AppItemProps) =>
   return (
     <div 
       onClick={onClick}
-      className="flex items-center justify-between p-4 rounded-2xl border border-border dark:border-border/5 bg-card/50 dark:bg-card/5 hover:bg-card dark:hover:bg-card/10 transition-all cursor-pointer group shrink-0 h-[80px]"
+      className="flex items-center justify-between p-4 rounded-2xl border border-border dark:border-border/5 bg-card/50 dark:bg-card/5 hover:bg-card dark:hover:bg-card/10 transition-all cursor-pointer group shrink-0 h-20"
     >
       <div className="flex items-center gap-4 min-w-0">
         <div className={cn("p-2.5 rounded-xl border shrink-0 transition-transform group-hover:scale-110", config.color)}>
@@ -69,7 +69,7 @@ export function ApplicationsPreview({
         </Button>
       </div>
       
-      <div className="space-y-3 h-[360px] overflow-y-auto pr-2 scrollbar-hide flex flex-col">
+      <div className="space-y-3 h-90 overflow-y-auto pr-2 scrollbar-hide flex flex-col">
         {applications.length > 0 ? (
           applications.map((app, i) => (
             <ApplicationItem 
