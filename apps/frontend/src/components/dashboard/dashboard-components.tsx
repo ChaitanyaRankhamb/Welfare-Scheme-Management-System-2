@@ -70,7 +70,7 @@ export function DashboardSection({
             {title && <h2 className="text-2xl font-bold tracking-tight">{title}</h2>}
             {subtitle && <p className="text-muted-foreground text-sm mt-1">{subtitle}</p>}
           </div>
-          {action && <div className="flex-shrink-0">{action}</div>}
+          {action && <div className="shrink-0">{action}</div>}
         </div>
       )}
       {children}
