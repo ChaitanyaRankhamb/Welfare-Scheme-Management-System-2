@@ -10,9 +10,9 @@ export default function CitizenDashboardLayout({
     <ThemeProvider>
       <UserProvider>
         <AIWorkspaceProvider>
-          <div className="flex h-screen flex-col bg-background overflow-hidden">
+          <div className="flex min-h-screen flex-col bg-background">
             <DashboardNavbar />
-            <main className="pt-16 flex-1 flex flex-col min-h-0 overflow-y-auto">{children}</main>
+            <main className="pt-16 flex-1 flex flex-col">{children}</main>
           </div>
         </AIWorkspaceProvider>
       </UserProvider>
