@@ -135,7 +135,7 @@ export function MessageItem({ message, onAction }: MessageItemProps) {
             />
           )} */}
 
-          <div className="flex items-center justify-between pt-2">
+          {/* <div className="flex items-center justify-between pt-2">
             {message.followUps && message.followUps.length > 0 && (
               <SuggestedActionChips actions={message.followUps} onAction={onAction} />
             )}
@@ -151,7 +151,7 @@ export function MessageItem({ message, onAction }: MessageItemProps) {
                 {copied ? "Copied" : "Copy"}
               </button>
             </div>
-          </div>
+          </div> */}
         </div>
       </div>
     </div>
