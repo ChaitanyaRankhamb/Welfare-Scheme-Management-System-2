@@ -58,7 +58,7 @@ export default function FaqSection() {
 
   return (
     <section id="faq" className={`py-28 px-6 ${styles.section}`}>
-      <div className="max-w-[800px] mx-auto relative z-10">
+      <div className="max-w-200 mx-auto relative z-10">
         
         {/* Header */}
         <motion.div 

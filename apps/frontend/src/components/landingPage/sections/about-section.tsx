@@ -83,7 +83,7 @@ export default function AboutSection() {
               key={title}
               variants={itemVariants}
               whileHover={{ y: -6, scale: 1.02 }}
-              className={`${styles.card} bg-gradient-to-br ${accent} rounded-2xl p-7 flex flex-col gap-5`}
+              className={`${styles.card} bg-linear-to-br ${accent} rounded-2xl p-7 flex flex-col gap-5`}
               style={{ borderColor: borderAccent }}
             >
               {/* Icon badge */}

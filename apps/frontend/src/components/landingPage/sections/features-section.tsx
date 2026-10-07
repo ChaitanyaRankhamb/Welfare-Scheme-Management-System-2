@@ -97,7 +97,7 @@ export default function FeaturesSection() {
               key={title}
               variants={itemVariants}
               whileHover={{ borderColor: iconColor, transition: { duration: 0.3 } }}
-              className={`${styles.card} bg-gradient-to-br ${bgTheme} rounded-2xl p-7 flex flex-col border border-transparent`}
+              className={`${styles.card} bg-linear-to-br ${bgTheme} rounded-2xl p-7 flex flex-col border border-transparent`}
             >
               {/* Feature Icon Wrapper */}
               <div
