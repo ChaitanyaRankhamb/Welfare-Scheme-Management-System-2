@@ -282,7 +282,7 @@ export default function AIAssistantPage() {
   };
 
   return (
-    <div className="flex flex-1 h-full min-h-0 min-w-0 bg-background text-foreground overflow-hidden">
+    <div className="flex h-[calc(100vh-4rem)] min-h-0 min-w-0 bg-background text-foreground overflow-hidden">
       {/* Left Sidebar */}
       <HistorySidebar
         isOpen={isSidebarOpen}
