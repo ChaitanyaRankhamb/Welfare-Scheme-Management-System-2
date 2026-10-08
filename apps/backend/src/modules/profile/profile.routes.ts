@@ -6,6 +6,7 @@ import { authMiddleware } from "../../middlewares/auth.middleware";
 import { deleteDocumentController } from "./controllers/delete-document.controller";
 import { getDocumentsController } from "./controllers/get-documents.controller";
 import { uploadDocumentController } from "./controllers/upload-documents.controller";
+import { routeBasedRateLimiter } from "../../middlewares/route-based-rate-limiter.middleware";
 import multer from "multer";
 
 const router = Router();
@@ -28,15 +29,16 @@ const documentUpload = multer({
 // Protect all profile routes
 router.use(authMiddleware);
 
-router.get("/", getProfileController);
-router.post("/", createProfileController);
-router.put("/", updateProfileController);
+router.get("/", routeBasedRateLimiter(60), getProfileController);
+router.post("/", routeBasedRateLimiter(10), createProfileController);
+router.put("/", routeBasedRateLimiter(15), updateProfileController);
 router.post(
   "/documents",
+  routeBasedRateLimiter(10),
   documentUpload.single("file"),
   uploadDocumentController,
 );
-router.get("/documents", getDocumentsController);
-router.delete("/documents/:id", deleteDocumentController);
+router.get("/documents", routeBasedRateLimiter(60), getDocumentsController);
+router.delete("/documents/:id", routeBasedRateLimiter(15), deleteDocumentController);
 
 export default router;

@@ -2,6 +2,7 @@ import { Router } from 'express';
 import multer from 'multer';
 import { TranscribeAudioController } from './controllers/transcribe-audio.controller';
 import { authMiddleware } from '../../middlewares/auth.middleware';
+import { routeBasedRateLimiter } from '../../middlewares/route-based-rate-limiter.middleware';
 
 const router = Router();
 
@@ -26,6 +27,12 @@ const upload = multer({
  * @desc Transcribe audio recording into Marathi/English text using Groq Whisper Large v3
  * @access Private (authenticated citizens/admins) or public fallback
  */
-router.post('/transcribe', authMiddleware, upload.single('audio'), TranscribeAudioController);
+router.post(
+  '/transcribe',
+  authMiddleware,
+  routeBasedRateLimiter(5),
+  upload.single('audio'),
+  TranscribeAudioController,
+);
 
 export default router;

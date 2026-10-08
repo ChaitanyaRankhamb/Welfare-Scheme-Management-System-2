@@ -7,37 +7,34 @@ import { logoutController } from "./controllers/logout.controller";
 import { googleCallbackController } from "./controllers/google.controller";
 import { getMeController, updateMeController } from "./controllers/me.controller";
 import { authMiddleware } from "../../middlewares/auth.middleware";
+import { routeBasedRateLimiter } from "../../middlewares/route-based-rate-limiter.middleware";
 
 const router = express.Router();
 
 // credentials routes
-router.post("/register", registerController);
-router.post("/login", loginController);
-router.post("/refresh", refreshController);
+router.post("/register", routeBasedRateLimiter(5), registerController);
+router.post("/login", routeBasedRateLimiter(10), loginController);
+router.post("/refresh", routeBasedRateLimiter(20), refreshController);
 
 // OAuth google routes
-// Starts the Google OAuth flow
 router.get(
   "/google",
+  routeBasedRateLimiter(10),
   passport.authenticate("google", { scope: ["profile", "email"] }),
 );
 
-// Handles the Google OAuth callback
 router.get(
   "/google/callback",
+  routeBasedRateLimiter(10),
   passport.authenticate("google", { session: false }),
   googleCallbackController,
 );
 
 // protected routes
-// Returns current user profile
-router.get("/me", authMiddleware, getMeController);
-
-// Updates current user profile (minimal auth properties)
-router.put("/me", authMiddleware, updateMeController);
-
+router.get("/me", authMiddleware, routeBasedRateLimiter(60), getMeController);
+router.put("/me", authMiddleware, routeBasedRateLimiter(15), updateMeController);
 
 // Handles user logout
-router.post("/logout", logoutController);
+router.post("/logout", routeBasedRateLimiter(20), logoutController);
 
 export default router;
