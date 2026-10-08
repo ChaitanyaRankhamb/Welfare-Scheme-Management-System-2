@@ -34,6 +34,8 @@ export const resendService = async (email: string) => {
   try {
     await verifyOtpNotificationQueue.add("send-verification-email", {
       userId: user.id.toString(),
+    }, {
+      jobId: `send-verification-email-${user.id.toString()}`,
     });
   } catch (error) {
     console.error("Failed to queue verification email:", error);
