@@ -2,6 +2,7 @@ import express, { Request, Response } from "express";
 import connectDB from "./config/mongodb.connection";
 import "./config/passport.connection"; // Initialize passport configuration
 import { errorHandler } from "./middlewares/errorHandling.middleware";
+import { globalRateLimiter } from "./middlewares/global-rate-limiter.middleware";
 import userRouter from "./modules/user/user.routes";
 import verifyRouter from "./modules/verify/verify.route";
 import checkUsernameRouter from "./modules/checkUsername/checkUsername.route";
@@ -33,6 +34,9 @@ const corsOptions = {
 };
 
 app.use(cors(corsOptions)); // connect with cors
+
+// Apply the token-bucket limit to every route.
+app.use(globalRateLimiter);
 
 // Cookie Parser Middleware
 app.use(cookieParser());
