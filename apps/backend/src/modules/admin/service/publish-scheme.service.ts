@@ -37,9 +37,17 @@ export const publishSchemeService = async (userId: UserId, id: string) => {
   console.log(
     `Adding job to eligibility queue for scheme ${scheme.id.toString()}`,
   );
-  await eligibilityQueue.add("send-scheme-notification", {
-    schemeId: scheme.id.toString(),
-  });
+
+  // BullMQ job identifiers belong in job options, not in the worker's job data.
+  await eligibilityQueue.add(
+    "send-scheme-notification",
+    {
+      schemeId: scheme.id.toString(),
+    },
+    {
+      jobId: `send-scheme-notification-${scheme.id.toString()}`,
+    },
+  );
 
   return {
     success: true,
