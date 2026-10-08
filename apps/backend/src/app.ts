@@ -26,6 +26,9 @@ import { initializeNovu } from "./config/novu.config";
 // Create a new express application instance
 const app = express();
 
+// Trust reverse proxy headers (e.g. Nginx, Cloudflare, AWS ALB) for accurate rate limiting by client IP
+app.set("trust proxy", 1);
+
 // connect the frontend with backend using cors middleware
 const corsOptions = {
   origin: ["http://localhost:3001", "http://127.0.0.1:3001"], // allow frontend
