@@ -5,6 +5,17 @@ import { profileUpdateQueue } from "../../../queue/profile/profile.queue";
 import { invalidateProfileCache } from "../../../redis-cache/profile-cache.service";
 import { invalidateCitizenDashboardCache } from "../../../redis-cache/citizen-dashboard-cache.service";
 
+const PROFILE_UPDATE_DEBOUNCE_MS = 5000;
+
+const getProfileUpdateJobOptions = (userId: string) => ({
+  deduplication: {
+    id: `profile-updated-${userId}`,
+    ttl: PROFILE_UPDATE_DEBOUNCE_MS,
+    extend: true,
+    replace: true,
+  },
+});
+
 /**
  * @description Updates an existing user profile and recalculates completion
  * @param {string} userId - Authenticated user ID
@@ -85,9 +96,7 @@ export const updateProfileService = async (userId: string, updateData: any) => {
           userId,
           updatedAt: new Date().toISOString(),
         },
-        {
-          jobId: `profile-updated-${userId}`,
-        },
+        getProfileUpdateJobOptions(userId),
       );
     } catch (queueError) {
       console.error(
@@ -117,10 +126,14 @@ export const updateProfileService = async (userId: string, updateData: any) => {
 
   // Queue background profile recommendation worker job
   try {
-    await profileUpdateQueue.add("profile-updated", {
-      userId,
-      updatedAt: new Date().toISOString(),
-    });
+    await profileUpdateQueue.add(
+      "profile-updated",
+      {
+        userId,
+        updatedAt: new Date().toISOString(),
+      },
+      getProfileUpdateJobOptions(userId),
+    );
   } catch (queueError) {
     console.error(
       "[Profile Service] Failed to queue profile recommendation job:",
