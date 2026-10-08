@@ -79,10 +79,16 @@ export const updateProfileService = async (userId: string, updateData: any) => {
 
     // Queue background profile recommendation worker job
     try {
-      await profileUpdateQueue.add("profile-updated", {
-        userId,
-        updatedAt: new Date().toISOString(),
-      });
+      await profileUpdateQueue.add(
+        "profile-updated",
+        {
+          userId,
+          updatedAt: new Date().toISOString(),
+        },
+        {
+          jobId: `profile-updated-${userId}`,
+        },
+      );
     } catch (queueError) {
       console.error(
         "[Profile Service] Failed to queue profile recommendation job:",
