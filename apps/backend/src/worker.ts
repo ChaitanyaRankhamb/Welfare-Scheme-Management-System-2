@@ -10,8 +10,12 @@ import { sendNotificationWorker } from "./queue/notifications/scheme-notificatio
 import { userStatusUpdateWorker } from "./queue/notifications/user-status-notifications/userStatusUpdate.worker";
 import { profileUpdateWorker } from "./queue/profile/profile.worker";
 import { verifyOtpNotificationWorker } from "./queue/notifications/verify-otp-notifications/verifyOtpNotification.worker";
+import { createQueueEventMonitors } from "./queue/queue-events.monitor";
 
 let isShuttingDown = false;
+let queueEventMonitors: Awaited<
+  ReturnType<typeof createQueueEventMonitors>
+> = [];
 
 const shutdownWorkers = async (reason: string, exitCode = 0) => {
   if (isShuttingDown) return;
@@ -25,6 +29,7 @@ const shutdownWorkers = async (reason: string, exitCode = 0) => {
     userStatusUpdateWorker.close(),
     profileUpdateWorker.close(),
     verifyOtpNotificationWorker.close(),
+    ...queueEventMonitors.map((queueEvents) => queueEvents.close()),
   ]);
 
   closeResults.forEach((result) => {
@@ -55,6 +60,9 @@ const startWorkers = async () => {
     console.log("Database connected for Queue Workers");
     await redisConnection();
     console.log("Redis connected for Queue Workers");
+
+    // QueueEvents report state changes for jobs across all workers on each queue.
+    queueEventMonitors = await createQueueEventMonitors();
 
     console.log(
       `[Worker Process] Eligibility Worker listening on queue: ${eligibilityWorker.name}`,
