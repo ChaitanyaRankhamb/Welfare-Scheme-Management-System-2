@@ -19,3 +19,24 @@ export const verifyOtpNotificationWorker =
       },
     },
   );
+
+verifyOtpNotificationWorker.on("active", (job) => {
+  console.log(`[Verify OTP Worker] Job ${job.id} is processing.`);
+});
+
+verifyOtpNotificationWorker.on("completed", (job) => {
+  console.log(`[Verify OTP Worker] Job ${job.id} completed successfully.`);
+});
+
+verifyOtpNotificationWorker.on("failed", (job, error) => {
+  console.error(
+    `[Verify OTP Worker] Job ${job?.id} failed after ${job?.attemptsMade} attempts:`,
+    error,
+  );
+});
+
+verifyOtpNotificationWorker.on("stalled", (jobId) => {
+  console.warn(
+    `[Verify OTP Worker] Job ${jobId} stalled and will be re-processed.`,
+  );
+});

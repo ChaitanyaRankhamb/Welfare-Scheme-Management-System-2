@@ -32,3 +32,24 @@ export const eligibilityWorker = new Worker<eligibilityJobData>(
     },
   },
 );
+
+eligibilityWorker.on("active", (job) => {
+  console.log(`[Eligibility Worker] Job ${job.id} is processing.`);
+});
+
+eligibilityWorker.on("completed", (job) => {
+  console.log(`[Eligibility Worker] Job ${job.id} completed successfully.`);
+});
+
+eligibilityWorker.on("failed", (job, error) => {
+  console.error(
+    `[Eligibility Worker] Job ${job?.id} failed after ${job?.attemptsMade} attempts:`,
+    error,
+  );
+});
+
+eligibilityWorker.on("stalled", (jobId) => {
+  console.warn(
+    `[Eligibility Worker] Job ${jobId} stalled and will be re-processed.`,
+  );
+});

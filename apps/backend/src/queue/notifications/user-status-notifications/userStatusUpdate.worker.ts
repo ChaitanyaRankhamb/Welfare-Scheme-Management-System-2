@@ -18,3 +18,24 @@ export const userStatusUpdateWorker = new Worker<UserStatusUpdateJobData>(
     },
   },
 );
+
+userStatusUpdateWorker.on("active", (job) => {
+  console.log(`[User Status Worker] Job ${job.id} is processing.`);
+});
+
+userStatusUpdateWorker.on("completed", (job) => {
+  console.log(`[User Status Worker] Job ${job.id} completed successfully.`);
+});
+
+userStatusUpdateWorker.on("failed", (job, error) => {
+  console.error(
+    `[User Status Worker] Job ${job?.id} failed after ${job?.attemptsMade} attempts:`,
+    error,
+  );
+});
+
+userStatusUpdateWorker.on("stalled", (jobId) => {
+  console.warn(
+    `[User Status Worker] Job ${jobId} stalled and will be re-processed.`,
+  );
+});

@@ -34,3 +34,26 @@ export const sendNotificationWorker = new Worker<sendNotificationJoBData>(
     },
   },
 );
+
+sendNotificationWorker.on("active", (job) => {
+  console.log(`[Scheme Notification Worker] Job ${job.id} is processing.`);
+});
+
+sendNotificationWorker.on("completed", (job) => {
+  console.log(
+    `[Scheme Notification Worker] Job ${job.id} completed successfully.`,
+  );
+});
+
+sendNotificationWorker.on("failed", (job, error) => {
+  console.error(
+    `[Scheme Notification Worker] Job ${job?.id} failed after ${job?.attemptsMade} attempts:`,
+    error,
+  );
+});
+
+sendNotificationWorker.on("stalled", (jobId) => {
+  console.warn(
+    `[Scheme Notification Worker] Job ${jobId} stalled and will be re-processed.`,
+  );
+});

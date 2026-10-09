@@ -29,3 +29,22 @@ export const profileUpdateWorker = new Worker<ProfileUpdateJobData>(
     },
   },
 );
+
+profileUpdateWorker.on("active", (job) => {
+  console.log(`[Profile Worker] Job ${job.id} is processing.`);
+});
+
+profileUpdateWorker.on("completed", (job) => {
+  console.log(`[Profile Worker] Job ${job.id} completed successfully.`);
+});
+
+profileUpdateWorker.on("failed", (job, error) => {
+  console.error(
+    `[Profile Worker] Job ${job?.id} failed after ${job?.attemptsMade} attempts:`,
+    error,
+  );
+});
+
+profileUpdateWorker.on("stalled", (jobId) => {
+  console.warn(`[Profile Worker] Job ${jobId} stalled and will be re-processed.`);
+});
