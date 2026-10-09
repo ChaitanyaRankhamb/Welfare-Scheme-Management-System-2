@@ -22,5 +22,10 @@ export const profileUpdateWorker = new Worker<ProfileUpdateJobData>(
   {
     connection: queueConnection,
     concurrency: 10, // Adjust concurrency based on your system's capacity
+    // Limit this queue to 10 jobs per second; excess jobs wait in BullMQ.
+    limiter: {
+      max: 10,
+      duration: 1000,
+    },
   },
 );
