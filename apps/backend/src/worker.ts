@@ -11,6 +11,44 @@ import { userStatusUpdateWorker } from "./queue/notifications/user-status-notifi
 import { profileUpdateWorker } from "./queue/profile/profile.worker";
 import { verifyOtpNotificationWorker } from "./queue/notifications/verify-otp-notifications/verifyOtpNotification.worker";
 
+let isShuttingDown = false;
+
+const shutdownWorkers = async (reason: string, exitCode = 0) => {
+  if (isShuttingDown) return;
+  isShuttingDown = true;
+
+  console.log(`${reason}: shutting down queue workers...`);
+
+  const closeResults = await Promise.allSettled([
+    eligibilityWorker.close(),
+    sendNotificationWorker.close(),
+    userStatusUpdateWorker.close(),
+    profileUpdateWorker.close(),
+    verifyOtpNotificationWorker.close(),
+  ]);
+
+  closeResults.forEach((result) => {
+    if (result.status === "rejected") {
+      console.error("Failed to close a queue worker:", result.reason);
+      exitCode = 1;
+    }
+  });
+
+  console.log("Queue workers shut down.");
+  process.exit(exitCode);
+};
+
+// Fatal process errors are logged and workers are closed before the process exits.
+process.on("uncaughtException", (error) => {
+  console.error("Uncaught exception:", error);
+  void shutdownWorkers("Uncaught exception", 1);
+});
+
+process.on("unhandledRejection", (reason, promise) => {
+  console.error("Unhandled rejection:", { promise, reason });
+  void shutdownWorkers("Unhandled rejection", 1);
+});
+
 const startWorkers = async () => {
   try {
     await connectDB();
@@ -34,24 +72,9 @@ const startWorkers = async () => {
       `[Worker Process] Verify OTP Notification Worker listening on queue: ${verifyOtpNotificationWorker.name}`,
     );
 
-    const gracefulShutdown = async (signal: string) => {
-      console.log(
-        `Received ${signal}. Shutting down queue workers gracefully...`,
-      );
-      await Promise.all([
-        eligibilityWorker.close(),
-        sendNotificationWorker.close(),
-        userStatusUpdateWorker.close(),
-        profileUpdateWorker.close(),
-        verifyOtpNotificationWorker.close(),
-      ]);
-      console.log("Queue workers shut down successfully.");
-      process.exit(0);
-    };
-
     // will receive SIGINT when you press Ctrl+C in the terminal and SIGTERM when the process is terminated through docker or other means
-    process.on("SIGINT", () => gracefulShutdown("SIGINT"));
-    process.on("SIGTERM", () => gracefulShutdown("SIGTERM"));
+    process.on("SIGINT", () => void shutdownWorkers("SIGINT"));
+    process.on("SIGTERM", () => void shutdownWorkers("SIGTERM"));
   } catch (error) {
     console.error("Failed to start worker process:", error);
     process.exit(1);
