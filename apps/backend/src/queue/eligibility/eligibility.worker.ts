@@ -13,12 +13,17 @@ export const eligibilityWorker = new Worker<eligibilityJobData>(
   async (job: Job<eligibilityJobData>) => {
     try {
       const { schemeId } = job.data;
-      console.log(`Processing eligibility job for scheme ${schemeId.toString()}`);
+      console.log(
+        `Processing eligibility job for scheme ${schemeId.toString()}`,
+      );
       await getEligibleCitizens(schemeId);
     } catch (error) {
       console.error("Error processing eligibility job:", error);
       throw error; // Rethrow the error to let BullMQ handle retries if configured
     }
   },
-  { connection: queueConnection },
+  {
+    connection: queueConnection,
+    concurrency: 5, // Adjust concurrency based on your system's capacity
+  },
 );

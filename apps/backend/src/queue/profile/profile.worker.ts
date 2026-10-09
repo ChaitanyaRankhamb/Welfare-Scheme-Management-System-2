@@ -19,5 +19,8 @@ export const profileUpdateWorker = new Worker<ProfileUpdateJobData>(
       throw error;
     }
   },
-  { connection: queueConnection },
+  {
+    connection: queueConnection,
+    concurrency: 10, // Adjust concurrency based on your system's capacity
+  },
 );

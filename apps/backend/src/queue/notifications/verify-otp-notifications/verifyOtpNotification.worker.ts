@@ -9,5 +9,8 @@ export const verifyOtpNotificationWorker =
     async (job: Job<VerifyOtpNotificationJobData>) => {
       await sendVerifyOtpNotification(job.data);
     },
-    { connection: queueConnection },
+    {
+      connection: queueConnection,
+      concurrency: 5, // Adjust concurrency based on your system's capacity
+    },
   );

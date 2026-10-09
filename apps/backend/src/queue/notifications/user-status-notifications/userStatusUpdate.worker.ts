@@ -8,5 +8,8 @@ export const userStatusUpdateWorker = new Worker<UserStatusUpdateJobData>(
   async (job: Job<UserStatusUpdateJobData>) => {
     await sendUserStatusUpdateNotification(job.data);
   },
-  { connection: queueConnection },
+  {
+    connection: queueConnection,
+    concurrency: 5, // Adjust concurrency based on your system's capacity
+  },
 );
