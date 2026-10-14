@@ -10,16 +10,17 @@ on:
       - main # only run this workflow for the main branch
   workflow_dispatch: # Allows manual trigger from the GitHub Actions tab
 
-  # Set permissions for the workflow
+# Set permissions for the workflow
 permissions:
   contents: read
+  packages: write # allow writing to GitHub Packages (for pushing Docker images)
 
-  # Define concurrency settings to prevent multiple runs of the same workflow for the same branch
+# Define concurrency settings to prevent multiple runs of the same workflow for the same branch
 concurrency:
   group: ${{ github.workflow }}-${{ github.ref }}
-  cancel-in-progress: ${{ github.event_name == 'workflow_run' && github.event.workflow_run.conclusion != 'success' }}
+  cancel-in-progress: true # cancel any in-progress runs of this workflow for the same branch when a new run is triggered
 
-  # Define the jobs for the workflow
+# Define the jobs for the workflow
 jobs:
   build-backend-image:
     name: Build Backend Docker Image
@@ -32,19 +33,21 @@ jobs:
       # Downloads your repository's source code into the GitHub Actions runner's workspace.
       - name: Checkout repository
         uses: actions/checkout@v4
+        with:
+          ref: ${{ github.event.workflow_run.head_sha || github.sha }}
 
-        # Set up Docker Buildx to build multi-platform Docker images. Buildx is a Docker CLI plugin that extends the docker command with the full support of the features provided by Moby BuildKit builder toolkit.
+      # Set up Docker Buildx to build multi-platform Docker images. Buildx is a Docker CLI plugin that extends the docker command with the full support of the features provided by Moby BuildKit builder toolkit.
       - name: Set up Docker Buildx
         uses: docker/setup-buildx-action@v3
 
-        # Build the backend Docker image
+      # Build the backend Docker image
       - name: Build Backend Image
         uses: docker/build-push-action@v6
         with:
           context: apps/backend
           file: apps/backend/Dockerfile
           push: false # do not push the image to a registry, just build it
-          tags: wsms-backend:${{ github.sha }} # tag the image with the current commit SHA for versioning
+          tags: wsms-backend:${{ github.event.workflow_run.head_sha || github.sha }} # tag the image with the current commit SHA for versioning
           cache-from: type=gha # use GitHub Actions cache for build cache to speed up subsequent builds
           cache-to: type=gha,mode=max # use GitHub Actions cache for build cache to speed up subsequent builds, with maximum caching mode
 
@@ -59,21 +62,23 @@ jobs:
       # Downloads your repository's source code into the GitHub Actions runner's workspace.
       - name: Checkout repository
         uses: actions/checkout@v4
+        with:
+          ref: ${{ github.event.workflow_run.head_sha || github.sha }}
 
-        # Set up Docker Buildx to build multi-platform Docker images. Buildx is a Docker CLI plugin that extends the docker command with the full support of the features provided by Moby BuildKit builder toolkit.
+      # Set up Docker Buildx to build multi-platform Docker images. Buildx is a Docker CLI plugin that extends the docker command with the full support of the features provided by Moby BuildKit builder toolkit.
       - name: Set up Docker Buildx
         uses: docker/setup-buildx-action@v3
 
-        # Build the frontend Docker image
+      # Build the frontend Docker image
       - name: Build Frontend Image
         uses: docker/build-push-action@v6
         with:
           context: apps/frontend
           file: apps/frontend/Dockerfile
-          build-args: 
+          build-args: |
             NEXT_PUBLIC_API_URL=/api
             NEXT_PUBLIC_AUTH_API_URL=https://localhost
           push: false # do not push the image to a registry, just build it
-          tags: wsms-frontend:${{ github.sha }} # tag the image with the current commit SHA for versioning
+          tags: wsms-frontend:${{ github.event.workflow_run.head_sha || github.sha }} # tag the image with the current commit SHA for versioning
           cache-from: type=gha # use GitHub Actions cache for build cache to speed up subsequent builds
           cache-to: type=gha,mode=max # use GitHub Actions cache for build cache to speed up subsequent builds, with maximum caching mode
