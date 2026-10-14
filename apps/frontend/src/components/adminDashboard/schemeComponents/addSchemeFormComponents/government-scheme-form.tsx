@@ -1,7 +1,7 @@
 'use client';
 
 import { useState, useEffect } from 'react';
-import { useForm } from 'react-hook-form';
+import { useForm, type Resolver } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { GovernmentSchemeSchema, type GovernmentSchemeFormData } from '@/lib/schemas/government-scheme';
 import { Button } from '@/components/ui/button';
@@ -24,7 +24,7 @@ export function GovernmentSchemeForm({ onSubmit, defaultValues, isEditMode }: Go
   const [submitError, setSubmitError] = useState<string | null>(null);
 
   const form = useForm<GovernmentSchemeFormData>({
-    resolver: zodResolver(GovernmentSchemeSchema),
+    resolver: zodResolver(GovernmentSchemeSchema) as Resolver<GovernmentSchemeFormData>,
     defaultValues: defaultValues || {
       title: '',
       description: '',
@@ -148,7 +148,7 @@ export function GovernmentSchemeForm({ onSubmit, defaultValues, isEditMode }: Go
               Define the eligibility criteria for this scheme
             </p>
           </div>
-          <Accordion type="single" collapsible className="w-full">
+          <Accordion className="w-full">
             <EligibilityCriteriaSection form={form} />
           </Accordion>
         </div>

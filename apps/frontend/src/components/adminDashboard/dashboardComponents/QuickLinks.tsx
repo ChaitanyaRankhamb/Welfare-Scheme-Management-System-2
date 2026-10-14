@@ -73,7 +73,7 @@ export const QuickLinks = () => {
 
       {/* Add Scheme */}
       <Dialog open={open} onOpenChange={setOpen}>
-        <DialogTrigger asChild>
+        <DialogTrigger>
           <button
             className="
             relative group flex flex-col items-center justify-center

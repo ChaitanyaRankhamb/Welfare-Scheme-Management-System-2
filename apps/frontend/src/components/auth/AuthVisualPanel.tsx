@@ -31,9 +31,9 @@ export default function AuthVisualPanel({ variant }: { variant: AuthVariant }) {
   const { headline, subtext } = content[variant];
 
   return (
-    <div className="relative z-[1] flex h-full w-full flex-col overflow-hidden rounded-[18px] border border-border bg-background p-12">
+    <div className="relative z-1 flex h-full w-full flex-col overflow-hidden rounded-[18px] border border-border bg-background p-12">
       {/* Background Blobs */}
-      <div className="absolute right-[-50px] top-[10%] z-0 h-[350px] w-[350px] animate-[float_8s_ease-in-out_infinite] rounded-full bg-primary opacity-15 blur-[80px]" />
+      <div className="absolute right-12.5 top-[10%] z-0 h-87.5 w-87.5 animate-[float_8s_ease-in-out_infinite] rounded-full bg-primary opacity-15 blur-[80px]" />
       <div className="absolute bottom-[50px] left-[-50px] z-0 h-[300px] w-[300px] animate-[float_10s_ease-in-out_infinite_reverse] rounded-full bg-accent opacity-15 blur-[80px]" />
 
       {/* Text Content */}
@@ -47,9 +47,9 @@ export default function AuthVisualPanel({ variant }: { variant: AuthVariant }) {
       </div>
 
       {/* Floating Mockup Elements */}
-      <div className="relative z-[1] mt-8 w-full flex-1">
+      <div className="relative z-1 mt-8 w-full flex-1">
         {/* Card 1 */}
-        <div className="absolute left-0 top-[15%] z-[1] flex w-[200px] flex-col items-start justify-center gap-2 rounded-xl border border-border bg-card p-6 shadow-lg transition-transform">
+        <div className="absolute left-0 top-[15%] z-1 flex w-50 flex-col items-start justify-center gap-2 rounded-xl border border-border bg-card p-6 shadow-lg transition-transform">
           <div>
             <span className="rounded border border-primary px-2 py-[0.2rem] text-[0.6rem] font-bold tracking-[0.05em] text-primary">
               EASY

@@ -1,7 +1,7 @@
-import React from 'react';
-import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
-import { ShieldAlert } from 'lucide-react';
-import { AlertCard } from '@/components/adminDashboard/dashboardComponents/alertCard';
+import React from "react";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { ShieldAlert } from "lucide-react";
+import { AlertCard } from "@/components/adminDashboard/dashboardComponents/alertCard";
 
 export const CitizenAlerts = () => {
   return (
@@ -44,7 +44,7 @@ export const CitizenAlerts = () => {
           description="You are missing Agricultural Details. Complete your profile to unlock 14 more schemes."
           link="/citizenDashboard/profile"
           linkText="Complete Now"
-          color="orange"
+          color="primary"
         />
 
         <AlertCard
@@ -52,7 +52,7 @@ export const CitizenAlerts = () => {
           description="Your application for 'PM Kisan Samman Nidhi' is currently saved as Draft. Submit it before it expires."
           link="/citizenDashboard/applications"
           linkText="Review Draft"
-          color="rose"
+          color="destructive"
         />
       </CardContent>
     </Card>

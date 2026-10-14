@@ -103,7 +103,7 @@ export function ApplicationCard({
       <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 py-1">
         <div className="space-y-1.5">
           <div className="flex items-center gap-2">
-            <h4 className="font-bold text-base truncate max-w-[200px] sm:max-w-md">{schemeName}</h4>
+            <h4 className="font-bold text-base truncate max-w-50 sm:max-w-md">{schemeName}</h4>
             <Badge variant="outline" className={cn("rounded-full border text-[10px] font-bold px-2 py-0.5", config.color)}>
               <Icon className="mr-1 h-3 w-3 inline" />
               {status}

@@ -263,7 +263,7 @@ export const UserTable = ({
 
                           {/* More Menu */}
                           <DropdownMenu>
-                            <DropdownMenuTrigger asChild>
+                            <DropdownMenuTrigger>
                               <Button
                                 variant="ghost"
                                 size="icon"

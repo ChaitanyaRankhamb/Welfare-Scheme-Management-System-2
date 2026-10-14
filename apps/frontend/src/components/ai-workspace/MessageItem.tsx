@@ -1,11 +1,7 @@
 import React, { useState } from 'react';
-import { Bot, Check, Copy } from 'lucide-react';
+import { Bot } from 'lucide-react';
 import { ChatMessage } from './types';
 import { AgentReasoning } from './AgentReasoning';
-import { SchemeArtifactCard } from './SchemeArtifactCard';
-import { DocumentChecklist } from './DocumentChecklist';
-import { EligibilityMatrix } from './EligibilityMatrix';
-import { SuggestedActionChips } from './SuggestedActionChips';
 import ReactMarkdown from 'react-markdown';
 import remarkGfm from 'remark-gfm';
 
@@ -102,56 +98,6 @@ export function MessageItem({ message, onAction }: MessageItemProps) {
               {message.text}
             </ReactMarkdown>
           </div>
-
-          {/* {message.recommendations && message.recommendations.length > 0 && (
-            <div className="space-y-3 pt-2">
-              <div className="text-[10px] font-black uppercase tracking-wider text-muted-foreground">
-                Matching Government Schemes ({message.recommendations.length})
-              </div>
-              <div className="grid grid-cols-1 gap-3">
-                {message.recommendations.map((scheme, idx) => (
-                  <SchemeArtifactCard 
-                    key={`${scheme.title}-${idx}`} 
-                    scheme={scheme} 
-                    onAction={onAction} 
-                    index={idx} 
-                  />
-                ))}
-              </div>
-            </div>
-          )} */}
-
-          {/* {message.eligibilityMatrix && message.eligibilityMatrix.length > 0 && (
-            <EligibilityMatrix 
-              criteria={message.eligibilityMatrix} 
-              schemeTitle={message.schemeTitle} 
-            />
-          )} */}
-
-          {/* {message.requiredDocuments && message.requiredDocuments.length > 0 && (
-            <DocumentChecklist 
-              documents={message.requiredDocuments} 
-              schemeTitle={message.schemeTitle} 
-            />
-          )} */}
-
-          {/* <div className="flex items-center justify-between pt-2">
-            {message.followUps && message.followUps.length > 0 && (
-              <SuggestedActionChips actions={message.followUps} onAction={onAction} />
-            )}
-
-            <div className="flex items-center gap-2 ml-auto">
-              <button
-                type="button"
-                onClick={handleCopy}
-                className="text-[11px] font-medium text-muted-foreground hover:text-foreground flex items-center gap-1 cursor-pointer opacity-0 group-hover/msg:opacity-100 transition-opacity"
-                title="Copy response"
-              >
-                {copied ? <Check className="w-3 h-3 text-primary" /> : <Copy className="w-3 h-3" />}
-                {copied ? "Copied" : "Copy"}
-              </button>
-            </div>
-          </div> */}
         </div>
       </div>
     </div>
