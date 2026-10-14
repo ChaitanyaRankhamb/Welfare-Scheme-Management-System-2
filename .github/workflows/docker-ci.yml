@@ -1,0 +1,79 @@
+name: Docker Image CI
+
+# Trigger this workflow after the first workflow ("Node.js CI") completes successfully
+on:
+  workflow_run:
+    workflows: ["Node.js CI"]
+    types:
+      - completed
+    branches:
+      - main # only run this workflow for the main branch
+  workflow_dispatch: # Allows manual trigger from the GitHub Actions tab
+
+  # Set permissions for the workflow
+permissions:
+  contents: read
+
+  # Define concurrency settings to prevent multiple runs of the same workflow for the same branch
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: ${{ github.event_name == 'workflow_run' && github.event.workflow_run.conclusion != 'success' }}
+
+  # Define the jobs for the workflow
+jobs:
+  build-backend-image:
+    name: Build Backend Docker Image
+    runs-on: ubuntu-latest
+    # Only execute if the previous workflow succeeded (or triggered manually)
+    if: ${{ github.event.workflow_run.conclusion == 'success' || github.event_name == 'workflow_dispatch' }}
+    timeout-minutes: 20 # maximum time for the job to run before being cancelled
+
+    steps:
+      # Downloads your repository's source code into the GitHub Actions runner's workspace.
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+        # Set up Docker Buildx to build multi-platform Docker images. Buildx is a Docker CLI plugin that extends the docker command with the full support of the features provided by Moby BuildKit builder toolkit.
+      - name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v3
+
+        # Build the backend Docker image
+      - name: Build Backend Image
+        uses: docker/build-push-action@v6
+        with:
+          context: apps/backend
+          file: apps/backend/Dockerfile
+          push: false # do not push the image to a registry, just build it
+          tags: wsms-backend:${{ github.sha }} # tag the image with the current commit SHA for versioning
+          cache-from: type=gha # use GitHub Actions cache for build cache to speed up subsequent builds
+          cache-to: type=gha,mode=max # use GitHub Actions cache for build cache to speed up subsequent builds, with maximum caching mode
+
+  build-frontend-image:
+    name: Build Frontend Docker Image
+    runs-on: ubuntu-latest
+    # Only execute if the previous workflow succeeded (or triggered manually)
+    if: ${{ github.event.workflow_run.conclusion == 'success' || github.event_name == 'workflow_dispatch' }}
+    timeout-minutes: 25 # maximum time for the job to run before being cancelled
+
+    steps:
+      # Downloads your repository's source code into the GitHub Actions runner's workspace.
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+        # Set up Docker Buildx to build multi-platform Docker images. Buildx is a Docker CLI plugin that extends the docker command with the full support of the features provided by Moby BuildKit builder toolkit.
+      - name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v3
+
+        # Build the frontend Docker image
+      - name: Build Frontend Image
+        uses: docker/build-push-action@v6
+        with:
+          context: apps/frontend
+          file: apps/frontend/Dockerfile
+          build-args: 
+            NEXT_PUBLIC_API_URL=/api
+            NEXT_PUBLIC_AUTH_API_URL=https://localhost
+          push: false # do not push the image to a registry, just build it
+          tags: wsms-frontend:${{ github.sha }} # tag the image with the current commit SHA for versioning
+          cache-from: type=gha # use GitHub Actions cache for build cache to speed up subsequent builds
+          cache-to: type=gha,mode=max # use GitHub Actions cache for build cache to speed up subsequent builds, with maximum caching mode
