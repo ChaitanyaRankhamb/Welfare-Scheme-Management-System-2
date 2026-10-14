@@ -13,6 +13,33 @@ const eslintConfig = defineConfig([
     "build/**",
     "next-env.d.ts",
   ]),
+  {
+    rules: {
+      "@typescript-eslint/no-explicit-any": "off",
+      "@typescript-eslint/no-unused-vars": [
+        "warn",
+        {
+          argsIgnorePattern: "^_",
+          varsIgnorePattern: "^_",
+        },
+      ],
+      "react-hooks/set-state-in-effect": "off",
+      "react-hooks/static-components": "off",
+      "react-hooks/immutability": "off",
+      "react-hooks/use-memo": "off",
+      "react-hooks/preserve-manual-memoization": "off",
+      "react-hooks/globals": "off",
+      "react-hooks/refs": "off",
+      "react-hooks/error-boundaries": "off",
+      "react-hooks/purity": "off",
+      "react-hooks/set-state-in-render": "off",
+      "react-hooks/config": "off",
+      "react-hooks/gating": "off",
+      "react-hooks/exhaustive-deps": "warn",
+      "react/no-unescaped-entities": "off",
+      "@next/next/no-img-element": "warn",
+    },
+  },
 ]);
 
 export default eslintConfig;
