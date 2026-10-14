@@ -1,0 +1,323 @@
+# image: official images of docker
+# container_name: custom container name
+# restart: it will restart the container. has two properties. always and unless-stopped.
+# use username & password of mongodb database from environment
+# volumes: it will prevents the data loss when the container stops
+#healthcheck is used to check the current service is running well or not test: the command docker runs to check the container health. interval: how ofter the health check runs. timeout: how long docker waits for healthcheck to finish the command before marking it as failed. retries: how many consecutive failures are allowed before marking the container as unhealthy.
+
+services:
+  # redis service definition
+  redis:
+    image: redis:alpine # redis image name
+    container_name: redis-wsms # redis container name
+    restart: unless-stopped # make it stop when manually stop else restart
+
+    # load environment variables from .env file in backend directory
+    env_file:
+      - ./apps/backend/.env
+
+      # By default, Redis only snapshots data periodically (every few minutes). If Redis crashes unexpectedly, you could lose data. Adding --appendonly yes writes every operation to disk:
+    command:
+      [
+        "sh",
+        "-c",
+        'exec redis-server --requirepass "$${REDIS_PASSWORD}" --appendonly yes',
+      ]
+
+    volumes:
+      - redis_data_wsms:/data # keep redis data persistent
+
+    ports:
+      - "6385:6379" # Redis port mapping
+
+    healthcheck:
+      # it will check the health of the redis
+      test: ["CMD-SHELL", 'redis-cli -a "$${REDIS_PASSWORD}" ping']
+      interval: 10s
+      timeout: 5s
+      retries: 10
+
+  # minio service definition
+  minio:
+    # official minio image
+    image: minio/minio:latest
+
+    container_name: minio-wsms # minio container name
+
+    restart: unless-stopped
+
+    env_file:
+      - ./apps/backend/.env # load environment variables
+
+    ports:
+      - "9000:9000" # s3 api
+      - "9001:9001" # minio console
+
+    environment:
+      MINIO_ROOT_USER: chaitanya # admin user
+      MINIO_ROOT_PASSWORD: minio_password # admin password
+
+    # run minio server
+    command: server /data --console-address ":9001"
+
+    volumes:
+      - minio_data_wsms:/data # persistent storage
+
+    healthcheck:
+      # check minio health
+      test: ["CMD", "curl", "-f", "http://localhost:9000/minio/health/live"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  # backend1 service definition
+  backend1:
+    # tells docker you are building your own backend image
+    build:
+      context: ./apps/backend # go to backend directory
+      dockerfile: Dockerfile # backend Dockerfile name
+
+    container_name: wsms_backend_1 # backend container name
+    restart: unless-stopped
+
+    depends_on:
+      # backend depends on redis and minio services
+      redis:
+        condition: service_healthy
+      minio:
+        condition: service_healthy
+
+    expose:
+      - "6001" # backend runs internally on 6001 (matches Dockerfile EXPOSE 6001)
+
+    env_file:
+      - ./apps/backend/.env # load environment variables
+
+    environment:
+      NODE_ENV: production # set runtime environment
+      PORT: 6001 # must match Dockerfile ENV PORT=6001
+
+      # internal docker services — override the .env values with Docker service names
+      REDIS_URI: redis://default:${REDIS_PASSWORD}@redis:6379
+      MINIO_ENDPOINT: minio
+      MINIO_PORT: 9000
+
+    healthcheck:
+      # it will check backend health using inline Node.js script (since base node:slim lacks wget/curl)
+      test:
+        [
+          "CMD",
+          "node",
+          "-e",
+          "require('http').get('http://localhost:6001/', (res) => { if (res.statusCode === 200) process.exit(0); else process.exit(1); }).on('error', () => process.exit(1))",
+        ]
+      interval: 15s
+      timeout: 5s
+      retries: 10
+
+  # backend2 service definition
+  backend2:
+    # tells docker you are building your own backend image
+    build:
+      context: ./apps/backend # go to backend directory
+      dockerfile: Dockerfile # backend Dockerfile name
+
+    container_name: wsms_backend_2 # backend container name
+    restart: unless-stopped
+
+    depends_on:
+      # backend depends on redis and minio services
+      redis:
+        condition: service_healthy
+      minio:
+        condition: service_healthy
+
+    expose:
+      - "6001" # backend runs internally on 6001 (matches Dockerfile EXPOSE 6001)
+
+    env_file:
+      - ./apps/backend/.env # load environment variables
+
+    environment:
+      NODE_ENV: production # set runtime environment
+      PORT: 6001 # must match Dockerfile ENV PORT=6001
+
+      # internal docker services — override the .env values with Docker service names
+      REDIS_URI: redis://default:${REDIS_PASSWORD}@redis:6379
+      MINIO_ENDPOINT: minio
+      MINIO_PORT: 9000
+
+    healthcheck:
+      # it will check backend health using inline Node.js script (since base node:slim lacks wget/curl)
+      test:
+        [
+          "CMD",
+          "node",
+          "-e",
+          "require('http').get('http://localhost:6001/', (res) => { if (res.statusCode === 200) process.exit(0); else process.exit(1); }).on('error', () => process.exit(1))",
+        ]
+      interval: 15s
+      timeout: 5s
+      retries: 10
+
+  # backend3 service definition
+  backend3:
+    # tells docker you are building your own backend image
+    build:
+      context: ./apps/backend # go to backend directory
+      dockerfile: Dockerfile # backend Dockerfile name
+
+    container_name: wsms_backend_3 # backend container name
+    restart: unless-stopped
+
+    depends_on:
+      # backend depends on redis and minio services
+      redis:
+        condition: service_healthy
+      minio:
+        condition: service_healthy
+
+    expose:
+      - "6001" # backend runs internally on 6001 (matches Dockerfile EXPOSE 6001)
+
+    env_file:
+      - ./apps/backend/.env # load environment variables
+
+    environment:
+      NODE_ENV: production # set runtime environment
+      PORT: 6001 # must match Dockerfile ENV PORT=6001
+
+      # internal docker services — override the .env values with Docker service names
+      REDIS_URI: redis://default:${REDIS_PASSWORD}@redis:6379
+      MINIO_ENDPOINT: minio
+      MINIO_PORT: 9000
+
+    healthcheck:
+      # it will check backend health using inline Node.js script (since base node:slim lacks wget/curl)
+      test:
+        [
+          "CMD",
+          "node",
+          "-e",
+          "require('http').get('http://localhost:6001/', (res) => { if (res.statusCode === 200) process.exit(0); else process.exit(1); }).on('error', () => process.exit(1))",
+        ]
+      interval: 15s
+      timeout: 5s
+      retries: 10
+
+  # Worker service definition
+  worker:
+    build:
+      context: ./apps/backend # go to the backend directory
+      dockerfile: Dockerfile # backend Dockerfile name
+
+    container_name: wsms_worker # worker container name
+
+    restart: unless-stopped # restart automatically unless manually stopped
+
+    depends_on:
+      redis:
+        condition: service_healthy
+      minio:
+        condition: service_healthy
+
+    env_file: # load environment variables
+      - ./apps/backend/.env
+
+    environment:
+      NODE_ENV: production
+      REDIS_URI: redis://default:${REDIS_PASSWORD}@redis:6379
+      MINIO_ENDPOINT: minio
+      MINIO_PORT: 9000
+
+    command: ["node", "dist/worker.js"]
+
+  # frontend service definition
+  frontend:
+    # tells docker you are building frontend image
+    build:
+      context: ./apps/frontend # go to frontend directory
+      dockerfile: Dockerfile # frontend Dockerfile name
+
+      args:
+        # pass build time variables to frontend
+        # In Docker, we hit the API via Nginx /api proxy
+        NEXT_PUBLIC_API_URL: /api
+        NEXT_PUBLIC_AUTH_API_URL: https://localhost
+
+    container_name: wsms_frontend # frontend container name
+    restart: unless-stopped
+
+    depends_on:
+      # frontend depends on all backend instances
+      backend1:
+        condition: service_healthy
+      backend2:
+        condition: service_healthy
+      backend3:
+        condition: service_healthy
+
+    expose:
+      - "3001" # frontend runs internally on 3001
+
+    environment:
+      NODE_ENV: production # production mode
+      # Server-side Next.js fetches run inside the Docker network. Do not call
+      # Nginx over port 80 here because this config redirects HTTP to HTTPS,
+      # which can fail inside the container due to the local TLS certificate.
+      INTERNAL_API_URL: http://backend1:6001
+
+  nginx:
+    # official NGINX image
+    image: nginx:1.31.6-alpine-slim
+
+    # custom container name
+    container_name: wsms_nginx
+
+    # restart automatically unless manually stopped
+    restart: unless-stopped
+
+    ports:
+      # public HTTP port
+      - "80:80"
+      # public HTTPS port
+      - "443:443"
+
+    # wait for dependent services
+    depends_on:
+      - backend1
+      - backend2
+      - backend3
+      - frontend
+
+    # mount nginx configuration
+    volumes:
+      # custom nginx config
+      - ./nginx/nginx.conf:/etc/nginx/nginx.conf:ro
+      # SSL Certificates
+      - ./nginx/ssl:/etc/nginx/ssl:ro
+      # persistent cache directory
+      - nginx_cache:/var/cache/nginx
+
+    # healthcheck for production readiness
+    healthcheck:
+      test: ["CMD", "nginx", "-t"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+    # optional security hardening
+    security_opt:
+      - no-new-privileges:true
+
+    # optional resource limits
+    deploy:
+      resources:
+        limits:
+          cpus: "1.0"
+          memory: 512M
+
+volumes:
+  redis_data_wsms: # Redis persistent data
+  minio_data_wsms: # MinIO persistent storage
+  nginx_cache: # Nginx proxy cache
